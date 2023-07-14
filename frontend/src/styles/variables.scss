@@ -1,0 +1,66 @@
+// variable
+$blackText: #000000;
+$darkgreyText: #353333;
+$lightgreyText: #7c7c7c;
+$greyText: #909090;
+$lightText: #b3b3b3;
+$whiteText: #ffffff;
+$pinkText: #f27b79;
+$blackbg: #000000;
+$whitebg: #ffffff;
+$greybg: #f6f6f6;
+$lineargradient: linear-gradient(to right, #2860FF, #07BDFF);
+$regularText: 400;
+$boldText: 700;
+$orangGradient: linear-gradient(to right, #f46444, #f48e19);
+$purpleGradient: linear-gradient(#b74064, #741b5b);
+$cardRed: #f27b79;
+$SecondaryAmberGradient: linear-gradient(105.64deg, #f46444 7.68%, #f48e19 109.47%);
+$primeGradient: linear-gradient(90deg, #ff8177 0%, #b22b5b 100%);
+$darkPinkBg: #B22B5B;
+$greenGradient: linear-gradient(to bottom right, #20cf1c, #cc9f00);
+
+// reusable styles
+@mixin full-space {
+    width: 100%;
+    height: 100%;
+  }
+  
+  @mixin flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  @mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin flex-end {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  @mixin object-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  @mixin position-center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  
