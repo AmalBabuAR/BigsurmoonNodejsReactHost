@@ -13,6 +13,7 @@ import routerUpload from "./routes/uploadRoute.js";
 import stripeRouter from "./routes/stripeRouter.js";
 import { fileURLToPath } from 'url';
 import { dirname , resolve} from 'path';
+import assetsRouter from "./routes/assetsRouter.js";
 
 //rest object
 const app = express();
@@ -50,6 +51,7 @@ app.use("/api", authRoutes);
 app.use("/stripe", stripeRouter);
 app.use("/api/upload", routerUpload);
 app.use("/three", threeRouter);
+app.use('/assets', assetsRouter)
 
 //PORT
 const PORT = process.env.PORT || 7000;
