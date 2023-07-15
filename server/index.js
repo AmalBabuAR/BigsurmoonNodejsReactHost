@@ -5,16 +5,24 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import colors from "colors";
-import { resolve } from "path";
 import Stripe from "stripe";
 import connectDB from "./database/connection.js";
 import authRoutes from "./routes/authRoute.js";
 import threeRouter from "./routes/threejsRoute.js";
 import routerUpload from "./routes/uploadRoute.js";
 import stripeRouter from "./routes/stripeRouter.js";
+import { fileURLToPath } from 'url';
+import { dirname , resolve} from 'path';
 
 //rest object
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+// console.log(__filename );
+// Serve static files from the build directory
+const buildPath = resolve(__dirname, "../frontend/build");
+app.use(express.static(buildPath));
 
 //configure env
 dotenv.config();
@@ -23,6 +31,10 @@ dotenv.config();
 connectDB();
 
 //middelwares
+// Serve the index.html file for all other requests
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());

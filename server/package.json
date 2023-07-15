@@ -8,9 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "server": "nodemon index.js",
-    "client": "npm run dev --prefix ../client",
-    "three": "npm run dev --prefix ../threeJS",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run three\"",
+    "client": "npm start --prefix ../frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "npm install && cd client && npm install && npm run build"
   },
   "author": "",
