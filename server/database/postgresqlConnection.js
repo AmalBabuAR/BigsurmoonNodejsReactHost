@@ -21,6 +21,7 @@ const pool = new Pool({
       // Any additional code you want to execute after the connection is established
       // ...
     }
+    done()
   });
 
   export default pool
