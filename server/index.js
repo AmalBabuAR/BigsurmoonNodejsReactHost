@@ -45,7 +45,7 @@ app.use(
     useTempFiles: true,
   })
 );
-//new changes
+//new changes in the database check
 //routes
 app.use("/api", authRoutes);
 app.use("/stripe", stripeRouter);
