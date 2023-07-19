@@ -13,6 +13,20 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
   });
 
+  // Connect to the database
+// pool.connect((err, client, release) => {
+//   if (err) {
+//     return console.error('Error connecting to the database:', err);
+//   }
+
+//   console.log('Connected to the database!');
+
+//   // Perform any database operations here (e.g., querying, inserting, etc.)
+
+//   // Don't forget to release the client when done!
+//   release();
+// });
+
   pool.connect((err, client, done) => {
     if (err) {
       console.error('Error connecting to the database:' .red, err);
@@ -24,4 +38,4 @@ const pool = new Pool({
     done()
   });
 
-  export default pool
+  export default pool;

@@ -8,8 +8,8 @@ assets.post("/", async (req, res) => {
     const { projectid, uuid, type, data } = req.body;
     console.log(uuid);
     const newAsset = await pool.query(
-      "INSERT INTO cnf.assets (projectid, uuid, type, data) VALUES($1, $2, $3, $4) RETURNING *",
-      [projectid, uuid, type, data]
+      "INSERT INTO cnf.assets (projectid, uuid, type, data, cnf) VALUES($1, $2, $3, $4, $5) RETURNING *",
+      [projectid, uuid, type, data, false]
     );
 
     res.json(newAsset.rows[0]);
