@@ -17,6 +17,7 @@ import assetsRouter from "./routes/assetsThreeRouter.js";
 import deleteRouter from "./routes/deleteThreeRouter.js";
 import updateSceneObjectRouter from "./routes/updateThreeSceneObject.js";
 import generateSceneRouter from "./routes/generateThreeScene.js";
+import saveVariationRouter from "./routes/saveVariationRouter.js";
 
 //rest object
 const app = express();
@@ -32,8 +33,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const buildPath = resolve(__dirname, "../frontend/build");
 app.use(express.static(buildPath));
-
-
 
 //middelwares
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -55,14 +54,14 @@ app.use("/api/upload", routerUpload);
 app.use("/three", threeRouter);
 app.use("/assets", assetsRouter);
 app.use("/delete", deleteRouter);
-app.use('/update_sceneobject', updateSceneObjectRouter)
-app.use('/generate_scene', generateSceneRouter)
+app.use("/update_sceneobject", updateSceneObjectRouter);
+app.use("/generate_scene", generateSceneRouter);
+app.use("/save_variation", saveVariationRouter);
 
 // Serve the index.html file for all other requests
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-
 
 //PORT
 const PORT = process.env.PORT || 7000;
