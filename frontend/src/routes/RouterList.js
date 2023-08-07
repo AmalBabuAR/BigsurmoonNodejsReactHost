@@ -1,8 +1,10 @@
 import React from "react";
-import Header from "../components/common/Header";
+import PublicHeader from "../components/common/Header/PublicHeader";
 import Footer from "../components/common/Footer";
 import { Route, Routes } from "react-router-dom";
 import TitleWrapper from "./TitleWrapper";
+import ProtectedRoute from "./ProtectedRoute";
+import PrivateRoute from "./PrivateRoute";
 import Home from "../Pages/Home";
 import Studio3D from "../Pages/Studio3D";
 import Pricing from "../Pages/Pricing";
@@ -11,10 +13,10 @@ import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Congigurator from "../Pages/Congigurator";
 import BookADemo from "../Pages/BookADemo";
-import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../Pages/Dashboard";
-import ProtectedRoute from "./ProtectedRoute";
-import DashboardList from "../Pages/DashboardList";
+import UserDashBoard from "../Pages/UserDashBoard";
+import AdminDashboard from "../Pages/AdminDashboard";
+import Editor from "../Pages/Editor";
+import ErrorPage404 from "../components/common/ErrorPage404";
 
 function RouterList() {
   const modules = [
@@ -35,7 +37,7 @@ function RouterList() {
             key={path}
             element={
               <>
-                <Header />
+                <PublicHeader />
                 <TitleWrapper title={title}> {element}</TitleWrapper>
                 <Footer />
               </>
@@ -48,9 +50,12 @@ function RouterList() {
           <Route path="/signUp" element={<SignUp />} />
         </Route>
         <Route path="" element={<PrivateRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/list" element={<DashboardList />} />
+          <Route path="/dashboard" element={<UserDashBoard />} />
         </Route>
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/editor/:url/:file" element={<Editor />} />
+        <Route path="/editor" element={<Editor />} />
+        <Route path="*" element={<ErrorPage404 />} />
       </Routes>
     </>
   );

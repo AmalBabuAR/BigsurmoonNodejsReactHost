@@ -104,18 +104,21 @@ export const loginController = async (req, res) => {
       });
     }
     //token
+    // const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
+    //   expiresIn: "7d",
+    // });
     const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
+      expiresIn: "60d",
     });
     res.status(200).send({
       success: true,
       message: "Login Successfully",
-      user: {
-        _id: user._id,
-        name: user.name,
-        companyName: user.companyName,
-        email: user.email,
-      },
+      // user: {
+      //   _id: user._id,
+      //   name: user.name,
+      //   companyName: user.companyName,
+      //   email: user.email,
+      // },
       token,
     });
   } catch (error) {

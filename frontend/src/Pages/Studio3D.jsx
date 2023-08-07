@@ -7,30 +7,37 @@ import temp1 from "../assets/3DStudio/temp1.png";
 import temp2 from "../assets/3DStudio/temp2.png";
 import temp3 from "../assets/3DStudio/temp3.png";
 import Vector from "../assets/Vector.png";
-import tableLamp from '../assets/3DStudio/tableLamp.svg';
+import tableLamp from '../assets/3DStudio/Reference.gif';
 import Light from '../assets/home/Light.png';
 import writingpad from '../assets/3DStudio/writingpad.png';
-import upload from '../assets/3DStudio/upload.png'
+import upload from '../assets/3DStudio/cloud.png'
+import StudioSlider from "../components/common/reusable/3DStudioSlider";
+import temp6 from '../assets/3DStudio/temp (6).png'
+import attentionToDetail from '../assets/3DStudio/AttentiontoDetails.png'
+import medal from '../assets/3DStudio/medal.png'
+import Technical from '../assets/3DStudio/TechnicalCompetancy.png'
+import Rectangle from '../assets/3DStudio/Rectangle 10.png'
 import { useNavigate } from "react-router-dom";
-
 
 function Studio3D() {
   const navigate = useNavigate()
   return (
     <div className="studio">
       <div className="studio-main">
-        <div>
+        <div >
+         
           <span>3D Modelling</span>
           <br />
           <img src={Logo2} />
           <span> Solutions</span>
           <br />
           <span className="blue-text">Delivered!</span>
+         
           <Button onClick={() => navigate("/book-a-demo")}>Get in Touch</Button>
         </div>
         <img src={sofa} />
       </div>
-      <div className="about-bigsurmoon">
+       <div className="about-bigsurmoon">
         <h2>
           About Bigsurmoon <span className="blue-text">Studio</span>
         </h2>
@@ -49,32 +56,41 @@ function Studio3D() {
           <h1>WHAT’S SPECIAL ABOUT US</h1>
         </div>
         <div className="components">
-          <div>
-            <img src={Symbol} />
+          <div className="component-elements">
+            <img src={Symbol} className="image-studio" />
             <h2>Highly Optimised</h2>
             <p>
               With years of experience, we provide highly optimized files for
               fast loading and seamless user experience
             </p>
           </div>
-          <div>
-            <img src={Symbol} />
+          <div className="component-elements">
+           <div className="image-container">
+            <img src={attentionToDetail} className="img-1" />
+            <img src={Rectangle} className="img-2" />
+           </div>
             <h2>Attention to Detail</h2>
             <p>
               We study your product like it was made from beginning. Each detail
               your product has is represented exactly
             </p>
           </div>
-          <div>
-            <img src={Symbol} />
+          <div className="component-elements">
+          <div className="image-container">
+            <img src={medal} className="img-1 img-m" />
+            <img src={Rectangle} className="img-2 " />
+           </div>
             <h2>Quality, TAT & Delivery</h2>
             <p>
               Assured quality because of proficiency and experience and quick
               TAT assuring on-time delivery
             </p>
           </div>
-          <div>
-            <img src={Symbol} />
+          <div className="component-elements">
+          <div className="image-container">
+            <img src={Technical} className="img-1 img-t" />
+            <img src={Rectangle} className="img-2" />
+           </div>
             <h2>Technical Competency</h2>
             <p>
               Technically qualified team in various mfg. technologies, ensuring
@@ -82,12 +98,13 @@ function Studio3D() {
             </p>
           </div>
         </div>
+        <StudioSlider />
       </div>
-      <div className="studio-details">
+     <div className="studio-details">
         <div className="detail-component">
-          <div>
+          
             <img src={temp1} />
-          </div>
+          
           <div>
             <h2>Dedicated Support Team</h2>
             <p>
@@ -106,14 +123,14 @@ function Studio3D() {
               projects of all sizes, ensuring quality and timely delivery.
             </p>
           </div>
-          <div>
-            <img src={temp2} />
-          </div>
+          
+            <img src={temp6} />
+          
         </div>
         <div className="detail-component">
-          <div>
+          
             <img src={temp3} />
-          </div>
+         
           <div>
             <h2>Streamlined Project Management</h2>
             <p>
@@ -125,7 +142,7 @@ function Studio3D() {
           </div>
         </div>
       </div>
-      <div className="how-it-works">
+       <div className="how-it-works">
         <div className="title">
           <h2>HOW IT WORKS</h2>
           <p>
@@ -143,13 +160,13 @@ function Studio3D() {
               <h2>Step 1: Provide Reference Materials</h2>
               <p>
                 Provide us with product images, color variations and Product
-                dimensions. That’s it, from your end.
+                dimensions. That’s it,  from your end.
               </p>
             </div>
-            <img src={tableLamp} />
+            <img src={tableLamp} className="table-lamb"/>
           </div>
           <div className="steps-details">
-            <img src={Light} />
+            <img src={Light}  className="guide-light"/>
             <div>
               <h2>Step 2: 3D Model Creation</h2>
               <p>
@@ -191,7 +208,7 @@ function Studio3D() {
             needs, ask questions, or seek assistance.
           </p>
         </div>
-        <Button className="button" onClick={() => navigate("/book-a-demo")}>
+        <Button className="button"  onClick={() => navigate("/book-a-demo")}>
           <span>Get in Touch</span>
           <img className="vector" src={Vector} />
         </Button>

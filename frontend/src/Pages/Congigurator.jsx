@@ -10,6 +10,9 @@ import image2 from '../assets/Configurator/image2.gif';
 import image3 from '../assets/Configurator/image3.gif';
 import monitor from '../assets/monitor.svg';
 import temp2 from '../assets/3DStudio/temp2.png'
+import Globe from '../assets/Configurator/Globe.png'
+import Presentation from '../assets/Configurator/Presentation.png'
+import BookADemo from "./BookADemo";
 
 function Congigurator() {
   const navigate = useNavigate();
@@ -31,13 +34,13 @@ function Congigurator() {
             <Button onClick={() => navigate("/book-a-demo")}>Learn More</Button>
           </div>
         </div>
-        <div>
+        
           <img src={Chair} />
-        </div>
+        
       </div>
-      <div className="upload">
-        <div>
-          <img src={upload} />
+       <div className="upload">
+        <div className="upload-img">
+          <img src={upload} className="upload-img"/>
           <h2 className="upload blue-text">1.Upload</h2>
           <p>
             Seamlessly upload files and assets for integration into your
@@ -100,10 +103,10 @@ function Congigurator() {
               publish whenever you choose.
             </p>
           </div>
-          <img src={temp2}/>
+          <img src={Presentation}  className="globe-img"/>
         </div>
         <div className="detailss">
-          <img src={monitor}/>
+          <img src={Globe} className="globe-img"/>
           <div>
             <span>No code, No App All through your Browser</span>
             <p>
@@ -116,8 +119,15 @@ function Congigurator() {
         </div>
       </div>
       <div className="contact-us">
-        <span>Contact us form</span>
-      </div>
+        <div className="ccontact">
+        <span>Contact us</span>
+       
+        </div>
+         
+        <BookADemo />
+       
+      </div> 
+     
     </div>
   );
 }

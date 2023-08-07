@@ -18,6 +18,9 @@ import deleteRouter from "./routes/deleteThreeRouter.js";
 import updateSceneObjectRouter from "./routes/updateThreeSceneObject.js";
 import generateSceneRouter from "./routes/generateThreeScene.js";
 import saveVariationRouter from "./routes/saveVariationRouter.js";
+import getConfigNamesRouter from "./routes/getVariation.js";
+import deleteConfigNamesRouter from "./routes/deleteVariation.js";
+import generateSceneViewRouter from "./routes/generateSceneViewRouter.js";
 
 //rest object
 const app = express();
@@ -47,7 +50,7 @@ app.use(
 
 //routes
 app.use("/api", authRoutes);
-app.use("/stripe", stripeRouter);
+app.use("/api/user/stripe", stripeRouter);
 app.use("/api/upload", routerUpload);
 
 //threejs Router
@@ -57,6 +60,9 @@ app.use("/delete", deleteRouter);
 app.use("/update_sceneobject", updateSceneObjectRouter);
 app.use("/generate_scene", generateSceneRouter);
 app.use("/save_variation", saveVariationRouter);
+app.use('/getConfigNames', getConfigNamesRouter )
+app.use('/deleteConfig', deleteConfigNamesRouter )
+app.use('/generate_scene_view', generateSceneViewRouter)
 
 // Serve the index.html file for all other requests
 app.get("*", (req, res) => {

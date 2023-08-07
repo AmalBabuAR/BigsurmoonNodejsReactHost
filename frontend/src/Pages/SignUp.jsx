@@ -68,7 +68,7 @@ function SignUp() {
         <h2>Get Started.</h2>
         {error && <p style={{ color: 'red',paddingBottom: '10px' }}>{error}</p>}
         <form onSubmit={handleSubmit}>
-          <div class="group">
+          <div className="group">
             <input
               type="text"
               required
@@ -76,10 +76,10 @@ function SignUp() {
               value={values.name}
               onChange={handleChange}
             />
-            <span class="bar"></span>
+            <span className="bar"></span>
             <label>Name</label>
           </div>
-          <div class="group">
+          <div className="group">
             <input
               type="text"
               required
@@ -87,11 +87,11 @@ function SignUp() {
               value={values.companyName}
               onChange={handleChange}
             />
-            <span class="bar"></span>
+            <span className="bar"></span>
             <label>Company Name</label>
           </div>
 
-          <div class="group">
+          <div className="group">
             <input
               type="text"
               required
@@ -99,11 +99,11 @@ function SignUp() {
               value={values.email}
               onChange={handleChange}
             />
-            <span class="bar"></span>
+            <span className="bar"></span>
             <label>Email</label>
           </div>
 
-          <div class="group">
+          <div className="group">
             <select
               defaultValue="default"
               required
@@ -130,11 +130,11 @@ function SignUp() {
                 What was your favorite food as a child?
               </option>
             </select>
-            <span class="bar"></span>
+            <span className="bar"></span>
             {open && <label className="">Choose a Security Questions</label>}
           </div>
           {open && (
-            <div class="group">
+            <div className="group">
               <input
                 type="text"
                 required
@@ -142,11 +142,11 @@ function SignUp() {
                 value={values.answer}
                 onChange={handleChange}
               />
-              <span class="bar"></span>
+              <span className="bar"></span>
               <label>Security Answer</label>
             </div>
           )}
-          <div class="group">
+          <div className="group">
             <input
               type={showPassword ? "text" : "password"}
               required
@@ -154,7 +154,7 @@ function SignUp() {
               value={values.password}
               onChange={handleChange}
             />
-            <span class="bar"></span>
+            <span className="bar"></span>
             <label>Password</label>
             <i
               className={`password-toggle-icon ${showPassword ? "show" : ""}`}

@@ -48,7 +48,7 @@ function Login() {
         //   user: res.data.user,
         //   token: res.data.token
         // })
-        localStorage.setItem("auth", JSON.stringify(res.data));
+        localStorage.setItem("auth", JSON.stringify(res.data.token));
         navigate(location.state || "/dashboard");
       } else {
         setError(res.data.message);
@@ -67,7 +67,7 @@ function Login() {
         </h2>
         {error && <p style={{ color: 'red',paddingBottom: '10px' }}>{error}</p>}
         <form onSubmit={handleSubmit}>
-          <div class="group">
+          <div className="group">
             <input
               type="text"
               required
@@ -75,11 +75,11 @@ function Login() {
               value={values.email}
               onChange={handleChange}
             />
-            <span class="bar"></span>
+            <span className="bar"></span>
             <label>Email</label>
           </div>
 
-          <div class="group">
+          <div className="group">
             <input
               type={showPassword ? "text" : "password"}
               required
@@ -87,7 +87,7 @@ function Login() {
               value={values.password}
               onChange={handleChange}
             />
-            <span class="bar"></span>
+            <span className="bar"></span>
             <label>Password</label>
             <i
               className={`password-toggle-icon ${showPassword ? "show" : ""}`}

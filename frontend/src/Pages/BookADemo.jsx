@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import {useAuth} from '../context/auth.jsx' 
+
 const BookADemo = () => {
-  const [auth, setAuth] = useAuth()
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://cdn.oncehub.com/mergedjs/so.js";
@@ -13,8 +12,7 @@ const BookADemo = () => {
     };
   }, []);
   return (
-    <div >
-      <pre>{JSON.stringify(auth,null,5)}</pre>
+    <div className='demo-page'>
       <div
         id="SOIDIV_Bigsurmoon"
         data-so-page="Bigsurmoon"
@@ -23,8 +21,6 @@ const BookADemo = () => {
         data-psz="11"
       />
     </div>
-
-
   );
 };
 

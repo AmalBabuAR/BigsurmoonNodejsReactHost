@@ -2,7 +2,6 @@ import React from "react";
 import Switch from "../assets/home/AR Capsule.svg";
 import Button from "../components/common/reusable/Button";
 import Section2 from "../assets/home/Section2.png";
-import temp from "../assets/home/temp.png";
 import support from "../assets/home/Features/support.svg";
 import solutions from "../assets/home/Features/solutions.svg";
 import settings from "../assets/home/Features/settings.svg";
@@ -13,10 +12,12 @@ import cart from "../assets/home/Features/cart.svg";
 import animated from "../assets/home/Features/animated3D.svg";
 import catlog from "../assets/home/Features/3Dcatlog.svg";
 import Vector from "../assets/Vector.png";
-import Watch from '../assets/home/Watch.png'
-import Light from '../assets/home/Light.png'
-import monitor from '../assets/monitor.svg';
+import Watch from "../assets/home/Watch.png";
+import Light from "../assets/home/Light.png";
+import monitor from "../assets/monitor.svg";
 import { useNavigate } from "react-router-dom";
+import FeaturesSlider from "../components/common/reusable/FeaturesSlider";
+import temp5 from '../assets/home/temp5.png'
 
 function Home() {
   const navigate = useNavigate();
@@ -25,9 +26,9 @@ function Home() {
       <div className="home-top">
         <div className="home-heading">
           <p>
-            It's time to make
-            <br />
-            the <img src={Switch} />
+            It's time  <br/>
+             to make the
+            <img src={Switch} />
             switch{" "}
           </p>
         </div>
@@ -55,48 +56,56 @@ function Home() {
           <span>Solution</span>
         </p>
         <div className="points">
-          <p>
-            <span className="blue-text">
-              {" "}
-              &gt;3x <br />
-            </span>
-            <span>
-              Sales <br />
-              Conversions
-            </span>
-          </p>
-          <p>
-            <span className="blue-text">
-              {" "}
-              200% <br />
-            </span>
-            <span>
-              more <br />
-              engagement
-            </span>
-          </p>
-          <p>
-            <span className="blue-text">
-              {" "}
-              50% <br />
-            </span>
-            <span>
-              Total
-              <br />
-              Cost saving
-            </span>
-          </p>
-          <p>
-            <span className="blue-text">
-              {" "}
-              80%
-              <br />
-            </span>
-            <span>
-              Less <br />
-              return rate
-            </span>
-          </p>
+          <div className="column">
+            <p>
+              <span className="blue-text">
+                {" "}
+                &gt;3x <br />
+              </span>
+              <span>
+                Sales <br />
+                Conversions
+              </span>
+            </p>
+          </div>
+          <div className="column">
+            <p>
+              <span className="blue-text">
+                {" "}
+                200% <br />
+              </span>
+              <span>
+                More <br />
+                engagement
+              </span>
+            </p>
+          </div>
+          <div className="column">
+            <p>
+              <span className="blue-text">
+                {" "}
+                50% <br />
+              </span>
+              <span>
+                Total
+                <br />
+                Cost saving
+              </span>
+            </p>
+          </div>
+          <div className="column">
+            <p>
+              <span className="blue-text">
+                {" "}
+                80%
+                <br />
+              </span>
+              <span>
+                Less <br />
+                return rate
+              </span>
+            </p>
+          </div>
         </div>
       </div>
       <div className="see-it-in-action">
@@ -107,7 +116,7 @@ function Home() {
       </div>
       <div className="guide">
         <div className="guide-points">
-          <img src={Light} />
+          <img src={Light} className="guide-light"/>
           <div>
             <h2>3D Modelling Studio</h2>
             <p>
@@ -130,8 +139,9 @@ function Home() {
           </div>
           <img src={monitor} />
         </div>
+
         <div className="guide-points">
-          <img src={temp} />
+          <img src={temp5} />
           <div>
             <h2>Release your Product</h2>
             <p>
@@ -143,98 +153,100 @@ function Home() {
           </div>
         </div>
       </div>
+    
+
       <div className="features">
-        <div>
-          <div className="feature-heading">
-            <h2>Features</h2>
+        <div className="feature-heading">
+          <h2>Features</h2>
+          <p>
+            We are constantly working to bring new updates and features to
+            Bigsurmoon, such as:
+          </p>
+        </div>
+        <div className="feature-components">
+          <div>
+            <img src={settings} />
+            <h2>Industry-Leading Optimization</h2>
             <p>
-              We are constantly working to bring new updates and features to
-              Bigsurmoon, such as:
+              Leading 3D model optimization maximizes performance, reduces file
+              size, and improves efficiency for enhanced user experiences.
             </p>
           </div>
-          <div className="feature-components">
-            <div>
-              <img src={settings} />
-              <h2>Industry-Leading Optimization</h2>
-              <p>
-                Leading 3D model optimization maximizes performance, reduces
-                file size, and improves efficiency for enhanced user
-                experiences.
-              </p>
-            </div>
-            <div>
-              <img src={security} />
-              <h2>End-End Security</h2>
-              <p>
-                End-to-end security ensures comprehensive protection across all
-                stages, from data creation to transmission and storage.
-              </p>
-            </div>
-            <div>
-              <img src={support} />
-              <h2>Assisted Support</h2>
-              <p>
-                Assisted support provides guidance and assistance to users,
-                improving their experience and resolving issues effectively.
-              </p>
-            </div>
+          <div>
+            <img src={security} />
+            <h2>End-End Security</h2>
+            <p>
+              End-to-end security ensures comprehensive protection across all
+              stages, from data creation to transmission and storage.
+            </p>
           </div>
-          <div className="feature-components">
-            <div>
-              <img src={clock} />
-              <h2>Fast Turnaround Times</h2>
-              <p>
-                Fast turn-around times guarantee quick completion of tasks or
-                services, minimizing delays and maximizing efficiency.
-              </p>
-            </div>
-            <div>
-              <img src={solutions} />
-              <h2>Custom Solutions</h2>
-              <p>
-                Custom solutions provide tailored and personalized approaches to
-                address specific needs and requirements of individuals or
-                businesses.
-              </p>
-            </div>
-            <div>
-              <img src={platform} />
-              <h2>Multiple Platorm Support</h2>
-              <p>
-                Multiple platform support ensures compatibility and
-                functionality across various operating systems and devices for
-                seamless user experiences.
-              </p>
-            </div>
+          <div>
+            <img src={support} />
+            <h2>Assisted Support</h2>
+            <p>
+              Assisted support provides guidance and assistance to users,
+              improving their experience and resolving issues effectively.
+            </p>
           </div>
-          <div className="feature-components">
-            <div>
-              <img src={catlog} />
-              <h2>3D Catalog</h2>
-              <p>
-                A 3D catalog offers a visual representation of products or
-                items, allowing interactive exploration and detailed showcasing.
-              </p>
-            </div>
-            <div>
-              <img src={cart} />
-              <h2>Payments made easy</h2>
-              <p>
-                Payments made easy simplifies the process of financial
-                transactions, enabling convenient and hassle-free payment
-                experiences for users.
-              </p>
-            </div>
-            <div>
-              <img src={animated} />
-              <h2>Animated 3D Content</h2>
-              <p>
-                Animated 3D contents bring static models to life through dynamic
-                movements, enhancing engagement and visual storytelling.
-              </p>
-            </div>
+          <div>
+            <img src={clock} />
+            <h2>Fast Turnaround Times</h2>
+            <p>
+              Fast turn-around times guarantee quick completion of tasks or
+              services, minimizing delays and maximizing efficiency.
+            </p>
           </div>
-          <div className="features-footer">
+          <div>
+            <img src={solutions} />
+            <h2>Custom Solutions</h2>
+            <p>
+              Custom solutions provide tailored and personalized approaches to
+              address specific needs and requirements of individuals or
+              businesses.
+            </p>
+          </div>
+          <div>
+            <img src={platform} />
+            <h2>Multiple Platorm Support</h2>
+            <p>
+              Multiple platform support ensures compatibility and functionality
+              across various operating systems and devices for seamless user
+              experiences.
+            </p>
+          </div>
+
+          <div>
+            <img src={catlog} />
+            <h2>3D Catalog</h2>
+            <p>
+              A 3D catalog offers a visual representation of products or items,
+              allowing interactive exploration and detailed showcasing.
+            </p>
+          </div>
+          <div>
+            <img src={cart} />
+            <h2>Payments made easy</h2>
+            <p>
+              Payments made easy simplifies the process of financial
+              transactions, enabling convenient and hassle-free payment
+              experiences for users.
+            </p>
+          </div>
+          <div>
+            <img src={animated} />
+            <h2>Animated 3D Content</h2>
+            <p>
+              Animated 3D contents bring static models to life through dynamic
+              movements, enhancing engagement and visual storytelling.
+            </p>
+          </div>
+        </div>
+
+       
+          <FeaturesSlider />
+           
+      </div>
+      <div className="features-footer">
             <div>
               <h2>7-day free trial</h2>
               <p>
@@ -248,8 +260,7 @@ function Home() {
               <img className="vector" src={Vector} />
             </Button>
           </div>
-        </div>
-      </div>
+      
     </div>
   );
 }

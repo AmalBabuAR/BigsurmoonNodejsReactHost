@@ -3,9 +3,10 @@ import CustomSlider from "../components/common/reusable/CustomSlider";
 import Button from "../components/common/reusable/Button";
 import Tick from "../assets/icons/Tick";
 import { useLocation, useNavigate } from "react-router-dom";
+import PayButton from "../components/PayButton";
 
 function Pricing() {
-  const [value, setValue] = useState(50);
+  const [value, setValue] = useState();
   const [price, setPrice] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,18 +16,6 @@ function Pricing() {
     console.log(max);
     setPrice(max * 10);
   };
-
-  function handleClick(e) {
-    e.preventDefault();
-    if (localStorage.getItem("auth")) {
-      
-    } else {
-      navigate("/login", {
-        state: location.pathname,
-      });
-    }
-  }
-
   return (
     <div className="pricing">
       <div className="heading">
@@ -41,7 +30,7 @@ function Pricing() {
         <div className="left">
           <h2>How Many 3D files Do You Have?</h2>
           <span>{value}</span>
-          <div></div>
+          <div className="line"></div>
           <CustomSlider
             className="filterpopup-range singleRange"
             min={0}
@@ -56,36 +45,31 @@ function Pricing() {
             <p>per month</p>
           </div>
           <div className="line-heading">
-            <div className="line"></div>
+            <div className="line-1"></div>
             <div>All Plans Include</div>
-            <div className="line"></div>
+            <div className="line-1"></div>
           </div>
 
           <div className="details">
-            <div>
-              <div>
-                <Tick className="tick" />
-                3D Asset Management
-              </div>
-              <div>
-                <Tick />
-                Product variant support
-              </div>
+            <div className="details-column">
+              <Tick className="tick" />
+              3D Asset Management
             </div>
-            <div>
-              <div>
-                <Tick />
-                QR code access to AR
-              </div>
-              <div>
-                <Tick />
-                Unlimited Animations
-              </div>
+            <div className="details-column">
+              <Tick />
+              Product variant support
+            </div>
+
+            <div className="details-column">
+              <Tick />
+              QR code access to AR
+            </div>
+            <div className="details-column">
+              <Tick />
+              Unlimited Animations
             </div>
           </div>
-          <Button className="button" onClick={handleClick}>
-            Start My Free Trial
-          </Button>
+          <PayButton values={value} prices={price} />
         </div>
       </div>
     </div>

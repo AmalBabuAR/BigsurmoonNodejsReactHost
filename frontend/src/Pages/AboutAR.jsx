@@ -1,6 +1,6 @@
 import React from "react";
 import Logo2 from "../assets/3DStudio/Logo(2).svg";
-import Chair from "../assets/about-ar/chair.gif";
+import Chair from "../assets/about-ar/sofa.gif";
 import Jewllery from "../assets/about-ar/Untitled-2.png";
 import Furnitures from "../assets/about-ar/Untitled-1.png";
 import Electronics from "../assets/about-ar/Electronics.png";
@@ -23,9 +23,9 @@ function AboutAR() {
             <span className="blue-text">Re-Imagined</span>
           </p>
         </div>
-        <div>
+        
           <img className="chair-main" src={Chair} />
-        </div>
+        
       </div>
       <div className="ar-main">
         <div className="main-heading">
