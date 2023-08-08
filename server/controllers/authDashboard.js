@@ -12,7 +12,6 @@ export const postProjectName = async (req, res) => {
       const existingNames = new Set(
         existingProjects.map((project) => project.name)
       );
-
       if (existingNames.has(`${nameValue}`)) {
         res
           .status(201)
@@ -23,13 +22,18 @@ export const postProjectName = async (req, res) => {
           user,
           name: nameValue,
         };
-
-        // Save the new project details to the database
         const newProject = new ProjectDetails(data);
         await newProject.save();
-
         res.status(201).json({ newProject, status: true });
       }
+    } else {
+      const data = {
+        user,
+        name: nameValue,
+      };
+      const newProject = new ProjectDetails(data);
+      await newProject.save();
+      res.status(201).json({ newProject, status: true });
     }
   } catch (error) {
     console.error(error);
