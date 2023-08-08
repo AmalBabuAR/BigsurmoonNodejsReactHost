@@ -94,7 +94,7 @@ function UserDashBoard() {
 
   //view click
   function handleViewClick(id) {
-    const link = `${URL}/viewer/?id=${id}`;
+    const link = `${URL}/editor/modelViewer/?id=${id}`;
     window.open(link, "_blank");
   }
 
