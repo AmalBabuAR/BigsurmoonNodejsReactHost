@@ -12,7 +12,7 @@ import threeRouter from "./routes/threejsRoute.js";
 import routerUpload from "./routes/uploadRoute.js";
 import stripeRouter from "./routes/stripeRouter.js";
 import { fileURLToPath } from "url";
-import path, { dirname, resolve } from "path";
+import path, { dirname } from "path";
 import assetsRouter from "./routes/assetsThreeRouter.js";
 import deleteRouter from "./routes/deleteThreeRouter.js";
 import updateSceneObjectRouter from "./routes/updateThreeSceneObject.js";
@@ -34,8 +34,7 @@ connectDB();
 // Serve static files from the build directory
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const buildPath = resolve(__dirname, "../frontend/build");
-app.use(express.static(buildPath));
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 //middelwares
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -60,13 +59,15 @@ app.use("/delete", deleteRouter);
 app.use("/update_sceneobject", updateSceneObjectRouter);
 app.use("/generate_scene", generateSceneRouter);
 app.use("/save_variation", saveVariationRouter);
-app.use('/getConfigNames', getConfigNamesRouter )
-app.use('/deleteConfig', deleteConfigNamesRouter )
-app.use('/generate_scene_view', generateSceneViewRouter)
+app.use("/getConfigNames", getConfigNamesRouter);
+app.use("/deleteConfig", deleteConfigNamesRouter);
+app.use("/generate_scene_view", generateSceneViewRouter);
 
 // Serve the index.html file for all other requests
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(
+    path.resolve(__dirname, "..", "frontend", "build", "index.html")
+  );
 });
 
 //PORT
