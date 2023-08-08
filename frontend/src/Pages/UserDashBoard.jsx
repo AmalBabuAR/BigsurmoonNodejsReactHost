@@ -81,7 +81,9 @@ function UserDashBoard() {
         closePopup();
         const id = res.data.newProject._id;
         const newFile = true;
-        navigate(`/editor/${id}/${newFile}`);
+        const link = `${URL}/editor/?id=${id}&new=${newFile}`;
+        window.open(link, "_blank");
+        // navigate(`/editor/${id}/${newFile}`);
         getProject();
       } else {
         setErrorMess(res.data);
