@@ -2,7 +2,7 @@
 import React from "react";
 
 import { useParams } from "react-router-dom";
-import { URL } from "../components/common/utils/constants";
+import { URL } from "../components/common/utils/constants.js";
 
 
 const Editor = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../reusable/Button";
-import { URL } from "../utils/constants";
+import { URL } from "../utils/constants.js";
 
 function ShareButton({ showPopup, closePopup, embId }) {
   const [copySuccess, setCopySuccess] = useState(false);

@@ -15,7 +15,7 @@ import SideNav from "../components/common/Header/SideNav";
 import Edit from "../assets/icons/Edit";
 import TableMenu from "../components/common/reusable/TableMenu";
 import EditNewPopUp from "../components/common/Header/EditNewPopUp";
-import { URL } from "../components/common/utils/constants";
+import { URL } from "../components/common/utils/constants.js";
 
 function UserDashBoard() {
   const [list, setList] = useState("");
