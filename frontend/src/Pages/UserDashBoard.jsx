@@ -48,7 +48,9 @@ function UserDashBoard() {
   const handleButtonClick = (ids) => {
     console.log(ids);
     const newFile = false;
-    navigate(`/editor/${ids}/${newFile}`);
+    const link = `${URL}/editor/?id=${id}&new=${newFile}`;
+    window.open(link, "_blank");
+    //navigate(`/editor/${ids}/${newFile}`);
   };
   //to delete
   const handleDeleteButtonClick = async (id) => {
