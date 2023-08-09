@@ -21,6 +21,7 @@ import saveVariationRouter from "./routes/saveVariationRouter.js";
 import getConfigNamesRouter from "./routes/getVariation.js";
 import deleteConfigNamesRouter from "./routes/deleteVariation.js";
 import generateSceneViewRouter from "./routes/generateSceneViewRouter.js";
+import stripeWebhookRouter from "./routes/stripeWebhook.js";
 
 //rest object
 const app = express();
@@ -51,6 +52,7 @@ app.use(
 app.use("/api", authRoutes);
 app.use("/api/user/stripe", stripeRouter);
 app.use("/api/upload", routerUpload);
+app.use('/stripe', stripeWebhookRouter)
 
 //threejs Router
 app.use("/three", threeRouter);
