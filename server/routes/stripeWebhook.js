@@ -9,7 +9,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST);
 
 const stripeWebhookRouter = express.Router();
 
-const webhook_secret = "whsec_ivCQd69WuU57C0ZTHIoDT9CkhHPXJiGw";
+const endpointSecret = "whsec_cdfb269e3f39af946052f256d392a9df8016bf6ab19e82f978aa8953259462ee";
+
 
 // Webhook endpoint to handle payment success event
 stripeWebhookRouter.post(
@@ -18,11 +19,11 @@ stripeWebhookRouter.post(
   async (req, res) => {
     const payload = req.body;
     console.log('payload', payload);
-    const sig = req.headers["stripe-signature"];
+    const sig = req.headers["whsec_ivCQd69WuU57C0ZTHIoDT9CkhHPXJiGw"];
     let event;
 
     try {
-      event = stripe.webhooks.constructEvent(payload, sig, webhook_secret); // Replace with your actual webhook secret
+      event = stripe.webhooks.constructEvent(payload, sig, endpointSecret); // Replace with your actual webhook secret
     } catch (err) {
         console.log(err);
       return res.status(400).send(`Webhook Error: ${err.message}`);
