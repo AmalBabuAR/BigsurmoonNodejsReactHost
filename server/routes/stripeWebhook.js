@@ -24,6 +24,7 @@ stripeWebhookRouter.post(
     try {
       event = stripe.webhooks.constructEvent(payload, sig, webhook_secret); // Replace with your actual webhook secret
     } catch (err) {
+        console.log(err);
       return res.status(400).send(`Webhook Error: ${err.message}`);
     }
 
