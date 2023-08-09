@@ -48,7 +48,7 @@ function UserDashBoard() {
   const handleButtonClick = (ids) => {
     console.log(ids);
     const newFile = false;
-    const link = `${URL}/editor/?id=${id}&new=${newFile}`;
+    const link = `${URL}/editor/?id=${ids}&new=${newFile}`;
     window.open(link, "_blank");
     //navigate(`/editor/${ids}/${newFile}`);
   };
