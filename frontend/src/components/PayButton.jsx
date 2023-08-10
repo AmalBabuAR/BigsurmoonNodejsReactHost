@@ -18,7 +18,7 @@ const PayButton = ({ values, prices }) => {
   };
   return (
     <>
-      <Button className="button" onClick={() => handleClick()}>
+      <Button className="button paybtn" onClick={() => handleClick()}>
         Start My Free Trial
       </Button>
     </>

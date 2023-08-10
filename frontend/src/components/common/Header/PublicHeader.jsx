@@ -55,7 +55,7 @@ function Header() {
           <div className="line"></div>
           <div className="line"></div>
         </div>
-      <img onClick={() => navigate("/")} src={main_logo} />
+      <img className="img-logo" onClick={() => navigate("/")} src={main_logo} />
       <div className="navlink">
         <div className="dropdown">
           <a>About</a>

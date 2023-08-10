@@ -40,7 +40,7 @@ function Congigurator() {
       </div>
        <div className="upload">
         <div className="upload-img">
-          <img src={upload} className="upload-img"/>
+          <img src={upload} className="upload-img cloud-img"/>
           <h2 className="upload blue-text">1.Upload</h2>
           <p>
             Seamlessly upload files and assets for integration into your
@@ -80,7 +80,7 @@ function Congigurator() {
               impact.
             </p>
           </div>
-          <img src={image2}/>
+          <img className="table-img"  src={image2}/>
         </div>
         <div className="detailss">
           <img  src={image3}/>
