@@ -49,7 +49,8 @@ function UserDashBoard() {
     console.log(ids);
     const newFile = false;
     const link = `${URL}/editor/?id=${ids}&new=${newFile}`;
-    window.open(link, "_blank");
+    const newTab = safari.self.browserWindow.openTab();
+    newTab.url = link;
     //navigate(`/editor/${ids}/${newFile}`);
   };
   //to delete
@@ -84,7 +85,10 @@ function UserDashBoard() {
         const id = res.data.newProject._id;
         const newFile = true;
         const link = `${URL}/editor/?id=${id}&new=${newFile}`;
-        window.open(link, "_blank");
+        const newTab = safari.self.browserWindow.openTab();
+        newTab.url = link;
+        // window.open(link, "_blank");
+        //const newTab = window.open("", "_blank");
         // navigate(`/editor/${id}/${newFile}`);
         getProject();
       } else {
