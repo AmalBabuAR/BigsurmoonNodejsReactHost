@@ -51,9 +51,6 @@ function UserDashBoard() {
     const newFile = false;
     const link = `${URL}/editor/?id=${ids}&new=${newFile}`;
     win.location.href = link
-    // const newTab = safari.self.browserWindow.openTab();
-    // newTab.url = link;
-    //navigate(`/editor/${ids}/${newFile}`);
   };
   //to delete
   const handleDeleteButtonClick = async (id) => {
@@ -80,20 +77,15 @@ function UserDashBoard() {
   //response of the newfile inpute
   const handleSave = async (nameValue) => {
     try {
-      const win = window.open('about:blank', '_blank');
       const res = await axiosInstance.post("/postProject", { nameValue });
       console.log(res.data);
       if (res.data.status) {
+        const win = window.open('about:blank', '_blank');
         closePopup();
         const id = res.data.newProject._id;
         const newFile = true;
         const link = `${URL}/editor/?id=${id}&new=${newFile}`;
         win.location.href = link
-        // const newTab = safari.self.browserWindow.openTab();
-        // newTab.url = link;
-        // window.open(link, "_blank");
-        //const newTab = window.open("", "_blank");
-        // navigate(`/editor/${id}/${newFile}`);
         getProject();
       } else {
         setErrorMess(res.data);
