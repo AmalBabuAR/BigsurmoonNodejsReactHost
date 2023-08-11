@@ -48,9 +48,16 @@ function UserDashBoard() {
   const handleButtonClick = (ids) => {
     console.log(ids);
     const newFile = false;
+    var safari
     const link = `${URL}/editor/?id=${ids}&new=${newFile}`;
-    const newTab = safari.self.browserWindow.openTab();
-    newTab.url = link;
+    if (typeof safari !== 'undefined' && safari.extension) {
+      // Code for Safari App Extension context
+      let newTab = safari.self.browserWindow.openTab();
+      newTab.url = link;
+    } else {
+      // Code for regular web page context
+      window.open(link, '_blank');
+    }
     //navigate(`/editor/${ids}/${newFile}`);
   };
   //to delete
@@ -84,9 +91,16 @@ function UserDashBoard() {
         closePopup();
         const id = res.data.newProject._id;
         const newFile = true;
+        var safari
         const link = `${URL}/editor/?id=${id}&new=${newFile}`;
-        const newTab = safari.self.browserWindow.openTab();
-        newTab.url = link;
+        if (typeof safari !== 'undefined' && safari.extension) {
+          // Code for Safari App Extension context
+          let newTab = safari.self.browserWindow.openTab();
+          newTab.url = link;
+        } else {
+          // Code for regular web page context
+          window.open(link, '_blank');
+        }
         // window.open(link, "_blank");
         //const newTab = window.open("", "_blank");
         // navigate(`/editor/${id}/${newFile}`);
