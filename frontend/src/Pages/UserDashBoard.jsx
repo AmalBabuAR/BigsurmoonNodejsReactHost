@@ -46,18 +46,13 @@ function UserDashBoard() {
   }
   //to view the existing project
   const handleButtonClick = (ids) => {
+    const win = window.open('about:blank', '_blank');
     console.log(ids);
     const newFile = false;
-    var safari
     const link = `${URL}/editor/?id=${ids}&new=${newFile}`;
-    if (typeof safari !== 'undefined' && safari.extension) {
-      // Code for Safari App Extension context
-      let newTab = safari.self.browserWindow.openTab();
-      newTab.url = link;
-    } else {
-      // Code for regular web page context
-      window.open(link, '_blank');
-    }
+    win.location.href = link
+    // const newTab = safari.self.browserWindow.openTab();
+    // newTab.url = link;
     //navigate(`/editor/${ids}/${newFile}`);
   };
   //to delete
@@ -85,22 +80,17 @@ function UserDashBoard() {
   //response of the newfile inpute
   const handleSave = async (nameValue) => {
     try {
+      const win = window.open('about:blank', '_blank');
       const res = await axiosInstance.post("/postProject", { nameValue });
       console.log(res.data);
       if (res.data.status) {
         closePopup();
         const id = res.data.newProject._id;
         const newFile = true;
-        var safari
         const link = `${URL}/editor/?id=${id}&new=${newFile}`;
-        if (typeof safari !== 'undefined' && safari.extension) {
-          // Code for Safari App Extension context
-          let newTab = safari.self.browserWindow.openTab();
-          newTab.url = link;
-        } else {
-          // Code for regular web page context
-          window.open(link, '_blank');
-        }
+        win.location.href = link
+        // const newTab = safari.self.browserWindow.openTab();
+        // newTab.url = link;
         // window.open(link, "_blank");
         //const newTab = window.open("", "_blank");
         // navigate(`/editor/${id}/${newFile}`);
