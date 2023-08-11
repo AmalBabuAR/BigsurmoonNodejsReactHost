@@ -46,7 +46,7 @@ app.use(
     useTempFiles: true,
   })
   );
-  const allowedOrigins = ["https://bigsurmoon.live","https://bigsurmoon.com"]; // Add other origins if needed
+  const allowedOrigins = ["https://bigsurmoon.live","https://bigsurmoon.com","https://bigsurmoon.com/assets"]; // Add other origins if needed
   app.use(cors({
     origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
