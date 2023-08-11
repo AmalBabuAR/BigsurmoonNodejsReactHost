@@ -40,14 +40,23 @@ app.use(express.static(path.join(__dirname, "../frontend/build")));
 //middelwares
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
-app.use(cors());
 app.use(morgan("dev"));
 app.use(
   fileUpload({
     useTempFiles: true,
   })
-);
-
+  );
+  const allowedOrigins = ["https://bigsurmoon.live"]; // Add other origins if needed
+  app.use(cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+  }));
+  
 //routes
 app.use("/api", authRoutes);
 app.use("/api/user/stripe", stripeRouter);
@@ -64,6 +73,9 @@ app.use("/save_variation", saveVariationRouter);
 app.use("/getConfigNames", getConfigNamesRouter);
 app.use("/deleteConfig", deleteConfigNamesRouter);
 app.use("/generate_scene_view", generateSceneViewRouter);
+
+// Handle CORS preflight requests (OPTIONS) for all routes
+app.options("*", cors())
 
 // Serve the index.html file for all other requests
 app.get("*", (req, res) => {
