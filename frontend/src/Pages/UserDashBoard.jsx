@@ -77,10 +77,10 @@ function UserDashBoard() {
   //response of the newfile inpute
   const handleSave = async (nameValue) => {
     try {
+      const win = window.open('about:blank', '_blank');
       const res = await axiosInstance.post("/postProject", { nameValue });
       console.log(res.data);
       if (res.data.status) {
-        const win = window.open('about:blank', '_blank');
         closePopup();
         const id = res.data.newProject._id;
         const newFile = true;
