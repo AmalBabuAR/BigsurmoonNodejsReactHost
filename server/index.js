@@ -48,7 +48,6 @@ app.use(
     useTempFiles: true,
   })
 );
-app.options('*', cors());
 const allowedOrigins = [
   "https://bigsurmoon.live",
   "https://bigsurmoon.com",
@@ -59,6 +58,7 @@ app.use(
   cors({
     origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
+        console.log(origin);
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS ****"));
@@ -70,6 +70,7 @@ app.use(
   })
 );
 
+app.options("*", cors());
 // app.use(cors({
 //   origin: (origin, callback) => {
 //     if (!origin || allowedOrigins.includes(origin)) {
