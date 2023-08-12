@@ -56,14 +56,7 @@ const allowedOrigins = [
 ]; // Add other origins if needed
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        console.log(origin);
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS ****"));
-      }
-    },
+    origin: "https://bigsurmoon.live",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
     credentials: true,
