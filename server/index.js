@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 //middelwares
 // Enable CORS for all routes
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(morgan("dev"));
@@ -48,7 +48,7 @@ app.use(
     useTempFiles: true,
   })
 );
-
+app.options('*', cors());
 const allowedOrigins = [
   "https://bigsurmoon.live",
   "https://bigsurmoon.com",
