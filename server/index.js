@@ -51,9 +51,13 @@ app.use(
 
 app.use(
   cors({
-    origin: ["https://bigsurmoon.live", "https://bigsurmoon.com", "https://bigsurmoon.com/save_variation"],
+    origin: [
+      "https://bigsurmoon.live",
+      "https://bigsurmoon.com",
+      "https://bigsurmoon.com/save_variation",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
     credentials: true,
   })
 );
