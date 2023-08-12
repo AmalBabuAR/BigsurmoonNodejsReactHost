@@ -49,20 +49,27 @@ app.use(
   })
 );
 
+const allowedOrigins = [
+  "https://bigsurmoon.live",
+  "https://bigsurmoon.com",
+  "https://bigsurmoon.com/assets",
+  "https://bigsurmoon.com/save_variation",
+]; // Add other origins if needed
 app.use(
   cors({
-    origin: [
-      "https://bigsurmoon.live",
-      "https://bigsurmoon.com",
-      "https://bigsurmoon.com/save_variation",
-    ],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS ****"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
     credentials: true,
   })
 );
 
-//const allowedOrigins = ["https://bigsurmoon.live","https://bigsurmoon.com","https://bigsurmoon.com/assets","https://bigsurmoon.com/save_variation"]; // Add other origins if needed
 // app.use(cors({
 //   origin: (origin, callback) => {
 //     if (!origin || allowedOrigins.includes(origin)) {
@@ -91,7 +98,7 @@ app.use("/deleteConfig", deleteConfigNamesRouter);
 app.use("/generate_scene_view", generateSceneViewRouter);
 
 // Handle CORS preflight requests (OPTIONS) for all routes
-app.options("*", cors());
+//app.options("*", cors());
 
 // Serve the index.html file for all other requests
 app.get("*", (req, res) => {
