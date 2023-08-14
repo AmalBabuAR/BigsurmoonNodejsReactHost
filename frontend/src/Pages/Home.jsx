@@ -18,6 +18,7 @@ import monitor from "../assets/monitor.svg";
 import { useNavigate } from "react-router-dom";
 import FeaturesSlider from "../components/common/reusable/FeaturesSlider";
 import temp5 from '../assets/home/temp5.png'
+import vid from '../assets/home/video/Trailer_2.mp4'
 
 function Home() {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ function Home() {
         </div>
       </div>
       <div className="second-image">
-        <img src={Section2} />
+      <video src={vid} controls autoplay></video>
       </div>
       <div className="product-positives">
         <p className="headings">
