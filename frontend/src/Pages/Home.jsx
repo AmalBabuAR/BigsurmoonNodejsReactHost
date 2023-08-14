@@ -12,7 +12,6 @@ import cart from "../assets/home/Features/cart.svg";
 import animated from "../assets/home/Features/animated3D.svg";
 import catlog from "../assets/home/Features/3Dcatlog.svg";
 import Vector from "../assets/Vector.png";
-import Watch from "../assets/home/Watch.png";
 import Light from "../assets/home/Light.png";
 import monitor from "../assets/monitor.svg";
 import { useNavigate } from "react-router-dom";
@@ -112,7 +111,11 @@ function Home() {
       <div className="see-it-in-action">
         <span>SEE IT IN ACTION!</span>
         <div>
-          <img src={Watch} />
+        <iframe
+            src="https://bigsurmoon.live/editor/ModelViewer/?id=64d9ffff6accdaec5267fbea"
+            width="1200"
+            height="900"
+          ></iframe>
         </div>
       </div>
       <div className="guide">

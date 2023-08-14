@@ -32,6 +32,16 @@ dotenv.config();
 //database config
 connectDB();
 
+//cors middleware
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
+    credentials: true,
+  })
+);
+
 // Serve static files from the build directory
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -56,14 +66,7 @@ app.use(
 //   "https://bigsurmoon.com/delete",
 //   "https://bigsurmoon.com/update_sceneobject"
 // ]; // Add other origins if needed
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
-    credentials: true,
-  })
-);
+
 
 app.options("*", cors());
 // app.use(cors({
