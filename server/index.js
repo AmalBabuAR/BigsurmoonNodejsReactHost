@@ -48,24 +48,17 @@ app.use(
     useTempFiles: true,
   })
 );
-const allowedOrigins = [
-  "https://bigsurmoon.live",
-  "https://bigsurmoon.com",
-  "https://bigsurmoon.com/assets",
-  "https://bigsurmoon.com/save_variation",
-  "https://bigsurmoon.com/delete",
-  "https://bigsurmoon.com/update_sceneobject"
-]; // Add other origins if needed
+// const allowedOrigins = [
+//   "https://bigsurmoon.live",
+//   "https://bigsurmoon.com",
+//   "https://bigsurmoon.com/assets",
+//   "https://bigsurmoon.com/save_variation",
+//   "https://bigsurmoon.com/delete",
+//   "https://bigsurmoon.com/update_sceneobject"
+// ]; // Add other origins if needed
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        console.log(origin);
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS ****"));
-      }
-    },
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
     credentials: true,
