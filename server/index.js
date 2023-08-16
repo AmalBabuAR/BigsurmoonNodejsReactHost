@@ -46,6 +46,7 @@ app.use(
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 //middelwares
 // Enable CORS for all routes
@@ -99,6 +100,12 @@ app.use("/generate_scene_view", generateSceneViewRouter);
 // Handle CORS preflight requests (OPTIONS) for all routes
 //app.options("*", cors());
 
+// Serve the index.html file editor
+app.get('/editor', (req,res) => {
+  res.sendFile(
+    __dirname + '/views/index.html'
+  )
+})
 // Serve the index.html file for all other requests
 app.get("*", (req, res) => {
   res.sendFile(

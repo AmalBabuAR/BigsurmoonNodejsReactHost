@@ -1,1 +1,1 @@
-export const URL = 'https://bigsurmoon.live'
+export const URL = 'https://bigsurmoon.com'

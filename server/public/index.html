@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Onload Example</title>
+		<script src="/script.js"></script>
+		<link rel="stylesheet" href="loader.css" />
+	</head>
+	<!-- <body onload="myFunction()"> -->
+	<body>
+		<div class="loader-overlay">
+			<div class="loader-container">
+				<img
+					src="https://res.cloudinary.com/dfv0eesne/image/upload/v1690798724/Bigsurmoon/Moon_in_Logo_Low_Res-03_onyxkr.png"
+					alt="Loader"
+					class="loader"
+				/>
+			</div>
+		</div>
+
+		<script type="module"> 
+			import { URL_COM, URL_LIVE } from "./constant.js";
+		
+			// Function to extract the id from the URL's query parameters
+			function getQueryParam(param) {
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				console.log(urlParams);
+				return urlParams.get(param);
+			}
+
+			// Extract the id from the URL
+			const idFromUrl = getQueryParam("id");
+			const newFromUrl = getQueryParam("new");
+
+			// Check if the id is '12345' and redirect
+			if (idFromUrl !== null) {
+				window.location.href = `${URL_LIVE}/editor/?id=${idFromUrl}&new=${newFromUrl}`;
+			} else {
+				window.location.href = `${URL_COM}`;
+			}
+		</script>
+	</body>
+</html>

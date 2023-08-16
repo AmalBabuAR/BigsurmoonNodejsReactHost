@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Model Viewer</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<style>
+			body {
+				margin: 0;
+			}
+
+			canvas {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+		<div class="sectionOne">
+			<button id="toggle-ar-button">AR</button>
+			<div id="qrcode-container">
+				<div id="qrcode"></div>
+				<p class="text-qr">
+					Scan Q.R code on any mobile device to view in your space
+				</p>
+			</div>
+			<button id="toggle-animation">
+				<svg
+					width="13"
+					height="13"
+					viewBox="0 0 13 13"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<g filter="url(#filter0_i_606_125)">
+						<path
+							d="M12.2753 7.16357L2.30905 12.2752C1.49378 12.6976 0.54541 12.3335 0.54541 11.6053V1.03249C0.54541 0.289765 1.5437 -0.0451873 2.30905 0.348017L12.2753 5.48881C12.9907 5.86745 13.0074 6.78493 12.2753 7.16357Z"
+							fill="#1C1C1E"
+						/>
+					</g>
+					<defs>
+						<filter
+							id="filter0_i_606_125"
+							x="0.54541"
+							y="0.181824"
+							width="12.2727"
+							height="16.2727"
+							filterUnits="userSpaceOnUse"
+							color-interpolation-filters="sRGB"
+						>
+							<feFlood flood-opacity="0" result="BackgroundImageFix" />
+							<feBlend
+								mode="normal"
+								in="SourceGraphic"
+								in2="BackgroundImageFix"
+								result="shape"
+							/>
+							<feColorMatrix
+								in="SourceAlpha"
+								type="matrix"
+								values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+								result="hardAlpha"
+							/>
+							<feOffset dy="4" />
+							<feGaussianBlur stdDeviation="2" />
+							<feComposite
+								in2="hardAlpha"
+								operator="arithmetic"
+								k2="-1"
+								k3="1"
+							/>
+							<feColorMatrix
+								type="matrix"
+								values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+							/>
+							<feBlend
+								mode="normal"
+								in2="shape"
+								result="effect1_innerShadow_606_125"
+							/>
+						</filter>
+					</defs>
+				</svg>
+			</button>
+			<model-viewer
+				id="model-viewer"
+				ar
+				autoplay
+				interaction-prompt="none"
+				shadow-intensity="1"
+				auto-rotate
+				camera-controls
+				ar-modes="webxr scene-viewer quick-look"
+			></model-viewer>
+		</div>
+
+		<div id="fieldGroup">
+			<div id="fieldGroupSecond">
+				<div>
+					<p class="Text">Variations</p>
+					<select id="type-selector"></select>
+				</div>
+				<div>
+					<p class="Text">Colours</p>
+					<select id="object-selector"></select>
+				</div>
+			</div>
+		</div>
+
+		<script type="module">
+			import { URL_LIVE } from "./constant.js";
+			function getQueryParam(param) {
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				return urlParams.get(param);
+			}
+			console.log('URL_LIVE',URL_LIVE);
+
+			const idFromUrl = getQueryParam("id");
+			const urlToGenerateQRCodeFor = `${URL_LIVE}/editor/ModelViewer/${idFromUrl}`;
+
+			var qrcode = new QRCode("qrcode", {
+				text: urlToGenerateQRCodeFor,
+				width: 150,
+				height: 150,
+			});
+
+			const toggleARButton = document.getElementById("toggle-ar-button");
+			const qrcodeContainer = document.getElementById("qrcode-container");
+			let isQRCodeVisible = false;
+
+			toggleARButton.addEventListener("click", () => {
+				if (!isQRCodeVisible) {
+					qrcodeContainer.style.display = "flex"; 
+				} else {
+					qrcodeContainer.style.display = "none"; 
+				}
+				isQRCodeVisible = !isQRCodeVisible;
+			});
+		</script>
+
+		<script
+			async
+			src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"
+		></script>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://unpkg.com/three@0.153.0/build/three.module.js",
+					"three/addons/": "https://unpkg.com/three@0.153.0/examples/jsm/"
+				}
+			}
+		</script>
+		<!-- Import the model viewer component -->
+		<script
+			type="module"
+			src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"
+		></script>
+		<!-- Import the component -->
+
+		<script type="module">
+			import * as THREE from "three";
+			import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+			import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+			import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
+			import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+			import { URL_COM, } from "./constant.js";
+
+			// Create a scene
+			var scene = new THREE.Scene();
+			let typeselector = document.getElementById("type-selector");
+			let selector = document.getElementById("object-selector");
+			let sceneLoaded = false;
+			let newObjectData;
+
+			// Create a camera
+			var camera = new THREE.PerspectiveCamera(
+				75,
+				window.innerWidth / window.innerHeight,
+				0.1,
+				1000
+			);
+			camera.position.z = 5;
+
+			// change display none after the design
+			//Setting animation button to hidden
+			document.getElementById("toggle-animation").style.display = "none";
+
+			// Create a renderer
+			var renderer = new THREE.WebGLRenderer({ antialias: true });
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+
+			const controls = new OrbitControls(camera, renderer.domElement);
+
+			const pmremGenerator = new THREE.PMREMGenerator(renderer);
+			pmremGenerator.compileEquirectangularShader();
+			const defaultEnvironment = new RoomEnvironment();
+			const defaultEnvironmentTexture = pmremGenerator.fromScene(
+				defaultEnvironment,
+				0.04
+			).texture;
+			scene.environment = defaultEnvironmentTexture;
+			scene.background = new THREE.Color("#878787");
+
+			// Handle window resize
+			window.addEventListener("resize", function () {
+				var width = window.innerWidth;
+				var height = window.innerHeight;
+				renderer.setSize(width, height);
+				camera.aspect = width / height;
+				camera.updateProjectionMatrix();
+			});
+
+			// Create a loader
+			var loader = new THREE.ObjectLoader();
+			var gltfLoader = new GLTFLoader();
+
+			// Variables for storing the data
+			let geometries, materials, animations, images, textures, skeletons;
+
+			function getQueryParam(param) {
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				return urlParams.get(param);
+			}
+
+			async function getViewProject() {
+				try {
+					const idFromUrl = getQueryParam("id");
+					const id = "64ce36c5bee349533c36ca50";
+					const response = await fetch(
+						`${URL_COM}/generate_scene_view/${idFromUrl}`
+					);
+
+					// Check if the fetch was successful
+					if (!response.ok) {
+						throw new Error("Network response was not ok");
+					}
+
+					const data = await response.json();
+
+					// Collect all distinct variant values and populate the type-selector
+					let distinctVariants = [
+						...new Set(data.objects.map((obj) => obj.variant)),
+					];
+					for (let variant of distinctVariants) {
+						let option = document.createElement("option");
+						option.value = variant;
+						option.text = variant;
+						typeselector.appendChild(option);
+					}
+
+					typeselector.addEventListener("change", function () {
+						// Clear the current options in the object-selector
+						selector.innerHTML = "";
+
+						// Repopulate the object-selector with names of the objects whose variant matches the selected variant
+						for (let obj of data.objects) {
+							if (obj.variant === typeselector.value) {
+								let option = document.createElement("option");
+								option.value = obj.name;
+								option.text = obj.name;
+								selector.appendChild(option);
+							}
+						}
+
+						// Trigger a 'change' event on the object-selector to load the first object of the selected variant
+						selector.dispatchEvent(new Event("change"));
+					});
+
+					// Trigger a 'change' event on the type-selector to populate the object-selector and load the first object
+					typeselector.dispatchEvent(new Event("change"));
+
+					selector.addEventListener("change", function () {
+						let selectedTextures = null;
+						let selectedImages = null;
+						// Get the selected object
+						let selectedName = selector.value;
+						let selectedObject = data.objects.find(
+							(obj) => obj.name === selectedName
+						);
+						//skeletons = loader.parseSkeletons(data.skeletons, selectedObject);
+						//console.log(skeletons);
+						if (data.images) {
+							var imageObj = data.images.find(
+								(obj) => obj.name === selectedName
+							);
+							if (imageObj != undefined) {
+								selectedImages = imageObj.images;
+								console.log(selectedImages);
+								//images = loader.parseImages(selectedImages);
+								images = selectedImages;
+							}
+
+							if (data.textures) {
+								var textureObj = data.textures.find(
+									(obj) => obj.name === selectedName
+								);
+								if (textureObj != undefined) {
+									selectedTextures = textureObj.textures;
+									console.log(selectedTextures);
+									//textures = loader.parseTextures(selectedTextures, images);
+								}
+
+								let selectedMaterials = data.materials.find(
+									(obj) => obj.name === selectedName
+								);
+								console.log(selectedMaterials);
+
+								materials = selectedMaterials.materials;
+							}
+						} else {
+							let selectedMaterials = data.materials.find(
+								(obj) => obj.name === selectedName
+							);
+							console.log(selectedMaterials);
+							//materials = loader.parseMaterials(selectedMaterials.materials);
+							materials = selectedMaterials.materials;
+						}
+
+						console.log(animations);
+
+						if (
+							document.getElementById("type-selector").value ===
+								"ModelVariant" &&
+							sceneLoaded
+						) {
+							console.log("---Model Variant---");
+							newObjectData.object = selectedObject.object;
+						} else if (
+							document.getElementById("type-selector").value ===
+								"TextureVariant" &&
+							sceneLoaded
+						) {
+							console.log("---Texture Variant---");
+							newObjectData.materials = materials;
+							newObjectData.textures = selectedTextures
+								? selectedTextures
+								: undefined;
+							newObjectData.images = selectedImages
+								? selectedImages
+								: undefined;
+						} else {
+							newObjectData = {
+								metadata: {
+									version: 4.6,
+									type: "Object",
+									generator: "Object3D.toJSON",
+								},
+								geometries: data.geometries,
+								materials: materials,
+								textures: selectedTextures ? selectedTextures : undefined,
+								images: selectedImages ? selectedImages : undefined,
+								animations: data.animations,
+								skeletons: data.skeletons,
+								object: selectedObject.object, // the selected object's data
+							};
+						}
+
+						// let newObjectData = {
+						// 	metadata: {
+						// 		version: 4.6,
+						// 		type: "Object",
+						// 		generator: "Object3D.toJSON",
+						// 	},
+						// 	geometries: data.geometries,
+						// 	materials: materials,
+						// 	textures: selectedTextures ? selectedTextures : undefined,
+						// 	images: selectedImages ? selectedImages : undefined,
+						// 	animations: data.animations,
+						// 	skeletons: data.skeletons,
+						// 	object: selectedObject.object, // the selected object's data
+						// };
+
+						function getAnimations(scene) {
+							const animations = [];
+
+							scene.traverse(function (object) {
+								animations.push(...object.animations);
+							});
+							if (animations.length > 0) {
+								document.getElementById("toggle-animation").style.display =
+									"flex";
+							}
+							return animations;
+						}
+
+						console.log(newObjectData);
+						let jsonString = JSON.stringify(newObjectData);
+						let blob = new Blob([jsonString], { type: "application/json" });
+						let url = URL.createObjectURL(blob);
+
+						loader.load(url, function (obj) {
+							sceneLoaded = true;
+							const exporter = new GLTFExporter();
+							const anim = getAnimations(obj);
+							console.log(anim);
+							exporter.parse(
+								obj,
+								function (gltf) {
+									console.log(gltf);
+									const output = JSON.stringify(gltf, null, 2);
+									const blob = new Blob([output], { type: "text/plain" });
+
+									const url = URL.createObjectURL(blob);
+									const mv = document.querySelector("model-viewer");
+									mv.src = url;
+									//if the model has animations
+									console.log(mv.availableAnimations);
+									if (mv.availableAnimations.length > 0) {
+										document.getElementById("toggle-animation").style.display =
+											"flex";
+									}
+								},
+								undefined,
+								{ animations: anim }
+							);
+						});
+					});
+
+					// Force a 'change' event to load the first object by default
+					selector.dispatchEvent(new Event("change"));
+
+					// Start the animation
+					animate();
+				} catch (error) {
+					// Handle the error
+					console.error(
+						"There has been a problem with your fetch operation:",
+						error
+					);
+				}
+			}
+
+			getViewProject();
+
+			let animationFlag = true;
+
+			document
+				.getElementById("toggle-animation")
+				.addEventListener("click", function () {
+					animationFlag = !animationFlag;
+					if (animationFlag) {
+						document.querySelector("model-viewer").play();
+						animate();
+					} else {
+						document.querySelector("model-viewer").pause();
+					}
+				});
+
+			// Animation function
+			function animate() {
+				requestAnimationFrame(animate);
+
+				// Rotate the object for some animation
+				if (animationFlag) {
+					//console.log('Animating');
+					// Rotate the entire scene
+					scene.rotation.y += 0.005;
+				}
+
+				// Always update the OrbitControls and render the scene
+				controls.update();
+				//renderer.render(scene, camera);
+			}
+		</script>
+	</body>
+</html>

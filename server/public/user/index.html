@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Onload Example</title>
+  <script src="/script.js"></script>
+</head>
+<!-- <body onload="myFunction()"> -->
+  <body>
+    <h1 id="h">Hello, World!</h1>
+    <script>
+      // Function to extract the id from the URL's query parameters
+      function getQueryParam(param) {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        return urlParams.get(param);
+      }
+
+      // Extract the id from the URL
+      const idFromUrl = getQueryParam('id');
+      console.log('Extracted ID:', idFromUrl);
+
+      // Check if the id is '12345'
+      if (idFromUrl === '12345') {
+        document.getElementById('h').textContent = 'Editor is logged in';
+      } else {
+        document.getElementById('h').textContent = 'Editor is not logged in';
+      }
+    </script>
+  </body>
+</html>
