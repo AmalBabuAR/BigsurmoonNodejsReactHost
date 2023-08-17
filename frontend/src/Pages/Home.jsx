@@ -112,7 +112,7 @@ function Home() {
         <span>SEE IT IN ACTION!</span>
         <div>
         <iframe
-            src="https://bigsurmoon.live/editor/ModelViewer/?id=64d9ffff6accdaec5267fbea"
+            src="https://bigsurmoon.com/editor/ModelViewer/?id=64d9ffff6accdaec5267fbea"
             width="900"
             height="600"
           ></iframe>

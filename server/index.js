@@ -33,14 +33,14 @@ dotenv.config();
 connectDB();
 
 //cors middleware
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
+//     credentials: true,
+//   })
+// );
 
 // Serve static files from the build directory
 const __filename = fileURLToPath(import.meta.url);
@@ -50,7 +50,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //middelwares
 // Enable CORS for all routes
-// app.use(cors());
+app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(morgan("dev"));
@@ -104,6 +104,11 @@ app.use("/generate_scene_view", generateSceneViewRouter);
 app.get('/editor', (req,res) => {
   res.sendFile(
     __dirname + '/views/index.html'
+  )
+})
+app.get('/editor/ModelViewer', (req,res) => {
+  res.sendFile(
+    __dirname + '/views/viewer.html'
   )
 })
 // Serve the index.html file for all other requests

@@ -1,5 +1,4 @@
 import { UIButton, UIDiv, UIPanel } from "./libs/ui.js";
-import {URL_LIVE} from '../constant.js'
 
 function Preview(editor){
 
@@ -20,7 +19,7 @@ function Preview(editor){
     button.onClick(() => {
         const idFromUrl = getQueryParam("id");
         console.log('BUTTON',idFromUrl);
-        const url = `${URL_LIVE}/editor/ModelViewer/?id=${idFromUrl}`;
+        const url = `https://bigsurmoon.com/editor/ModelViewer/?id=${idFromUrl}`;
         
         // Redirect to the new URL
         window.location.href = url
