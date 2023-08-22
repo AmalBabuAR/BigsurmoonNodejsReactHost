@@ -45,8 +45,8 @@ connectDB();
 // Serve static files from the build directory
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-app.use(express.static(path.join(__dirname, "../frontend/build")));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.use(express.static(path.join(__dirname, "public")));
 
 //middelwares
 // Enable CORS for all routes
@@ -67,7 +67,6 @@ app.use(
 //   "https://bigsurmoon.com/delete",
 //   "https://bigsurmoon.com/update_sceneobject"
 // ]; // Add other origins if needed
-
 
 app.options("*", cors());
 // app.use(cors({
@@ -101,20 +100,16 @@ app.use("/generate_scene_view", generateSceneViewRouter);
 //app.options("*", cors());
 
 // Serve the index.html file editor
-app.get('/editor', (req,res) => {
-  res.sendFile(
-    __dirname + '/views/index.html'
-  )
-})
-app.get('/editor/ModelViewer', (req,res) => {
-  res.sendFile(
-    __dirname + '/views/viewer.html'
-  )
-})
-// Serve the index.html file for all other requests
+app.get("/editor", (req, res) => {
+  res.sendFile(__dirname + "/views/index.html");
+});
+app.get("/editor/ModelViewer", (req, res) => {
+  res.sendFile(__dirname + "/views/viewer.html");
+});
+
 app.get("*", (req, res) => {
   res.sendFile(
-    path.resolve(__dirname, "..", "frontend", "build", "index.html")
+    path.resolve(__dirname, "..", "frontend", "dist", "index.html")
   );
 });
 

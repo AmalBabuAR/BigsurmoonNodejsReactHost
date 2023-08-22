@@ -11,7 +11,7 @@ function getUserToken() {
 }
 
 const axiosInstance = axios.create({
-  baseURL: "/api/user/",
+  baseURL: "api/user/",
 });
 
 axiosInstance.interceptors.request.use(
