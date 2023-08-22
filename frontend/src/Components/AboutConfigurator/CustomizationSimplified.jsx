@@ -1,6 +1,6 @@
 import React from "react";
 import bgphone from "../../assets/Aboutar/BG 1.png";
-import imglap from "../../assets/configurator/imglap.png";
+import imglap from "../../assets/configurator/imglap1.png";
 import ringpng from "../../assets/Aboutar/Logo (2) 2.png";
 import bglarge from "../../assets/Aboutar/BG 1.png";
 import { confitems } from "../../assets/data/data";
