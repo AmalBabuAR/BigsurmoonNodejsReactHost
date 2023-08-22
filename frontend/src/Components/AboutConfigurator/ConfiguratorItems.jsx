@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
 import { mainFeaturesconfig } from "../../assets/data/data";
-import box from "../../assets/Home/boximg.png";
-import lights from "../../assets/Home/lightsimg.png";
-import pc from "../../assets/Home/pcimg.png";
-
-import m5 from "../../assets/Configurator/globe.png";
+// import box from "../../assets/Home/boximg.png";
+// import lights from "../../assets/Home/lightsimg.png";
+// import pc from "../../assets/Home/pcimg.png";
+import m5 from "../../assets/Configurator/globe1.png";
 import m1 from "../../assets/Configurator/unstucksofa.gif";
 import m4 from "../../assets/Configurator/piechart.png";
 import m3 from "../../assets/Configurator/stucksofa.gif";
 import mtbl from "../../assets/Configurator/tbc.gif";
 
-import m2 from "../../assets/Configurator/table.gif";
+// import m2 from "../../assets/Configurator/table.gif";
 
 const ConfiguratorItems = () => {
   useEffect(() => {
