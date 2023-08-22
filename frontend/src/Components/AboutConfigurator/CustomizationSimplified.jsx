@@ -1,6 +1,5 @@
 import React from "react";
 import bgphone from "../../assets/Aboutar/BG 1.png";
-import sofarotating from "../../assets/configurator/tab.png";
 import imglap from "../../assets/configurator/imglap.png";
 
 import ringpng from "../../assets/Aboutar/Logo (2) 2.png";
