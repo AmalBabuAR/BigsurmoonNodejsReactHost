@@ -14,7 +14,7 @@ import t1 from '../../assets/Configurator/PUBLISH ICON.png'
 import t3 from '../../assets/Configurator/UPLOAD ICON_3.png'
 
 
-import m5 from '../Configurator/globe.png'
+import m5 from '../Configurator/globe1.png'
 import m1 from '../Configurator/unstucksofa.gif'
 import m4 from '../Configurator/piechart.png'
 import m3 from '../Configurator/stucksofa.gif'
