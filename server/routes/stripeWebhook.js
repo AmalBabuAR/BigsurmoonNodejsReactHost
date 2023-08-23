@@ -2,6 +2,7 @@ import express from "express";
 import Stripe from "stripe";
 import dotenv from "dotenv";
 import PaymentData from "../models/paymentModel.js";
+import StripeEvents from "../models/eventStripeModel.js";
 
 dotenv.config();
 
@@ -56,17 +57,18 @@ stripeWebhookRouter.post(
         console.log("checkoutSessionCompleted", checkoutResponse);
         try {
           const data = {
-            user_id: checkoutResponse.metadata.user,
-            paymentCustomerID: checkoutResponse.customer,
-            paymentCustomerEmail: checkoutResponse.customer_details.email,
-            paymentCustomerName: checkoutResponse.customer_details.name,
-            paymentMode: checkoutResponse.mode,
-            selectedQuantity: checkoutResponse.metadata.quantity,
-            Price: checkoutResponse.metadata.price,
+            user_id: checkoutResponse?.metadata?.user,
+            paymentCustomerID: checkoutResponse?.customer,
+            paymentCustomerEmail: checkoutResponse?.customer_details?.email,
+            paymentCustomerName: checkoutResponse?.customer_details?.name,
+            paymentMode: checkoutResponse?.mode,
+            subscriptionId: checkoutResponse?.subscription,
+            selectedQuantity: checkoutResponse?.metadata?.quantity,
+            Price: checkoutResponse?.metadata?.price,
           };
           console.log("data", data);
           const dataRes = new PaymentData(data);
-          await dataRes.save()
+          await dataRes.save();
           console.log(dataRes);
         } catch (error) {
           console.log(error);
@@ -80,6 +82,28 @@ stripeWebhookRouter.post(
 
     // Return a 200 response to acknowledge receipt of the event
     response.send();
+  }
+);
+
+stripeWebhookRouter.post(
+  "/webhookEvents",
+  express.raw({ type: "application/json" }),
+  async (request, response) => {
+    let event = request.body;
+    console.log("event", event);
+    console.log("event Type", event.type);
+    try {
+      const data = {
+        event_type : event?.type,
+        event_data : event?.data?.object
+      }
+      console.log("data", data);
+      const dataRes = new StripeEvents(data);
+      await dataRes.save();
+      console.log(dataRes);
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
 
