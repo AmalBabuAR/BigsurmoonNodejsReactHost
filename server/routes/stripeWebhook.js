@@ -13,7 +13,8 @@ const b = 'whsec_cdfb269e3f39af946052f256d392a9df8016bf6ab19e82f978aa8953259462e
 
 
 // This is your Stripe CLI webhook secret for testing your endpoint locally.
-const endpointSecret = "whsec_cdfb269e3f39af946052f256d392a9df8016bf6ab19e82f978aa8953259462ee";
+const endpointSecret = "whsec_LsGnxdQYLxGYgHaM264cXPwf30xABZHS";
+
 const endpointSecretss = "whsec_yCX9xg27T9WQKkHEqUoIfvhdBOhwmCFf";
 
 stripeWebhookRouter.post('/webhook', express.raw({type: 'application/json'}), (request, response) => {
