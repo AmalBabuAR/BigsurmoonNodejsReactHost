@@ -12,6 +12,8 @@ import ClientDashboard from "../Pages/ClientDashboard";
 import ForgotPassword from "../Pages/ForgotPassword";
 import ProtectedRoute from "./ProtectedRoute";
 import PrivateRoute from "./PrivateRoute";
+import CheckoutSuccess from "../Pages/CheckoutSuccess";
+import CheckoutFailed from "../Pages/CheckoutFailed";
 
 const Wrapper = ({ children, title }) => {
   useEffect(() => {

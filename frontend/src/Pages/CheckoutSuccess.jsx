@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import phone from "../assets/pricing/BG 1.png";
 import lap from "../assets/pricing/Lighting and Shading - Pricing 1.png";
 import Navbar from "../Components/Navbar";
