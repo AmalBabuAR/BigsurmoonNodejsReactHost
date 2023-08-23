@@ -2,10 +2,7 @@ import mongoose from "mongoose";
 
 const StripeEventsSchema = new mongoose.Schema(
   {},
-  {
-    timestamps: true,
-  },
-  { strict: false }
+  { strict: false, timestamps: true }
 );
 
 const StripeEvents = mongoose.model("StripeEvents", StripeEventsSchema);

@@ -19,7 +19,7 @@ const CheckoutSuccess = () => {
         />
         <div>
           <div className="flex justify-center mt-[-150px] items-center border md:mt-[-200px] lg:mt-[1px] md:min-h-screen  ">
-            <div className="w-[50vw] mx-auto mt-10 h-[50vh] bg-[#D9D9D9] rounded-2xl ">
+            <div className="w-[50vw] mx-auto mt-10 h-[50vh] bg-[#ffffff] rounded-2xl ">
               <div className="flex justify-center flex-col items-center my-auto h-[40vh]">
                 <svg
                   width="80"
@@ -47,7 +47,7 @@ const CheckoutSuccess = () => {
                   </defs>
                 </svg>
                 <h1 className="text-3xl text-center font-medium text-black mt-5">
-                    Subscribing Successfully <br /> Completed
+                    Subscribion Successfully <br /> Completed
                 </h1>
               </div>
             </div>

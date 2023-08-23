@@ -2,10 +2,7 @@ import mongoose from "mongoose";
 
 const PaymentDataSchema = new mongoose.Schema(
   {},
-  {
-    timestamps: true,
-  },
-  { strict: false }
+  { strict: false, timestamps: true }
 );
 
 const PaymentData = mongoose.model("PaymentData", PaymentDataSchema);
