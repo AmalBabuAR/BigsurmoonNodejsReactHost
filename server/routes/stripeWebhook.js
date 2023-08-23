@@ -16,8 +16,9 @@ const endpointSecret = "whsec_cdfb269e3f39af946052f256d392a9df8016bf6ab19e82f978
 const endpointSecretss = "whsec_yCX9xg27T9WQKkHEqUoIfvhdBOhwmCFf";
 
 stripeWebhookRouter.post('/webhook', express.raw({type: 'application/json'}), (request, response) => {
+  console.log('req in the webhook+++++++++++');
+  console.log('req in the webhook---------', request);
   const sig = request.headers['stripe-signature'];
-  console.log('payload', request);
   console.log('sign', sig);
 
   let event;

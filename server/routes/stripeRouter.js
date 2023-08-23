@@ -110,15 +110,15 @@ stripeRouter.post("/create-checkout-sessionff", async (req, res) => {
 
 stripeRouter.post("/create-checkout-session", async (req, res) => {
   console.log(req.body);
-  const { values, prices } = req.body;
+  const { price, sliderValue } = req.body;
   const priceId = "price_1NbGsnSDf73R9RBmaGRZNkwb";
-  const priceId2 = 'price_1NbL4vSDf73R9RBmqcuRog3p'
+  const priceId2 = 'price_1NhcZUSDf73R9RBmUcNDgfFI'
 
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
     line_items: [
       {
-        quantity: 2,
+        quantity: sliderValue,
         price: priceId2,
       },
     ],
@@ -128,9 +128,13 @@ stripeRouter.post("/create-checkout-session", async (req, res) => {
     // {CHECKOUT_SESSION_ID} is a string literal; do not change it!
     // the actual Session ID is returned in the query parameter when your customer
     // is redirected to the success page.
-    success_url: `${process.env.CLIENT_URL}/checkout-success`,
-    cancel_url: `${process.env.CLIENT_URL}`,
+    
+    success_url: `${process.env.CLIENT_URL}/checkoutSuccess`,
+    cancel_url: `${process.env.CLIENT_URL}/checkoutFailed`,
   });
+  console.log("session---------------", session);
+  console.log("respons--------------", res);
+
   res.json({ url: session.url });
 });
 
