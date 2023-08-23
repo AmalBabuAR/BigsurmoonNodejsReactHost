@@ -125,6 +125,11 @@ stripeRouter.post("/create-checkout-session", async (req, res) => {
     subscription_data: {
       trial_period_days: 7,
     },
+    metadata: {
+      'user_id': '6735',
+      quantity: sliderValue,
+      price: priceId2,
+    },
     // {CHECKOUT_SESSION_ID} is a string literal; do not change it!
     // the actual Session ID is returned in the query parameter when your customer
     // is redirected to the success page.
