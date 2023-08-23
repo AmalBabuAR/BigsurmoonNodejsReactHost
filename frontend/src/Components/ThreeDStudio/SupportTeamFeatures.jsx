@@ -4,7 +4,7 @@ import box from "../../assets/Home/boximg.png";
 import lights from "../../assets/Home/lightsimg.png";
 import pc from "../../assets/Home/pcimg.png";
 
-import m5 from "../../assets/Configurator/globe.png";
+import m5 from "../../assets/Configurator/globe1.png";
 import m1 from "../../assets/Configurator/unstucksofa.gif";
 import m4 from "../../assets/Configurator/piechart.png";
 import m3 from "../../assets/Configurator/stucksofa.gif";

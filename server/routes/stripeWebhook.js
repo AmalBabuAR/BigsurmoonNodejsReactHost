@@ -1,6 +1,7 @@
 import express from "express";
 import Stripe from "stripe";
 import dotenv from "dotenv";
+import PaymentData from "../models/paymentModel.js";
 
 dotenv.config();
 
@@ -12,7 +13,7 @@ const stripeWebhookRouter = express.Router();
 stripeWebhookRouter.post(
   "/webhook",
   express.raw({ type: "application/json" }),
-  (request, response) => {
+  async (request, response) => {
     console.log("req in the webhook+++++++++++");
     console.log("req in the webhook---------", request);
     console.log("req in the webhook**********", request.body);
@@ -51,9 +52,26 @@ stripeWebhookRouter.post(
         // Then define and call a function to handle the event checkout.session.async_payment_succeeded
         break;
       case "checkout.session.completed":
-        const checkoutSessionCompleted = event.data.object;
-        console.log("checkoutSessionCompleted", checkoutSessionCompleted);
-       
+        const checkoutResponse = event.data.object;
+        console.log("checkoutSessionCompleted", checkoutResponse);
+        try {
+          const data = {
+            user_id: checkoutResponse.metadata.user,
+            paymentCustomerID: checkoutResponse.customer,
+            paymentCustomerEmail: checkoutResponse.customer_details.email,
+            paymentCustomerName: checkoutResponse.customer_details.name,
+            paymentMode: checkoutResponse.mode,
+            selectedQuantity: checkoutResponse.metadata.quantity,
+            Price: checkoutResponse.metadata.price,
+          };
+          console.log("data", data);
+          const dataRes = new PaymentData(data);
+          await dataRes.save()
+          console.log(dataRes);
+        } catch (error) {
+          console.log(error);
+        }
+
         break;
       // ... handle other event types
       default:

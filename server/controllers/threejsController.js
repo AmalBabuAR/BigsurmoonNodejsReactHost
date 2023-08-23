@@ -1,4 +1,4 @@
-import ThreejsData from "../models/threeDataModel.js";
+import ThreejsData from "../models/paymentModel.js";
 
 export const threejsDataController = async (req, res) => {
   console.log("data in req.body", typeof(req.body), req.body.camera);
