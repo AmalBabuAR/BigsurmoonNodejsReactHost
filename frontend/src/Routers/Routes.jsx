@@ -100,6 +100,22 @@ const Router = createBrowserRouter([
     ),
   },
   {
+    path: "/checkoutSuccess",
+    element: (
+      <Wrapper title="Checkout Success">
+        <CheckoutSuccess />
+      </Wrapper>
+    ),
+  },
+  {
+    path: "/checkoutFailed",
+    element: (
+      <Wrapper title="Checkout Failed">
+        <CheckoutFailed />
+      </Wrapper>
+    ),
+  },
+  {
     path: "/studio",
     element: (
       <Wrapper title="3D Studio">

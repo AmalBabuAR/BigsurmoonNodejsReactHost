@@ -77,6 +77,7 @@ stripeRouter.get("/create-payment-intent", async (req, res) => {
 
 stripeRouter.post("/create-checkout-sessionff", async (req, res) => {
   console.log(req.body);
+  
   const { values, prices } = req.body;
   const priceId = "price_1NbGsnSDf73R9RBmaGRZNkwb";
 
@@ -109,7 +110,8 @@ stripeRouter.post("/create-checkout-sessionff", async (req, res) => {
 });
 
 stripeRouter.post("/create-checkout-session", async (req, res) => {
-  console.log(req.body);
+  const user = req.user._id;
+  console.log(req.body, user);
   const { price, sliderValue } = req.body;
   const priceId = "price_1NbGsnSDf73R9RBmaGRZNkwb";
   const priceId2 = 'price_1NhcZUSDf73R9RBmUcNDgfFI'
@@ -126,9 +128,9 @@ stripeRouter.post("/create-checkout-session", async (req, res) => {
       trial_period_days: 7,
     },
     metadata: {
-      'user_id': '6735',
+      user: user,
       quantity: sliderValue,
-      price: priceId2,
+      price: price,
     },
     // {CHECKOUT_SESSION_ID} is a string literal; do not change it!
     // the actual Session ID is returned in the query parameter when your customer
