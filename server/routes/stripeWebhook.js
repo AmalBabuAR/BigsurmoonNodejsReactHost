@@ -2,7 +2,7 @@ import express from "express";
 import Stripe from "stripe";
 import dotenv from "dotenv";
 
-const env = dotenv.config();
+dotenv.config();
 
 //stripe config
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST);
@@ -27,7 +27,7 @@ stripeWebhookRouter.post('/webhook', express.raw({type: 'application/json'}), (r
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+    event = stripe.webhooks.constructEvent(request.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
     console.log('event ++++++++', event);
   } catch (err) {
     console.log('error in webhook +++++++++',err);
