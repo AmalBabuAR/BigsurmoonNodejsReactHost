@@ -24,16 +24,17 @@ stripeWebhookRouter.post('/webhook', express.raw({type: 'application/json'}), (r
   const sig = request.headers['stripe-signature'];
   console.log('sign +++++++++++++', sig);
 
-  let event;
+  let event = request.body;
+  console.log('event', event);
 
-  try {
-    event = stripe.webhooks.constructEvent(request.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
-    console.log('event ++++++++', event);
-  } catch (err) {
-    console.log('error in webhook +++++++++',err);
-    response.status(400).send(`Webhook Error: ${err.message}`);
-    return;
-  }
+  // try {
+  //   event = stripe.webhooks.constructEvent(request.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+  //   console.log('event ++++++++', event);
+  // } catch (err) {
+  //   console.log('error in webhook +++++++++',err);
+  //   response.status(400).send(`Webhook Error: ${err.message}`);
+  //   return;
+  // }
 
   // Handle the event
   switch (event.type) {
