@@ -15,7 +15,7 @@ const Dash = () => {
   const [err, setErr] = useState("");
   const [screen, setSceen] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   //list the project in the table
   async function getProject() {
@@ -83,13 +83,15 @@ const Dash = () => {
           win.location.href = link;
         }, 1000);
         getProject();
-      } else if (res.data.noSub) {
-        alert(res.data.message);
-        navigate("/pricing");
       } else {
-        console.log("req coming in else");
-        setErr(res.data.message);
-        console.log(res.data.message);
+        if (res.data.noSub) {
+          alert(res.data.message);
+          navigate("/pricing");
+        } else {
+          console.log("req coming in else");
+          setErr(res.data.message);
+          console.log(res.data.message);
+        }
       }
     } catch (error) {
       console.log(error);

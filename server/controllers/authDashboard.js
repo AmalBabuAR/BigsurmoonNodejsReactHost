@@ -50,7 +50,11 @@ export const postProjectName = async (req, res) => {
       } else {
         res
           .status(201)
-          .json({ noSub: true, message: "Please Chosse a Subscription Plan" });
+          .json({
+            status: false,
+            noSub: true,
+            message: "Please Chosse a Subscription Plan",
+          });
       }
     }
   } catch (error) {
