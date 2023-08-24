@@ -51,7 +51,7 @@ function texturePannel(editor) {
 				if (config.variant === "TextureVariant") {
 					if (!configNamesArray.includes(config.configname)) {
 						configNamesArray.push(config.configname);
-						
+
 						const variantDiv = new UIDiv();
 
 						const variantNameText = new UIText(config.configname)
@@ -64,6 +64,7 @@ function texturePannel(editor) {
 						);
 						deleteBTN.onClick(async () => {
 							const data = await deleteConfig(config.configname);
+							alert(data.message);
 						});
 						variantDiv
 							.add(variantNameText, deleteBTN)

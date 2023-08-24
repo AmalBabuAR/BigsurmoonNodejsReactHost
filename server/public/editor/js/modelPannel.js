@@ -65,7 +65,7 @@ function modelPannel(editor) {
 						);
 						deleteBTN.onClick(async () => {
 							const data = await deleteConfig(config.configname);
-							console.log(data);
+							alert(data.message);
 						});
 						variantDiv
 							.add(variantNameText, deleteBTN)
