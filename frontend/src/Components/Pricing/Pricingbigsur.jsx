@@ -67,10 +67,10 @@ const Pricingbigsur = () => {
             </h3>
           </div>
 
-          <div className="flex justify-center  items-center md:mt-[-200px] lg:mt-[-150px] md:min-h-screen ">
-            <div className="md:flex md:w-[660px] lg:w-[950px]    md:items-center md:justify-center mx-auto">
+          <div className="flex justify-cente items-center md:mt-[-200px] lg:mt-[-150px] md:min-h-screen ">
+            <div className="md:flex md:w-[660px] lg:w-[950px] md:items-center md:justify-center mx-auto">
               {" "}
-              <div className="w-screen  text-xl h-[300px] md:h-[300px] lg:h-[410px] lg:mt-[-35px]   mx-auto bg-[#040D42] md:rounded-xl ">
+              <div className="w-screen  text-xl h-[300px] md:h-[300px] lg:h-[410px] lg:mt-[-35px] mx-auto bg-[#040D42] md:rounded-l-xl ">
                 <h1 className=" text-center text-[20px] lg:text-[28px] lg:w-[250px] pt-5 lg:pt-10 font-outfit  pb-8 w-[190px] mx-auto">
                   How Many 3D files Do You Have?
                 </h1>

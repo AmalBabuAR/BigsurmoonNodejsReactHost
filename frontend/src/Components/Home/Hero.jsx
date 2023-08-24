@@ -77,7 +77,7 @@ const Hero = () => {
             <div className="max-w-[1440px] mx-auto font-outfit  p-2 bg-bl text-white">
               <div className="flex justify-center items-center w-full">
                 <video
-                  className="max-w-[90vw] lg:max-w-[80vw] border rounded-lg"
+                  className="max-w-[90vw] lg:max-w-[80vw] border-4 rounded-3xl"
                   src={vid}
                   controls
                 />

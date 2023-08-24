@@ -118,7 +118,7 @@ const AboutStudio = () => {
                 </h3>
               </div>
 
-              <img src={sofarotating} className=" xl:ml-16 mt-[-100px]" />
+              <img src={sofarotating} className="xl:ml-16 mt-[-100px]" />
             </div>
 
             <div className="xl:px-28 mt-[-50px]">
