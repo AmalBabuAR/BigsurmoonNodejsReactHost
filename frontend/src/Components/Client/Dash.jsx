@@ -6,6 +6,7 @@ import pcimg1 from "../../assets/backgrounds/client.png";
 //import pcimg2 from "../../assets/backgrounds/client2.png";
 import axiosInstance from "../../axios/axiosInterceptors/axiosInstance";
 import { URL } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const Dash = () => {
   const [list, setList] = useState([]);
@@ -13,6 +14,8 @@ const Dash = () => {
   const [projectName, setProjectName] = useState("");
   const [err, setErr] = useState("");
   const [screen, setSceen] = useState(false);
+
+  const navigate = useNavigate()
 
   //list the project in the table
   async function getProject() {
