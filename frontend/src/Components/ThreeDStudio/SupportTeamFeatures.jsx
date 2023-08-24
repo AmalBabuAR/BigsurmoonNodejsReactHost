@@ -88,7 +88,7 @@ const SupportTeamFeatures = () => {
             <div className="flex justify-center pl-12  ">
               <img
                 src={s2}
-                className="xl:w-[300px]   w-[170px] h-[150px] lg:h-full lg:w-full  xl:h-[338px]  "
+                className="xl:w-[350px] w-[170px] h-[150px] lg:h-full lg:w-full  xl:h-[338px]  "
               />
             </div>
           </div>

@@ -103,7 +103,7 @@ app.use("/generate_scene_view", generateSceneViewRouter);
 app.get("/editor", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
-app.get("/editor/ModelViewer", (req, res) => {
+app.get("/editor/ModelViewer/", (req, res) => {
   res.sendFile(__dirname + "/views/viewer.html");
 });
 

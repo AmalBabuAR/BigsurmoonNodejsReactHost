@@ -99,7 +99,7 @@ const AboutStudio = () => {
 
         <div className="flex items-center justify-center lg:min-h-screen ">
           <div className="max-w-[1440px]  mx-auto ">
-            <div className=" hidden xl:px-28 lg:grid lg:grid-cols-2 items-center justify-center  font-outfit font-medium  ">
+            <div className=" hidden xl:px-28 lg:grid lg:grid-cols-2 items-center justify-center  font-outfit font-medium  mt-[-50px]">
               <div className="flex flex-col justify-center text-left  content-center items-center   ">
                 <h3 className="text-4xl md:text-5xl lg:text-8xl   w-full mb-4">
                   3D Modelling
@@ -118,10 +118,10 @@ const AboutStudio = () => {
                 </h3>
               </div>
 
-              <img src={sofarotating} className="xl:ml-16 mt-[-100px]" />
+              <img src={sofarotating} className="xl:ml-16 mt-[-20px]" />
             </div>
 
-            <div className="xl:px-28 mt-[-50px]">
+            <div className="xl:px-28 mt-[-100px]">
               <button
                 onClick={() => navigate("/support")}
                 className="p-2 hidden bg-gradient-to-r from-blue-500  to-blue-400 text-center text-lg justify-center lg:flex  items-center rounded-full w-[238px] h-[65px] "

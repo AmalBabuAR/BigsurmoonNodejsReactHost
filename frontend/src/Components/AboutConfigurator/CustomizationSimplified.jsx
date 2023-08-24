@@ -116,7 +116,9 @@ const CustomizationSimplified = () => {
                 m.id === 3
                   ? "w-[110px] md:w-[80px] md:h-[82px]"
                   : "w-[140px] md:w-[100px] md:h-[74px]"
-              } mt-4 md:mt-8 h-[112px] mx-auto`}
+              } ${
+                m.id === 2 ? "w-[107px] md:w-[80px] md:h-[82px]" : ""
+              }  mt-4 md:mt-8 h-[112px] mx-auto`}
             />
             <h2 className="text-center font-bold mt-5 mb-3 text-[#07BDFF] text-lg">
               {m.title}
@@ -127,7 +129,7 @@ const CustomizationSimplified = () => {
           </div>
         ))}
       </div>
-      <div className="max-w-[1440px]  mx-auto hidden lg:block  ">
+      <div className="max-w-[1240px]  mx-auto hidden lg:block  ">
         <div className="text-white hidden md:flex md:gap-5 md:justify-around items-center mt-32 ">
           {confitems.map((m) => (
             <div
@@ -137,13 +139,15 @@ const CustomizationSimplified = () => {
               <img
                 src={m.img}
                 className={`${
-                  m.id === 1 ? "w-[148px] h-[150px]" : "w-[150px] h-[150px]"
+                  m.id === 1 ? "w-[180px] h-[150px]" : "w-[150px] h-[150px]"
+                } ${
+                  m.id === 3 ? "w-[145px] h-[150px]" : "w-[150px] h-[150px]"
                 } mt-10 pt-3 mx-auto`}
               />
               <h2 className="text-center mt-10 mb-3 text-[#07BDFF] text-2xl   ">
                 {m.title}
               </h2>
-              <h2 className="text-base text-center mb-5 w-[280px] mx-auto">
+              <h2 className="text-base  text-center mb-5 w-[280px] mx-auto">
                 {m.t}
               </h2>
             </div>

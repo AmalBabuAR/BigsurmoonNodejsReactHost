@@ -127,7 +127,7 @@
 			}
 
 			const idFromUrl = getQueryParam("id");
-			const urlToGenerateQRCodeFor = `https://bigsurmoon.com/editor/ModelViewer/${idFromUrl}`;
+			const urlToGenerateQRCodeFor = `https://bigsurmoon.com/editor/ModelViewer/?id=${idFromUrl}`;
 
 			var qrcode = new QRCode("qrcode", {
 				text: urlToGenerateQRCodeFor,

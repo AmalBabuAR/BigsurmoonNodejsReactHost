@@ -3,8 +3,10 @@ import { mainFeatures } from "../../assets/data/data";
 import box from "../../assets/Home/boximg.png";
 import lights from "../../assets/Home/lightsimg.png";
 import pc from "../../assets/Home/pcimg.png";
+import { useNavigate } from "react-router-dom";
 
 const MainFeatures = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-[#070911] w-auto ">
       <div className="bg-[#070911] max-w-[1440px] mx-auto p-4 text-white">
@@ -22,7 +24,9 @@ const MainFeatures = () => {
               </div>
               <div>
                 <h2 className="font-bold text-2xl  mt-10 mb-3">{m.title}</h2>
-                <h2 className="mb-3 font-normal text-[14px] text-left">{m.desc}</h2>
+                <h2 className="mb-3 font-normal text-[14px] text-left">
+                  {m.desc}
+                </h2>
                 <h2 className="text-base mb-20 text-[#57BEF8]">{m.move}</h2>
               </div>
             </div>
@@ -47,7 +51,10 @@ const MainFeatures = () => {
                 model the files and upload in platform with the best quality and
                 optimisation for much more loading experience and fluidity
               </h2>
-              <h2 className="text-2xl mb-20 text-[#57BEF8]">
+              <h2
+                onClick={() => navigate("/studio")}
+                className="text-2xl mb-20 cursor-pointer text-[#57BEF8]"
+              >
                 Visit the Studio {">"}
               </h2>
             </div>
@@ -64,7 +71,10 @@ const MainFeatures = () => {
                 furniture to architectural spaces. Experience the power of
                 personalization and bring your ideas to life with ease.
               </h2>
-              <h2 className="text-2xl mb-20 text-[#57BEF8]">
+              <h2
+                onClick={() => navigate("/aboutconfigurator")}
+                className="text-2xl mb-20 cursor-pointer text-[#57BEF8]"
+              >
                 Explore customisation {">"}
               </h2>
             </div>
@@ -113,7 +123,10 @@ const MainFeatures = () => {
                   model the files and upload in platform with the best quality
                   and optimisation for much more loading experience and fluidity
                 </h2>
-                <h2 className="text-[#57BEF8] text-[16px] lg:text-[24px] font-medium">
+                <h2
+                  onClick={() => navigate("/studio")}
+                  className="text-[#57BEF8] cursor-pointer text-[16px] lg:text-[24px] font-medium"
+                >
                   Visit the Studio {">"}
                 </h2>
               </div>
@@ -130,7 +143,10 @@ const MainFeatures = () => {
                 furniture to architectural spaces. Experience the power of
                 personalization and bring your ideas to life with ease.
               </h2>
-              <h2 className="text-[#57BEF8] text-[16px] lg:text-[24px] font-">
+              <h2
+                onClick={() => navigate("/aboutconfigurator")}
+                className="text-[#57BEF8] cursor-pointer text-[16px] lg:text-[24px] font-"
+              >
                 Explore customisation {">"}
               </h2>
             </div>

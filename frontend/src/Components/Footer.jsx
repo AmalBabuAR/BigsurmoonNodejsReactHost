@@ -39,7 +39,9 @@ const Footer = () => {
           </div>
           <div className="flex justify-between mt-4 px-3 opacity-70">
             <div className="opacity-70">
-              <h2 className="underline text-[10px] font-extralight underline-offset-4">(+91) 7995-925304</h2>
+              <h2 className="underline text-[10px] font-extralight underline-offset-4">
+                (+91) 7995-925304
+              </h2>
             </div>
             <div className="flex gap-4">
               <span>
@@ -57,7 +59,9 @@ const Footer = () => {
             </div>
           </div>
           <div className="mt-3 opacity-70 px-3">
-            <h3 className="text-[10px] opacity-70 font-extralight underline underline-offset-4">support@bigsurmoon.com</h3>
+            <h3 className="text-[10px] opacity-70 font-extralight underline underline-offset-4">
+              support@bigsurmoon.com
+            </h3>
           </div>
           <div>
             <h3 className=" flex justify-center mt-5 opacity-70 text-[9px] font-extralight">
@@ -78,9 +82,12 @@ const Footer = () => {
           <div className="flex w-[680px] mx-auto  justify-between">
             <div className="opacity-70">
               <h3>
-                12/514 Peringala <br />
-                Ernakulam, India <br />
-                Pin - 683565
+                47/785 D1,
+                <br />
+                F Tower, East Ponnurunni,
+                <br />
+                Vyttila, Kochi, Kerala <br />
+                Pin - 682028
               </h3>
             </div>
             <div className="opacity-70">
@@ -117,9 +124,11 @@ const Footer = () => {
               </div>
               <div className="opacity-90">
                 <h3>
-                  12/514 Peringala <br />
-                  Ernakulam, India <br />
-                  Pin - 683565
+                  47/785 D1,F Tower,
+                  <br />
+                  East Ponnurunni, <br />
+                  Vyttila, Kochi, Kerala <br />
+                  Pin - 682028
                 </h3>
               </div>
               <div className="opacity-70">
@@ -139,7 +148,7 @@ const Footer = () => {
                 <img src={arrowup} className="w-10" />
               </div>
             </div>
-            <div className="flex flex-col justify-between w-[500px] items- mx-auto mt-5">
+            <div className="flex flex-col justify-between w-[520px] items- mx-auto mt-5">
               <h2 className="underline underline-offset-8 opacity-90">
                 (+91) 7995-925304
               </h2>
@@ -148,7 +157,7 @@ const Footer = () => {
               </h3>
             </div>
             <div className="mt-[-19px] opacity-70 flex justify-center g"></div>{" "}
-            <h3 className="text-center text-sm pl-[345px] opacity-70">
+            <h3 className="text-center text-sm pl-[365px] opacity-70">
               © 2023 Bigsurmoon pvt ltd. all rights reserved.
             </h3>
           </div>

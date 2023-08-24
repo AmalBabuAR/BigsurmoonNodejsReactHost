@@ -29,7 +29,7 @@ const Asidebar = () => {
                   <span className="ml-3">Dashboard</span>
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#"
                   className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -151,7 +151,7 @@ const Asidebar = () => {
                   </svg>
                   <span className="flex-1 ml-3 whitespace-nowrap">Log out</span>
                 </a>
-              </li>
+              </li> */}
             </div>
           </ul>
         </div>
