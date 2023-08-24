@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import phone from "../../assets/pricing/BG 1.png";
 import lap from "../../assets/pricing/Lighting and Shading - Pricing 1.png";
 import axiosInstance from "../../axios/axiosInterceptors/axiosInstance.js";
@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Pricingbigsur = () => {
   const [sliderValue, setSliderValue] = useState(10);
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(19.8);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,7 +24,7 @@ const Pricingbigsur = () => {
     } else {
       try {
         if (price !== 0) {
-          console.log(price,sliderValue);
+          console.log(price, sliderValue);
           const res = await axiosInstance.post(
             "/stripe/create-checkout-session",
             { price, sliderValue }
@@ -40,6 +40,7 @@ const Pricingbigsur = () => {
       }
     }
   };
+
 
   return (
     <>

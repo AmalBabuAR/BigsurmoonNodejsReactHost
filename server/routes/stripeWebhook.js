@@ -107,4 +107,17 @@ stripeWebhookRouter.post(
   }
 );
 
+stripeWebhookRouter.post("/cancelStripe", async (req, res) => {
+  console.log("res coming");
+  try {
+    const subscription = await stripe.subscriptions.del(
+      "sub_1NiGf7SDf73R9RBm9dVeSdkY"
+    );
+    console.log(subscription);
+    res.json({ success: true, sub: subscription });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export default stripeWebhookRouter;

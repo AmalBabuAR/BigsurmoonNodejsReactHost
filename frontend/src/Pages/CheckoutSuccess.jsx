@@ -19,7 +19,7 @@ const CheckoutSuccess = () => {
         />
         <div>
           <div className="flex justify-center mt-[-150px] items-center border md:mt-[-200px] lg:mt-[1px] md:min-h-screen  ">
-            <div className="w-[50vw] mx-auto mt-10 h-[50vh] bg-[#ffffff] rounded-2xl ">
+            <div className="w-[50vw] mx-auto mt-10 h-[50vh] bg-[#ffffff] shadow-2xl rounded-2xl ">
               <div className="flex justify-center flex-col items-center my-auto h-[40vh]">
                 <svg
                   width="80"
