@@ -26,35 +26,46 @@ stripeRouter.post("/create-checkout-session", async (req, res) => {
   try {
     if (user) {
       const checkUser = await PaymentData.findOne({ user_id: user });
-      console.log('checkUser',checkUser);
-    } else {
-      const session = await stripe.checkout.sessions.create({
-        mode: "subscription",
-        line_items: [
-          {
-            quantity: sliderValue,
-            price: priceId2,
+      console.log("checkUser", checkUser);
+      if (checkUser) {
+        res.json({
+          success: false,
+          message: `You have Already Subscribed for ${checkUser.selectedQuantity} @ $${checkUser.Price}`,
+        });
+      } else {
+        const session = await stripe.checkout.sessions.create({
+          mode: "subscription",
+          line_items: [
+            {
+              quantity: sliderValue,
+              price: priceId2,
+            },
+          ],
+          subscription_data: {
+            trial_period_days: 7,
           },
-        ],
-        subscription_data: {
-          trial_period_days: 7,
-        },
-        metadata: {
-          user: user,
-          quantity: sliderValue,
-          price: price,
-        },
-        // {CHECKOUT_SESSION_ID} is a string literal; do not change it!
-        // the actual Session ID is returned in the query parameter when your customer
-        // is redirected to the success page.
+          metadata: {
+            user: user,
+            quantity: sliderValue,
+            price: price,
+          },
+          // {CHECKOUT_SESSION_ID} is a string literal; do not change it!
+          // the actual Session ID is returned in the query parameter when your customer
+          // is redirected to the success page.
 
-        success_url: `${process.env.CLIENT_URL}/checkoutSuccess`,
-        cancel_url: `${process.env.CLIENT_URL}/checkoutFailed`,
+          success_url: `${process.env.CLIENT_URL}/checkoutSuccess`,
+          cancel_url: `${process.env.CLIENT_URL}/checkoutFailed`,
+        });
+        console.log("session---------------", session);
+        console.log("respons--------------", res);
+
+        res.json({ success: true, url: session.url });
+      }
+    } else {
+      res.json({
+        success: false,
+        message: `Please Login`,
       });
-      console.log("session---------------", session);
-      console.log("respons--------------", res);
-
-      res.json({ url: session.url });
     }
   } catch (error) {
     console.log(error);

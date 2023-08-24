@@ -30,9 +30,11 @@ const Pricingbigsur = () => {
             { price, sliderValue }
           );
           console.log(res);
-          if (res.data) {
+          if (res.data.success) {
             console.log("res in if cond of post stripe");
             window.location.href = res.data.url;
+          }else{
+            alert(res.data.message)
           }
         }
       } catch (error) {
