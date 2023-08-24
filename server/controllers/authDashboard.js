@@ -1,5 +1,6 @@
 import pool from "../database/postgresqlConnection.js";
 import ProjectDetails from "../models/projectDetailsModel.js";
+import PaymentData from "../models/paymentModel.js";
 
 export const postProjectName = async (req, res) => {
   try {
@@ -7,33 +8,50 @@ export const postProjectName = async (req, res) => {
     console.log(req.body);
     const { nameValue } = req.body;
     const existingProjects = await ProjectDetails.find({ user });
-
-    if (existingProjects.length > 0) {
-      const existingNames = new Set(
-        existingProjects.map((project) => project.name)
-      );
-      if (existingNames.has(`${nameValue}`)) {
+    if (existingProjects) {
+      const check = await PaymentData.find({ user_id: user });
+      if (check.length > 0) {
+        const quantity = parseInt(check[0]?.selectedQuantity);
+        const eligible = quantity < existingProjects.length + 1;
+        if (eligible) {
+          res
+            .status(201)
+            .json({ status: false, message: "Upgrade Your Subscription Plan" });
+        } else {
+          if (existingProjects.length > 0) {
+            const existingNames = new Set(
+              existingProjects.map((project) => project.name)
+            );
+            if (existingNames.has(`${nameValue}`)) {
+              console.log(existingNames);
+              res
+                .status(201)
+                .json({ status: false, message: "Project Name already Exist" });
+              console.log("name is already exist");
+            } else {
+              const data = {
+                user,
+                name: nameValue,
+              };
+              const newProject = new ProjectDetails(data);
+              await newProject.save();
+              res.status(201).json({ newProject, status: true });
+            }
+          } else {
+            const data = {
+              user,
+              name: nameValue,
+            };
+            const newProject = new ProjectDetails(data);
+            await newProject.save();
+            res.status(201).json({ newProject, status: true });
+          }
+        }
+      } else {
         res
           .status(201)
-          .json({ status: false, message: "Project Name already Exist" });
-        console.log("name is already exist");
-      } else {
-        const data = {
-          user,
-          name: nameValue,
-        };
-        const newProject = new ProjectDetails(data);
-        await newProject.save();
-        res.status(201).json({ newProject, status: true });
+          .json({ noSub: true, message: "Please Chosse a Subscription Plan" });
       }
-    } else {
-      const data = {
-        user,
-        name: nameValue,
-      };
-      const newProject = new ProjectDetails(data);
-      await newProject.save();
-      res.status(201).json({ newProject, status: true });
     }
   } catch (error) {
     console.error(error);

@@ -26,10 +26,10 @@ const Dash = () => {
         setList(0);
       }
       if (res.data.data.length > 10) {
-        console.log('coming');
+        console.log("coming");
         setSceen(true);
-      }else{
-        setSceen(false)
+      } else {
+        setSceen(false);
       }
     } catch (error) {
       console.log(error);
@@ -78,8 +78,11 @@ const Dash = () => {
         const link = `${URL}/editor/?id=${id}&new=${newFile}`;
         setTimeout(() => {
           win.location.href = link;
-        }, 2000);
+        }, 1000);
         getProject();
+      } else if (res.data.noSub) {
+        alert(res.data.message);
+        navigate("/pricing");
       } else {
         console.log("req coming in else");
         setErr(res.data.message);
@@ -238,7 +241,7 @@ const Dash = () => {
 
           <div className="">
             <h1 className="text-gray-500 mt-8 mb-3">Projects</h1>
-            <div className={`${screen ? "h-full" :  "h-screen"}`}>
+            <div className={`${screen ? "h-full" : "h-screen"}`}>
               <div></div>
               <div className="border text-white border-gray-500 rounded-lg mx-auto h-full">
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">

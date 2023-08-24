@@ -30,7 +30,7 @@ stripeRouter.post("/create-checkout-session", async (req, res) => {
       if (checkUser) {
         res.json({
           success: false,
-          message: `You have Already Subscribed for ${checkUser.selectedQuantity} @ $${checkUser.Price}`,
+          message: `You have Already Subscribed for ${checkUser.selectedQuantity} Files @ $${checkUser.Price}`,
         });
       } else {
         const session = await stripe.checkout.sessions.create({
