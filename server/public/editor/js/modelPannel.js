@@ -64,12 +64,22 @@ function modelPannel(editor) {
 							"deleteVariantBtn"
 						);
 						deleteBTN.onClick(async () => {
-							const data = await deleteConfig(config.configname);
-							alert(data.message);
+							alert("are you sure you want to delete");
+							const deleteData = await deleteConfig(config.configname);
+							if (deleteData.success) {
+								alert(deleteData.message);
+								const variantDivToRemove = document.getElementById(
+									`${config.configname}`
+								);
+								if (variantDivToRemove) {
+									variantDivToRemove.remove();
+								}
+							}
 						});
 						variantDiv
 							.add(variantNameText, deleteBTN)
-							.setClass("modelVariantDiv");
+							.setClass("modelVariantDiv")
+							.setId(config.configname);
 						variantRow.add(variantDiv).setId("modelVariantListRow");
 						container.add(variantRow);
 					}
