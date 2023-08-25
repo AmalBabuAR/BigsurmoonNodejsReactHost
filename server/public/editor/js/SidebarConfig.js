@@ -20,6 +20,8 @@ function SidebarConfig(editor) {
     container.addTab( 'configurations', strings.getKey( 'sidebar/configurations' ), configurations );
 	container.addTab( 'preview', strings.getKey( 'sidebar/preview' ), preview );
 
+	container.select( 'configurations' );
+
 	return container;
 }
 

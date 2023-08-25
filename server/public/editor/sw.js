@@ -244,7 +244,6 @@ self.addEventListener("install", async function () {
 
 self.addEventListener("fetch", async function (event) {
 	const request = event.request;
-	console.log('sw request',request);
 
 	if (request.url.startsWith("chrome-extension")) return;
 
@@ -258,7 +257,7 @@ self.addEventListener("activate", (event) => {
 //BSM - Adding to handle message event
 
 self.addEventListener("message", async function (event) {
-	console.log("event.data", event);
+
 	const URL_COM = "https://bigsurmoon.com";
 	if (event.data) {
 		console.log("Service Worker Received Message", event.data.type);
@@ -305,7 +304,7 @@ self.addEventListener("message", async function (event) {
 async function networkFirst(request) {
 	try {
 		let response = await fetch(request);
-		console.log('sw',response);
+		
 
 		if (
 			request.url.endsWith("editor/") ||
