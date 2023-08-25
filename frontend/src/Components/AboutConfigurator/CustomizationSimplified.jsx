@@ -115,9 +115,9 @@ const CustomizationSimplified = () => {
               className={`${
                 m.id === 3
                   ? "w-[110px] md:w-[80px] md:h-[82px]"
-                  : "w-[140px] md:w-[100px] md:h-[74px]"
+                  : "w-[145px] h-[105px] md:w-[100px] md:h-[74px]"
               } ${
-                m.id === 2 ? "w-[107px] md:w-[80px] md:h-[82px]" : ""
+                m.id === 2 ? "w-[120px] h-[130px] md:w-[80px] md:h-[82px]" : ""
               }  mt-4 md:mt-8 h-[112px] mx-auto`}
             />
             <h2 className="text-center font-bold mt-5 mb-3 text-[#07BDFF] text-lg">
@@ -139,15 +139,15 @@ const CustomizationSimplified = () => {
               <img
                 src={m.img}
                 className={`${
-                  m.id === 1 ? "w-[180px] h-[150px]" : "w-[150px] h-[150px]"
+                  m.id === 1 ? "w-[150px] h-[130px] mb-6" : "w-[150px] h-[150px]"
                 } ${
                   m.id === 3 ? "w-[145px] h-[150px]" : "w-[150px] h-[150px]"
                 } mt-10 pt-3 mx-auto`}
               />
-              <h2 className="text-center mt-10 mb-3 text-[#07BDFF] text-2xl   ">
+              <h2 className="text-center mt-10 mb-3 font-medium text-[#07BDFF] text-2xl   ">
                 {m.title}
               </h2>
-              <h2 className="text-base  text-center mb-5 w-[280px] mx-auto">
+              <h2 className="text-base text-center mb-5 w-[280px] mx-auto">
                 {m.t}
               </h2>
             </div>

@@ -22,7 +22,8 @@ function Preview(editor){
         const url = `https://bigsurmoon.com/editor/ModelViewer/?id=${idFromUrl}`;
         
         // Redirect to the new URL
-        window.location.href = url
+        // window.location.href = url
+        window.open(url, "_blank")
     })
 
     // div.add(button)

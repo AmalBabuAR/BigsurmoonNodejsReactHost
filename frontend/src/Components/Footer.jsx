@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/Logos/logo.gif";
 import arrowup from "../assets/Arrows/Arrowup.svg";
+import { useNavigate } from "react-router-dom";
 import {
   SlSocialFacebook,
   SlSocialInstagram,
@@ -8,15 +9,24 @@ import {
   SlSocialTwitter,
 } from "react-icons/sl";
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    console.log("upbutton");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <div className="bg-[#0A142F]">
         <div className="bg-[#0A142F] max-w-[1440px] mx-auto font-roboto p-4 text-white text-sm md:hidden ">
           <div className="flex justify-between px-3 mb-5">
-            <div>
-              <img src={logo} alt="logo" className="w-35 h-7" />
+            <div onClick={() => navigate("/")}>
+              <img src={logo} alt="logo" className="w-35 h-7 cursor-pointer" />
             </div>
-            <div>
+            <div onClick={handleClick}>
               <img src={arrowup} className="w-8" />
             </div>
           </div>
@@ -72,10 +82,10 @@ const Footer = () => {
 
         <div className="bg-[#0A142F] max-w-[1440px] mx-auto font-roboto p-4 text-white hidden md:block text-sm lg:hidden ">
           <div className="flex w-[700px] justify-between mx-auto  px-3 mb-8">
-            <div>
-              <img src={logo} alt="logo" className="w-40 " />
+            <div onClick={() => navigate("/")}>
+              <img src={logo} alt="logo" className="w-40 cursor-pointer" />
             </div>
-            <div>
+            <div onClick={handleClick}>
               <img src={arrowup} className="w-8" />
             </div>
           </div>
@@ -119,8 +129,8 @@ const Footer = () => {
         <div className="bg-[#0A142F] max-w-[1440px] mx-auto font-sans p-4 text-white hidden lg:block ">
           <div className="p-20">
             <div className="  flex justify-between">
-              <div>
-                <img src={logo} alt="logo" className="w-52" />
+              <div onClick={() => navigate("/")}>
+                <img src={logo} alt="logo" className="w-52 cursor-pointer" />
               </div>
               <div className="opacity-90">
                 <h3>
@@ -144,7 +154,7 @@ const Footer = () => {
                 <h3 className="mb-1">Instagram</h3>
                 <h3 className="mb-1">Youtube</h3>
               </div>
-              <div className="w-16">
+              <div onClick={handleClick} className="w-16 cursor-pointer">
                 <img src={arrowup} className="w-10" />
               </div>
             </div>
