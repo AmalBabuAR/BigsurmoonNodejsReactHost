@@ -89,7 +89,7 @@ function modelPannel(editor) {
 	});
 
 	signals.objectSelected.add(function (object) {
-		if (object !== null && object.type !== "Group") {
+		if (object !== null && object.type !== "Scene") {
 			console.log("checking the object in event", object);
 
 			container.setDisplay("block");
