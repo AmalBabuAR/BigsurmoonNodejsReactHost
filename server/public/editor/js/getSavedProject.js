@@ -27,6 +27,7 @@ async function getExistingProjectFromId(editor, id) {
 			signals.textureVariantResponse.dispatch(existingProject);
 			signals.stopTheLoader.dispatch(existingProject);
 		} else {
+      const existingProject = true;
 			signals.callExistingProject.dispatch(res.data);
 			signals.modelVariantResponse.dispatch(existingProject);
 			signals.textureVariantResponse.dispatch(existingProject);
