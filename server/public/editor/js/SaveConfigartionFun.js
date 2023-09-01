@@ -58,6 +58,55 @@ function saveConfig(defaultName, editor, variantName) {
 	});
 }
 
+function updateConfig(variantName, defaultName, editor) {
+	console.log(variantName, defaultName, editor);
+	return new Promise((resolve, reject) => {
+		const idFromUrl = getQueryParam("id");
+		const sceneJson = editor.toJSON();
+		console.log("sceneJson", sceneJson);
+		const materialData = sceneJson.scene.materials;
+		const textureData = sceneJson.scene.textures;
+		const imageData = sceneJson.scene.images;
+		const objectData = sceneJson.scene.object;
+
+		// Get the project id and the config name
+		const searchQuery = {
+			variant: variantName,
+			configname: defaultName,
+			projectId: idFromUrl,
+		};
+		const updateQuery = {
+			object: {
+				materials: materialData,
+				textures: textureData,
+				images: imageData,
+				object: objectData,
+			},
+		};
+		const reqdata = {
+			searchQuery,
+			updateQuery,
+		};
+		// Then send the data to the server with specifying the  type
+		fetch(`https://bigsurmoon.com/update_variation`, {
+			method: "POST",
+			body: JSON.stringify(reqdata),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				resolve(data);
+			})
+			.catch((error) => {
+				console.error("Error:", error, "**", error.message);
+				reject(error);
+			});
+	});
+}
+
 // async function saveConfig(defaultName, editor, variantName) {
 // 	try {
 // 	  const idFromUrl = getQueryParam("id");
@@ -160,11 +209,21 @@ function getConfig(data, editor) {
 	});
 }
 
-function deleteConfig(configName) {
+function deleteConfig(variantName, configName) {
 	console.log(configName);
 	return new Promise((resolve, reject) => {
-		fetch(`https://bigsurmoon.com/deleteConfig/${configName}`, {
+		const idFromUrl = getQueryParam("id");
+		const deleteData = {
+			variantName,
+			configName,
+			idFromUrl,
+		};
+		fetch(`https://bigsurmoon.com/deleteConfig`, {
 			method: "DELETE",
+			body: JSON.stringify(deleteData),
+			headers: {
+				"Content-Type": "application/json",
+			},
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -178,4 +237,29 @@ function deleteConfig(configName) {
 	});
 }
 
-export { saveConfig, getConfig, deleteConfig };
+function getVareint(configName) {
+	const id = getQueryParam("id");
+	console.log(id, configName);
+
+	return new Promise((resolve, reject) => {
+		fetch(
+			`https://bigsurmoon.com/getVareint/?id=${encodeURIComponent(
+				id
+			)}&config=${encodeURIComponent(configName)}`,
+			{
+				method: "GET",
+			}
+		)
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				resolve(data);
+			})
+			.catch((error) => {
+				console.error("Error:", error);
+				reject(error);
+			});
+	});
+}
+
+export { saveConfig, getConfig, deleteConfig, getVareint, updateConfig };

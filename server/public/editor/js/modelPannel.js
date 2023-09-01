@@ -1,4 +1,9 @@
-import { deleteConfig, getConfig } from "./SaveConfigartionFun.js";
+import {
+	deleteConfig,
+	getConfig,
+	getVareint,
+	updateConfig,
+} from "./SaveConfigartionFun.js";
 import {
 	UIBoxType,
 	UIButton,
@@ -8,6 +13,7 @@ import {
 	UIPanel,
 	UIRow,
 	UIText,
+	UITextWithCursor,
 } from "./libs/ui.js";
 
 function modelPannel(editor) {
@@ -55,17 +61,54 @@ function modelPannel(editor) {
 
 						const variantDiv = new UIDiv();
 
-						const variantNameText = new UIText(config.configname)
+						const variantNameText = new UITextWithCursor(config.configname)
 							.setWidth("150px")
 							.setFontSize("12px")
 							.setId("variantNameText")
 							.setClass("vareintList");
+
+						variantNameText.onClick(async () => {
+							alert(`clicked the varient ${config.configname}`);
+							let call = true;
+							signals.callTheLoader.dispatch(call);
+							const getVareintData = await getVareint(config.configname);
+							if (getVareintData.success) {
+								signals.callExistingProject.dispatch(getVareintData.data);
+							}
+						});
+
+						const save = new UIButton("Save Variant").setId("reSave");
+						save.onClick(async () => {
+							try {
+								let call = true;
+								signals.callTheLoader.dispatch(call);
+								const res = await updateConfig(
+									config.variant,
+									config.configname,
+									editor
+								);
+								console.log(res);
+								if (res.success) {
+									signals.stopTheLoader.dispatch(res.success);
+									alert(res.message);
+								} else {
+									signals.stopTheLoader.dispatch(!res.success);
+									alert(res.message);
+								}
+							} catch (error) {
+								console.log(error);
+							}
+						});
+
 						const deleteBTN = new UIButton("Delete Variant").setId(
 							"deleteVariantBtn"
 						);
 						deleteBTN.onClick(async () => {
-							alert("are you sure you want to delete");
-							const deleteData = await deleteConfig(config.configname);
+							confirm("are you sure you want to delete");
+							const deleteData = await deleteConfig(
+								config.variant,
+								config.configname
+							);
 							if (deleteData.success) {
 								alert(deleteData.message);
 								const variantDivToRemove = document.getElementById(

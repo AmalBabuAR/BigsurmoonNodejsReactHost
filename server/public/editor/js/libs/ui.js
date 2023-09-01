@@ -283,6 +283,32 @@ class UIPanel extends UIDiv {
 	}
 }
 
+//BSM Created UITEXT with cursor pointer
+
+class UITextWithCursor extends UISpan {
+	constructor(text) {
+		super();
+
+		this.dom.className = "Text";
+		this.dom.style.cursor = "pointer";
+		this.dom.style.display = "inline-block";
+
+		this.setValue(text);
+	}
+
+	getValue() {
+		return this.dom.textContent;
+	}
+
+	setValue(value) {
+		if (value !== undefined) {
+			this.dom.textContent = value;
+		}
+
+		return this;
+	}
+}
+
 class UIText extends UISpan {
 	constructor(text) {
 		super();
@@ -1099,6 +1125,7 @@ export {
 	UIRow,
 	UIPanel,
 	UIText,
+	UITextWithCursor,
 	UIInput,
 	UITextArea,
 	UISelect,

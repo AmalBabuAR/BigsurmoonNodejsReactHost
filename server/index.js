@@ -22,6 +22,8 @@ import getConfigNamesRouter from "./routes/getVariation.js";
 import deleteConfigNamesRouter from "./routes/deleteVariation.js";
 import generateSceneViewRouter from "./routes/generateSceneViewRouter.js";
 import stripeWebhookRouter from "./routes/stripeWebhook.js";
+import getVareintRouter from "./routes/getVareintRouter.js";
+import updateVariationRouter from "./routes/updateVariationRouter.js";
 
 //rest object
 const app = express();
@@ -92,8 +94,10 @@ app.use("/delete", deleteRouter);
 app.use("/update_sceneobject", updateSceneObjectRouter);
 app.use("/generate_scene", generateSceneRouter);
 app.use("/save_variation", saveVariationRouter);
+app.use("/update_variation", updateVariationRouter);
 app.use("/getConfigNames", getConfigNamesRouter);
 app.use("/deleteConfig", deleteConfigNamesRouter);
+app.use("/getVareint", getVareintRouter);
 app.use("/generate_scene_view", generateSceneViewRouter);
 
 // Handle CORS preflight requests (OPTIONS) for all routes
@@ -108,9 +112,7 @@ app.get("/editor/ModelViewer/", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(
-    path.resolve(__dirname, "..", "frontend", "dist", "index.html")
-  );
+  res.sendFile(path.resolve(__dirname, "..", "frontend", "dist", "index.html"));
 });
 
 //PORT

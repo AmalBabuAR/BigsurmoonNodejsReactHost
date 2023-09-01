@@ -346,7 +346,7 @@ select {
 	border-width: 4px;  /* BSM added border-widthe */
 	border-style: solid;  /* BSM added border-style */
 	border-radius: 0.75rem;   /* BSM added border-radius*/
-	width: 539px;   /* BSM changed width 100 to 75% */
+	width: 100px;   /* BSM changed width 100 to 75% */
 	height: 32px;
 	background: #eee;
 	padding: 0;
