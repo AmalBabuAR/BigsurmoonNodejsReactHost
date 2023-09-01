@@ -72,6 +72,7 @@ function modelPannel(editor) {
 							let call = true;
 							signals.callTheLoader.dispatch(call);
 							const getVareintData = await getVareint(config.configname);
+							console.log(getVareintData);
 							if (getVareintData.success) {
 								signals.callExistingProject.dispatch(getVareintData.data);
 							}
