@@ -120,7 +120,7 @@ function modelPannel(editor) {
 							}
 						});
 						variantDiv
-							.add(variantNameText, deleteBTN)
+							.add(variantNameText, save, deleteBTN)
 							.setClass("modelVariantDiv")
 							.setId(config.configname);
 						variantRow.add(variantDiv).setId("modelVariantListRow");
