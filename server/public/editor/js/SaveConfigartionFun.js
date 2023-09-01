@@ -250,10 +250,7 @@ function getVareint(configName) {
 				method: "GET",
 			}
 		)
-			.then((response) => {
-				console.log(response.json());
-				response.json();
-			})
+			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
 				resolve(data);
