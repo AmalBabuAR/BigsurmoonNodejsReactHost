@@ -93,7 +93,8 @@ function SidebarGeometry( editor ) {
 	geometryTypeRow.add( new UIText( strings.getKey( 'sidebar/geometry/type' ) ).setWidth( '90px' ) );
 	geometryTypeRow.add( geometryType );
 
-	container.add( geometryTypeRow );
+	//BSM-dev removed the type
+	// container.add( geometryTypeRow );
 
 	// uuid
 
@@ -111,7 +112,8 @@ function SidebarGeometry( editor ) {
 	geometryUUIDRow.add( geometryUUID );
 	geometryUUIDRow.add( geometryUUIDRenew );
 
-	container.add( geometryUUIDRow );
+	//BSM-dev removed the uuid
+	// container.add( geometryUUIDRow );
 
 	// name
 
@@ -125,7 +127,8 @@ function SidebarGeometry( editor ) {
 	geometryNameRow.add( new UIText( strings.getKey( 'sidebar/geometry/name' ) ).setWidth( '90px' ) );
 	geometryNameRow.add( geometryName );
 
-	container.add( geometryNameRow );
+	//BSM-dev removed the name
+	// container.add( geometryNameRow );
 
 	// parameters
 

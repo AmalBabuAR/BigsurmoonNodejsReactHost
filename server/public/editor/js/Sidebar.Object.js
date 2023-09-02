@@ -72,7 +72,8 @@ function SidebarObject( editor ) {
 	objectTypeRow.add( new UIText( strings.getKey( 'sidebar/object/type' ) ).setWidth( '90px' ) );
 	objectTypeRow.add( objectType );
 
-	container.add( objectTypeRow );
+	//BSM-dev removed the type
+	// container.add( objectTypeRow );
 
 	// uuid
 
@@ -90,7 +91,8 @@ function SidebarObject( editor ) {
 	objectUUIDRow.add( objectUUID );
 	objectUUIDRow.add( objectUUIDRenew );
 
-	container.add( objectUUIDRow );
+	//BSM-dev removed the uuid
+	// container.add( objectUUIDRow );
 
 	// name
 
@@ -104,7 +106,8 @@ function SidebarObject( editor ) {
 	objectNameRow.add( new UIText( strings.getKey( 'sidebar/object/name' ) ).setWidth( '90px' ) );
 	objectNameRow.add( objectName );
 
-	container.add( objectNameRow );
+	//BSM-dev removed the name
+	// container.add( objectNameRow );
 
 	// position
 
@@ -347,7 +350,8 @@ function SidebarObject( editor ) {
 	objectFrustumCulledRow.add( new UIText( strings.getKey( 'sidebar/object/frustumcull' ) ).setWidth( '90px' ) );
 	objectFrustumCulledRow.add( objectFrustumCulled );
 
-	container.add( objectFrustumCulledRow );
+	//BSM-dev removed the frustumCulled
+	// container.add( objectFrustumCulledRow );
 
 	// renderOrder
 
@@ -357,7 +361,8 @@ function SidebarObject( editor ) {
 	objectRenderOrderRow.add( new UIText( strings.getKey( 'sidebar/object/renderorder' ) ).setWidth( '90px' ) );
 	objectRenderOrderRow.add( objectRenderOrder );
 
-	container.add( objectRenderOrderRow );
+	//BSM-dev removed the renderOrder
+	// container.add( objectRenderOrderRow );
 
 	// user data
 
@@ -384,7 +389,8 @@ function SidebarObject( editor ) {
 	objectUserDataRow.add( new UIText( strings.getKey( 'sidebar/object/userdata' ) ).setWidth( '90px' ) );
 	objectUserDataRow.add( objectUserData );
 
-	container.add( objectUserDataRow );
+	//BSM-dev removed the user data
+	// container.add( objectUserDataRow );
 
 
 	//

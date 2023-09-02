@@ -47,7 +47,8 @@ function SidebarMaterial( editor ) {
 	materialClassRow.add( new UIText( strings.getKey( 'sidebar/material/type' ) ).setWidth( '90px' ) );
 	materialClassRow.add( materialClass );
 
-	container.add( materialClassRow );
+	//BSM-dev removed the type
+	// container.add( materialClassRow );
 
 	// uuid
 
@@ -65,7 +66,8 @@ function SidebarMaterial( editor ) {
 	materialUUIDRow.add( materialUUID );
 	materialUUIDRow.add( materialUUIDRenew );
 
-	container.add( materialUUIDRow );
+	//BSM-dev removed the uuid
+	// container.add( materialUUIDRow );
 
 	// name
 
@@ -79,7 +81,8 @@ function SidebarMaterial( editor ) {
 	materialNameRow.add( new UIText( strings.getKey( 'sidebar/material/name' ) ).setWidth( '90px' ) );
 	materialNameRow.add( materialName );
 
-	container.add( materialNameRow );
+	//BSM-dev removed the name
+	// container.add( materialNameRow );
 
 	// program
 
@@ -401,7 +404,8 @@ function SidebarMaterial( editor ) {
 	materialUserDataRow.add( new UIText( strings.getKey( 'sidebar/material/userdata' ) ).setWidth( '90px' ) );
 	materialUserDataRow.add( materialUserData );
 
-	container.add( materialUserDataRow );
+	//BSM-dev removed the userData
+	// container.add( materialUserDataRow );
 
 	//
 

@@ -13,14 +13,17 @@ function SidebarScript( editor ) {
 	const container = new UIPanel();
 	container.setDisplay( 'none' );
 
-	container.add( new UIText( strings.getKey( 'sidebar/script' ) ).setTextTransform( 'uppercase' ) );
+	// BSM-dev removed script
+	// container.add( new UIText( strings.getKey( 'sidebar/script' ) ).setTextTransform( 'uppercase' ) );
 	container.add( new UIBreak() );
 	container.add( new UIBreak() );
 
 	//
 
 	const scriptsContainer = new UIRow();
-	container.add( scriptsContainer );
+
+	// BSM-dev removed script
+	// container.add( scriptsContainer );
 
 	const newScript = new UIButton( strings.getKey( 'sidebar/script/new' ) );
 	newScript.onClick( function () {
@@ -29,7 +32,9 @@ function SidebarScript( editor ) {
 		editor.execute( new AddScriptCommand( editor, editor.selected, script ) );
 
 	} );
-	container.add( newScript );
+
+	// BSM-dev removed script
+	// container.add( newScript );
 
 	/*
 	let loadScript = new UI.Button( 'Load' );
