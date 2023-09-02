@@ -164,6 +164,7 @@ model-viewer {
   margin: 0;
   padding-left: 5px;
 }
+
 @media (max-width: 1441px) {
   #qrcode-container {
     right: 15%;
@@ -202,11 +203,26 @@ model-viewer {
     display: none;
   }
 
+  #fieldGroupSecond {
+    padding: 7px;
+    border-radius: 10px;
+    gap: 6px;
+  }
+
+  .Text {
+    font-size: 9px;
+    font-weight: 300;
+    margin: 0;
+    padding-left: 5px;
+  }
+
   #type-selector {
-    width:130px ;
+    font-size: 11px;
+    width: 120px;
   }
   #object-selector {
-    width:130px ;
+    font-size: 11px;
+    width: 120px;
   }
 }
 

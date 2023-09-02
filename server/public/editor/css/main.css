@@ -1,66 +1,69 @@
 :root {
 	color-scheme: light dark;
-}
-
-body {
+  }
+  
+  body {
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	margin: 0;
 	overflow: hidden;
-}
-
-hr {
+  }
+  
+  hr {
 	border: 0;
 	border-top: 1px solid #ccc;
-}
-
-button {
+  }
+  
+  button {
 	position: relative;
-}
-
-input {
+  }
+  
+  input {
 	vertical-align: middle;
-}
-
-	input[type="color"]::-webkit-color-swatch-wrapper {
-		padding: 0;
-	}
-	input[type="color"]::-webkit-color-swatch {
-		border: none;
-	}
-
-textarea {
+  }
+  
+  input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+  }
+  input[type="color"]::-webkit-color-swatch {
+	border: none;
+  }
+  
+  textarea {
 	tab-size: 4;
 	white-space: pre;
 	word-wrap: normal;
-}
-
-	textarea.success {
-		border-color: #8b8 !important;
-	}
-
-	textarea.fail {
-		border-color: #f00 !important;
-		background-color: rgba(255,0,0,0.05);
-	}
-
-textarea, input { outline: none; } /* osx */
-
-.Panel {
+  }
+  
+  textarea.success {
+	border-color: #8b8 !important;
+  }
+  
+  textarea.fail {
+	border-color: #f00 !important;
+	background-color: rgba(255, 0, 0, 0.05);
+  }
+  
+  textarea,
+  input {
+	outline: none;
+  } /* osx */
+  
+  .Panel {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
-
+  
 	/* No support for these yet */
 	-o-user-select: none;
 	user-select: none;
-}
-
-.TabbedPanel {
+  }
+  
+  .TabbedPanel {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
-
+  
 	/* No support for these yet */
 	-o-user-select: none;
 	user-select: none;
@@ -68,27 +71,27 @@ textarea, input { outline: none; } /* osx */
 	display: block;
 	width: 100%;
 	min-width: 260px;
-}
-
-.TabbedPanel .Tabs {
+  }
+  
+  .TabbedPanel .Tabs {
 	position: relative;
 	display: block;
 	width: 100%;
-}
-
-	.TabbedPanel .Tabs .Tab {
-		padding: 10px;
-		text-transform: uppercase;
-	}
-
-	.TabbedPanel .Panels {
-		position: relative;
-		display: block;
-		width: 100%;
-	}
-
-/* Listbox */
-.Listbox {
+  }
+  
+  .TabbedPanel .Tabs .Tab {
+	padding: 10px;
+	text-transform: uppercase;
+  }
+  
+  .TabbedPanel .Panels {
+	position: relative;
+	display: block;
+	width: 100%;
+  }
+  
+  /* Listbox */
+  .Listbox {
 	color: #444;
 	background-color: #fff;
 	padding: 0;
@@ -97,153 +100,139 @@ textarea, input { outline: none; } /* osx */
 	font-size: 12px;
 	cursor: default;
 	overflow: auto;
-}
-
-.Listbox .ListboxItem {
+  }
+  
+  .Listbox .ListboxItem {
 	padding: 6px;
 	color: #666;
 	white-space: nowrap;
-}
-
-.Listbox .ListboxItem.active {
+  }
+  
+  .Listbox .ListboxItem.active {
 	background-color: rgba(0, 0, 0, 0.04);
-}
-
-/* CodeMirror */
-
-.CodeMirror {
-
+  }
+  
+  /* CodeMirror */
+  
+  .CodeMirror {
 	position: absolute !important;
 	top: 37px;
 	width: 100% !important;
 	height: calc(100% - 37px) !important;
-
-}
-
-	.CodeMirror .errorLine {
-
-		background: rgba(255,0,0,0.25);
-
-	}
-
-	.CodeMirror .esprima-error {
-
-		color: #f00;
-		text-align: right;
-		padding: 0 20px;
-
-	}
-
-/* outliner */
-
-#outliner .opener {
+  }
+  
+  .CodeMirror .errorLine {
+	background: rgba(255, 0, 0, 0.25);
+  }
+  
+  .CodeMirror .esprima-error {
+	color: #f00;
+	text-align: right;
+	padding: 0 20px;
+  }
+  
+  /* outliner */
+  
+  #outliner .opener {
 	display: inline-block;
 	width: 14px;
 	height: 14px;
 	margin: 0px 4px;
 	vertical-align: top;
 	text-align: center;
-}
-
-	#outliner .opener.open:after {
-		content: '−';
-	}
-
-	#outliner .opener.closed:after {
-		content: '+';
-	}
-
-#outliner .option {
-
+  }
+  
+  #outliner .opener.open:after {
+	content: "−";
+  }
+  
+  #outliner .opener.closed:after {
+	content: "+";
+  }
+  
+  #outliner .option {
 	border: 1px solid transparent;
-
-}
-
-#outliner .option.drag {
-
+  }
+  
+  #outliner .option.drag {
 	border: 1px dashed #999;
-
-}
-
-#outliner .option.dragTop {
-
+  }
+  
+  #outliner .option.dragTop {
 	border-top: 1px dashed #999;
-
-}
-
-#outliner .option.dragBottom {
-
+  }
+  
+  #outliner .option.dragBottom {
 	border-bottom: 1px dashed #999;
-
-}
-
-#outliner .type {
+  }
+  
+  #outliner .type {
 	display: inline-block;
 	width: 14px;
 	height: 14px;
 	color: #ddd;
 	text-align: center;
-}
-
-#outliner .type:after {
-	content: '●';
-}
-
-/* */
-
-#outliner .Scene {
+  }
+  
+  #outliner .type:after {
+	content: "●";
+  }
+  
+  /* */
+  
+  #outliner .Scene {
 	color: #8888dd;
-}
-
-#outliner .Camera {
+  }
+  
+  #outliner .Camera {
 	color: #dd8888;
-}
-
-#outliner .Light {
+  }
+  
+  #outliner .Light {
 	color: #dddd88;
-}
-
-/* */
-
-#outliner .Object3D {
+  }
+  
+  /* */
+  
+  #outliner .Object3D {
 	color: #aaaaee;
-}
-
-#outliner .Mesh {
+  }
+  
+  #outliner .Mesh {
 	color: #8888ee;
-}
-
-#outliner .Line {
+  }
+  
+  #outliner .Line {
 	color: #88ee88;
-}
-
-#outliner .LineSegments {
+  }
+  
+  #outliner .LineSegments {
 	color: #88ee88;
-}
-
-#outliner .Points {
+  }
+  
+  #outliner .Points {
 	color: #ee8888;
-}
-
-/* */
-
-#outliner .Geometry {
+  }
+  
+  /* */
+  
+  #outliner .Geometry {
 	color: #aaeeaa;
-}
-
-#outliner .Material {
+  }
+  
+  #outliner .Material {
 	color: #eeaaee;
-}
-
-/* */
-
-#outliner .Script:after {
-	content: '◎'
-}
-
-/*  */
-
-button {
+  }
+  
+  /* */
+  
+  #outliner .Script:after {
+	content: "◎";
+  }
+  
+  /*  */
+  
+  button {
 	color: #555;
 	background-color: #ddd;
 	border: 0px;
@@ -253,44 +242,45 @@ button {
 	text-transform: uppercase;
 	cursor: pointer;
 	outline: none;
-}
-
-	button:hover {
-		background-color: #fff;
-	}
-
-	button.selected {
-		background-color: #fff;
-	}
-
-input, textarea {
+  }
+  
+  button:hover {
+	background-color: #fff;
+  }
+  
+  button.selected {
+	background-color: #fff;
+  }
+  
+  input,
+  textarea {
 	border: 1px solid transparent;
 	color: #444;
-}
-
-input.Number {
-	color: #08f!important;
+  }
+  
+  input.Number {
+	color: #08f !important;
 	font-size: 12px;
 	border: 0px;
 	padding: 2px;
-}
-
-select {
+  }
+  
+  select {
 	color: #666;
 	background-color: #ddd;
 	border: 0px;
 	text-transform: uppercase;
 	cursor: pointer;
 	outline: none;
-}
-
-	select:hover {
-		background-color: #fff;
-	}
-
-/* UI */
-
-#resizer {
+  }
+  
+  select:hover {
+	background-color: #fff;
+  }
+  
+  /* UI */
+  
+  #resizer {
 	position: absolute;
 	top: 32px;
 	right: 295px;
@@ -298,195 +288,193 @@ select {
 	bottom: 0px;
 	/* background-color: rgba(255,0,0,0.5); */
 	cursor: col-resize;
-}
-
- /*BSM dev changed viewport and comment the old */
-#viewport {
+  }
+  
+  /*BSM dev changed viewport and comment the old */
+  #viewport {
 	position: absolute;
-	top: 48px; /* BSM - Changed 0 to 32px */
-	left: 313px;
-	right: 320px;
-	bottom: 13px;
-	
-}
-/* 
-#viewport {
-	position: absolute;
-	top: 0; BSM - Changed 0 to 32px
-	left: 0;
-	right: 300px;
+	top: 33px; /* BSM - Changed 0 to 32px */
+	left: 296px;
+	right: 296px;
 	bottom: 0;
-} */
-
-	#viewport #info {
-		text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
-		pointer-events: none;
-	}
-
-#script {
+  }
+  /* 
+  #viewport {
+	  position: absolute;
+	  top: 0; BSM - Changed 0 to 32px
+	  left: 0;
+	  right: 300px;
+	  bottom: 0;
+  } */
+  
+  #viewport #info {
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+	pointer-events: none;
+  }
+  
+  #script {
 	position: absolute;
 	top: 32px;
 	left: 0;
 	right: 300px;
 	bottom: 0;
 	opacity: 0.9;
-}
-
-#player {
+  }
+  
+  #player {
 	position: absolute;
 	top: 32px;
 	left: 0;
 	right: 300px;
 	bottom: 0;
-}
- /*BSM dev changed the menubar and comment the old */
-#menubar {
+  }
+  /*BSM dev changed the menubar and comment the old */
+  #menubar {
 	position: absolute;
-	border-color: #3C3C3C; /* BSM added border */
-	border-width: 4px;  /* BSM added border-widthe */
-	border-style: solid;  /* BSM added border-style */
-	border-radius: 0.75rem;   /* BSM added border-radius*/
-	width: 100px;   /* BSM changed width 100 to 75% */
+	border-bottom: 1px solid #808080;
+	width: auto; /* BSM changed width 100 to 75% */
 	height: 32px;
 	background: #eee;
 	padding: 0;
 	margin: 0;
-	padding-left: 100px;  /* BSM added padding left */
-	right: 3px;  /* BSM changed right 0 to 3px */
-	left: 313px;  /* BSM changed left 0 to 7px */
-	top: 5px;  /* BSM changed top 0 to 3px */
-}
-
-/* #menubar {
-	position: absolute;
-	width: 100%;
-	height: 32px;
-	background: #eee;
-	padding: 0;
+	padding-left: 10px; /* BSM added padding left */
+	right: 3px; /* BSM changed right 0 to 3px */
+	left: 0; /* BSM changed left 0 to 7px */
+	top: 0; /* BSM changed top 0 to 3px */
+  }
+  
+  /* #menubar {
+	  position: absolute;
+	  width: 100%;
+	  height: 32px;
+	  background: #eee;
+	  padding: 0;
+	  margin: 0;
+	  right: 0;
+	  top: 0;
+  } */
+  
+  #menubar .menu {
+	float: left;
+	cursor: pointer;
+	padding-right: 8px;
+  }
+  
+  #menubar .menu.right {
+	float: right;
+	cursor: auto;
+	padding-right: 0;
+	text-align: right;
+  }
+  
+  #menubar .menu .title {
+	display: inline-block;
+	color: #888;
 	margin: 0;
-	right: 0;
-	top: 0;
-} */
-
-	#menubar .menu {
-		float: left;
-		cursor: pointer;
-		padding-right: 8px;
-	}
-
-	#menubar .menu.right {
-		float: right;
-		cursor: auto;
-		padding-right: 0;
-		text-align: right;
-	}
-
-		#menubar .menu .title {
-			display: inline-block;
-			color: #888;
-			margin: 0;
-			padding: 8px;
-			line-height: 16px;
-		}
-
-		#menubar .menu .options {
-			position: fixed;
-			display: none;
-			padding: 5px 0;
-			background: #eee;
-			width: 150px;
-			max-height: calc(100% - 80px);
-			overflow: auto;
-		}
-
-		#menubar .menu:hover .options {
-			display: block;
-		}
-
-			#menubar .menu .options hr {
-				border-color: #ddd;
-			}
-
-			#menubar .menu .options .option {
-				color: #666;
-				background-color: transparent;
-				padding: 5px 10px;
-				margin: 0 !important;
-			}
-
-				#menubar .menu .options .option:hover {
-					color: #fff;
-					background-color: #08f;
-				}
-
-				#menubar .menu .options .option:active {
-					color: #666;
-					background: transparent;
-				}
-
-		#menubar .menu .options .inactive {
-			color: #bbb;
-			background-color: transparent;
-			padding: 5px 10px;
-			margin: 0 !important;
-		}
-
-/*BSM dev adding confiBut properties  */
-#modelTab {
+	padding: 8px;
+	line-height: 16px;
+  }
+  
+  #menubar .menu .options {
+	position: fixed;
+	display: none;
+	padding: 5px 0;
+	background: #eee;
+	width: auto;
+	max-height: calc(100% - 80px);
+	overflow: auto;
+  }
+  
+  #menubar .menu:hover .options {
+	display: block;
+  }
+  
+  #menubar .menu .options hr {
+	border-color: #ddd;
+  }
+  
+  #menubar .menu .options .option {
+	color: #666;
+	background-color: transparent;
+	padding: 5px 10px;
+	margin: 0 !important;
+  }
+  
+  #menubar .menu .options .option:hover {
+	color: #fff;
+	background-color: #08f;
+  }
+  
+  #menubar .menu .options .option:active {
+	color: #666;
+	background: transparent;
+  }
+  
+  #menubar .menu .options .inactive {
+	color: #bbb;
+	background-color: transparent;
+	padding: 5px 10px;
+	margin: 0 !important;
+  }
+  
+  /*BSM dev adding confiBut properties  */
+  #modelTab {
 	margin-top: 20px;
-}
-
-#model {
-	
+  }
+  
+  #model {
 	padding-left: 20px;
 	padding-right: 20px;
-}
-#texture {
+  }
+  #texture {
 	padding-left: 20px;
 	padding-right: 20px;
-}
-.btnConfDiv {
+  }
+  .btnConfDiv {
 	display: flex;
 	justify-content: center;
-}
-
-#BTNconfig {
+  }
+  
+  #BTNconfig {
 	margin: 10px;
-	
+  
 	padding: 10px;
-}
-
-#confName ,#confNameHead {
+  }
+  
+  #confName,
+  #confNameHead {
 	margin-left: 15px;
-}
-
-.BoxType {
+  }
+  
+  .BoxType {
 	/* background-color: #08f; */
 	margin-left: 12px;
-}
-
-#addVariantBtn {
-	margin-left: 20px;
-}
-#deleteVariantBtn {
-	margin-left: 20px;
-}
-
-.textureVariantDiv {
-	display: flex;
-	margin-top: 2px;
-	margin-bottom: 2px;
-}
-.modelVariantDiv {
-	display: flex;
-	margin-top: 2px;
-	margin-bottom: 2px;
-}
-
-@keyframes spin {
-	to { transform: rotate(360deg); }
   }
- /*BSM dev added the new spinner*/	 
+  
+  #addVariantBtn {
+	margin-left: 20px;
+  }
+  #deleteVariantBtn {
+	margin-left: 20px;
+  }
+  
+  .textureVariantDiv {
+	display: flex;
+	margin-top: 2px;
+	margin-bottom: 2px;
+  }
+  .modelVariantDiv {
+	display: flex;
+	margin-top: 2px;
+	margin-bottom: 2px;
+  }
+  
+  @keyframes spin {
+	to {
+	  transform: rotate(360deg);
+	}
+  }
+  /*BSM dev added the new spinner*/
   .spinner {
 	width: 30px;
 	height: 30px;
@@ -496,95 +484,98 @@ select {
 	animation: spin 1s linear infinite;
   }
   
-/*BSM dev added the new sidebarConfig*/		
-#sidebarConfig {
-
+  /*BSM dev added the new sidebarConfig*/
+  #sidebarConfig {
 	position: absolute;
 	right: 5px; /* BSM right chnaged 0 to 13px*/
-	top: 5px;	/* BSM right chnaged 0 to 13px*/
-	bottom: 5px;	/* BSM right chnaged 0 to 13px*/
-	width: 296px;	/* BSM width chnaged 300px to 13px*/
-	background: #eee;	
-	overflow: auto;
-	border: 4px solid #3C3C3C; /*BSM added width and radius*/
-	border-radius: 0.75rem;
-}
-/*BSM dev changed the sidebar & commented the old */	
-#sidebar {
-
-	position: absolute;
-	left: 5px; /* BSM right chnaged 0 to 13px*/
-	top: 5px;	/* BSM right chnaged 0 to 13px*/
-	bottom: 5px;	/* BSM right chnaged 0 to 13px*/
-	width: 296px;	/* BSM width chnaged 300px to 13px*/
-	background: #eee;	
-	overflow: auto;
-	border: 4px solid #3C3C3C; /*BSM added width and radius*/
-	border-radius: 0.75rem;
-}
-
-/* #sidebar {
-	position: absolute;
-	right: 0;
-	top: 32px;
-	bottom: 0;
-	width: 300px;
+	top: 34px; /* BSM right chnaged 0 to 13px*/
+	bottom: 0px; /* BSM right chnaged 0 to 13px*/
+	width: 296px; /* BSM width chnaged 300px to 13px*/
 	background: #eee;
 	overflow: auto;
-} */
-
-	#sidebar .Panel {
-		color: #888;
-		padding: 10px;
-		border-top: 1px solid #ccc;
-	}
-
-	#sidebar .Panel.collapsed {
-		margin-bottom: 0;
-	}
-
-	#sidebar .Row {
-		display: flex;
-		align-items: center;
-		min-height: 24px;
-		margin-bottom: 10px;
-	}
-
-#tabs {
+	border-left: 1px solid #808080; /*BSM added width and radius*/
+  }
+  /*BSM dev changed the sidebar & commented the old */
+  #sidebar {
+	position: absolute;
+	left: 0; /* BSM right chnaged 0 to 13px*/
+	top: 34px; /* BSM right chnaged 0 to 13px*/
+	bottom: 0px; /* BSM right chnaged 0 to 13px*/
+	width: 296px; /* BSM width chnaged 300px to 13px*/
+	background: #eee;
+	overflow: auto;
+	border-right: 1px solid #808080;
+   
+  }
+  
+  /* #sidebar {
+	  position: absolute;
+	  right: 0;
+	  top: 32px;
+	  bottom: 0;
+	  width: 300px;
+	  background: #eee;
+	  overflow: auto;
+  } */
+  
+  #sidebar .Panel {
+	color: #888;
+	padding: 10px;
+	border-top: 1px solid #ccc;
+  }
+  
+  #sidebar .Panel.collapsed {
+	margin-bottom: 0;
+  }
+  
+  #sidebar .Row {
+	display: flex;
+	align-items: center;
+	min-height: 24px;
+	margin-bottom: 10px;
+  }
+  
+  #tabs {
 	background-color: #ddd;
 	border-top: 1px solid #ccc;
-}
-
-	#tabs span {
-		color: #aaa;
-		border-right: 1px solid #ccc;
-		padding: 10px;
-	}
-
-	#tabs span.selected {
-		color: #888;
-		background-color: #eee;
-	}
-
-#toolbar {
+  }
+  
+  #tabs span {
+	color: #aaa;
+	border-right: 1px solid #ccc;
+	padding: 10px;
+  }
+  
+  #tabs span.selected {
+	color: #888;
+	background-color: #eee;
+  }
+  
+  #toolbar {
 	position: absolute;
-	left: 10px;
-	top: 42px;
-	width: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 750px;
+	bottom: 5px;
+	padding: 2px;
 	background: #eee;
 	text-align: center;
-}
-
-	#toolbar button, #toolbar input {
-		height: 32px;
-	}
-
-		#toolbar button img {
-			width: 16px;
-			opacity: 0.5;
-		}
-
-.Outliner {
+  }
+  
+  #toolbar button,
+  #toolbar input {
+	height: 32px;
+	width: 42px;
+	margin-left: 2px;
+  }
+  
+  #toolbar button img {
+	width: 16px;
+	opacity: 0.5;
+  }
+  
+  .Outliner {
 	color: #444;
 	background-color: #fff;
 	padding: 0;
@@ -595,235 +586,231 @@ select {
 	overflow: auto;
 	resize: vertical;
 	outline: none !important;
-}
-
-	.Outliner .option {
-		padding: 4px;
-		color: #666;
-		white-space: nowrap;
-	}
-
-	.Outliner .option:hover {
-		background-color: rgba(0,0,0,0.02);
-	}
-
-	.Outliner .option.active {
-		background-color: rgba(0,0,0,0.04);
-	}
-
-
-.TabbedPanel .Tabs {
+  }
+  
+  .Outliner .option {
+	padding: 4px;
+	color: #666;
+	white-space: nowrap;
+  }
+  
+  .Outliner .option:hover {
+	background-color: rgba(0, 0, 0, 0.02);
+  }
+  
+  .Outliner .option.active {
+	background-color: rgba(0, 0, 0, 0.04);
+  }
+  
+  .TabbedPanel .Tabs {
 	background-color: #ddd;
 	border-top: 1px solid #ccc;
-}
-
-	.TabbedPanel .Tab {
-		color: #aaa;
-		border-right: 1px solid #ccc;
-	}
-
-	.TabbedPanel .Tab.selected {
-		color: #888;
-		background-color: #eee;
-	}
-
-.Listbox {
+  }
+  
+  .TabbedPanel .Tab {
+	color: #aaa;
+	border-right: 1px solid #ccc;
+  }
+  
+  .TabbedPanel .Tab.selected {
+	color: #888;
+	background-color: #eee;
+  }
+  
+  .Listbox {
 	color: #444;
 	background-color: #fff;
-}
-
-.Panel {
+  }
+  
+  .Panel {
 	color: #888;
-}
-
-/* */
-
-@media all and ( max-width: 600px ) {
-
+  }
+  
+  /* */
+  
+  @media all and (max-width: 600px) {
 	#resizer {
-		display: none;
+	  display: none;
 	}
-
+  
 	#menubar .menu .options {
-		max-height: calc(100% - 372px);
+	  max-height: calc(100% - 372px);
 	}
-
+  
 	#menubar .menu.right {
-		display: none;
+	  display: none;
 	}
-
+  
 	#viewport {
-		left: 0;
-		right: 0;
-		top: 32px;
-		height: calc(100% - 352px);
+	  left: 0;
+	  right: 0;
+	  top: 32px;
+	  height: calc(100% - 352px);
 	}
-
+  
 	#script {
-		left: 0;
-		right: 0;
-		top: 32px;
-		height: calc(100% - 352px);
+	  left: 0;
+	  right: 0;
+	  top: 32px;
+	  height: calc(100% - 352px);
 	}
-
+  
 	#player {
-		left: 0;
-		right: 0;
-		top: 32px;
-		height: calc(100% - 352px);
+	  left: 0;
+	  right: 0;
+	  top: 32px;
+	  height: calc(100% - 352px);
 	}
-
+  
 	#sidebar {
-		left: 0;
-		width: 100%;
-		top: calc(100% - 320px);
-		bottom: 0;
+	  left: 0;
+	  width: 100%;
+	  top: calc(100% - 320px);
+	  bottom: 0;
 	}
-
-}
-
-/* DARK MODE */
-
-@media ( prefers-color-scheme: dark ) {
-
+  }
+  
+  /* DARK MODE */
+  
+  @media (prefers-color-scheme: dark) {
 	button {
-		color: #aaa;
-		background-color: #222;
+	  color: #aaa;
+	  background-color: #222;
 	}
-
-		button:hover {
-			color: #ccc;
-			background-color: #444;
-		}
-
-		button.selected {
-			color: #fff;
-			background-color: #08f;
-		}
-
-	input, textarea {
-		background-color: #222;
-		border: 1px solid transparent;
-		color: #888;
+  
+	button:hover {
+	  color: #ccc;
+	  background-color: #444;
 	}
-
+  
+	button.selected {
+	  color: #fff;
+	  background-color: #08f;
+	}
+  
+	input,
+	textarea {
+	  background-color: #222;
+	  border: 1px solid transparent;
+	  color: #888;
+	}
+  
 	select {
-		color: #aaa;
-		background-color: #222;
+	  color: #aaa;
+	  background-color: #222;
 	}
-
-		select:hover {
-			color: #ccc;
-			background-color: #444;
-		}
-
+  
+	select:hover {
+	  color: #ccc;
+	  background-color: #444;
+	}
+  
 	/* UI */
-
+  
 	#menubar {
-		background: #111;
+	  background: #1f1f1f;
 	}
-
-			#menubar .menu .options {
-				background: #111;
-			}
-
-				#menubar .menu .options hr {
-					border-color: #222;
-				}
-
-				#menubar .menu .options .option {
-					color: #888;
-				}
-
-			#menubar .menu .options .inactive {
-				color: #444;
-			}
-
+  
+	#menubar .menu .options {
+	  background: #111;
+	}
+  
+	#menubar .menu .options hr {
+	  border-color: #222;
+	}
+  
+	#menubar .menu .options .option {
+	  color: #888;
+	}
+  
+	#menubar .menu .options .inactive {
+	  color: #444;
+	}
+  
 	#sidebar {
-		background-color: #3d3a3a;
+	  background-color: #1f1f1f;
 	}
- 	/*BSM dev added new sidebarConfig color */
+	/*BSM dev added new sidebarConfig color */
 	#sidebarConfig {
-		background-color: #2C2C2C;
+	  background-color: #1f1f1f;
 	}
-
-
-		#sidebar .Panel {
-			border-top: 1px solid #222;
-		}
-
-		#sidebar .Panel.Material canvas {
-			border: solid 1px #5A5A5A;
-		}
-
+  
+	#sidebar .Panel {
+	  border-top: 1px solid #222;
+	}
+  
+	#sidebar .Panel.Material canvas {
+	  border: solid 1px #5a5a5a;
+	}
+  
 	#tabs {
-		background-color: #1b1b1b;
-		border-top: 1px solid #222;
+	  background-color: #1b1b1b;
+	  border-top: 1px solid #222;
 	}
-
-		#tabs span {
-			color: #555;
-			border-right: 1px solid #222;
-		}
-
-		#tabs span.selected {
-			background-color: #111;
-		}
-
+  
+	#tabs span {
+	  color: #555;
+	  border-right: 1px solid #222;
+	}
+  
+	#tabs span.selected {
+	  background-color: #111;
+	}
+  
 	#toolbar {
-		background-color: #111;
+	  background-color: #1f1f1f;
 	}
-
-		#toolbar img {
-			filter: invert(1);
-		}
-
+  
+	#toolbar img {
+	  filter: invert(1);
+	}
+  
 	.Outliner {
-		color: #888;
-		background: #222;
+	  color: #888;
+	  background: #222;
 	}
-
-		.Outliner .option:hover {
-			background-color: rgba(21,60,94,0.5);
-		}
-
-		.Outliner .option.active {
-			background-color: rgba(21,60,94,1);
-		}
-
+  
+	.Outliner .option:hover {
+	  background-color: rgba(21, 60, 94, 0.5);
+	}
+  
+	.Outliner .option.active {
+	  background-color: rgba(21, 60, 94, 1);
+	}
+  
 	.TabbedPanel .Tabs {
-		background-color: #1b1b1b;
-		border-top: 1px solid #222;
+	  background-color: #1b1b1b;
+	  border-top: 1px solid #222;
 	}
-
-		.TabbedPanel .Tab {
-			color: #555;
-			border-right: 1px solid #222;
-		}
-
-		.TabbedPanel .Tab.selected {
-			color: #888;
-			background-color: #111;
-		}
-
+  
+	.TabbedPanel .Tab {
+	  color: #555;
+	  border-right: 1px solid #222;
+	}
+  
+	.TabbedPanel .Tab.selected {
+	  color: #888;
+	  background-color: #111;
+	}
+  
 	.Listbox {
-		color: #888;
-		background: #222;
+	  color: #888;
+	  background: #222;
 	}
-
+  
 	.Listbox .ListboxItem:hover {
-		background-color: rgba(21,60,94,0.5);
+	  background-color: rgba(21, 60, 94, 0.5);
 	}
-
+  
 	.Listbox .ListboxItem.active {
-		background-color: rgba(21,60,94,1);
+	  background-color: rgba(21, 60, 94, 1);
 	}
-
-}
-
-/* Temporary Chrome fix (#24794) */
-
-[draggable="true"] {
+  }
+  
+  /* Temporary Chrome fix (#24794) */
+  
+  [draggable="true"] {
 	transform: translate(0, 0);
 	z-index: 0;
-}
+  }
+  
