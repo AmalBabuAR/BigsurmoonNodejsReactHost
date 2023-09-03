@@ -118,7 +118,7 @@ model-viewer {
   ); /* Red background color on hover */
 }
 
-#type-selector {
+#model-selector {
   /* background-color: red; */
   padding-top: 5px;
   padding-bottom: 5px;
@@ -129,7 +129,7 @@ model-viewer {
   text-transform: capitalize;
 }
 
-#object-selector {
+#texture-selector {
   padding-top: 5px;
   padding-bottom: 5px;
   width: 200px;
@@ -216,11 +216,11 @@ model-viewer {
     padding-left: 5px;
   }
 
-  #type-selector {
+  #model-selector {
     font-size: 11px;
     width: 120px;
   }
-  #object-selector {
+  #texture-selector {
     font-size: 11px;
     width: 120px;
   }
