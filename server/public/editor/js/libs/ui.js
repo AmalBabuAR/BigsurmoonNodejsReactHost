@@ -229,15 +229,19 @@ class UIBoxType extends UIDiv {
 				this.add(this.spinnerElement);
 				// this.showLoadingSpinner();
 				const data = await saveConfig(defaultName, editor, variantName);
-				console.log('data',data);
+				console.log("data", data);
 				const signals = editor.signals;
 				if (data.success) {
 					this.addsignals(data, signals);
 					this.showSuccessAlert(data.message);
+				} else {
+					this.remove(this.spinnerElement);
+					this.showSuccessAlert(data.message);
 				}
 			} catch (error) {
-				console.error("Error occurred:", error);
+				console.error("Error occurred in saving config:", error);
 				this.showErrorAlert();
+				this.remove(this.spinnerElement);
 			}
 
 			this.addNewVariantField();
@@ -249,7 +253,7 @@ class UIBoxType extends UIDiv {
 	}
 	addNewVariantField() {}
 	addsignals(data, signals) {
-		console.log('data.variant',data);
+		console.log("data.variant", data);
 		data.variant === "ModelVariant"
 			? signals.modelVariantResponse.dispatch(data)
 			: signals.textureVariantResponse.dispatch(data);
