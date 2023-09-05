@@ -26,7 +26,7 @@ const HowItWorks = () => {
       <div className="bg-black max-w-[1440px] mx-auto p-4 text-white">
         <div className="md:hidden">
           <div className="text-center items-center">
-            <h1 className="text-xl font-bold tracking-[8px] mb-3 mt-7 ">
+            <h1 className="text-xl font-bold tracking-[8px] mb-3 mt-12 xl:mt-7 ">
               HOW IT WORKS
             </h1>
             <h2 className="text-sm px-2 mb-10">
@@ -34,7 +34,7 @@ const HowItWorks = () => {
               executed smoothly, deadlines are met, and the final deliverables
               align with our client's visions.
             </h2>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-8">
               <button
                 onClick={() => navigate("/support")}
                 className="p-2 mx-auto text-[11px] md:mx-0 bg-gradient-to-r from-blue-500  to-blue-400 text-center flex justify-center items-center rounded-full font-normal mt-[-20px] w-[125px] h-[30px] my-6"

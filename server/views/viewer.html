@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/gif" href="../images/Icon.gif" sizes="32*32 48*48 64*64"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -108,21 +109,20 @@
         camera-controls
         ar-modes="webxr scene-viewer quick-look"
       ></model-viewer>
-    </div>
 
-    <div id="fieldGroup">
-      <div id="fieldGroupSecond">
-        <div>
-          <p class="Text">Variations</p>
-          <select id="model-selector"></select>
-        </div>
-        <div>
-          <p class="Text">Colours</p>
-          <select id="texture-selector"></select>
+      <div id="fieldGroup">
+        <div id="fieldGroupSecond">
+          <!-- <div>
+            <p class="Text">Variations</p>
+            <select id="model-selector"></select>
+          </div> -->
+          <div>
+            <p class="Text">Colours</p>
+            <select id="texture-selector"></select>
+          </div>
         </div>
       </div>
     </div>
-
     <script type="module">
       function getQueryParam(param) {
         const queryString = window.location.search;
@@ -266,9 +266,10 @@
           let textureVariantObjects = data.objects.filter(
             (obj) => obj.variant === "TextureVariant"
           );
-          let modelVariantObjects = data.objects.filter(
-            (obj) => obj.variant === "ModelVariant"
-          );
+          // BSM-dev removed the model variantion for a timebeen
+          // let modelVariantObjects = data.objects.filter(
+          //   (obj) => obj.variant === "ModelVariant"
+          // );
 
           // Populate the texture-selector with names of the objects with TextureVariant
           for (let obj of textureVariantObjects) {
@@ -278,13 +279,14 @@
             document.getElementById("texture-selector").appendChild(option);
           }
 
+          // BSM-dev removed the model variantion for a timebeen
           // Populate the model-selector with names of the objects with ModelVariant
-          for (let obj of modelVariantObjects) {
-            let option = document.createElement("option");
-            option.value = obj.name;
-            option.text = obj.name;
-            document.getElementById("model-selector").appendChild(option);
-          }
+          // for (let obj of modelVariantObjects) {
+          //   let option = document.createElement("option");
+          //   option.value = obj.name;
+          //   option.text = obj.name;
+          //   document.getElementById("model-selector").appendChild(option);
+          // }
 
           document
             .getElementById("texture-selector")
@@ -292,11 +294,12 @@
               handleSelectorChange("TextureVariant", this.value);
             });
 
-          document
-            .getElementById("model-selector")
-            .addEventListener("change", function () {
-              handleSelectorChange("ModelVariant", this.value);
-            });
+          // BSM-dev removed the model variantion for a timebeen
+          // document
+          //   .getElementById("model-selector")
+          //   .addEventListener("change", function () {
+          //     handleSelectorChange("ModelVariant", this.value);
+          //   });
 
           function handleSelectorChange(variantType, selectedValue) {
             let selectedTextures = null;
@@ -409,18 +412,21 @@
             handleSelectorChange("TextureVariant", this.value);
           });
 
-          const materialSelector = document.getElementById("model-selector");
-          materialSelector.addEventListener("change", function () {
-            handleSelectorChange("ModelVariant", this.value);
-          });
+          // BSM-dev removed the model variantion for a timebeen
+          // const materialSelector = document.getElementById("model-selector");
+          // materialSelector.addEventListener("change", function () {
+          //   handleSelectorChange("ModelVariant", this.value);
+          // });
 
           // Force a 'change' event to load the first object by default for both selectors
           document
             .getElementById("texture-selector")
             .dispatchEvent(new Event("change"));
-          document
-            .getElementById("model-selector")
-            .dispatchEvent(new Event("change"));
+
+          // BSM-dev removed the model variantion for a timebeen
+          // document
+          //   .getElementById("model-selector")
+          //   .dispatchEvent(new Event("change"));
 
           // Start the animation
           animate();

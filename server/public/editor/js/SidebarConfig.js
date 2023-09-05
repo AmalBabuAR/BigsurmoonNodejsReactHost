@@ -1,5 +1,5 @@
 import { UITabbedPanel, UISpan } from "./libs/ui.js";
-import { Preview } from "./Preview.js";
+// import { Preview } from "./Preview.js";
 // import { SidebarScene } from "./Sidebar.Scene.js";
 import { SidebarConfigVarient } from "./SidebarConfigVarient.js";
 
@@ -15,10 +15,14 @@ function SidebarConfig(editor) {
 	// container.addTab("scene", strings.getKey("sidebar/scene"), scene);
 	// container.select("scene");
     const configurations = new SidebarConfigVarient( editor )
-	const preview = new Preview(editor)
+
+	//BSM-dev remove preview and added that in menubar
+	// const preview = new Preview(editor)
 
     container.addTab( 'configurations', strings.getKey( 'sidebar/configurations' ), configurations );
-	container.addTab( 'preview', strings.getKey( 'sidebar/preview' ), preview );
+
+	//BSM-dev remove preview and added that in menubar
+	// container.addTab( 'preview', strings.getKey( 'sidebar/preview' ), preview );
 
 	container.select( 'configurations' );
 

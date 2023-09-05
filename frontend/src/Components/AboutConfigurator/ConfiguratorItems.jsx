@@ -23,27 +23,27 @@ const ConfiguratorItems = () => {
     };
   }, []);
   return (
-    <div className="bg-[#070911]  mx-auto p-4 text-white">
+    <div className="bg-[#070911]  mx-auto px-4 text-white">
       <div className="md:hidden">
         {mainFeaturesconfig.map((m) => (
           <div
             key={m.id}
-            className="md:grid md:grid-cols-2 md:gap-32 justify-center items-center"
+            className="md:grid md:grid-cols-2 pt-14 md:gap-32 justify-center items-center"
           >
             <div className="flex justify-center  ">
               <img
                 src={m.img}
-                className={`${m.id === 4 || m.id === 5 ? "h-72" : ""}`}
+                className={`${m.id === 4 || m.id === 5 ? "" : ""}`}
               />
             </div>
             <div>
-              <h2 className="font-bold text-2xl pr-6 mt-10 mb-4">{m.title}</h2>
+              <h2 className="font-bold text-2xl pr-6 mt-4 mb-4">{m.title}</h2>
               <h2 className="mb-4 font-normal leading-5">{m.desc}</h2>
             </div>
           </div>
         ))}
         <div>
-          <h1 className="text-center text-[30px] font-outfit  font-bold">
+          <h1 className="text-center text-[30px] font-outfit mt-14 font-bold">
             Get in touch with us
           </h1>
           <h2 className="w-[300px] md:w-[500px] font-light mt-1 mb-10 text-[12px] text-center mx-auto">
@@ -64,7 +64,7 @@ const ConfiguratorItems = () => {
       </div>
       <div className="max-w-[1440px] mx-auto">
         <div className="hidden md:block">
-          <div className="md:grid md:grid-cols-2 md:gap-32 lg:gap-10 mt-20 md:px-8 xl:mt-60 xl:mb-60  justify-between items-center lg:px-10 ">
+          <div className="md:grid md:grid-cols-2 md:gap-32 lg:gap-10 pt-20 xl:pt-40  md:px-8 xl:mt-60 justify-between items-center lg:px-10 ">
             <div className="flex justify-center  ">
               <img
                 src={m1}
@@ -143,8 +143,8 @@ const ConfiguratorItems = () => {
                 and publish whenever you choose.
               </h2>
             </div>
-            <div className="flex justify-center m ">
-              <img src={m4} className=" h-[300px] xl:h-[550px] md:h-[360px] " />
+            <div className="flex justify-center">
+              <img src={m4} className=" h-[300px] xl:h-[450px] md:h-[360px] " />
             </div>
           </div>
 
@@ -152,7 +152,7 @@ const ConfiguratorItems = () => {
             <div className="flex justify-center ">
               <img
                 src={m5}
-                className="xl:w-[450px]  xl:h-[400px] md:h-[410px]   "
+                className="xl:w-[450px]  xl:h-[300px] md:h-[410px]   "
               />
             </div>
             <div className=" flex flex-col justify-around   mx-auto ">
@@ -185,14 +185,14 @@ const ConfiguratorItems = () => {
             our services, want to discuss a project, we're here and ready to
             help.{" "}
           </h2>
-          <div className="w-full border-black max-h-screen overflow-hidden mb-10">
+          <div className="w-full border-black max-h-screen">
             <div
               id="SOIDIV_Bigsurmoon"
               data-so-page="Bigsurmoon"
-              data-height="600"
-              data-style="border: 1px solid ##d8d8d8; min-width: 290px; max-width: 900px;"
-              data-psz="11"
-            />
+              data-height="750"
+              data-style="border: 2px solid #d8d8d8; min-width: 290px; max-width: 900px;"
+              data-psz="00"
+            ></div>
           </div>
         </div>
       </div>

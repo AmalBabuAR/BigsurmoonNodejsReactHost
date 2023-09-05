@@ -375,6 +375,20 @@
 	line-height: 16px;
   }
   
+  #menubar .previewMenu {
+	float: right;
+	cursor: pointer;
+	padding-right: 50px;
+  }
+  
+  #menubar .previewMenu #previewTitle {
+	display: inline-block;
+	color: #888;
+	margin: 0;
+	padding: 8px;
+	line-height: 16px;
+  }
+  
   #menubar .menu .options {
 	position: fixed;
 	display: none;
@@ -505,7 +519,6 @@
 	background: #eee;
 	overflow: auto;
 	border-right: 1px solid #808080;
-   
   }
   
   /* #sidebar {

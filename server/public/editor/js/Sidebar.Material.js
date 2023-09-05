@@ -187,7 +187,9 @@ function SidebarMaterial( editor ) {
 	// vertex colors
 
 	const materialVertexColors = new SidebarMaterialBooleanProperty( editor, 'vertexColors', strings.getKey( 'sidebar/material/vertexcolors' ) );
-	container.add( materialVertexColors );
+	
+	//BSM-dev removed the vertex colors
+	// container.add( materialVertexColors );
 
 	// depth packing
 

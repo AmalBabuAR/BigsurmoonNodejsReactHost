@@ -11,8 +11,8 @@ import {
 	UITabbedPanel,
 } from "./libs/ui.js";
 import { SetValueCommand } from "./commands/SetValueCommand.js";
-import { deleteConfig, getConfig } from "./SaveConfigartionFun.js";
-import { modelPannel } from "./modelPannel.js";
+// import { deleteConfig, getConfig } from "./SaveConfigartionFun.js";
+// import { modelPannel } from "./modelPannel.js";
 import { texturePannel } from "./texturePannel.js";
 
 function SidebarConfigVarient(editor) {
@@ -51,9 +51,9 @@ function SidebarConfigVarient(editor) {
 			.setId("confNameHead")
 	);
 
-	objectNameRow.add(objectName);
+	// objectNameRow.add(objectName);
 
-	container.add(objectNameRow);
+	// container.add(objectNameRow);
 
 	//ADD CON
 	//passing parameter id 1 value, 2, id
@@ -106,7 +106,7 @@ function SidebarConfigVarient(editor) {
 
 	signals.objectSelected.add(function (object) {
 		if (object !== null && object.type !== "Scene") {
-			console.log("checking the object in event", object);
+			// console.log("checking the object in event", object);
 
 			container.setDisplay("block");
 
@@ -121,7 +121,7 @@ function SidebarConfigVarient(editor) {
 	});
 
 	const sceneJson = editor.toJSON();
-	console.log("check in json of slider", sceneJson.scene);
+	// console.log("check in json of slider", sceneJson.scene);
 
 	function updateUI(object) {
 		objectType.setValue(object.type);
@@ -151,14 +151,14 @@ function SidebarConfigVarient(editor) {
 	modelTabbedPanel.setId("modelTab");
 	modelTabbedPanel.setDisplay("none");
 
-	const model = new modelPannel(editor);
+	// const model = new modelPannel(editor);
 	const texture = new texturePannel(editor);
 
-	modelTabbedPanel.addTab(
-		"model",
-		strings.getKey("sidebar/configurations/model"),
-		model
-	);
+	// modelTabbedPanel.addTab(
+	// 	"model",
+	// 	strings.getKey("sidebar/configurations/model"),
+	// 	model
+	// );
 	modelTabbedPanel.addTab(
 		"texture",
 		strings.getKey("sidebar/configurations/texture"),

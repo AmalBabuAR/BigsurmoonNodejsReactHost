@@ -81,6 +81,9 @@ function Strings( config ) {
 			'menubar/help/about': 'About',
 			'menubar/help/manual': 'Manual',
 
+			// BSM dev added the preview string
+			'menubar/preview': 'Preview',
+
 			'sidebar/animations': 'Animations',
 			'sidebar/animations/play': 'Play',
 			'sidebar/animations/stop': 'Stop',

@@ -9,7 +9,7 @@ deleteConfigNamesRouter.delete("/", async (req, res) => {
     // Perform the delete operation in the database based on configname
     await pool.query(
       "DELETE FROM cnf.configdata WHERE variant = $1 AND projectid = $2  AND configname = $3",
-      [variantName, configName, idFromUrl]
+      [variantName, idFromUrl, configName]
     );
 
     // Respond with a success message
