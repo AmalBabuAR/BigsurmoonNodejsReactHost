@@ -82,6 +82,7 @@ const Dash = () => {
         setTimeout(() => {
           win.location.href = link;
         }, 1000);
+        setIsModalOpen(false);
         getProject();
       } else {
         if (res.data.noSub) {
