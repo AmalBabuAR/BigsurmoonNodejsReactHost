@@ -23,7 +23,7 @@ const ConfiguratorItems = () => {
     };
   }, []);
   return (
-    <div className="bg-[#070911]  mx-auto px-4 text-white">
+    <div className="bg-[#070911] px-4 mx-auto text-white">
       <div className="md:hidden">
         {mainFeaturesconfig.map((m) => (
           <div
@@ -37,13 +37,13 @@ const ConfiguratorItems = () => {
               />
             </div>
             <div>
-              <h2 className="font-bold text-2xl pr-6 mt-4 mb-4">{m.title}</h2>
+              <h2 className="font-bold text-2xl pr-6 mt-4 mb-2">{m.title}</h2>
               <h2 className="mb-4 font-normal leading-5">{m.desc}</h2>
             </div>
           </div>
         ))}
         <div>
-          <h1 className="text-center text-[30px] font-outfit mt-14 font-bold">
+          <h1 className="text-center text-[30px] font-outfit mt-14 font-bold ">
             Get in touch with us
           </h1>
           <h2 className="w-[300px] md:w-[500px] font-light mt-1 mb-10 text-[12px] text-center mx-auto">
@@ -64,7 +64,7 @@ const ConfiguratorItems = () => {
       </div>
       <div className="max-w-[1440px] mx-auto">
         <div className="hidden md:block">
-          <div className="md:grid md:grid-cols-2 md:gap-32 lg:gap-10 pt-20 xl:pt-40  md:px-8 xl:mt-60 justify-between items-center lg:px-10 ">
+          <div className="md:grid md:grid-cols-2 md:gap-32 lg:gap-10 pt-20 xl:pt-40 md:px-8 xl:mb-60 justify-between items-center lg:px-10 ">
             <div className="flex justify-center  ">
               <img
                 src={m1}
@@ -185,7 +185,7 @@ const ConfiguratorItems = () => {
             our services, want to discuss a project, we're here and ready to
             help.{" "}
           </h2>
-          <div className="w-full border-black max-h-screen">
+          <div className="w-full h-full border-black max-h-screen">
             <div
               id="SOIDIV_Bigsurmoon"
               data-so-page="Bigsurmoon"
