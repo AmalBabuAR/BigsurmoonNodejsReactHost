@@ -110,6 +110,9 @@ app.get("/editor", (req, res) => {
 app.get("/editor/ModelViewer/", (req, res) => {
   res.sendFile(__dirname + "/views/viewer.html");
 });
+app.get("/editor/Viewer/", (req, res) => {
+  res.sendFile(__dirname + "/views/homeViewer.html");
+});
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "frontend", "dist", "index.html"));

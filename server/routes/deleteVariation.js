@@ -5,10 +5,11 @@ const deleteConfigNamesRouter = express.Router();
 // New route for deleting a configuration by configname
 deleteConfigNamesRouter.delete("/", async (req, res) => {
   const { variantName, configName, idFromUrl } = req.body;
+  console.log("delete", req.body);
   try {
     // Perform the delete operation in the database based on configname
     await pool.query(
-      "DELETE FROM cnf.configdata WHERE variant = $1 AND projectid = $2  AND configname = $3",
+      "DELETE FROM cnf.configdata WHERE variant = $1 AND projectid = $2 AND configname = $3",
       [variantName, idFromUrl, configName]
     );
 
