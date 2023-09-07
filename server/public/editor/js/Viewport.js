@@ -404,7 +404,7 @@ function Viewport( editor ) {
 		needsApplyEnvironmentMap = false;
 		
 		//BSM - Applying white BG by default
-		scene.background = new THREE.Color('#878787');
+		scene.background = new THREE.Color('#333333');
 
 		}
 		

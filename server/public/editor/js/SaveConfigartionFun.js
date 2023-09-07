@@ -210,7 +210,7 @@ function getConfig(data, editor) {
 }
 
 function deleteConfig(variantName, configName) {
-	console.log(configName);
+	console.log(variantName, configName);
 	return new Promise((resolve, reject) => {
 		const idFromUrl = getQueryParam("id");
 		const deleteData = {

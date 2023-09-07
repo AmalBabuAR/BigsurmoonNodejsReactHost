@@ -117,6 +117,34 @@ const Dash = () => {
   useEffect(() => {
     getProject();
   }, []);
+
+  //ADDED EventListener
+  useEffect(() => {
+    const handleEscapeKeyPress = (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    };
+    const handleEnterKeyPress = (event) => {
+      if (event.key === "Enter") {
+        handleProjectNameSubmit(projectName);
+      }
+    };
+    if (isModalOpen) {
+      document.addEventListener("keydown", handleEscapeKeyPress);
+    }
+    const projectNameInput = document.getElementById("projectNameInput");
+    if (isModalOpen && projectNameInput) {
+      projectNameInput.addEventListener("keydown", handleEnterKeyPress);
+    }
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKeyPress);
+      if (projectNameInput) {
+        projectNameInput.removeEventListener("keydown", handleEnterKeyPress);
+      }
+    };
+  }, [isModalOpen, closeModal, handleProjectNameSubmit]);
+
   return (
     <>
       <div className="">
@@ -169,6 +197,8 @@ const Dash = () => {
                       onChange={handleNameChange}
                       className="bg-transparent w-full border-b outline-none xl:mt-4"
                       placeholder="Enter The Project Name"
+                      id="projectNameInput"
+                      autoFocus
                     />
                     <div className=" flex justify-end gap-4 pt-5">
                       <button
@@ -296,7 +326,7 @@ const Dash = () => {
                                 </svg>
                               </button>
                             </td>
-                            <td className="px-6 py-4">
+                            {/* <td className="px-6 py-4">
                               <button>
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -311,7 +341,7 @@ const Dash = () => {
                                   />
                                 </svg>
                               </button>
-                            </td>
+                            </td> */}
                             <td className="px-6 py-4 text-right">
                               <button
                                 onClick={() =>

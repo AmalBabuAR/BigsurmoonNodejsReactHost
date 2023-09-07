@@ -153,12 +153,12 @@ const Login = () => {
                 </i>
               </div>
               <div className="flex justify-end mb-10 mt-3">
-                <button
+                <p
                   onClick={(e) => navigate("/forgot")}
-                  className="text-gray-400 text-sm"
+                  className="text-gray-400 text-sm cursor-pointer"
                 >
                   Forgot Password ?
-                </button>
+                </p>
               </div>
               <div className="flex justify-center">
                 <button
@@ -261,12 +261,12 @@ const Login = () => {
               </i>
             </div>
             <div className="flex justify-end mb-10 mt-3">
-              <button
+              <p
                 onClick={(e) => navigate("/forgot")}
-                className="text-gray-400 text-sm"
+                className="text-gray-400 text-sm cursor-pointer"
               >
                 Forgot Password ?
-              </button>
+              </p>
             </div>
 
             <button
