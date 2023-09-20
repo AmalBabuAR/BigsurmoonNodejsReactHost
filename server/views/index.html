@@ -214,13 +214,13 @@
 			editor.storage.init(function () {
 				editor.storage.get(function (state) {
 					if (isLoadingFromHash) return;
-					// console.log("state", state);
+					console.log("state", state);
 					if (state !== undefined) {
 						if (parsedata === true) {
-							// console.log("we can call clear");
+							console.log("we can call clear");
 							editor.clear();
 						} else {
-							// console.log("holding", state);
+							console.log("holding", state);
 							editor.fromJSON(state);
 						}
 					}
