@@ -27,11 +27,11 @@ function Storage() {
 			
 			const request = indexedDB.open(name, version);
 			request.onupgradeneeded = function (event) {
-				// console.log('inside the init req onupgradeneeded ');
+				console.log('inside the init req onupgradeneeded ');
 				const db = event.target.result;
 
 				if (db.objectStoreNames.contains("states") === false) {
-					// console.log('inside the init req onupgradeneeded if statement');
+					console.log('inside the init req onupgradeneeded if statement');
 					db.createObjectStore("states");
 				}
 			};
@@ -52,7 +52,7 @@ function Storage() {
 		get: function (callback) {
 			this.clear()
 			
-			// console.log('call in get');
+			console.log('call in get');
 			const transaction = database.transaction(["states"], "readwrite");
 			const objectStore = transaction.objectStore("states");
 			const request = objectStore.get(0);
@@ -67,7 +67,7 @@ function Storage() {
 
 		set: function (data) {
 		
-
+			console.log('state change----',data);
 			const start = performance.now();
 			
 			const transaction = database.transaction(["states"], "readwrite");
@@ -113,7 +113,7 @@ function Storage() {
 		},
 		
 		clear: function () {
-		// console.log('database in storage',database);
+		console.log('database in storage',database);
 
 			if (database === undefined) return;
 
