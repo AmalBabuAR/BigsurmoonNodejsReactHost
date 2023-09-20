@@ -57,10 +57,9 @@ function Toolbar( editor ) {
 		signals.spaceChanged.dispatch( this.getValue() === true ? 'local' : 'world' );
 
 	} );
-	
+
 	//BSM-dev Removed the Local CheckBox
 	// container.add( local );
-
 
 	//
 

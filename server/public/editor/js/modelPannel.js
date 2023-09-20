@@ -55,6 +55,7 @@ function modelPannel(editor) {
 		if (data !== null) {
 			const response = await getConfig(data, editor);
 			response.forEach((config) => {
+				console.log("config", config);
 				if (config.variant === "ModelVariant") {
 					if (!configNamesArray.includes(config.configname)) {
 						configNamesArray.push(config.configname);
@@ -72,7 +73,6 @@ function modelPannel(editor) {
 							let call = true;
 							signals.callTheLoader.dispatch(call);
 							const getVareintData = await getVareint(config.configname);
-							console.log(getVareintData);
 							if (getVareintData.success) {
 								signals.callExistingProject.dispatch(getVareintData.data);
 							}
@@ -83,6 +83,7 @@ function modelPannel(editor) {
 							try {
 								let call = true;
 								signals.callTheLoader.dispatch(call);
+								console.log(config.variant, config.configname, editor);
 								const res = await updateConfig(
 									config.variant,
 									config.configname,

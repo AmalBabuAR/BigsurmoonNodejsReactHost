@@ -94,7 +94,7 @@ function SidebarGeometry( editor ) {
 	geometryTypeRow.add( geometryType );
 
 	//BSM-dev removed the type
-	// container.add( geometryTypeRow );
+	//container.add( geometryTypeRow );
 
 	// uuid
 
@@ -113,7 +113,7 @@ function SidebarGeometry( editor ) {
 	geometryUUIDRow.add( geometryUUIDRenew );
 
 	//BSM-dev removed the uuid
-	// container.add( geometryUUIDRow );
+	//container.add( geometryUUIDRow );
 
 	// name
 
@@ -128,7 +128,7 @@ function SidebarGeometry( editor ) {
 	geometryNameRow.add( geometryName );
 
 	//BSM-dev removed the name
-	// container.add( geometryNameRow );
+	//container.add( geometryNameRow );
 
 	// parameters
 

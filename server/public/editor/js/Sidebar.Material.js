@@ -48,7 +48,7 @@ function SidebarMaterial( editor ) {
 	materialClassRow.add( materialClass );
 
 	//BSM-dev removed the type
-	// container.add( materialClassRow );
+	//container.add( materialClassRow );
 
 	// uuid
 
@@ -67,7 +67,7 @@ function SidebarMaterial( editor ) {
 	materialUUIDRow.add( materialUUIDRenew );
 
 	//BSM-dev removed the uuid
-	// container.add( materialUUIDRow );
+	//container.add( materialUUIDRow );
 
 	// name
 
@@ -187,7 +187,7 @@ function SidebarMaterial( editor ) {
 	// vertex colors
 
 	const materialVertexColors = new SidebarMaterialBooleanProperty( editor, 'vertexColors', strings.getKey( 'sidebar/material/vertexcolors' ) );
-	
+
 	//BSM-dev removed the vertex colors
 	// container.add( materialVertexColors );
 

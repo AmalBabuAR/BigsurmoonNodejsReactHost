@@ -7,7 +7,7 @@
 			name="viewport"
 			content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
 		/>
-		<link rel="apple-touch-icon" href="images/icon.png" />
+		<link rel="apple-touch-icon" href="images/icon.gif" />
 		<link rel="manifest" href="manifest.json" />
 		<link
 			rel="shortcut icon"
@@ -162,16 +162,25 @@
 			//calling thr projectId from params
 			function getQueryParam(param) {
 				const queryString = window.location.search;
+				console.log(queryString);
 				const urlParams = new URLSearchParams(queryString);
 				return urlParams.get(param);
 			}
 			const newFromUrl = getQueryParam("new");
+			console.log(newFromUrl);
 			const parsedata = JSON.parse(newFromUrl);
 
 			const idFromUrl = getQueryParam("id");
 			const configNameUrl = getQueryParam("configName");
 			const variantNameUrl = getQueryParam("variantName");
-			// console.log("Extracted ID in editor in html:", idFromUrl, parsedata);
+
+			console.log(
+				"Extracted ID in editor in html:",
+				idFromUrl,
+				parsedata,
+				configNameUrl,
+				variantNameUrl
+			);
 			if (parsedata === false) {
 				//loader called
 				showLoaderContent();
@@ -196,14 +205,13 @@
 					hideLoaderContent();
 				}
 			});
-			signals.callTheLoader.add(async function (data){
-				// console.log('called the calltheloader');
+			signals.callTheLoader.add(async function (data) {
+				// console.log("called the calltheloader");
 				if (data !== null) {
 					showLoaderContent();
 				}
-			})
-			 
-			 
+			});
+
 			// if (newFromUrl === "true") {
 			// 	console.log("we can call clear");
 			// 	editor.clear();

@@ -15,12 +15,19 @@ function getQueryParam(param) {
 function saveConfig(defaultName, editor, variantName, container) {
 	return new Promise((resolve, reject) => {
 		const idFromUrl = getQueryParam("id");
-	
+		// const projectIDParse = JSON.parse(idFromUrl);
+
+		// console.log(container);
+		// console.log(
+		// 	`Saving configuration with default name: ${(defaultName, idFromUrl)}`
+		// );
 		const sceneJson = editor.toJSON();
+		// console.log("sceneJson", sceneJson);
 		const materialData = sceneJson.scene.materials;
 		const textureData = sceneJson.scene.textures;
 		const imageData = sceneJson.scene.images;
 		const objectData = sceneJson.scene.object;
+		// console.log("imageData ++++++++", imageData);
 
 		// Get the project id and the config name
 		const configData = {
@@ -196,7 +203,7 @@ function getConfig(data, editor) {
 		fetch(`https://bigsurmoon.com/getConfigNames/${idFromUrl}`)
 			.then((response) => response.json())
 			.then((data) => {
-				// console.log(data.response);
+				// console.log(data);
 				resolve(data);
 			})
 			.catch((error) => {
@@ -207,7 +214,7 @@ function getConfig(data, editor) {
 }
 
 function deleteConfig(variantName, configName) {
-	// console.log(variantName, configName);
+	// console.log(configName);
 	return new Promise((resolve, reject) => {
 		const idFromUrl = getQueryParam("id");
 		const deleteData = {

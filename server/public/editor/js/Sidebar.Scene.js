@@ -249,7 +249,7 @@ function SidebarScene(editor) {
 	environmentRow.add(environmentEquirectangularTexture);
 
 	//BSM - Removing Enviornment option from Editor
-	// container.add(environmentRow);
+	// container.add( environmentRow );
 
 	function onEnvironmentChanged() {
 		signals.sceneEnvironmentChanged.dispatch(

@@ -751,6 +751,7 @@ function Loader(editor) {
 		console.log("data in signal loader", data);
 		const existingProject = true;
 		if (data !== null) {
+			console.log("scene", editor.scene);
 			while (editor.scene.children.length > 0) {
 				editor.scene.remove(editor.scene.children[0]);
 			}
@@ -795,7 +796,7 @@ function Loader(editor) {
 			case "object": {
 				const loader = new THREE.ObjectLoader();
 				loader.setResourcePath(scope.texturePath);
-
+				console.log("loder", data);
 				loader.parse(data, function (result) {
 					if (result.isScene) {
 						editor.execute(new SetSceneCommand(editor, result));

@@ -87,7 +87,7 @@ function SidebarObject(editor) {
 	objectTypeRow.add(objectType);
 
 	//BSM-dev removed the type
-	// container.add( objectTypeRow );
+	//container.add( objectTypeRow );
 
 	// uuid
 
@@ -113,7 +113,7 @@ function SidebarObject(editor) {
 	objectUUIDRow.add(objectUUIDRenew);
 
 	//BSM-dev removed the uuid
-	// container.add( objectUUIDRow );
+	//container.add( objectUUIDRow );
 
 	// name
 
@@ -138,7 +138,7 @@ function SidebarObject(editor) {
 	objectNameRow.add(objectName);
 
 	//BSM-dev removed the name
-	// container.add( objectNameRow );
+	//container.add( objectNameRow );
 
 	// position
 
@@ -476,7 +476,7 @@ function SidebarObject(editor) {
 	objectFrustumCulledRow.add(objectFrustumCulled);
 
 	//BSM-dev removed the frustumCulled
-	// container.add( objectFrustumCulledRow );
+	//container.add( objectFrustumCulledRow );
 
 	// renderOrder
 
@@ -489,7 +489,7 @@ function SidebarObject(editor) {
 	objectRenderOrderRow.add(objectRenderOrder);
 
 	//BSM-dev removed the renderOrder
-	// container.add( objectRenderOrderRow );
+	//container.add( objectRenderOrderRow );
 
 	// user data
 

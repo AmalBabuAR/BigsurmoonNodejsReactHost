@@ -32,7 +32,7 @@ function SidebarScript( editor ) {
 		editor.execute( new AddScriptCommand( editor, editor.selected, script ) );
 
 	} );
-
+	
 	// BSM-dev removed script
 	// container.add( newScript );
 

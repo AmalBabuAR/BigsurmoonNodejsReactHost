@@ -47,7 +47,7 @@ function MenubarEdit( editor ) {
 	} );
 	options.add( redo );
 
-	// // Clear History
+	// Clear History
 
 	// let option = new UIRow();
 	// option.setClass( 'option' );

@@ -45,6 +45,12 @@ function Preview(editor) {
 
 	container.add(button);
 
+	// const button = new UIButton("Preview Project").setId('previewProject')
+
+	// // div.add(button)
+
+	// container.add(button).setClass('previewBTN')
+
 	return container;
 }
 

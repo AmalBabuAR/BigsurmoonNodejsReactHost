@@ -229,6 +229,7 @@ class UIBoxType extends UIDiv {
 				this.add(this.spinnerElement);
 				// this.showLoadingSpinner();
 				const data = await saveConfig(defaultName, editor, variantName);
+				console.log("data ____________", data);
 				const signals = editor.signals;
 				if (data.success) {
 					this.addsignals(data, signals);
@@ -362,9 +363,9 @@ class UIInput extends UIElement {
 
 		return this;
 	}
-
+	
 	setPlaceholder() {
-		this.dom.placeholder = "Enter Variant";
+		this.dom.placeholder = 'Enter Variant';
 
 		return this;
 	}
@@ -1197,6 +1198,7 @@ export {
 	UIBreak,
 	UIHorizontalRule,
 	UIButton,
+	UIToolbarButton,
 	UIProgress,
 	UITabbedPanel,
 	UIListbox,
@@ -1204,5 +1206,4 @@ export {
 	UIBoxType,
 	UIConfButton,
 	UINewColor,
-	UIToolbarButton,
 };

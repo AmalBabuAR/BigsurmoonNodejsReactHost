@@ -1,1467 +1,1466 @@
 :root {
-	color-scheme: light dark;
-  }
-  
-  body {
-	font-family: "Roboto", sans-serif;
-	font-size: 14px;
+  color-scheme: light dark;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  overflow: hidden;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+button {
+  position: relative;
+}
+
+input {
+  vertical-align: middle;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+textarea {
+  tab-size: 4;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+textarea.success {
+  border-color: #8b8 !important;
+}
+
+textarea.fail {
+  border-color: #f00 !important;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+
+textarea,
+input {
+  outline: none;
+} /* osx */
+
+.Panel {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  /* No support for these yet */
+  -o-user-select: none;
+  user-select: none;
+}
+
+.TabbedPanel {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  /* No support for these yet */
+  -o-user-select: none;
+  user-select: none;
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 260px;
+}
+
+.TabbedPanel .Tabs {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.TabbedPanel .Tabs .Tab {
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.TabbedPanel .Panels {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* Listbox */
+.Listbox {
+  color: #444;
+  background-color: #fff;
+  padding: 0;
+  width: 100%;
+  min-height: 140px;
+  font-size: 12px;
+  cursor: default;
+  overflow: auto;
+}
+
+.Listbox .ListboxItem {
+  padding: 6px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.Listbox .ListboxItem.active {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* CodeMirror */
+
+.CodeMirror {
+  position: absolute !important;
+  top: 37px;
+  width: 100% !important;
+  height: calc(100% - 37px) !important;
+}
+
+.CodeMirror .errorLine {
+  background: rgba(255, 0, 0, 0.25);
+}
+
+.CodeMirror .esprima-error {
+  color: #f00;
+  text-align: right;
+  padding: 0 20px;
+}
+
+/* outliner */
+
+#outliner .opener {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0px 4px;
+  vertical-align: top;
+  text-align: center;
+}
+
+#outliner .opener.open:after {
+  content: "−";
+}
+
+#outliner .opener.closed:after {
+  content: "+";
+}
+
+#outliner .option {
+  border: 1px solid transparent;
+}
+
+#outliner .option.drag {
+  border: 1px dashed #999;
+}
+
+#outliner .option.dragTop {
+  border-top: 1px dashed #999;
+}
+
+#outliner .option.dragBottom {
+  border-bottom: 1px dashed #999;
+}
+
+#outliner .type {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  color: #ddd;
+  text-align: center;
+}
+
+#outliner .type:after {
+  content: "●";
+}
+
+/* */
+
+#outliner .Scene {
+  color: #8888dd;
+}
+
+#outliner .Camera {
+  color: #dd8888;
+}
+
+#outliner .Light {
+  color: #dddd88;
+}
+
+/* */
+
+#outliner .Object3D {
+  color: #aaaaee;
+}
+
+#outliner .Mesh {
+  color: #8888ee;
+}
+
+#outliner .Line {
+  color: #88ee88;
+}
+
+#outliner .LineSegments {
+  color: #88ee88;
+}
+
+#outliner .Points {
+  color: #ee8888;
+}
+
+/* */
+
+#outliner .Geometry {
+  color: #aaeeaa;
+}
+
+#outliner .Material {
+  color: #eeaaee;
+}
+
+/* */
+
+#outliner .Script:after {
+  content: "◎";
+}
+
+/*  */
+
+button {
+  color: #555;
+  background-color: #ddd;
+  border: 0px;
+  margin: 0px; /* GNOME Web */
+  padding: 5px 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #fff;
+}
+
+button.selected {
+  background-color: #fff;
+}
+
+input,
+textarea {
+  border: 1px solid transparent;
+  color: #444;
+}
+
+input.Number {
+  color: #08f;
+  font-size: 12px;
+  border: 0px;
+  padding: 2px;
+}
+
+select {
+  color: #666;
+  background-color: #ddd;
+  border: 0px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+
+select:hover {
+  background-color: #fff;
+}
+
+/* UI */
+
+#resizer {
+  position: absolute;
+  top: 32px;
+  right: 295px;
+  width: 5px;
+  bottom: 0px;
+  /* background-color: rgba(255,0,0,0.5); */
+  cursor: col-resize;
+}
+
+/*BSM dev changed viewport and comment the old */
+#viewport {
+  position: absolute;
+  top: 33px; /* BSM - Changed 0 to 32px */
+  left: 296px;
+  right: 296px;
+  bottom: 0;
+}
+/* 
+#viewport {
+	position: absolute;
+	top: 0; BSM - Changed 0 to 32px
+	left: 0;
+	right: 300px;
+	bottom: 0;
+} */
+
+#viewport #info {
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+#script {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  right: 300px;
+  bottom: 0;
+  opacity: 0.9;
+}
+
+#player {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  right: 300px;
+  bottom: 0;
+}
+/*BSM dev changed the menubar and comment the old */
+#menubar {
+  position: absolute;
+  border-bottom: 0.5px solid #313131;
+  width: auto; /* BSM changed width 100 to 75% */
+  height: 55px;
+  background: #eee;
+  padding: 0;
+  margin: 0;
+  padding-right: 50px;
+  padding-left: 50px; /* BSM added padding left */
+  right: 3px; /* BSM changed right 0 to 3px */
+  left: 0; /* BSM changed left 0 to 7px */
+  top: 0; /* BSM changed top 0 to 3px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* #menubar {
+	position: absolute;
+	width: 100%;
+	height: 32px;
+	background: #eee;
+	padding: 0;
 	margin: 0;
-	overflow: hidden;
+	right: 0;
+	top: 0;
+} */
+
+.newImport .importButton {
+  background-color: #4a4a4a;
+  display: flex;
+  justify-items: center;
+  gap: 10px;
+
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.importButton:hover {
+  background-color: #3b3b3b;
+}
+.newEdit {
+  display: flex;
+  gap: 10px;
+  width: auto;
+  margin-left: 20px;
+  margin-right: auto;
+}
+.editGroupBTN {
+  border-radius: 10px;
+  padding: 9px 13px;
+  background-color: #1f1f1f;
+}
+
+.editGroupBTN img {
+  width: 15px;
+  height: 19px;
+}
+#deleteBTN img {
+  width: 17px;
+  height: 19px;
+}
+
+#importTitle {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-transform: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#newToolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  text-align: center;
+  gap: 15px;
+  margin-left: 110px;
+  margin-right: 110px;
+}
+
+.toolbarButton {
+  background-color: #1f1f1f;
+}
+#newToolbar .toolbarButton {
+  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+}
+
+#playBTN {
+  width: 37px;
+  height: 37px;
+  /* padding: 10px 15px; */
+  border-radius: 10px;
+  padding-top: auto;
+  padding-right: auto;
+  margin-right: 110px;
+}
+#playBTN:hover {
+  background-color: #4a4a4a;
+}
+.preAndPubBtn {
+  display: flex;
+  justify-items: center;
+  gap: 5px;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#previewBTN {
+  background-color: #4a4a4a;
+}
+#previewBTN:hover {
+  background-color: #3b3b3b;
+}
+#publishBTN {
+  background-color: #1d8ee6;
+}
+#publishBTN:hover {
+  background-color: #0068b7;
+}
+
+#previewBTN img {
+  width: 10px;
+  height: 10px;
+  display: flex;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+#preAndPubTitle {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-transform: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+}
+.previewMenu {
+  margin-right: 13px;
+  margin-left: 13px;
+}
+.publishMenu {
+  margin-right: 13px;
+  margin-left: 13px;
+}
+#Reset {
+  margin-left: 13px;
+}
+
+#resetBTN {
+  background-color: #4a4a4a;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+#resetBTN:hover {
+  background-color: #3b3b3b;
+}
+
+#menubar .menu {
+  float: left;
+  cursor: pointer;
+  padding-right: 8px;
+}
+
+#menubar .menu.right {
+  float: right;
+  cursor: auto;
+  padding-right: 0;
+  text-align: right;
+}
+
+#menubar .menu .title {
+  display: inline-block;
+  color: #888;
+  margin: 0;
+  padding: 8px;
+  line-height: 16px;
+}
+
+/* #menubar .previewMenu {
+  float: right;
+  cursor: pointer;
+  padding-right: 50px;
+} */
+
+/* #menubar .previewMenu #previewTitle {
+  display: inline-block;
+  color: #888;
+  margin: 0;
+  padding: 8px;
+  line-height: 16px;
+} */
+
+#menubar .menu .options {
+  position: fixed;
+  display: none;
+  padding: 5px 0;
+  background: #eee;
+  width: auto;
+  max-height: calc(100% - 80px);
+  overflow: auto;
+}
+
+#menubar .menu:hover .options {
+  display: block;
+}
+
+#menubar .menu .options hr {
+  border-color: #ddd;
+}
+
+#menubar .menu .options .option {
+  color: #666;
+  background-color: transparent;
+  padding: 5px 10px;
+  margin: 0 !important;
+}
+
+#menubar .menu .options .option:hover {
+  color: #fff;
+  background-color: #08f;
+}
+
+#menubar .menu .options .option:active {
+  color: #666;
+  background: transparent;
+}
+
+#menubar .menu .options .inactive {
+  color: #bbb;
+  background-color: transparent;
+  padding: 5px 10px;
+  margin: 0 !important;
+}
+
+/*BSM dev adding confiBut properties  */
+#modelTab {
+  margin-top: 20px;
+}
+
+#model {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#texture {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.btnConfDiv {
+  display: flex;
+  justify-content: center;
+}
+
+#BTNconfig {
+  margin: 10px;
+
+  padding: 10px;
+}
+
+#confName,
+#confNameHead {
+  margin-left: 15px;
+}
+
+.BoxType {
+  /* background-color: #08f; */
+  margin-left: 12px;
+}
+
+#addVariantBtn {
+  margin-left: 20px;
+}
+#deleteVariantBtn {
+  margin-left: 20px;
+}
+
+.textureVariantDiv {
+  display: flex;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.modelVariantDiv {
+  display: flex;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  hr {
-	border: 0;
-	border-top: 1px solid #ccc;
-  }
-  
-  button {
-	position: relative;
-  }
-  
-  input {
-	vertical-align: middle;
-  }
-  
-  input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
-  }
-  input[type="color"]::-webkit-color-swatch {
-	border: none;
-  }
-  
-  textarea {
-	tab-size: 4;
-	white-space: pre;
-	word-wrap: normal;
-  }
-  
-  textarea.success {
-	border-color: #8b8 !important;
-  }
-  
-  textarea.fail {
-	border-color: #f00 !important;
-	background-color: rgba(255, 0, 0, 0.05);
-  }
-  
-  textarea,
-  input {
-	outline: none;
-  } /* osx */
-  
-  .Panel {
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-  
-	/* No support for these yet */
-	-o-user-select: none;
-	user-select: none;
-  }
-  
-  .TabbedPanel {
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-  
-	/* No support for these yet */
-	-o-user-select: none;
-	user-select: none;
-	position: relative;
-	display: block;
-	width: 100%;
-	min-width: 260px;
-  }
-  
-  .TabbedPanel .Tabs {
-	position: relative;
-	display: block;
-	width: 100%;
-  }
-  
-  .TabbedPanel .Tabs .Tab {
-	padding: 10px;
-	text-transform: uppercase;
-  }
-  
-  .TabbedPanel .Panels {
-	position: relative;
-	display: block;
-	width: 100%;
-  }
-  
-  /* Listbox */
-  .Listbox {
-	color: #444;
-	background-color: #fff;
-	padding: 0;
-	width: 100%;
-	min-height: 140px;
-	font-size: 12px;
-	cursor: default;
+}
+/*BSM dev added the new spinner*/
+.spinner {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #333;
+  animation: spin 1s linear infinite;
+}
+
+/* NEW UI Configuration sidebar */
+#newUI_SidebarConfig {
+  position: absolute;
+  right: 1px; /* BSM right chnaged 0 to 13px*/
+  top: 55px; /* BSM right chnaged 0 to 13px*/
+  bottom: 0px; /* BSM right chnaged 0 to 13px*/
+  width: 300px; /* BSM width chnaged 300px to 13px*/
+  background: #eee;
+  overflow: auto;
+  border-left: 1px solid #313131; /*BSM added width and radius*/
+}
+
+/* NEW UI Configuration*/
+#configuration {
+  margin: 0 auto;
+}
+#configurationItem {
+  margin-bottom: 5px;
+}
+
+#configurationHeader {
+  padding: 10px 19px;
+  cursor: pointer;
+  background-color: #1f1f1f;
+  border-right: 1px solid #313131;
+  border-left: 1px solid #313131;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#configurationContent {
+  display: flex;
+  padding: 10px;
+  border-bottom: 0.5px solid #313131;
+}
+#configurationContentSub {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+.createVariantBtn {
+  background-color: #4a4a4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 7px 15px;
+  margin: 15px auto;
+}
+
+.createVariantBtn span {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: none;
+}
+
+#configurationHeader img {
+  transition: transform 0.2s ease;
+}
+#configurationItem.active #configurationHeader img {
+  transform: rotate(180deg);
+}
+
+/*  NEW UI newModel */
+#newModel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+#newModelItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#newModelError {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  color: rgb(220 38 38);
+  font-size: 12px;
+}
+
+#newModelHeader {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 250px;
+  height: 25px;
+  border-radius: 10px;
+  background: #4a4a4a;
+}
+#newModelHeader img {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+#newModelHeader span input {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#modelInputTitle {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#newModelInput {
+  padding: 0;
+  border: 0;
+  color: white;
+  width: 70px;
+  background-color: #4a4a4a;
+}
+
+#newModelConfirmBTN,
+#newModelDeleteBTN {
+  background-color: #4a4a4a;
+  padding: 0;
+}
+
+#newModelConftrm {
+  width: 10px;
+  height: 6px;
+}
+#newModelDelete {
+  width: 10px;
+  height: 8px;
+}
+/*  NEW UI newModel List  */
+#newModelList {
+  order: 9999;
+ 
+}
+
+#newModelItemList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.newModelListHeader {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 250px;
+  height: 25px;
+  border-radius: 10px 10px 0px 0px;
+  background: #4a4a4a;
+}
+.modelDropDownBtn {
+  background-color: #4a4a4a;
+}
+
+#modelInputTitleList {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#newModelConfirmListBTN,
+#newModelDeleteListBTN {
+  background-color: #4a4a4a;
+  padding: 0;
+}
+#newModelConfirmList {
+  width: 10px;
+  height: 6px;
+}
+#newModelDeleteList {
+  width: 10px;
+  height: 8px;
+}
+/* content of trxture */
+.newModelListContent {
+  background-color: #323232;
+  display: flex;
+  padding-left: auto;
+  padding-right: auto;
+
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 0px 0px 10px 10px;
+  width: 250px;
+}
+.createTextureBtn {
+  background-color: #4a4a4a;
+  display: flex;
+  justify-items: center;
+  border-radius: 10px;
+  margin: 18px auto;
+}
+.createTextureBtn span {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: none;
+}
+.textureContainer {
+  background-color: #08f;
+  height: 20px;
+}
+#newtexture {
+  width: 223px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 25px;
+  margin-bottom: 15px;
+}
+#newtextureHeader {
+  display: flex;
+  padding: 5px 15px;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #4a4a4a;
+}
+#textureInputTitle {
+  color: #d4d4d4;
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#newTextureInput {
+  width: 55px;
+  background-color: #4a4a4a;
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #d4d4d4;
+}
+#newTextureConfirmBTN,
+#newTextureDeleteBTN {
+  background-color: #4a4a4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#newTextureConfirm,
+#newTextureDeleteBTN {
+  width: 8px;
+  height: 8px;
+}
+#textureList {
+  order: 9999;
+}
+#textureListHeader {
+  width: 223px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border-bottom: 1px solid #2c2c2c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#textureListHeader span {
+  width: 250px;
+  margin-left: 20px;
+  color: #d4d4d4;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+#textureListDeleteBTN {
+  margin-right: 20px;
+  background-color: transparent;
+}
+#textureListDeleteBTN:hover {
+  background-color: #4a4a4a;
+}
+/* ----------------------------- */
+
+/* material  */
+#materialHeader {
+  padding: 10px 19px;
+  cursor: pointer;
+  background-color: #1f1f1f;
+  border-right: 1px solid #313131;
+  border-left: 1px solid #313131;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#materialContent {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.5px solid #313131;
+}
+#materialMap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 240px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+#materialMap .Row {
+  margin-bottom: 15px;
+}
+#mapDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#mapDiv canvas {
+  margin-right: 25px;
+}
+.mapImport,
+.mapDelete {
+  order: 9999;
+  background-color: #1f1f1f;
+}
+.mapDelete img {
+  width: 12px;
+  height: 14px;
+}
+.MapfileDiv {
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  overflow: hidden;
+}
+
+.MapTextName {
+  color: #e1e1e1;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.MapfileName {
+  color: #b9b9b9;
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#materialColor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 240px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#materialColor .Row {
+  width: 230px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#materialColor .Row .Color {
+  margin-right: 10px;
+}
+#materialColor .Row img {
+  order: -9999;
+  margin-right: 10px;
+}
+
+#materialColor .Row .Number {
+  color: #b9b9b9 !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-family: Roboto;
+  order: 9999;
+}
+
+#materialColor .Row span {
+  width: 125px;
+  color: #b9b9b9;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#colorInput {
+  width: 16px;
+}
+
+/* attribute */
+#attributeHeader {
+  padding: 10px 19px;
+  cursor: pointer;
+  background-color: #1f1f1f;
+  border-right: 1px solid #313131;
+  border-left: 1px solid #313131;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#attributeContent {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.5px solid #313131;
+}
+
+#attributeProperty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* width: 250px; */
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+
+#attributeProperty .Row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+#attributeProperty .Row .Text {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 65px !important;
+}
+#attributeProperty .Row .Number {
+  /* display: flex; */
+  width: 30px !important;
+  padding: 4px 10px;
+  /* justify-content: center; */
+  /* align-items: center; */
+
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 0.5px solid #4a4a4a;
+  /* width: 75px !important; */
+  color: #fff;
+  font-size: 11px;
+}
+#attributeProperty .Row img {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+/* ----------------------------- */
+
+/*BSM dev added the new sidebarConfig*/
+#sidebarConfig {
+  /* position: absolute; */
+  right: 320px; /* BSM right chnaged 0 to 13px*/
+  top: 55px; /* BSM right chnaged 0 to 13px*/
+  bottom: 0px; /* BSM right chnaged 0 to 13px*/
+  width: 296px; /* BSM width chnaged 300px to 13px*/
+  background: #eee;
+  overflow: auto;
+  border-left: 1px solid #808080; /*BSM added width and radius*/
+}
+/*BSM dev changed the sidebar & commented the old */
+#sidebar {
+  position: absolute;
+  left: 0; /* BSM right chnaged 0 to 13px*/
+  top: 20px; /* BSM right chnaged 0 to 13px*/
+  bottom: 0px; /* BSM right chnaged 0 to 13px*/
+  width: 296px; /* BSM width chnaged 300px to 13px*/
+  background: #eee;
+  overflow: auto;
+  border-right: 1px solid #808080;
+}
+
+/* #sidebar {
+	position: absolute;
+	right: 0;
+	top: 32px;
+	bottom: 0;
+	width: 300px;
+	background: #eee;
 	overflow: auto;
+} */
+
+#sidebar .Panel {
+  color: #888;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+#sidebar .Panel.collapsed {
+  margin-bottom: 0;
+}
+
+#sidebar .Row {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+  margin-bottom: 10px;
+}
+
+#tabs {
+  background-color: #ddd;
+  border-top: 1px solid #ccc;
+}
+
+#tabs span {
+  color: #aaa;
+  border-right: 1px solid #ccc;
+  padding: 10px;
+}
+
+#tabs span.selected {
+  color: #888;
+  background-color: #eee;
+}
+
+#toolbar {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 750px;
+  bottom: 5px;
+  padding: 2px;
+  background: #eee;
+  text-align: center;
+}
+
+#toolbar button,
+#toolbar input {
+  height: 32px;
+  width: 42px;
+  margin-left: 2px;
+}
+
+#toolbar button img {
+  width: 16px;
+  opacity: 0.5;
+}
+
+.Outliner {
+  color: #444;
+  background-color: #fff;
+  padding: 0;
+  width: 100%;
+  height: 450px;
+  font-size: 12px;
+  cursor: default;
+  overflow: auto;
+  resize: vertical;
+  outline: none !important;
+}
+
+.Outliner .option {
+  padding: 4px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.Outliner .option:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.Outliner .option.active {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.TabbedPanel .Tabs {
+  background-color: #ddd;
+  border-top: 1px solid #ccc;
+}
+
+.TabbedPanel .Tab {
+  color: #aaa;
+  border-right: 1px solid #ccc;
+}
+
+.TabbedPanel .Tab.selected {
+  color: #888;
+  background-color: #eee;
+}
+
+.Listbox {
+  color: #444;
+  background-color: #fff;
+}
+
+.Panel {
+  color: #888;
+}
+
+/* */
+
+@media all and (max-width: 600px) {
+  #resizer {
+    display: none;
   }
-  
-  .Listbox .ListboxItem {
-	padding: 6px;
-	color: #666;
-	white-space: nowrap;
+
+  #menubar .menu .options {
+    max-height: calc(100% - 372px);
   }
-  
-  .Listbox .ListboxItem.active {
-	background-color: rgba(0, 0, 0, 0.04);
+
+  #menubar .menu.right {
+    display: none;
   }
-  
-  /* CodeMirror */
-  
-  .CodeMirror {
-	position: absolute !important;
-	top: 37px;
-	width: 100% !important;
-	height: calc(100% - 37px) !important;
+
+  #viewport {
+    left: 0;
+    right: 0;
+    top: 32px;
+    height: calc(100% - 352px);
   }
-  
-  .CodeMirror .errorLine {
-	background: rgba(255, 0, 0, 0.25);
+
+  #script {
+    left: 0;
+    right: 0;
+    top: 32px;
+    height: calc(100% - 352px);
   }
-  
-  .CodeMirror .esprima-error {
-	color: #f00;
-	text-align: right;
-	padding: 0 20px;
+
+  #player {
+    left: 0;
+    right: 0;
+    top: 32px;
+    height: calc(100% - 352px);
   }
-  
-  /* outliner */
-  
-  #outliner .opener {
-	display: inline-block;
-	width: 14px;
-	height: 14px;
-	margin: 0px 4px;
-	vertical-align: top;
-	text-align: center;
+
+  #sidebar {
+    left: 0;
+    width: 100%;
+    top: calc(100% - 320px);
+    bottom: 0;
   }
-  
-  #outliner .opener.open:after {
-	content: "−";
-  }
-  
-  #outliner .opener.closed:after {
-	content: "+";
-  }
-  
-  #outliner .option {
-	border: 1px solid transparent;
-  }
-  
-  #outliner .option.drag {
-	border: 1px dashed #999;
-  }
-  
-  #outliner .option.dragTop {
-	border-top: 1px dashed #999;
-  }
-  
-  #outliner .option.dragBottom {
-	border-bottom: 1px dashed #999;
-  }
-  
-  #outliner .type {
-	display: inline-block;
-	width: 14px;
-	height: 14px;
-	color: #ddd;
-	text-align: center;
-  }
-  
-  #outliner .type:after {
-	content: "●";
-  }
-  
-  /* */
-  
-  #outliner .Scene {
-	color: #8888dd;
-  }
-  
-  #outliner .Camera {
-	color: #dd8888;
-  }
-  
-  #outliner .Light {
-	color: #dddd88;
-  }
-  
-  /* */
-  
-  #outliner .Object3D {
-	color: #aaaaee;
-  }
-  
-  #outliner .Mesh {
-	color: #8888ee;
-  }
-  
-  #outliner .Line {
-	color: #88ee88;
-  }
-  
-  #outliner .LineSegments {
-	color: #88ee88;
-  }
-  
-  #outliner .Points {
-	color: #ee8888;
-  }
-  
-  /* */
-  
-  #outliner .Geometry {
-	color: #aaeeaa;
-  }
-  
-  #outliner .Material {
-	color: #eeaaee;
-  }
-  
-  /* */
-  
-  #outliner .Script:after {
-	content: "◎";
-  }
-  
-  /*  */
-  
+}
+
+/* DARK MODE */
+
+@media (prefers-color-scheme: dark) {
   button {
-	color: #555;
-	background-color: #ddd;
-	border: 0px;
-	margin: 0px; /* GNOME Web */
-	padding: 5px 8px;
-	font-size: 12px;
-	text-transform: uppercase;
-	cursor: pointer;
-	outline: none;
+    color: #aaa;
+    background-color: #222;
   }
-  
+
   button:hover {
-	background-color: #fff;
+    color: #ccc;
+    background-color: #444;
   }
-  
+
+  .toolbarButton:hover {
+    background-color: #4a4a4a;
+  }
+  .toolbarButton.selected {
+    background-color: #1d8ee6;
+  }
+
   button.selected {
-	background-color: #fff;
+    color: #fff;
+    background-color: #08f;
   }
-  
+
   input,
   textarea {
-	border: 1px solid transparent;
-	color: #444;
+    background-color: #222;
+    border: 1px solid transparent;
+    color: #888;
   }
-  
-  input.Number {
-	color: #08f;
-	font-size: 12px;
-	border: 0px;
-	padding: 2px;
-  }
-  
+
   select {
-	color: #666;
-	background-color: #ddd;
-	border: 0px;
-	text-transform: uppercase;
-	cursor: pointer;
-	outline: none;
+    color: #aaa;
+    background-color: #222;
   }
-  
+
   select:hover {
-	background-color: #fff;
+    color: #ccc;
+    background-color: #444;
   }
-  
+
   /* UI */
-  
-  #resizer {
-	position: absolute;
-	top: 32px;
-	right: 295px;
-	width: 5px;
-	bottom: 0px;
-	/* background-color: rgba(255,0,0,0.5); */
-	cursor: col-resize;
-  }
-  
-  /*BSM dev changed viewport and comment the old */
-  #viewport {
-	position: absolute;
-	top: 33px; /* BSM - Changed 0 to 32px */
-	left: 296px;
-	right: 296px;
-	bottom: 0;
-  }
-  /* 
-  #viewport {
-	  position: absolute;
-	  top: 0; BSM - Changed 0 to 32px
-	  left: 0;
-	  right: 300px;
-	  bottom: 0;
-  } */
-  
-  #viewport #info {
-	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
-	pointer-events: none;
-  }
-  
-  #script {
-	position: absolute;
-	top: 32px;
-	left: 0;
-	right: 300px;
-	bottom: 0;
-	opacity: 0.9;
-  }
-  
-  #player {
-	position: absolute;
-	top: 32px;
-	left: 0;
-	right: 300px;
-	bottom: 0;
-  }
-  /*BSM dev changed the menubar and comment the old */
+
   #menubar {
-	position: absolute;
-	border-bottom: 0.5px solid #313131;
-	width: auto; /* BSM changed width 100 to 75% */
-	height: 55px;
-	background: #eee;
-	padding: 0;
-	margin: 0;
-	padding-right: 50px;
-	padding-left: 50px; /* BSM added padding left */
-	right: 3px; /* BSM changed right 0 to 3px */
-	left: 0; /* BSM changed left 0 to 7px */
-	top: 0; /* BSM changed top 0 to 3px */
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+    background: #1f1f1f;
   }
-  
-  /* #menubar {
-	  position: absolute;
-	  width: 100%;
-	  height: 32px;
-	  background: #eee;
-	  padding: 0;
-	  margin: 0;
-	  right: 0;
-	  top: 0;
-  } */
-  
-  .newImport .importButton {
-	background-color: #4a4a4a;
-	display: flex;
-	justify-items: center;
-	gap: 10px;
-  
-	border-radius: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-  }
-  .importButton:hover {
-	background-color: #3b3b3b;
-  }
-  .newEdit {
-	display: flex;
-	gap: 10px;
-	width: auto;
-	margin-left: 20px;
-	margin-right: auto;
-  }
-  .editGroupBTN {
-	border-radius: 10px;
-	padding: 9px 13px;
-	background-color: #1f1f1f;
-  }
-  
-  .editGroupBTN img {
-	width: 15px;
-	height: 19px;
-  }
-  #deleteBTN img {
-	width: 17px;
-	height: 19px;
-  }
-  
-  #importTitle {
-	margin-top: auto;
-	margin-bottom: auto;
-	text-transform: none;
-	color: white;
-	font-size: 12px;
-	font-weight: 500;
-  }
-  
-  #newToolbar {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 2px;
-	text-align: center;
-	gap: 15px;
-	margin-left: 110px;
-	margin-right: 110px;
-  }
-  
-  .toolbarButton {
-	background-color: #1f1f1f;
-  }
-  #newToolbar .toolbarButton {
-	border-radius: 10px;
-	width: 38px;
-	height: 38px;
-  }
-  
-  #playBTN {
-	width: 37px;
-	height: 37px;
-	/* padding: 10px 15px; */
-	border-radius: 10px;
-	padding-top: auto;
-	padding-right: auto;
-	margin-right: 110px;
-  }
-  #playBTN:hover {
-	background-color: #4a4a4a;
-  }
-  .preAndPubBtn {
-	display: flex;
-	justify-items: center;
-	gap: 5px;
-	border-radius: 10px;
-	padding-left: 15px;
-	padding-right: 15px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-  }
-  #previewBTN {
-	background-color: #4a4a4a;
-  }
-  #previewBTN:hover {
-	background-color: #3b3b3b;
-  }
-  #publishBTN {
-	background-color: #1d8ee6;
-  }
-  #publishBTN:hover {
-	background-color: #0068b7;
-  }
-  
-  #previewBTN img {
-	width: 10px;
-	height: 10px;
-	display: flex;
-	margin-bottom: auto;
-	margin-top: auto;
-  }
-  #preAndPubTitle {
-	margin-top: auto;
-	margin-bottom: auto;
-	text-transform: none;
-	color: white;
-	font-size: 12px;
-	font-weight: 500;
-	line-height: normal;
-  }
-  .previewMenu {
-	margin-right: 13px;
-	margin-left: 13px;
-  }
-  .publishMenu {
-	margin-right: 13px;
-	margin-left: 13px;
-  }
-  #Reset {
-	margin-left: 13px;
-  }
-  
-  #resetBTN {
-	background-color: #4a4a4a;
-	padding: 10px 15px;
-	border-radius: 10px;
-  }
-  #resetBTN:hover {
-	background-color: #3b3b3b;
-  }
-  
-  #menubar .menu {
-	float: left;
-	cursor: pointer;
-	padding-right: 8px;
-  }
-  
-  #menubar .menu.right {
-	float: right;
-	cursor: auto;
-	padding-right: 0;
-	text-align: right;
-  }
-  
-  #menubar .menu .title {
-	display: inline-block;
-	color: #888;
-	margin: 0;
-	padding: 8px;
-	line-height: 16px;
-  }
-  
-  /* #menubar .previewMenu {
-	float: right;
-	cursor: pointer;
-	padding-right: 50px;
-  } */
-  
-  /* #menubar .previewMenu #previewTitle {
-	display: inline-block;
-	color: #888;
-	margin: 0;
-	padding: 8px;
-	line-height: 16px;
-  } */
-  
+
   #menubar .menu .options {
-	position: fixed;
-	display: none;
-	padding: 5px 0;
-	background: #eee;
-	width: auto;
-	max-height: calc(100% - 80px);
-	overflow: auto;
+    background: #111;
   }
-  
-  #menubar .menu:hover .options {
-	display: block;
-  }
-  
+
   #menubar .menu .options hr {
-	border-color: #ddd;
+    border-color: #222;
   }
-  
+
   #menubar .menu .options .option {
-	color: #666;
-	background-color: transparent;
-	padding: 5px 10px;
-	margin: 0 !important;
+    color: #888;
   }
-  
-  #menubar .menu .options .option:hover {
-	color: #fff;
-	background-color: #08f;
-  }
-  
-  #menubar .menu .options .option:active {
-	color: #666;
-	background: transparent;
-  }
-  
+
   #menubar .menu .options .inactive {
-	color: #bbb;
-	background-color: transparent;
-	padding: 5px 10px;
-	margin: 0 !important;
+    color: #444;
   }
-  
-  /*BSM dev adding confiBut properties  */
-  #modelTab {
-	margin-top: 20px;
-  }
-  
-  #model {
-	padding-left: 20px;
-	padding-right: 20px;
-  }
-  #texture {
-	padding-left: 20px;
-	padding-right: 20px;
-  }
-  .btnConfDiv {
-	display: flex;
-	justify-content: center;
-  }
-  
-  #BTNconfig {
-	margin: 10px;
-  
-	padding: 10px;
-  }
-  
-  #confName,
-  #confNameHead {
-	margin-left: 15px;
-  }
-  
-  .BoxType {
-	/* background-color: #08f; */
-	margin-left: 12px;
-  }
-  
-  #addVariantBtn {
-	margin-left: 20px;
-  }
-  #deleteVariantBtn {
-	margin-left: 20px;
-  }
-  
-  .textureVariantDiv {
-	display: flex;
-	margin-top: 2px;
-	margin-bottom: 2px;
-  }
-  .modelVariantDiv {
-	display: flex;
-	margin-top: 2px;
-	margin-bottom: 2px;
-  }
-  
-  @keyframes spin {
-	to {
-	  transform: rotate(360deg);
-	}
-  }
-  /*BSM dev added the new spinner*/
-  .spinner {
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	border: 4px solid rgba(0, 0, 0, 0.1);
-	border-left-color: #333;
-	animation: spin 1s linear infinite;
-  }
-  
-  /* NEW UI Configuration sidebar */
-  #newUI_SidebarConfig {
-	position: absolute;
-	right: 1px; /* BSM right chnaged 0 to 13px*/
-	top: 55px; /* BSM right chnaged 0 to 13px*/
-	bottom: 0px; /* BSM right chnaged 0 to 13px*/
-	width: 300px; /* BSM width chnaged 300px to 13px*/
-	background: #eee;
-	overflow: auto;
-	border-left: 1px solid #313131; /*BSM added width and radius*/
-  }
-  
-  /* NEW UI Configuration*/
-  #configuration {
-	margin: 0 auto;
-  }
-  #configurationItem {
-	margin-bottom: 5px;
-  }
-  
-  #configurationHeader {
-	padding: 10px 19px;
-	cursor: pointer;
-	background-color: #1f1f1f;
-	border-right: 1px solid #313131;
-	border-left: 1px solid #313131;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-  }
-  
-  #configurationContent {
-	display: flex;
-	padding: 10px;
-	border-bottom: 0.5px solid #313131;
-  }
-  #configurationContentSub {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	margin-left: auto;
-	margin-right: auto;
-  }
-  .createVariantBtn {
-	background-color: #4a4a4a;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	border-radius: 10px;
-	padding: 7px 15px;
-	margin: 15px auto;
-  }
-  
-  .createVariantBtn span {
-	color: #fff;
-	font-family: Roboto;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-	text-transform: none;
-  }
-  
-  #configurationHeader img {
-	transition: transform 0.2s ease;
-  }
-  #configurationItem.active #configurationHeader img {
-	transform: rotate(180deg);
-  }
-  
-  /*  NEW UI newModel */
-  #newModel {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	margin-bottom: 15px;
-  }
-  #newModelItem {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-  }
-  #newModelError {
-	display: flex;
-	justify-content: center;
-	margin-top: 5px;
-	color: rgb(220 38 38);
-	font-size: 12px;
-  }
-  
-  #newModelHeader {
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	width: 250px;
-	height: 25px;
-	border-radius: 10px;
-	background: #4a4a4a;
-  }
-  #newModelHeader img {
-	width: 10px;
-	height: 10px;
-	cursor: pointer;
-  }
-  
-  #newModelHeader span input {
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-  }
-  #modelInputTitle {
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-  }
-  #newModelInput {
-	padding: 0;
-	border: 0;
-	color: white;
-	width: 70px;
-	background-color: #4a4a4a;
-  }
-  
-  #newModelConfirmBTN,
-  #newModelDeleteBTN {
-	background-color: #4a4a4a;
-	padding: 0;
-  }
-  
-  #newModelConftrm {
-	width: 10px;
-	height: 6px;
-  }
-  #newModelDelete {
-	width: 10px;
-	height: 8px;
-  }
-  /*  NEW UI newModel List  */
-  #newModelList {
-	order: 9999;
-   
-  }
-  
-  #newModelItemList {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin-bottom: 15px;
-  }
-  
-  .newModelListHeader {
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	width: 250px;
-	height: 25px;
-	border-radius: 10px 10px 0px 0px;
-	background: #4a4a4a;
-  }
-  .modelDropDownBtn {
-	background-color: #4a4a4a;
-  }
-  
-  #modelInputTitleList {
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-  }
-  
-  #newModelConfirmListBTN,
-  #newModelDeleteListBTN {
-	background-color: #4a4a4a;
-	padding: 0;
-  }
-  #newModelConfirmList {
-	width: 10px;
-	height: 6px;
-  }
-  #newModelDeleteList {
-	width: 10px;
-	height: 8px;
-  }
-  /* content of trxture */
-  .newModelListContent {
-	background-color: #323232;
-	display: flex;
-	padding-left: auto;
-	padding-right: auto;
-  
-	justify-content: center;
-	flex-direction: column;
-	border-radius: 0px 0px 10px 10px;
-	width: 250px;
-  }
-  .createTextureBtn {
-	background-color: #4a4a4a;
-	display: flex;
-	justify-items: center;
-	border-radius: 10px;
-	margin: 18px auto;
-  }
-  .createTextureBtn span {
-	color: #fff;
-	font-family: Roboto;
-	font-size: 11px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-	text-transform: none;
-  }
-  .textureContainer {
-	background-color: #08f;
-	height: 20px;
-  }
-  #newtexture {
-	width: 223px;
-	margin-left: auto;
-	margin-right: auto;
-	height: 25px;
-	margin-bottom: 15px;
-  }
-  #newtextureHeader {
-	display: flex;
-	padding: 5px 15px;
-	justify-content: space-evenly;
-	align-items: center;
-	border-radius: 10px;
-	background-color: #4a4a4a;
-  }
-  #textureInputTitle {
-	color: #d4d4d4;
-	font-family: Roboto;
-	font-size: 11px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-  }
-  #newTextureInput {
-	width: 55px;
-	background-color: #4a4a4a;
-	font-family: Roboto;
-	font-size: 11px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-	color: #d4d4d4;
-  }
-  #newTextureConfirmBTN,
-  #newTextureDeleteBTN {
-	background-color: #4a4a4a;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  }
-  #newTextureConfirm,
-  #newTextureDeleteBTN {
-	width: 8px;
-	height: 8px;
-  }
-  #textureList {
-	order: 9999;
-  }
-  #textureListHeader {
-	width: 223px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 15px;
-	border-radius: 10px;
-	border-bottom: 1px solid #2c2c2c;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-  }
-  #textureListHeader span {
-	width: 250px;
-	margin-left: 20px;
-	color: #d4d4d4;
-	font-family: Roboto;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-	cursor: pointer;
-  }
-  #textureListDeleteBTN {
-	margin-right: 20px;
-	background-color: transparent;
-  }
-  #textureListDeleteBTN:hover {
-	background-color: #4a4a4a;
-  }
-  /* ----------------------------- */
-  
-  /* material  */
-  #materialHeader {
-	padding: 10px 19px;
-	cursor: pointer;
-	background-color: #1f1f1f;
-	border-right: 1px solid #313131;
-	border-left: 1px solid #313131;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-  }
-  
-  #materialContent {
-	display: flex;
-	flex-direction: column;
-	border-bottom: 0.5px solid #313131;
-  }
-  #materialMap {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	width: 240px;
-	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 10px;
-  }
-  #materialMap .Row {
-	margin-bottom: 15px;
-  }
-  #mapDiv {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-  }
-  #mapDiv canvas {
-	margin-right: 25px;
-  }
-  .mapImport,
-  .mapDelete {
-	order: 9999;
-	background-color: #1f1f1f;
-  }
-  .mapDelete img {
-	width: 12px;
-	height: 14px;
-  }
-  .MapfileDiv {
-	display: flex;
-	flex-direction: column;
-	width: 130px;
-	overflow: hidden;
-  }
-  
-  .MapTextName {
-	color: #e1e1e1;
-	font-family: Roboto;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-  }
-  
-  .MapfileName {
-	color: #b9b9b9;
-	font-family: Roboto;
-	font-size: 10px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-  }
-  
-  #materialColor {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-	width: 240px;
-	margin-top: 15px;
-	margin-left: auto;
-	margin-right: auto;
-  }
-  #materialColor .Row {
-	width: 230px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin-bottom: 20px;
-  }
-  #materialColor .Row .Color {
-	margin-right: 10px;
-  }
-  #materialColor .Row img {
-	order: -9999;
-	margin-right: 10px;
-  }
-  
-  #materialColor .Row .Number {
-	color: #b9b9b9 !important;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-	font-family: Roboto;
-	order: 9999;
-  }
-  
-  #materialColor .Row span {
-	width: 125px;
-	color: #b9b9b9;
-	font-family: Roboto;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-  }
-  
-  #colorInput {
-	width: 16px;
-  }
-  
-  /* attribute */
-  #attributeHeader {
-	padding: 10px 19px;
-	cursor: pointer;
-	background-color: #1f1f1f;
-	border-right: 1px solid #313131;
-	border-left: 1px solid #313131;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-  }
-  
-  #attributeContent {
-	display: flex;
-	flex-direction: column;
-	border-bottom: 0.5px solid #313131;
-  }
-  
-  #attributeProperty {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	/* width: 250px; */
-	margin-top: 25px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 25px;
-  }
-  
-  #attributeProperty .Row {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-bottom: 20px;
-  }
-  #attributeProperty .Row .Text {
-	color: #fff;
-	font-family: Roboto;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-	width: 65px !important;
-  }
-  #attributeProperty .Row .Number {
-	/* display: flex; */
-	width: 30px !important;
-	padding: 4px 10px;
-	/* justify-content: center; */
-	/* align-items: center; */
-  
-	margin-right: 10px;
-	border-radius: 10px;
-	border: 0.5px solid #4a4a4a;
-	/* width: 75px !important; */
-	color: #fff;
-	font-size: 11px;
-  }
-  #attributeProperty .Row img {
-	width: 15px;
-	height: 15px;
-	margin-right: 10px;
-	margin-left: 5px;
-  }
-  
-  /* ----------------------------- */
-  
-  /*BSM dev added the new sidebarConfig*/
-  #sidebarConfig {
-	/* position: absolute; */
-	right: 320px; /* BSM right chnaged 0 to 13px*/
-	top: 55px; /* BSM right chnaged 0 to 13px*/
-	bottom: 0px; /* BSM right chnaged 0 to 13px*/
-	width: 296px; /* BSM width chnaged 300px to 13px*/
-	background: #eee;
-	overflow: auto;
-	border-left: 1px solid #808080; /*BSM added width and radius*/
-  }
-  /*BSM dev changed the sidebar & commented the old */
+
   #sidebar {
-	position: absolute;
-	left: 0; /* BSM right chnaged 0 to 13px*/
-	top: 20px; /* BSM right chnaged 0 to 13px*/
-	bottom: 0px; /* BSM right chnaged 0 to 13px*/
-	width: 296px; /* BSM width chnaged 300px to 13px*/
-	background: #eee;
-	overflow: auto;
-	border-right: 1px solid #808080;
+    background-color: #1f1f1f;
   }
-  
-  /* #sidebar {
-	  position: absolute;
-	  right: 0;
-	  top: 32px;
-	  bottom: 0;
-	  width: 300px;
-	  background: #eee;
-	  overflow: auto;
-  } */
-  
+  /*BSM dev added new sidebarConfig color */
+  #sidebarConfig {
+    background-color: #1f1f1f;
+  }
+  #newUI_SidebarConfig {
+    background-color: #1f1f1f;
+  }
+
   #sidebar .Panel {
-	color: #888;
-	padding: 10px;
-	border-top: 1px solid #ccc;
+    border-top: 1px solid #222;
   }
-  
-  #sidebar .Panel.collapsed {
-	margin-bottom: 0;
+
+  #sidebar .Panel.Material canvas {
+    border: solid 1px #5a5a5a;
   }
-  
-  #sidebar .Row {
-	display: flex;
-	align-items: center;
-	min-height: 24px;
-	margin-bottom: 10px;
-  }
-  
+
   #tabs {
-	background-color: #ddd;
-	border-top: 1px solid #ccc;
+    background-color: #1b1b1b;
+    border-top: 1px solid #222;
   }
-  
+
   #tabs span {
-	color: #aaa;
-	border-right: 1px solid #ccc;
-	padding: 10px;
+    color: #555;
+    border-right: 1px solid #222;
   }
-  
+
   #tabs span.selected {
-	color: #888;
-	background-color: #eee;
+    background-color: #111;
   }
-  
+
   #toolbar {
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	left: 750px;
-	bottom: 5px;
-	padding: 2px;
-	background: #eee;
-	text-align: center;
+    background-color: #1f1f1f;
   }
-  
-  #toolbar button,
-  #toolbar input {
-	height: 32px;
-	width: 42px;
-	margin-left: 2px;
+
+  #toolbar img {
+    filter: invert(1);
   }
-  
-  #toolbar button img {
-	width: 16px;
-	opacity: 0.5;
-  }
-  
+
   .Outliner {
-	color: #444;
-	background-color: #fff;
-	padding: 0;
-	width: 100%;
-	height: 450px;
-	font-size: 12px;
-	cursor: default;
-	overflow: auto;
-	resize: vertical;
-	outline: none !important;
+    color: #FFF;
+    background: #1f1f1f;
   }
-  
-  .Outliner .option {
-	padding: 4px;
-	color: #fff;
-	white-space: nowrap;
-  }
-  
+
   .Outliner .option:hover {
-	background-color: rgba(0, 0, 0, 0.02);
+    background-color: rgba(21, 60, 94, 0.5);
   }
-  
+
   .Outliner .option.active {
-	background-color: rgba(0, 0, 0, 0.04);
+    background-color: #1D8EE6;
+    border-radius: 10px;
   }
-  
+
   .TabbedPanel .Tabs {
-	background-color: #ddd;
-	border-top: 1px solid #ccc;
+    background-color: #1b1b1b;
+    border-top: 1px solid #222;
   }
-  
+
   .TabbedPanel .Tab {
-	color: #aaa;
-	border-right: 1px solid #ccc;
+    color: #555;
+    border-right: 1px solid #222;
   }
-  
+
   .TabbedPanel .Tab.selected {
-	color: #888;
-	background-color: #eee;
+    color: #888;
+    background-color: #111;
   }
-  
+
   .Listbox {
-	color: #444;
-	background-color: #fff;
+    color: #888;
+    background: #222;
   }
-  
-  .Panel {
-	color: #888;
+
+  .Listbox .ListboxItem:hover {
+    background-color: rgba(21, 60, 94, 0.5);
   }
-  
-  /* */
-  
-  @media all and (max-width: 600px) {
-	#resizer {
-	  display: none;
-	}
-  
-	#menubar .menu .options {
-	  max-height: calc(100% - 372px);
-	}
-  
-	#menubar .menu.right {
-	  display: none;
-	}
-  
-	#viewport {
-	  left: 0;
-	  right: 0;
-	  top: 32px;
-	  height: calc(100% - 352px);
-	}
-  
-	#script {
-	  left: 0;
-	  right: 0;
-	  top: 32px;
-	  height: calc(100% - 352px);
-	}
-  
-	#player {
-	  left: 0;
-	  right: 0;
-	  top: 32px;
-	  height: calc(100% - 352px);
-	}
-  
-	#sidebar {
-	  left: 0;
-	  width: 100%;
-	  top: calc(100% - 320px);
-	  bottom: 0;
-	}
+
+  .Listbox .ListboxItem.active {
+    background-color: rgba(21, 60, 94, 1);
   }
-  
-  /* DARK MODE */
-  
-  @media (prefers-color-scheme: dark) {
-	button {
-	  color: #aaa;
-	  background-color: #222;
-	}
-  
-	button:hover {
-	  color: #ccc;
-	  background-color: #444;
-	}
-  
-	.toolbarButton:hover {
-	  background-color: #4a4a4a;
-	}
-	.toolbarButton.selected {
-	  background-color: #1d8ee6;
-	}
-  
-	button.selected {
-	  color: #fff;
-	  background-color: #08f;
-	}
-  
-	input,
-	textarea {
-	  background-color: #222;
-	  border: 1px solid transparent;
-	  color: #888;
-	}
-  
-	select {
-	  color: #aaa;
-	  background-color: #222;
-	}
-  
-	select:hover {
-	  color: #ccc;
-	  background-color: #444;
-	}
-  
-	/* UI */
-  
-	#menubar {
-	  background: #1f1f1f;
-	}
-  
-	#menubar .menu .options {
-	  background: #111;
-	}
-  
-	#menubar .menu .options hr {
-	  border-color: #222;
-	}
-  
-	#menubar .menu .options .option {
-	  color: #888;
-	}
-  
-	#menubar .menu .options .inactive {
-	  color: #444;
-	}
-  
-	#sidebar {
-	  background-color: #1f1f1f;
-	}
-	/*BSM dev added new sidebarConfig color */
-	#sidebarConfig {
-	  background-color: #1f1f1f;
-	}
-	#newUI_SidebarConfig {
-	  background-color: #1f1f1f;
-	}
-  
-	#sidebar .Panel {
-	  border-top: 1px solid #222;
-	}
-  
-	#sidebar .Panel.Material canvas {
-	  border: solid 1px #5a5a5a;
-	}
-  
-	#tabs {
-	  background-color: #1b1b1b;
-	  border-top: 1px solid #222;
-	}
-  
-	#tabs span {
-	  color: #555;
-	  border-right: 1px solid #222;
-	}
-  
-	#tabs span.selected {
-	  background-color: #111;
-	}
-  
-	#toolbar {
-	  background-color: #1f1f1f;
-	}
-  
-	#toolbar img {
-	  filter: invert(1);
-	}
-  
-	.Outliner {
-	  color: #FFF;
-	  background: #1f1f1f;
-	}
-  
-	.Outliner .option:hover {
-	  background-color: rgba(21, 60, 94, 0.5);
-	}
-  
-	.Outliner .option.active {
-	  background-color: #1D8EE6;
-	  border-radius: 10px;
-	}
-  
-	.TabbedPanel .Tabs {
-	  background-color: #1b1b1b;
-	  border-top: 1px solid #222;
-	}
-  
-	.TabbedPanel .Tab {
-	  color: #555;
-	  border-right: 1px solid #222;
-	}
-  
-	.TabbedPanel .Tab.selected {
-	  color: #888;
-	  background-color: #111;
-	}
-  
-	.Listbox {
-	  color: #888;
-	  background: #222;
-	}
-  
-	.Listbox .ListboxItem:hover {
-	  background-color: rgba(21, 60, 94, 0.5);
-	}
-  
-	.Listbox .ListboxItem.active {
-	  background-color: rgba(21, 60, 94, 1);
-	}
-  }
-  
-  /* Temporary Chrome fix (#24794) */
-  
-  [draggable="true"] {
-	transform: translate(0, 0);
-	z-index: 0;
-  }
-  
+}
+
+/* Temporary Chrome fix (#24794) */
+
+[draggable="true"] {
+  transform: translate(0, 0);
+  z-index: 0;
+}
