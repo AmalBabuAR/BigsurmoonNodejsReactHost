@@ -30,9 +30,9 @@ generateSceneViewRouter.get("/:projectId", async (req, res) => {
     assetsRes.rows.forEach((row) => {
       if (row.type === "geometry") {
         output.geometries.push(row.data);
-      }else if (row.type === "animation"){
+      } else if (row.type === "animation") {
         output.animations.push(row.data);
-      }else if (row.type === "skeleton") {
+      } else if (row.type === "skeleton") {
         output.skeletons.push(row.data);
       }
     });
@@ -47,6 +47,7 @@ generateSceneViewRouter.get("/:projectId", async (req, res) => {
         const materialData = {
           variant: row.variant,
           name: row.configname, // Use configname as the name
+          variantcontainer: row.variantcontainer,
           materials: row.data, // Use the data field as materials
         };
         output.materials.push(materialData);
@@ -54,6 +55,7 @@ generateSceneViewRouter.get("/:projectId", async (req, res) => {
         const objectData = {
           variant: row.variant,
           name: row.configname, // Use configname as the name
+          variantcontainer: row.variantcontainer,
           object: row.data, // Use the data field as data
         };
         output.objects.push(objectData);
@@ -61,6 +63,7 @@ generateSceneViewRouter.get("/:projectId", async (req, res) => {
         const texturesData = {
           variant: row.variant,
           name: row.configname, // Use configname as the name
+          variantcontainer: row.variantcontainer,
           textures: row.data, // Use the data field as data
         };
         output.textures.push(texturesData);
@@ -68,6 +71,7 @@ generateSceneViewRouter.get("/:projectId", async (req, res) => {
         const imagesData = {
           variant: row.variant,
           name: row.configname, // Use configname as the name
+          variantcontainer: row.variantcontainer,
           images: row.data, // Use the data field as data
         };
         output.images.push(imagesData);

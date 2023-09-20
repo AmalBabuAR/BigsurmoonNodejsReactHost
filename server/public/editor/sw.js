@@ -1,4 +1,3 @@
-
 const cacheName = "threejs-editor";
 
 const assets = [
@@ -257,19 +256,19 @@ self.addEventListener("activate", (event) => {
 //BSM - Adding to handle message event
 
 self.addEventListener("message", async function (event) {
-
 	const URL_COM = "https://bigsurmoon.com";
 	if (event.data) {
-		console.log("Service Worker Received Message", event.data.type);
-
-		let url = `${URL_COM}/assets`;
-		let method = "post";
-
-		if (event.data.type === "DELETE_DATABASE") {
+		// console.log("Service Worker Received Message", event.data.type);
+		let url = "";
+		let method = "";
+		if (event.data.type === "UPDATE_DATABASE") {
+			url = `${URL_COM}/assets`;
+			method = "post";
+		} else if (event.data.type === "DELETE_DATABASE") {
 			url = `${URL_COM}/delete`;
 			method = "delete";
 		} else if (event.data.type == "UPDATE_SCENE_OBJECT") {
-			console.log("Service Worker for UPDATE_SCENE_OBJECT called");
+			// console.log("Service Worker for UPDATE_SCENE_OBJECT called");
 			url = `${URL_COM}/update_sceneobject`;
 			method = "post";
 		}
@@ -290,7 +289,7 @@ self.addEventListener("message", async function (event) {
 				return response.json();
 			})
 			.then(function (responseData) {
-				console.log(responseData);
+				// console.log(responseData);
 			})
 			.catch(function (error) {
 				console.log(
@@ -304,7 +303,6 @@ self.addEventListener("message", async function (event) {
 async function networkFirst(request) {
 	try {
 		let response = await fetch(request);
-		
 
 		if (
 			request.url.endsWith("editor/") ||

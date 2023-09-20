@@ -3,10 +3,10 @@ import pool from "../database/postgresqlConnection.js";
 const saveVariationRouter = express.Router();
 
 saveVariationRouter.post("/", async (req, res) => {
-  // console.log("req in save varent", req.body);
   try {
     // Extract the data from the request body
-    const { variant, configname, projectId, object } = req.body;
+    const { variant, configname, projectId, variantContainer, object } =
+      req.body;
 
     // Prepare an array of object types you want to store
     const objectTypes = ["materials", "textures", "images", "object"];
@@ -27,7 +27,7 @@ saveVariationRouter.post("/", async (req, res) => {
           contentExists = true;
         } else {
           await pool.query(
-            "INSERT INTO cnf.configdata (cuid, variant, configname, objecttype, projectid, data) VALUES ($1, $2, $3, $4, $5, $6)",
+            "INSERT INTO cnf.configdata (cuid, variant, configname, objecttype, projectid, data, variantcontainer, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7, NOW())",
             [
               cuid,
               variant,
@@ -35,6 +35,7 @@ saveVariationRouter.post("/", async (req, res) => {
               objectType,
               projectId,
               JSON.stringify(object[objectType]),
+              variantContainer,
             ]
           );
         }
@@ -50,6 +51,7 @@ saveVariationRouter.post("/", async (req, res) => {
         message: "Configuration already exists!",
         configname,
         variant,
+        variantContainer,
       });
     } else {
       // Content is saved successfully
@@ -58,6 +60,7 @@ saveVariationRouter.post("/", async (req, res) => {
         message: "Configuration saved successfully!",
         configname,
         variant,
+        variantContainer,
       });
     }
   } catch (err) {

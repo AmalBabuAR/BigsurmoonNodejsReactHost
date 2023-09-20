@@ -4,9 +4,7 @@ const assets = express.Router();
 
 assets.post("/", async (req, res) => {
   try {
-    console.log("coming");
     const { projectid, uuid, type, data } = req.body;
-    console.log(uuid);
     const newAsset = await pool.query(
       "INSERT INTO cnf.assets (projectid, uuid, type, data, cnf) VALUES($1, $2, $3, $4, $5) RETURNING *",
       [projectid, uuid, type, data, false]

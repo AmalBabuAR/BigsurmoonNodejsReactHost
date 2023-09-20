@@ -3,11 +3,12 @@ import pool from "../database/postgresqlConnection.js";
 import ProjectDetails from "../models/projectDetailsModel.js";
 const generateSceneRouter = express.Router();
 
-generateSceneRouter.get("/:projectId", async (req, res) => {
-  console.log("req cm in generate_scene");
+generateSceneRouter.get("/", async (req, res) => {
   try {
-    const projectId = req.params.projectId;
-    console.log(projectId);
+    const projectId = req.query.id;
+    const configName = req.query.config;
+    const variantName = req.query.variant;
+
     const output = {
       metadata: {
         version: 4.3,
@@ -22,49 +23,171 @@ generateSceneRouter.get("/:projectId", async (req, res) => {
       skeletons: [],
       object: {},
     };
+    if (configName !== "null" && variantName !== "null") {
+      try {
+        const assetsRes = await pool.query(
+          "SELECT * FROM cnf.assets WHERE projectid = $1",
+          [projectId]
+        );
+        assetsRes.rows.forEach((row) => {
+          if (row.type === "geometry") {
+            output.geometries.push(row.data);
+          } else if (row.type === "animation") {
+            output.animations.push(row.data);
+          } else if (row.type === "skeleton") {
+            output.skeletons.push(row.data);
+          }
+        });
 
-    // Query the assets table
-    const assetsRes = await pool.query(
-      "SELECT * FROM cnf.assets WHERE projectid = $1",
-      [projectId]
-    );
-    if (assetsRes.rowCount > 0) {
-      assetsRes.rows.forEach((row) => {
-        if (row.type === "geometry") {
-          output.geometries.push(row.data);
-        } else if (row.type === "material") {
-          output.materials.push(row.data);
-        } else if (row.type === "animation") {
-          output.animations.push(row.data);
-        } else if (row.type === "texture") {
-          output.textures.push(row.data);
-        } else if (row.type === "image") {
-          output.images.push(row.data);
-        } else if (row.type === "skeleton") {
-          output.skeletons.push(row.data);
+        const configRes = await pool.query(
+          "SELECT * FROM cnf.configdata WHERE configname = $1 AND variant = $2 AND projectid = $3",
+          [configName, variantName, projectId]
+        );
+        if (configRes.rows.length > 0) {
+          configRes.rows.forEach((row) => {
+            if (row.objecttype === "materials") {
+              row.data.forEach((data) => {
+                output.materials.push(data);
+              });
+            } else if (row.objecttype === "object") {
+              output.object = row.data;
+            } else if (row.objecttype === "textures") {
+              row.data.forEach((data) => {
+                output.textures.push(data);
+              });
+            } else if (row.objecttype === "images") {
+              row.data.forEach((data) => {
+                output.images.push(data);
+              });
+            }
+          });
+
+          res.json(output);
+        } else {
+          res.json({ existing: false });
         }
-      });
-
-      // Query the threeobject table
-      const objectRes = await pool.query(
-        "SELECT object FROM cnf.threeobject WHERE projectid = $1",
-        [projectId]
-      );
-
-      if (objectRes.rows.length > 0) {
-        output.object = objectRes.rows[0].object;
-      } else {
+      } catch (err) {
+        console.error(err.message);
         res
-          .status(404)
-          .json({ error: `No object found for that project id:${projectId}` });
-        return;
+          .status(500)
+          .json({ success: false, message: "Error deleting configuration." });
       }
-      console.log(output);
-      res.json(output);
-    } else {
-      // If the project doesn't exist in the database, return existing as false
-      res.json({ existing: false });
+    } else if (projectId) {
+      try {
+        const configRes = await pool.query(
+          "SELECT * FROM cnf.configdata WHERE projectid = $1 ORDER BY created_at DESC",
+          [projectId]
+        );
+        if (configRes.rows.length > 0) {
+          const configNames = [];
+          for (const row of configRes.rows) {
+            const configname = row.configname;
+            configNames.push(configname);
+          }
+          const firstConfigName = configNames[0];
+
+          for (const row of configRes.rows) {
+            if (row.configname === firstConfigName) {
+              if (row.objecttype === "materials") {
+                row.data.forEach((data) => {
+                  output.materials.push(data);
+                });
+              } else if (row.objecttype === "object") {
+                output.object = row.data;
+              } else if (row.objecttype === "textures") {
+                row.data.forEach((data) => {
+                  output.textures.push(data);
+                });
+              } else if (row.objecttype === "images") {
+                row.data.forEach((data) => {
+                  output.images.push(data);
+                });
+              } // This will print the entire row of data for matching config names
+            }
+          }
+          const assetsRes = await pool.query(
+            "SELECT * FROM cnf.assets WHERE projectid = $1",
+            [projectId]
+          );
+          assetsRes.rows.forEach((row) => {
+            if (row.type === "geometry") {
+              output.geometries.push(row.data);
+            } else if (row.type === "animation") {
+              output.animations.push(row.data);
+            } else if (row.type === "skeleton") {
+              output.skeletons.push(row.data);
+            }
+          });
+          res.json(output);
+        } else {
+          try {
+            const query = `
+        SELECT
+          a.type,
+          a.data AS asset_data,
+          t.object AS object_data
+        FROM
+          cnf.assets AS a
+        LEFT JOIN
+          cnf.threeobject AS t ON a.projectid = t.projectid
+        WHERE
+          a.projectid = $1
+      `;
+
+            const result = await pool.query(query, [projectId]);
+
+            if (result.rows.length > 0) {
+              result.rows.forEach((row) => {
+                switch (row.type) {
+                  case "geometry":
+                    output.geometries.push(row.asset_data);
+                    break;
+                  case "material":
+                    output.materials.push(row.asset_data);
+                    break;
+                  case "animation":
+                    output.animations.push(row.asset_data);
+                    break;
+                  case "texture":
+                    output.textures.push(row.asset_data);
+                    break;
+                  case "image":
+                    output.images.push(row.asset_data);
+                    break;
+                  case "skeleton":
+                    output.skeletons.push(row.asset_data);
+                    break;
+                }
+              });
+              if (result.rows[0].object_data) {
+                output.object = result.rows[0].object_data;
+              } else {
+                res.status(404).json({
+                  error: `No object found for that project id:${projectId}`,
+                });
+                return;
+              }
+              res.json(output);
+            } else {
+              // If the project doesn't exist in the database, return existing as false
+              res.json({ existing: false });
+            }
+          } catch (err) {
+            console.error(err.message);
+            res.status(500).json({
+              success: false,
+              message: "Error deleting configuration.",
+            });
+          }
+        }
+      } catch (err) {
+        console.error(err.message);
+        res
+          .status(500)
+          .json({ success: false, message: "Error deleting configuration." });
+      }
     }
+    // Query the assets table
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");

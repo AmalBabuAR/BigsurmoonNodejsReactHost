@@ -48,13 +48,11 @@ export const postProjectName = async (req, res) => {
           }
         }
       } else {
-        res
-          .status(201)
-          .json({
-            status: false,
-            noSub: true,
-            message: "Please Chosse a Subscription Plan",
-          });
+        res.status(201).json({
+          status: false,
+          noSub: true,
+          message: "Please Chosse a Subscription Plan",
+        });
       }
     }
   } catch (error) {
@@ -95,7 +93,9 @@ export const deleteProjectFromID = async (req, res) => {
     await pool.query("DELETE FROM cnf.threeobject WHERE projectId = $1", [
       projectId,
     ]);
-    // await pool.query("DELETE FROM cnf.configdata WHERE projectId = $1", [projectId]);
+    await pool.query("DELETE FROM cnf.configdata WHERE projectId = $1", [
+      projectId,
+    ]);
     await ProjectDetails.findByIdAndDelete(projectId);
 
     res.json({ success: true, message: "Project deleted successfully." });

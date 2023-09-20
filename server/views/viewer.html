@@ -91,8 +91,24 @@
         shadow-intensity="1"
         auto-rotate
         camera-controls
+        touch-action="pan-y"
+        camera-target="0m 0m 0m"
         ar-modes="webxr scene-viewer quick-look"
-      ></model-viewer>
+      >
+        <button
+          slot="ar-button"
+          style="
+            background-color: transparent;
+            border-radius: 4px;
+            border: none;
+            position: absolute;
+            top: 50px;
+            right: 16px;
+          "
+        >
+          <img src="../images/ARicon.svg" />
+        </button>
+      </model-viewer>
 
       <div id="fieldGroup">
         <div id="fieldGroupSecond">

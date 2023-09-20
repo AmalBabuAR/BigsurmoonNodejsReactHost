@@ -12,13 +12,18 @@ import {
 } from "./libs/ui.js";
 import { SetValueCommand } from "./commands/SetValueCommand.js";
 // import { deleteConfig, getConfig } from "./SaveConfigartionFun.js";
-// import { modelPannel } from "./modelPannel.js";
+import { modelPannel } from "./modelPannel.js";
 import { texturePannel } from "./texturePannel.js";
 
 function SidebarConfigVarient(editor) {
 	const strings = editor.strings;
 
 	const signals = editor.signals;
+	function getQueryParam(param) {
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		return urlParams.get(param);
+	}
 
 	const container = new UIPanel();
 	container.setBorderTop("0");
@@ -27,33 +32,41 @@ function SidebarConfigVarient(editor) {
 
 	// namesf
 	const confAndVarianTDiv = new UIDiv();
-	const objectType = new UIText();
+
 	const objectNameRow = new UIRow();
-
-	const objectName = new UIText()
-		.setWidth("150px")
-		.setFontSize("12px")
-		.setId("confName")
-		.onChange(function () {
-			editor.execute(
-				new SetValueCommand(
-					editor,
-					editor.selected,
-					"name",
-					objectName.getValue()
-				)
-			);
-		});
-
-	objectNameRow.add(
-		new UIText(strings.getKey("sidebar/object/name"))
-			.setWidth("90px")
-			.setId("confNameHead")
+	const selectedConfigName = new UIText();
+	const selectName = new UIText(
+		strings.getKey("sidebar/object/selectedConfiguration")
 	);
+	selectName.setWidth("90px").setId("confNameHead");
 
-	// objectNameRow.add(objectName);
-
-	// container.add(objectNameRow);
+	// signals.callSelectedConfigName.add(function (conf) {
+	// 	console.log("++++++++", conf);
+	const configName = getQueryParam("configName");
+	if (configName !== null) {
+		selectedConfigName
+			.setWidth("150px")
+			.setFontSize("12px")
+			.setId("confName")
+			.setValue(configName);
+		objectNameRow.add(selectName);
+		objectNameRow.add(selectedConfigName);
+	} else {
+		console.log("outside else signale");
+		signals.variantArray.add(function (variant) {
+			console.log("inside else signale");
+			if (variant) {
+				selectedConfigName
+					.setWidth("150px")
+					.setFontSize("12px")
+					.setId("confName")
+					.setValue(variant);
+				objectNameRow.add(selectName);
+				objectNameRow.add(selectedConfigName);
+			}
+		});
+	}
+	container.add(objectNameRow);
 
 	//ADD CON
 	//passing parameter id 1 value, 2, id
@@ -75,7 +88,6 @@ function SidebarConfigVarient(editor) {
 	//how we pass
 	// this.signals.checking.dispatch( 'hello' )
 	// //how we catch
-
 
 	// const remove = new UIElement();
 	// const variantRow = new UIRow();
@@ -106,27 +118,27 @@ function SidebarConfigVarient(editor) {
 
 	signals.objectSelected.add(function (object) {
 		if (object !== null && object.type !== "Scene") {
-			// console.log("checking the object in event", object);
+			console.log("checking the object in event", object);
 
 			container.setDisplay("block");
 
 			// if(object.type !== "Group"){
-				modelTabbedPanel.setDisplay("block");
+			modelTabbedPanel.setDisplay("block");
 			// }
 
-			updateUI(object);
+			// updateUI(object);
 		} else {
 			container.setDisplay("none");
 		}
 	});
 
 	const sceneJson = editor.toJSON();
-	// console.log("check in json of slider", sceneJson.scene);
+	console.log("check in json of slider", sceneJson.scene);
 
-	function updateUI(object) {
-		objectType.setValue(object.type);
-		objectName.setValue(object.name);
-	}
+	// function updateUI(object) {
+	// 	// objectType.setValue(object.type);
+	// 	// objectName.setValue(object.name);
+	// }
 
 	// 	// objectVisible.setValue(object.visible);
 	// 	// objectFrustumCulled.setValue(object.frustumCulled);
@@ -151,20 +163,19 @@ function SidebarConfigVarient(editor) {
 	modelTabbedPanel.setId("modelTab");
 	modelTabbedPanel.setDisplay("none");
 
-	// const model = new modelPannel(editor);
+	const model = new modelPannel(editor);
 	const texture = new texturePannel(editor);
 
-	// modelTabbedPanel.addTab(
-	// 	"model",
-	// 	strings.getKey("sidebar/configurations/model"),
-	// 	model
-	// );
+	modelTabbedPanel.addTab(
+		"model",
+		strings.getKey("sidebar/configurations/model"),
+		model
+	);
 	modelTabbedPanel.addTab(
 		"texture",
 		strings.getKey("sidebar/configurations/texture"),
 		texture
 	);
-
 
 	container.add(modelTabbedPanel);
 

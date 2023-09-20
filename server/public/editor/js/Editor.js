@@ -17,49 +17,59 @@ _DEFAULT_CAMERA.lookAt(new THREE.Vector3());
 function getQueryParam(param) {
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
-	console.log("urlParams", urlParams);
 	return urlParams.get(param);
 }
 
 // Extract the id from the URL
 const idFromUrl = getQueryParam("id");
-console.log("Extracted ID in editor:", idFromUrl);
 
 function convertToStandard(oldMaterial) {
-    let newMaterial = new THREE.MeshStandardMaterial();
+	let newMaterial = new THREE.MeshStandardMaterial();
 
-    // Common properties
-    if (oldMaterial.color) newMaterial.color.copy(oldMaterial.color);
-    if (oldMaterial.map) newMaterial.map = oldMaterial.map;
-    if (oldMaterial.lightMap) newMaterial.lightMap = oldMaterial.lightMap;
-    if (oldMaterial.lightMapIntensity !== undefined) newMaterial.lightMapIntensity = oldMaterial.lightMapIntensity;
-    if (oldMaterial.aoMap) newMaterial.aoMap = oldMaterial.aoMap;
-    if (oldMaterial.aoMapIntensity !== undefined) newMaterial.aoMapIntensity = oldMaterial.aoMapIntensity;
-    if (oldMaterial.emissive) newMaterial.emissive.copy(oldMaterial.emissive);
-    if (oldMaterial.emissiveMap) newMaterial.emissiveMap = oldMaterial.emissiveMap;
-    if (oldMaterial.emissiveIntensity !== undefined) newMaterial.emissiveIntensity = oldMaterial.emissiveIntensity;
-    if (oldMaterial.bumpMap) newMaterial.bumpMap = oldMaterial.bumpMap;
-    if (oldMaterial.bumpScale !== undefined) newMaterial.bumpScale = oldMaterial.bumpScale;
-    if (oldMaterial.normalMap) newMaterial.normalMap = oldMaterial.normalMap;
-    if (oldMaterial.normalMapType !== undefined) newMaterial.normalMapType = oldMaterial.normalMapType;
-    if (oldMaterial.displacementMap) newMaterial.displacementMap = oldMaterial.displacementMap;
-    if (oldMaterial.displacementScale !== undefined) newMaterial.displacementScale = oldMaterial.displacementScale;
-    if (oldMaterial.displacementBias !== undefined) newMaterial.displacementBias = oldMaterial.displacementBias;
-    if (oldMaterial.envMap) newMaterial.envMap = oldMaterial.envMap;
-    if (oldMaterial.envMapIntensity !== undefined) newMaterial.envMapIntensity = oldMaterial.envMapIntensity;
-    if (oldMaterial.refractionRatio !== undefined) newMaterial.refractionRatio = oldMaterial.refractionRatio;
+	// Common properties
+	if (oldMaterial.color) newMaterial.color.copy(oldMaterial.color);
+	if (oldMaterial.map) newMaterial.map = oldMaterial.map;
+	if (oldMaterial.lightMap) newMaterial.lightMap = oldMaterial.lightMap;
+	if (oldMaterial.lightMapIntensity !== undefined)
+		newMaterial.lightMapIntensity = oldMaterial.lightMapIntensity;
+	if (oldMaterial.aoMap) newMaterial.aoMap = oldMaterial.aoMap;
+	if (oldMaterial.aoMapIntensity !== undefined)
+		newMaterial.aoMapIntensity = oldMaterial.aoMapIntensity;
+	if (oldMaterial.emissive) newMaterial.emissive.copy(oldMaterial.emissive);
+	if (oldMaterial.emissiveMap)
+		newMaterial.emissiveMap = oldMaterial.emissiveMap;
+	if (oldMaterial.emissiveIntensity !== undefined)
+		newMaterial.emissiveIntensity = oldMaterial.emissiveIntensity;
+	if (oldMaterial.bumpMap) newMaterial.bumpMap = oldMaterial.bumpMap;
+	if (oldMaterial.bumpScale !== undefined)
+		newMaterial.bumpScale = oldMaterial.bumpScale;
+	if (oldMaterial.normalMap) newMaterial.normalMap = oldMaterial.normalMap;
+	if (oldMaterial.normalMapType !== undefined)
+		newMaterial.normalMapType = oldMaterial.normalMapType;
+	if (oldMaterial.displacementMap)
+		newMaterial.displacementMap = oldMaterial.displacementMap;
+	if (oldMaterial.displacementScale !== undefined)
+		newMaterial.displacementScale = oldMaterial.displacementScale;
+	if (oldMaterial.displacementBias !== undefined)
+		newMaterial.displacementBias = oldMaterial.displacementBias;
+	if (oldMaterial.envMap) newMaterial.envMap = oldMaterial.envMap;
+	if (oldMaterial.envMapIntensity !== undefined)
+		newMaterial.envMapIntensity = oldMaterial.envMapIntensity;
+	if (oldMaterial.refractionRatio !== undefined)
+		newMaterial.refractionRatio = oldMaterial.refractionRatio;
 
-    // Properties specific to standard and physical materials
-    if (oldMaterial.roughnessMap) newMaterial.roughnessMap = oldMaterial.roughnessMap;
-    if (oldMaterial.metalnessMap) newMaterial.metalnessMap = oldMaterial.metalnessMap;
-    if (oldMaterial.roughness !== undefined) newMaterial.roughness = oldMaterial.roughness;
-    if (oldMaterial.metalness !== undefined) newMaterial.metalness = oldMaterial.metalness;
+	// Properties specific to standard and physical materials
+	if (oldMaterial.roughnessMap)
+		newMaterial.roughnessMap = oldMaterial.roughnessMap;
+	if (oldMaterial.metalnessMap)
+		newMaterial.metalnessMap = oldMaterial.metalnessMap;
+	if (oldMaterial.roughness !== undefined)
+		newMaterial.roughness = oldMaterial.roughness;
+	if (oldMaterial.metalness !== undefined)
+		newMaterial.metalness = oldMaterial.metalness;
 
-
-
-    return newMaterial;
+	return newMaterial;
 }
-
 
 const Projectid = idFromUrl;
 
@@ -146,6 +156,8 @@ function Editor() {
 		stopTheLoader: new Signal(),
 		callTheLoader: new Signal(),
 		callTheVarientWhenExistPro: new Signal(),
+		callSelectedConfigName: new Signal(),
+		variantArray: new Signal()
 	};
 
 	this.config = new Config();
@@ -342,7 +354,7 @@ Editor.prototype = {
 
 	nameObject: function (object, name) {
 		object.name = name;
-		console.log("Object added");
+		// console.log("Object added");
 		this.signals.sceneGraphChanged.dispatch();
 	},
 
@@ -392,13 +404,13 @@ Editor.prototype = {
 						// Here, `materialJSON[mapType]` should give you the UUID of the texture
 						let textureUUID = childMaterial[mapType].uuid;
 						delTextures.push(textureUUID);
-						console.log(
-							`Material uses texture ${mapType} with UUID: ${textureUUID}`
-						);
+						// console.log(
+						// 	`Material uses texture ${mapType} with UUID: ${textureUUID}`
+						// );
 						let textureFound = sceneJSON.textures.find(
 							(obj) => obj.uuid === textureUUID
 						);
-						console.log("Image found: " + textureFound.image);
+						// console.log("Image found: " + textureFound.image);
 						delImages.push(textureFound.image);
 					}
 				});
@@ -411,7 +423,7 @@ Editor.prototype = {
 				let i = 0;
 				while (i < child.animations.length) {
 					delAnimations.push(child.animations[i].uuid);
-					console.log(child.animations[i].uuid);
+					// console.log(child.animations[i].uuid);
 					i++;
 				}
 			}
@@ -541,7 +553,7 @@ Editor.prototype = {
 				break;
 			case "animation":
 				uuids.forEach(function (uuid) {
-					console.log("Animation UUID: " + uuid);
+					// console.log("Animation UUID: " + uuid);
 					let animationdata = sceneJSON.animations;
 					let animationFound = animationdata.find((obj) => obj.uuid === uuid);
 					//console.log(animationFound);
@@ -584,10 +596,10 @@ Editor.prototype = {
 		switch (type) {
 			case "geometry":
 				uuids.forEach(function (uuid) {
-					console.log("Geometry UUID: " + uuid);
+					// console.log("Geometry UUID: " + uuid);
 					// call service worker
 					if (navigator.serviceWorker.controller) {
-						console.log("Service Worker Called");
+						// console.log("Service Worker Called");
 						navigator.serviceWorker.controller.postMessage({
 							type: "DELETE_DATABASE",
 							payload: {
@@ -603,7 +615,7 @@ Editor.prototype = {
 				break;
 			case "material":
 				uuids.forEach(function (uuid) {
-					console.log("Material UUID: " + uuid);
+					// console.log("Material UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
@@ -616,7 +628,7 @@ Editor.prototype = {
 				break;
 			case "texture":
 				uuids.forEach(function (uuid) {
-					console.log("Texture UUID: " + uuid);
+					// console.log("Texture UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
@@ -628,7 +640,7 @@ Editor.prototype = {
 				break;
 			case "animation":
 				uuids.forEach(function (uuid) {
-					console.log("Animation UUID: " + uuid);
+					// console.log("Animation UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
@@ -641,7 +653,7 @@ Editor.prototype = {
 				break;
 			case "image":
 				uuids.forEach(function (uuid) {
-					console.log("Image UUID: " + uuid);
+					// console.log("Image UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
@@ -653,7 +665,7 @@ Editor.prototype = {
 				break;
 			case "skeleton":
 				uuids.forEach(function (uuid) {
-					console.log("Skeleton UUID: " + uuid);
+					// console.log("Skeleton UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
@@ -670,11 +682,11 @@ Editor.prototype = {
 
 	updateSceneObjectOnDatabase: function (updateType) {
 		const sceneJSON = this.scene.toJSON();
-		console.log(
-			"--------------------------------Scene Object Called--------------------------------"
-		);
+		// console.log(
+		// 	"--------------------------------Scene Object Called--------------------------------"
+		// );
 		const uuid = sceneJSON.object.uuid;
-		console.log("--------------------------------" + sceneJSON.object);
+		// console.log("--------------------------------" + sceneJSON.object);
 		navigator.serviceWorker.controller.postMessage({
 			type: "UPDATE_SCENE_OBJECT",
 			payload: {
@@ -935,7 +947,7 @@ Editor.prototype = {
 	},
 
 	clear: function () {
-		console.log("get call in clear");
+		// console.log("get call in clear");
 		this.history.clear();
 		this.storage.clear();
 

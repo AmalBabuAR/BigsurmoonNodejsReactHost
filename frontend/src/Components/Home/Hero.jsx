@@ -192,7 +192,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white">
+          {/* <div className="bg-white">
             <div className="max-w-[1440px] font-outfit font-bold mx-auto md:pt-16 md:pb-20 lg:pb-0 lg:pt-0  p-2 bg-white text-black   ">
               <div className="bg-white">
                 <div className="px-10 md:px-52 lg:px-0 pb-5 flex flex-col justify-center items-center overflow-hidden ">
@@ -215,7 +215,7 @@ const Hero = () => {
                       height="450"
                     ></iframe>
                   </div>
-                  {/* 64d9ffff6accdaec5267fbea */}
+                  
                   <div className="hidden lg:block mb-10">
                     <iframe
                       src="https://bigsurmoon.com/editor/ModelViewer/?id=64e7894df4c05cc7bb31e15d"
@@ -224,14 +224,10 @@ const Hero = () => {
                       height="600"
                     ></iframe>
                   </div>
-                  {/* <img
-                    src={watch}
-                    className="border border-black rounded-xl  lg:scale-125 lg:mt-14 lg:mb-24   "
-                  /> */}
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </>
       </div>
     </>

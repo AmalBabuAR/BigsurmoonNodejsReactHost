@@ -83,6 +83,11 @@ function Strings( config ) {
 
 			// BSM dev added the preview string
 			'menubar/preview': 'Preview',
+			// BSM Dev new UI 
+			'menubar/import': 'Import',
+			"menubar/publish": 'Publish',
+			"menubar/reset": 'Reset',
+			
 
 			'sidebar/animations': 'Animations',
 			'sidebar/animations/play': 'Play',
@@ -92,6 +97,14 @@ function Strings( config ) {
 			'sidebar/configurations': 'Configurations',
 			'sidebar/configurations/model': 'Model',
 			'sidebar/configurations/texture': 'Texture',
+			'sidebar/configurations/createVariant': 'Create Variant',
+			'sidebar/configurations/modelName': 'Model Name :',
+			'sidebar/configurations/createTexture': 'Create Texture Variant',
+			'sidebar/configurations/textureName': 'Texture Name :',
+
+			'sidebar/material': 'Material Editor',
+			'sidebar/attribute': 'Attribute Editor',
+
 
 			'sidebar/preview': 'Preview',
 
@@ -136,6 +149,8 @@ function Strings( config ) {
 			'sidebar/object/frustumcull': 'Frustum Cull',
 			'sidebar/object/renderorder': 'Render Order',
 			'sidebar/object/userdata': 'User data',
+			// BSM dev added the config string
+			'sidebar/object/selectedConfiguration': 'Selected Configuration',
 
 			'sidebar/geometry/type': 'Type',
 			'sidebar/geometry/new': 'New',
@@ -313,6 +328,20 @@ function Strings( config ) {
 			'sidebar/material/depthwrite': 'Depth Write',
 			'sidebar/material/wireframe': 'Wireframe',
 			'sidebar/material/userdata': 'User data',
+
+			// BSM-dev adding new material names
+			'sidebar/material/diffuse': 'Diffuse',
+			'sidebar/material/normal': 'Normal',
+			'sidebar/material/roughness': 'Roughness',
+			'sidebar/material/metalness': 'Metalness',
+			'sidebar/material/displacement': 'Displacement',
+			'sidebar/material/emissiveMapNew': 'Emissive',
+			'sidebar/material/alpha': 'Alpha',
+			'sidebar/material/bump': 'Bump',
+			'sidebar/material/env': 'Env',
+			'sidebar/material/light': 'Light',
+			'sidebar/material/ao': 'Ambient Occlusion',
+
 
 			'sidebar/script': 'Script',
 			'sidebar/script/new': 'New',

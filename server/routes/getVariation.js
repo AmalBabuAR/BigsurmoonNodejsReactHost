@@ -4,26 +4,28 @@ const getConfigNamesRouter = express.Router();
 
 getConfigNamesRouter.get("/:id", async (req, res) => {
   const projectId = req.params.id;
-  console.log("projectId in get getVariation", projectId);
   try {
     // Fetch all unique confignames from the configdata table
     const queryResult = await pool.query(
-      "SELECT DISTINCT configname,variant FROM cnf.configdata WHERE projectid = $1",
+      "SELECT DISTINCT configname, variant, variantcontainer, created_at FROM cnf.configdata WHERE projectid = $1 ORDER BY created_at ASC",
       [projectId]
     );
 
-    // Extract the confignames from the query result
-    const response = queryResult.rows.map((row) => {
-      const output = {
-        configname: row.configname,
-        variant: row.variant,
-      };
-      return output
+    if (queryResult.rows.length > 0) {
+      // Extract the confignames from the query result
+      const response = queryResult.rows.map((row) => {
+        const output = {
+          configname: row.configname,
+          variant: row.variant,
+          variantContainer: row.variantcontainer
+        };
+        return output;
+      });
 
-    });
-
-    // Respond with the list of confignames
-    res.json({ response });
+      res.json({ success: true, data: response });
+    } else {
+      res.json({ success: false });
+    }
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");

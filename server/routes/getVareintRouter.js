@@ -3,11 +3,9 @@ import pool from "../database/postgresqlConnection.js";
 const getVareintRouter = express.Router();
 
 getVareintRouter.get("/", async (req, res) => {
-  console.log("req in get");
   const configName = req.query.config;
   const id = req.query.id;
 
-  console.log(configName, id);
   const output = {
     metadata: {
       version: 4.3,
@@ -45,34 +43,21 @@ getVareintRouter.get("/", async (req, res) => {
     );
 
     if (configRes.rows.length > 0) {
-      console.log("Result found:", configRes.rows);
       configRes.rows.forEach((row) => {
         if (row.objecttype === "materials") {
-          const materialData = {
-            // Use configname as the name
-            materials: row.data, // Use the data field as materials
-          };
-          console.log("_______________", row.data[0]);
-          output.materials.push(row.data[0]);
+          row.data.forEach((data) => {
+            output.materials.push(data);
+          });
         } else if (row.objecttype === "object") {
-          const objectData = {
-            // Use configname as the name
-            object: row.data, // Use the data field as data
-          };
           output.object = row.data;
         } else if (row.objecttype === "textures") {
-          const texturesData = {
-            // Use configname as the name
-            textures: row.data, // Use the data field as data
-          };
-          output.textures.push(row.data[0]);
+          row.data.forEach((data) => {
+            output.textures.push(data);
+          });
         } else if (row.objecttype === "images") {
-          const imagesData = {
-            variant: row.variant,
-            name: row.configname, // Use configname as the name
-            images: row.data, // Use the data field as data
-          };
-          output.images.push(row.data[0]);
+          row.data.forEach((data) => {
+            output.images.push(data);
+          });
         }
       });
       res.json({ data: output, success: true });

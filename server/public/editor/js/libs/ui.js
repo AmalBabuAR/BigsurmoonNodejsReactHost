@@ -229,7 +229,6 @@ class UIBoxType extends UIDiv {
 				this.add(this.spinnerElement);
 				// this.showLoadingSpinner();
 				const data = await saveConfig(defaultName, editor, variantName);
-				console.log("data", data);
 				const signals = editor.signals;
 				if (data.success) {
 					this.addsignals(data, signals);
@@ -363,6 +362,12 @@ class UIInput extends UIElement {
 
 		return this;
 	}
+
+	setPlaceholder() {
+		this.dom.placeholder = "Enter Variant";
+
+		return this;
+	}
 }
 
 class UITextArea extends UIElement {
@@ -485,6 +490,49 @@ class UIColor extends UIElement {
 		this.dom.style.border = "0px";
 		this.dom.style.padding = "2px";
 		this.dom.style.backgroundColor = "transparent";
+
+		this.dom.setAttribute("autocomplete", "off");
+
+		try {
+			this.dom.type = "color";
+			this.dom.value = "#ffffff";
+		} catch (exception) {}
+	}
+
+	getValue() {
+		return this.dom.value;
+	}
+
+	getHexValue() {
+		return parseInt(this.dom.value.substr(1), 16);
+	}
+
+	setValue(value) {
+		this.dom.value = value;
+
+		return this;
+	}
+
+	setHexValue(hex) {
+		this.dom.value = "#" + ("000000" + hex.toString(16)).slice(-6);
+
+		return this;
+	}
+}
+
+// New UI Color for SidebarConfig
+
+class UINewColor extends UIElement {
+	constructor() {
+		super(document.createElement("input"));
+
+		this.dom.className = "Color";
+		this.dom.style.width = "16px";
+		this.dom.style.height = "16px";
+		this.dom.style.border = "0px";
+		this.dom.style.padding = "2px";
+		this.dom.style.backgroundColor = "transparent";
+		this.dom.style.borderRadius = "1px";
 
 		this.dom.setAttribute("autocomplete", "off");
 
@@ -914,6 +962,15 @@ class UIButton extends UIElement {
 	}
 }
 
+class UIToolbarButton extends UIElement {
+	constructor(value) {
+		super(document.createElement("button"));
+
+		this.dom.className = "toolbarButton";
+		this.dom.textContent = value;
+	}
+}
+
 class UIProgress extends UIElement {
 	constructor(value) {
 		super(document.createElement("progress"));
@@ -1146,4 +1203,6 @@ export {
 	ListboxItem,
 	UIBoxType,
 	UIConfButton,
+	UINewColor,
+	UIToolbarButton,
 };

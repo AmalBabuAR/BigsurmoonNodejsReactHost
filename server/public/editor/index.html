@@ -33,6 +33,12 @@
 		</div>
 		<link rel="stylesheet" href="loader.css" />
 		<link rel="stylesheet" href="css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+			rel="stylesheet"
+		/>
 		<script src="../examples/jsm/libs/draco/draco_encoder.js"></script>
 
 		<link rel="stylesheet" href="js/libs/codemirror/codemirror.css" />
@@ -87,12 +93,13 @@
 
 			import { Editor } from "./js/Editor.js";
 			import { Viewport } from "./js/Viewport.js";
-			import { Toolbar } from "./js/Toolbar.js";
+			// import { Toolbar } from "./js/Toolbar.js";
 			import { Script } from "./js/Script.js";
 			import { Player } from "./js/Player.js";
 			import { Sidebar } from "./js/Sidebar.js";
 			//BSM dev : import for the 2sidebar to view varient
 			import { SidebarConfig } from "./js/SidebarConfig.js";
+			import { NewUI_SidebarConfig } from "./js/NewUI_SidebarConfig.js";
 			import { Menubar } from "./js/Menubar.js";
 			import { Resizer } from "./js/Resizer.js";
 			import { VRButton } from "three/addons/webxr/VRButton.js";
@@ -118,8 +125,8 @@
 			const viewport = new Viewport(editor);
 			document.body.appendChild(viewport.dom);
 
-			const toolbar = new Toolbar(editor);
-			document.body.appendChild(toolbar.dom);
+			// const toolbar = new Toolbar(editor);
+			// document.body.appendChild(toolbar.dom);
 
 			const script = new Script(editor);
 			document.body.appendChild(script.dom);
@@ -130,8 +137,11 @@
 			const sidebar = new Sidebar(editor);
 			document.body.appendChild(sidebar.dom);
 			//BSM dev : assigning for the 2sidebar to view varient
-			const sidebarConfig = new SidebarConfig(editor);
-			document.body.appendChild(sidebarConfig.dom);
+			// const sidebarConfig = new SidebarConfig(editor);
+			// document.body.appendChild(sidebarConfig.dom);
+
+			const newUI_SidebarConfig = new NewUI_SidebarConfig(editor);
+			document.body.appendChild(newUI_SidebarConfig.dom);
 
 			//BSM - Removing Menubar
 			const menubar = new Menubar(editor);
@@ -159,14 +169,26 @@
 			const parsedata = JSON.parse(newFromUrl);
 
 			const idFromUrl = getQueryParam("id");
-			console.log("Extracted ID in editor in html:", idFromUrl, parsedata);
+			const configNameUrl = getQueryParam("configName");
+			const variantNameUrl = getQueryParam("variantName");
+			// console.log("Extracted ID in editor in html:", idFromUrl, parsedata);
 			if (parsedata === false) {
 				//loader called
 				showLoaderContent();
-				getExistingProjectFromId(editor, idFromUrl);
+				getExistingProjectFromId(
+					editor,
+					idFromUrl,
+					configNameUrl,
+					variantNameUrl
+				);
 			} else if (parsedata === true) {
 				showLoaderContent();
-				getExistingProjectFromId(editor, idFromUrl);
+				getExistingProjectFromId(
+					editor,
+					idFromUrl,
+					configNameUrl,
+					variantNameUrl
+				);
 			}
 			//get signal after the existing project is loaded
 			signals.stopTheLoader.add(async function (data) {
@@ -175,7 +197,7 @@
 				}
 			});
 			signals.callTheLoader.add(async function (data){
-				console.log('called the calltheloader');
+				// console.log('called the calltheloader');
 				if (data !== null) {
 					showLoaderContent();
 				}
@@ -192,13 +214,13 @@
 			editor.storage.init(function () {
 				editor.storage.get(function (state) {
 					if (isLoadingFromHash) return;
-					console.log("state", state);
+					// console.log("state", state);
 					if (state !== undefined) {
 						if (parsedata === true) {
-							console.log("we can call clear");
+							// console.log("we can call clear");
 							editor.clear();
 						} else {
-							console.log("holding", state);
+							// console.log("holding", state);
 							editor.fromJSON(state);
 						}
 					}
@@ -305,7 +327,7 @@
 				}
 			);
 			// Log the existing data to the console
-			console.log("existingData", existingData);
+			// console.log("existingData", existingData);
 
 			// ServiceWorker
 

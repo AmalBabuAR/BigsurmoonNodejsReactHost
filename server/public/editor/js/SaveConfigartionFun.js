@@ -12,15 +12,11 @@ function getQueryParam(param) {
 	return urlParams.get(param);
 }
 
-function saveConfig(defaultName, editor, variantName) {
+function saveConfig(defaultName, editor, variantName, container) {
 	return new Promise((resolve, reject) => {
 		const idFromUrl = getQueryParam("id");
-		// const projectIDParse = JSON.parse(idFromUrl);
-		console.log(
-			`Saving configuration with default name: ${(defaultName, idFromUrl)}`
-		);
+	
 		const sceneJson = editor.toJSON();
-		console.log("sceneJson", sceneJson);
 		const materialData = sceneJson.scene.materials;
 		const textureData = sceneJson.scene.textures;
 		const imageData = sceneJson.scene.images;
@@ -31,6 +27,7 @@ function saveConfig(defaultName, editor, variantName) {
 			variant: variantName,
 			configname: defaultName,
 			projectId: idFromUrl,
+			variantContainer: container,
 			object: {
 				materials: materialData,
 				textures: textureData,
@@ -38,7 +35,7 @@ function saveConfig(defaultName, editor, variantName) {
 				object: objectData,
 			},
 		};
-		console.log("configdata", configData);
+		// console.log("configdata", configData);
 		// Then send the data to the server with specifying the  type
 		fetch(`https://bigsurmoon.com/save_variation`, {
 			method: "POST",
@@ -97,7 +94,7 @@ function updateConfig(variantName, defaultName, editor) {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				resolve(data);
 			})
 			.catch((error) => {
@@ -199,7 +196,7 @@ function getConfig(data, editor) {
 		fetch(`https://bigsurmoon.com/getConfigNames/${idFromUrl}`)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data.response);
+				// console.log(data.response);
 				resolve(data.response);
 			})
 			.catch((error) => {
@@ -210,7 +207,7 @@ function getConfig(data, editor) {
 }
 
 function deleteConfig(variantName, configName) {
-	console.log(variantName, configName);
+	// console.log(variantName, configName);
 	return new Promise((resolve, reject) => {
 		const idFromUrl = getQueryParam("id");
 		const deleteData = {
@@ -227,7 +224,7 @@ function deleteConfig(variantName, configName) {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				resolve(data);
 			})
 			.catch((error) => {
@@ -239,7 +236,7 @@ function deleteConfig(variantName, configName) {
 
 function getVareint(configName) {
 	const id = getQueryParam("id");
-	console.log(id, configName);
+	// console.log(id, configName);
 
 	return new Promise((resolve, reject) => {
 		fetch(
@@ -252,7 +249,7 @@ function getVareint(configName) {
 		)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				resolve(data);
 			})
 			.catch((error) => {
