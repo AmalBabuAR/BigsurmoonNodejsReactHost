@@ -37,7 +37,7 @@ function Storage() {
 			};
 
 			request.onsuccess = function (event) {
-				// console.log('inside the init req onsuccess ');
+				console.log('inside the init req onsuccess ');
 
 				database = event.target.result;
 
@@ -59,7 +59,7 @@ function Storage() {
 			// console.log('request on get', request);
 			request.onsuccess = function (event) {
 				if(event.target.result=== undefined){
-					// console.log('its undefined');
+					console.log('its undefined');
 				}
 				callback(event.target.result);
 			};
