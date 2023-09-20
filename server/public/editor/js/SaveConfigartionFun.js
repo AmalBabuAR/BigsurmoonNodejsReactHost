@@ -197,7 +197,7 @@ function getConfig(data, editor) {
 			.then((response) => response.json())
 			.then((data) => {
 				// console.log(data.response);
-				resolve(data.response);
+				resolve(data);
 			})
 			.catch((error) => {
 				console.error("Error:", error);
