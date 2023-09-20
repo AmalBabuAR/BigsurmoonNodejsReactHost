@@ -211,6 +211,40 @@
 			// 	console.log("not called");
 			// }
 
+			
+			//
+
+			document.addEventListener("dragover", function (event) {
+				event.preventDefault();
+				event.dataTransfer.dropEffect = "copy";
+			});
+
+			document.addEventListener("drop", function (event) {
+				event.preventDefault();
+
+				if (event.dataTransfer.types[0] === "text/plain") return; // Outliner drop
+
+				if (event.dataTransfer.items) {
+					// DataTransferItemList supports folders
+
+					editor.loader.loadItemList(event.dataTransfer.items);
+				} else {
+					editor.loader.loadFiles(event.dataTransfer.files);
+				}
+			});
+
+			function onWindowResize() {
+				editor.signals.windowResize.dispatch();
+			}
+
+			window.addEventListener("resize", onWindowResize);
+
+			onWindowResize();
+
+			//
+
+			let isLoadingFromHash = false;
+			const hash = window.location.hash;
 			editor.storage.init(function () {
 				editor.storage.get(function (state) {
 					if (isLoadingFromHash) return;
@@ -269,39 +303,6 @@
 				signals.historyChanged.add(saveState);
 			});
 
-			//
-
-			document.addEventListener("dragover", function (event) {
-				event.preventDefault();
-				event.dataTransfer.dropEffect = "copy";
-			});
-
-			document.addEventListener("drop", function (event) {
-				event.preventDefault();
-
-				if (event.dataTransfer.types[0] === "text/plain") return; // Outliner drop
-
-				if (event.dataTransfer.items) {
-					// DataTransferItemList supports folders
-
-					editor.loader.loadItemList(event.dataTransfer.items);
-				} else {
-					editor.loader.loadFiles(event.dataTransfer.files);
-				}
-			});
-
-			function onWindowResize() {
-				editor.signals.windowResize.dispatch();
-			}
-
-			window.addEventListener("resize", onWindowResize);
-
-			onWindowResize();
-
-			//
-
-			let isLoadingFromHash = false;
-			const hash = window.location.hash;
 
 			if (hash.slice(1, 6) === "file=") {
 				const file = hash.slice(6);
