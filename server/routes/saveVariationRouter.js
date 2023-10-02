@@ -64,7 +64,7 @@ saveVariationRouter.post("/", async (req, res) => {
       });
     }
   } catch (err) {
-    console.error(err.message);
+    console.error(`Error in save Variation Router: ${err.message}`);
     res.status(500).send("Server error");
   }
 });

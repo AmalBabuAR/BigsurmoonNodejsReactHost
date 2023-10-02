@@ -136,6 +136,7 @@ class UITexture extends UISpan {
 
 			if (image !== undefined && image !== null && image.width > 0) {
 				canvas.title = texture.sourceFile;
+				this.setFileName(texture.sourceFile);
 				const scale = canvas.width / image.width;
 
 				if (image.data === undefined) {
@@ -300,7 +301,7 @@ class UINewTexture extends UIDiv {
 								texture.needsUpdate = true;
 
 								scope.setValue(texture);
-								scope.setFileName(file.name);
+								// scope.setFileName(file.name);
 
 								if (scope.onChangeCallback) scope.onChangeCallback(texture);
 							},
@@ -350,6 +351,7 @@ class UINewTexture extends UIDiv {
 
 			if (image !== undefined && image !== null && image.width > 0) {
 				canvas.title = texture.sourceFile;
+				this.setFileName(texture.sourceFile);
 				const scale = canvas.width / image.width;
 
 				if (image.data === undefined) {
@@ -372,6 +374,7 @@ class UINewTexture extends UIDiv {
 				}
 			} else {
 				canvas.title = texture.sourceFile + " (error)";
+				this.setFileName(texture.sourceFile + " (error)");
 			}
 		} else {
 			const deleteButton = this.dom.querySelector(".mapDelete");
@@ -381,6 +384,7 @@ class UINewTexture extends UIDiv {
 			importButton.style.display = "block";
 
 			canvas.title = "empty";
+			this.setFileName("");
 		}
 
 		this.texture = texture;

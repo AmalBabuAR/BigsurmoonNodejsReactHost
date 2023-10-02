@@ -3,7 +3,7 @@ import pool from "../database/postgresqlConnection.js";
 const updateVariationRouter = express.Router();
 
 updateVariationRouter.post("/", async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const { searchQuery, updateQuery } = req.body;
     const { variant, configname, projectId } = searchQuery;
@@ -45,7 +45,7 @@ updateVariationRouter.post("/", async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
+    console.log(`Error in update Variation Router : ${error.message}`);
   }
 });
 

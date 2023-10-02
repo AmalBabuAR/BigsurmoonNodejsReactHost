@@ -48,10 +48,11 @@ function NewUI_Model(editor) {
 		const inputValue = modelInput.getValue();
 		const variantContainer = null;
 		const variantName = "ModelVariant";
-		console.log(inputValue);
+		callAlert("success", `${inputValue} Model Saving...`);
 		if (inputValue) {
 			saveModelVariant(inputValue, editor, variantName, variantContainer);
 		} else {
+			console.log('no inputValue');
 		}
 	});
 
@@ -74,7 +75,6 @@ function NewUI_Model(editor) {
 
 	container.add(newModelItem);
 	
-
 	async function saveModelVariant(
 		inputValue,
 		editor,
@@ -89,7 +89,7 @@ function NewUI_Model(editor) {
 				variantContainer
 			);
 			const signals = editor.signals;
-			console.log(signals);
+			// console.log(signals);
 			if (data.success) {
 				data.variant === "ModelVariant"
 					? signals.modelVariantResponse.dispatch(data)
@@ -98,9 +98,11 @@ function NewUI_Model(editor) {
 				variantInputRemove();
 			} else {
 				console.log(data.message);
+				callAlert("info", data.message);
 			}
 		} catch (error) {
 			console.log("model error:", error);
+			callAlert("error", 'Server Error')
 		}
 	}
 
@@ -109,6 +111,26 @@ function NewUI_Model(editor) {
 		const variantInput = document.getElementById("newModel");
 		variantInput.remove();
 	}
+
+	function callAlert(iconAlert, value) {
+		const Toast = Swal.mixin({
+			toast: true,
+			position: "top-end",
+			showConfirmButton: false,
+			timer: 5000,
+			timerProgressBar: true,
+			didOpen: (toast) => {
+				toast.addEventListener("mouseenter", Swal.stopTimer);
+				toast.addEventListener("mouseleave", Swal.resumeTimer);
+			},
+		});
+
+		Toast.fire({
+			icon: iconAlert,
+			title: value,
+		});
+	}
+
 
 	return container;
 }

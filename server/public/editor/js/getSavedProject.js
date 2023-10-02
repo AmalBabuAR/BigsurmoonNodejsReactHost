@@ -1,53 +1,75 @@
-// function getExistingProjectFromId(editor, id) {
-//     console.log('req in get func',editor,'***',id);
-// 	return new Promise((resolve, reject) => {
-// 		fetch(`https://bigsurmoon.com/generate_scene/${id}`)
-// 			.then((response) => response.json())
-// 			.then((data) => {
-// 				console.log('data in the function',data);
-// 				resolve(data);
-// 			})
-// 			.catch((error) => {
-// 				console.error("Error:", error);
-// 				reject(error);
-// 			});
-// 	});
-// }
-
 async function getExistingProjectFromId(editor, id, configName, variantName) {
 	const signals = editor.signals;
-	console.log("req in get func", editor, "***", id, configName, variantName);
-	try {
-		// const res = await axios.get(
-		// 	`hhttp://192.168.29.217:5000/generate_scene/?id=${id}&config=${encodeURIComponent(
-		// 		configName
-		// 	)}&variant=${encodeURIComponent(variantName)}`
-		// );
-		const res = await axios.get(
-			`https://bigsurmoon.com/generate_scene/?id=${id}&config=${encodeURIComponent(
-				configName
-			)}&variant=${encodeURIComponent(variantName)}`
-		);
+	// console.log("req in get func", editor, "***", id, configName, variantName);
 
-		//const data = await response.json();
-		console.log("data of existingProject", res);
-		if (res.data.existing === false) {
-			const existingProject = true;
-			signals.modelVariantResponse.dispatch(existingProject);
-			signals.textureVariantResponse.dispatch(existingProject);
-			signals.stopTheLoader.dispatch(existingProject);
-		} else {
-			const existingProject = true;
-			console.log(res.data);
-			signals.callExistingProject.dispatch(res.data);
-			signals.modelVariantResponse.dispatch(existingProject);
-			signals.textureVariantResponse.dispatch(existingProject);
+	if (configName === null && variantName === null) {
+		try {
+			signals.callTheLoaderContent.dispatch(true);
+			let configdataNull = "null";
+			let variantNameNull = "null";
+			const res = await axios.get(
+				`https://bigsurmoon.com/generate_scene/?id=${id}&config=${encodeURIComponent(
+					configdataNull
+				)}&variant=${encodeURIComponent(variantNameNull)}`
+			);
+
+			//const data = await response.json();
+			// console.log("data of existingProject", res);
+			if (res.data.existing === false) {
+				const existingProject = true;
+				getExistingProjectCall(false);
+				signals.modelVariantResponse.dispatch(existingProject);
+				signals.textureVariantResponse.dispatch(existingProject);
+				signals.stopTheLoader.dispatch(existingProject);
+				signals.callTheLoaderContent.dispatch(false);
+			} else {
+				const existingProject = true;
+				// console.log(res.data);
+				getExistingProjectCall(true);
+				signals.callExistingProject.dispatch(res.data);
+				signals.modelVariantResponse.dispatch(existingProject);
+				signals.textureVariantResponse.dispatch(existingProject);
+				signals.callTheLoaderContent.dispatch(false);
+			}
+			//   return data;
+		} catch (error) {
+			console.error("Error in first try of getExistingProjectFromId:", error);
+			throw error;
 		}
-		//   return data;
-	} catch (error) {
-		console.error("Error:", error);
-		throw error;
+	} else {
+		try {
+			signals.callTheLoaderContent.dispatch(true);
+			const res = await axios.get(
+				`https://bigsurmoon.com/generate_scene/?id=${id}&config=${encodeURIComponent(
+					configName
+				)}&variant=${encodeURIComponent(variantName)}`
+			);
+			// console.log("data of existingProject", res);
+			if (res.data.existing === false) {
+				const existingProject = true;
+				getExistingProjectCall(false);
+				signals.modelVariantResponse.dispatch(existingProject);
+				signals.textureVariantResponse.dispatch(existingProject);
+				signals.stopTheLoader.dispatch(existingProject);
+				signals.callTheLoaderContent.dispatch(false);
+			} else {
+				const existingProject = true;
+				// console.log(res.data);
+				getExistingProjectCall(true);
+				signals.callExistingProject.dispatch(res.data);
+				signals.modelVariantResponse.dispatch(existingProject);
+				signals.textureVariantResponse.dispatch(existingProject);
+				signals.callTheLoaderContent.dispatch(false);
+			}
+		} catch (error) {
+			console.error("Error in second try of getExistingProjectFromId:", error);
+			throw error;
+		}
 	}
+}
+
+function getExistingProjectCall(data) {
+	localStorage.setItem("swCall", data);
 }
 
 export { getExistingProjectFromId };

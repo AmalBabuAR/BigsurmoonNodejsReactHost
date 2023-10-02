@@ -10,6 +10,7 @@ import {
 	UINumber,
 } from "./libs/ui.js";
 import { UIOutliner, UITexture } from "./libs/ui.three.js";
+import { SetValueCommand } from "./commands/SetValueCommand.js";
 
 function SidebarScene(editor) {
 	const signals = editor.signals;
@@ -28,6 +29,30 @@ function SidebarScene(editor) {
 		option.draggable = draggable;
 		option.innerHTML = buildHTML(object);
 		option.value = object.id;
+
+		// visible div
+		const inputDiv = document.createElement("div");
+		inputDiv.id = "visibleInput";
+		// visible input
+		const inputElement = document.createElement("input");
+		inputElement.type = "checkbox";
+		inputElement.checked = true;
+		inputDiv.appendChild(inputElement);
+		option.appendChild(inputDiv);
+
+		inputElement.addEventListener("change", function () {
+			const object = editor.selected;
+
+			if (this.checked) {
+				editor.execute(
+					new SetValueCommand(editor, object, "visible", this.checked)
+				);
+			} else {
+				editor.execute(
+					new SetValueCommand(editor, object, "visible", this.checked)
+				);
+			}
+		});
 
 		// opener
 
@@ -87,9 +112,11 @@ function SidebarScene(editor) {
 	}
 
 	function buildHTML(object) {
-		let html = `<span class="type ${getObjectType(
-			object
-		)}"></span> ${escapeHTML(object.name)}`;
+		let html = `<div id="${getObjectType(object)}">
+		<img src="images/${getObjectType(object)}.svg">
+		<span class="type ${getObjectType(object)}"></span> ${escapeHTML(object.name)}
+		<div>
+		`;
 
 		if (object.isMesh) {
 			const geometry = object.geometry;
@@ -364,7 +391,7 @@ function SidebarScene(editor) {
 				}
 
 				const option = buildOption(object, true);
-				option.style.paddingLeft = pad * 18 + "px";
+				option.style.paddingLeft = pad * 8 + "px";
 				options.push(option);
 
 				if (nodeStates.get(object) === true) {

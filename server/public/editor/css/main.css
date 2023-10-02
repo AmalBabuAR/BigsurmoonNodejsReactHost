@@ -783,10 +783,9 @@ select:hover {
 /*  NEW UI newModel List  */
 #newModelList {
   order: 9999;
- 
 }
 
-#newModelItemList {
+.newModelItemList {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -906,7 +905,7 @@ select:hover {
 #textureList {
   order: 9999;
 }
-#textureListHeader {
+.textureListHeader {
   width: 223px;
   margin-left: auto;
   margin-right: auto;
@@ -917,7 +916,7 @@ select:hover {
   justify-content: space-between;
   align-items: center;
 }
-#textureListHeader span {
+.textureListHeader span {
   width: 250px;
   margin-left: 20px;
   color: #d4d4d4;
@@ -1229,9 +1228,11 @@ select:hover {
 }
 
 .Outliner .option {
-  padding: 4px;
+  padding: 4px 14px 4px 4px;
   color: #fff;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
 
 .Outliner .option:hover {
@@ -1240,6 +1241,37 @@ select:hover {
 
 .Outliner .option.active {
   background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  min-width: 240px;
+  max-width: fit-content;
+  padding: 4px 14px 4px 4px;
+  
+}
+
+/* outliner visiblity */
+#visibleInput {
+  margin-left: auto;
+}
+
+#visibleInput input[type="checkbox"] {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #f3eeee;
+  position: relative;
+}
+
+#visibleInput input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #ffffff;
 }
 
 .TabbedPanel .Tabs {
@@ -1416,7 +1448,7 @@ select:hover {
   }
 
   .Outliner {
-    color: #FFF;
+    color: #fff;
     background: #1f1f1f;
   }
 
@@ -1425,8 +1457,10 @@ select:hover {
   }
 
   .Outliner .option.active {
-    background-color: #1D8EE6;
+    background-color: #1d8ee6;
     border-radius: 10px;
+    min-width: 240px;
+    max-width: fit-content;
   }
 
   .TabbedPanel .Tabs {

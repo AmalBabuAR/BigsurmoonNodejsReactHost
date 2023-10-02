@@ -1,6 +1,7 @@
 import { NewUI_Texture } from "./NewUI_Texture.js";
 import { NewUI_TextureList } from "./NewUI_TextureList.js";
-import { getConfig } from "./SaveConfigartionFun.js";
+import { deleteModel, getConfig } from "./SaveConfigartionFun.js";
+import { getExistingProjectFromId } from "./getSavedProject.js";
 import { UIButton, UIDiv, UISpan } from "./libs/ui.js";
 
 function NewUI_ModelList(editor) {
@@ -9,12 +10,18 @@ function NewUI_ModelList(editor) {
 
 	const container = new UIDiv();
 	container.setId("newModelList");
+	// function to call the url
+	function getQueryParam(param) {
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+		return urlParams.get(param);
+	}
 	const configNamesArray = [];
 	signals.modelVariantResponse.add(async function (data) {
-		console.log("modelVariantResponse in NewUI_ModelList :", data);
+		// console.log("modelVariantResponse in NewUI_ModelList :", data);
 		if (data !== null) {
 			const response = await getConfig();
-			console.log(response);
+			// console.log(response);
 			if (response.success) {
 				response.data.forEach((model) => {
 					if (model.variant === "ModelVariant") {
@@ -22,7 +29,8 @@ function NewUI_ModelList(editor) {
 							configNamesArray.push(model.configname);
 							// Create the list for header and content
 							const newModelItemList = new UIDiv();
-							newModelItemList.setId("newModelItemList");
+							newModelItemList.setClass("newModelItemList");
+							newModelItemList.setId(`newModelItemList${model.configname}`);
 							// header
 							const newModelListHeader = new UIDiv();
 							newModelListHeader.setClass("newModelListHeader");
@@ -78,6 +86,13 @@ function NewUI_ModelList(editor) {
 							newModelDeleteListBTN.dom.appendChild(newModelDeleteList);
 							// adding delete btn in header
 							newModelListHeader.add(newModelDeleteListBTN);
+							// delete btn click
+							newModelDeleteListBTN.onClick(() => {
+								deleteTheModel(
+									model.configname,
+									`ModelContainer${model.configname}`
+								);
+							});
 							// addin header in the list
 							newModelItemList.add(newModelListHeader);
 							// content
@@ -156,6 +171,62 @@ function NewUI_ModelList(editor) {
 	// 		// newModelListHeader.style.backgroundColor = "red";
 	// 	});
 	// }
+	async function deleteTheModel(modelName, container) {
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You won't be able to revert this!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#1D8EE6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then(async (result) => {
+			// console.log("result of seer", result);
+			if (result.isConfirmed) {
+				callAlert("success", `${modelName} Deleting...`)
+				const deleteData = await deleteModel(modelName, container);
+				if (deleteData.success) {
+					const variantDivToRemove = document.getElementById(
+						`newModelItemList${modelName}`
+					);
+					if (variantDivToRemove) {
+						variantDivToRemove.remove();
+					}
+					// alert(deleteData.message);
+					const idFromUrl = getQueryParam("id");
+					// const newFromUrl = getQueryParam("new");
+					// const baseUrlClick = `http://localhost:5000/editor/?id=${idFromUrl}&new=${newFromUrl}`;
+					// window.location.replace(baseUrlClick);
+					let configdataNull = "null";
+					let variantNameNull = "null";
+					getExistingProjectFromId(
+						editor,
+						idFromUrl,
+						configdataNull,
+						variantNameNull
+					);
+				}
+			}
+		});
+	}
+	function callAlert(iconAlert, value) {
+		const Toast = Swal.mixin({
+			toast: true,
+			position: "top-end",
+			showConfirmButton: false,
+			timer: 5000,
+			timerProgressBar: true,
+			didOpen: (toast) => {
+				toast.addEventListener("mouseenter", Swal.stopTimer);
+				toast.addEventListener("mouseleave", Swal.resumeTimer);
+			},
+		});
+
+		Toast.fire({
+			icon: iconAlert,
+			title: value,
+		});
+	}
 
 	return container;
 }

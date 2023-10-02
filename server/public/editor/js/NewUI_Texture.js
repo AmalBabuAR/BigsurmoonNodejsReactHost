@@ -40,10 +40,12 @@ function NewUI_Texture(editor, model) {
 		const inputValue = textureInput.getValue();
 		const variantContainer = `ModelContainer${model}`;
 		const variantName = "TextureVariant";
-		console.log(inputValue);
+		callAlert("success", `${inputValue} Texture Saving...`);
+		// console.log(inputValue);
 		if (inputValue) {
 			saveModelVariant(inputValue, editor, variantName, variantContainer);
 		} else {
+			console.log('no inputValue');
 		}
 	});
 
@@ -80,7 +82,7 @@ function NewUI_Texture(editor, model) {
 				variantContainer
 			);
 			const signals = editor.signals;
-			console.log(data);
+			// console.log(data);
 			if (data.success) {
 				data.variant === "ModelVariant"
 					? signals.modelVariantResponse.dispatch(data)
@@ -89,15 +91,36 @@ function NewUI_Texture(editor, model) {
 				variantInputRemove();
 			} else {
 				console.log(data.message);
+				callAlert("info", data.message);
 			}
 		} catch (error) {
 			console.log("model error:", error);
+			callAlert("error", 'Server Error')
 		}
 	}
 	function variantInputRemove() {
 		// Remove the newModelHeader
 		const variantInput = document.getElementById("newtexture");
 		variantInput.remove();
+	}
+
+	function callAlert(iconAlert, value) {
+		const Toast = Swal.mixin({
+			toast: true,
+			position: "top-end",
+			showConfirmButton: false,
+			timer: 5000,
+			timerProgressBar: true,
+			didOpen: (toast) => {
+				toast.addEventListener("mouseenter", Swal.stopTimer);
+				toast.addEventListener("mouseleave", Swal.resumeTimer);
+			},
+		});
+
+		Toast.fire({
+			icon: iconAlert,
+			title: value,
+		});
 	}
 
 	return container;

@@ -69,7 +69,7 @@ getVareintRouter.get("/", async (req, res) => {
     // Respond with a success message
     // res.json({ success: true, message: "Configuration deleted successfully." });
   } catch (err) {
-    console.error(err.message);
+    console.error(`Error in get Vareint Router: ${err.message}`);
     res
       .status(500)
       .json({ success: false, message: "Error deleting configuration." });

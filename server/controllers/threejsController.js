@@ -14,7 +14,7 @@ export const threejsDataController = async (req, res) => {
      res.status(200).send('Data added to the database');
    })
    .catch((error) => {
-     console.error('Failed to add data to the database:', error);
+     console.error(`Error in threejs controller : ${error.message}`);
      res.status(500).send('Failed to add data to the database');
    });
 };

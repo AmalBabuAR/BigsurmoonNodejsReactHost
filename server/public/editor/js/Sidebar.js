@@ -1,7 +1,7 @@
 import { UITabbedPanel, UISpan } from "./libs/ui.js";
 
 import { SidebarScene } from "./Sidebar.Scene.js";
-import { SidebarProperties } from "./Sidebar.Properties.js";
+// import { SidebarProperties } from "./Sidebar.Properties.js";
 import { SidebarScript } from "./Sidebar.Script.js";
 // import { SidebarAnimation } from "./Sidebar.Animation.js";
 import { SidebarProject } from "./Sidebar.Project.js";

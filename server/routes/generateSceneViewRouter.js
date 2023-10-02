@@ -5,8 +5,8 @@ const generateSceneViewRouter = express.Router();
 generateSceneViewRouter.get("/:projectId", async (req, res) => {
   try {
     const projectId = req.params.projectId;
-    console.log("req cm in generate_sceneDDDD", projectId);
-    console.log(projectId);
+    // console.log("req cm in generate_sceneDDDD", projectId);
+    // console.log(projectId);
     const output = {
       metadata: {
         version: 4.3,

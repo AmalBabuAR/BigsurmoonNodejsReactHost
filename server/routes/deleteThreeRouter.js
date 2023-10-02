@@ -3,10 +3,10 @@ import pool from "../database/postgresqlConnection.js";
 const deleteRouter = express.Router();
 
 deleteRouter.delete("/", async (req, res) => {
-  console.log('req cm in deletedAsset');
+  // console.log('req cm in deletedAsset');
   try {
     const { uuid } = req.body;
-    console.log(`Deleting asset with uuid: ${uuid}`);
+    // console.log(`Deleting asset with uuid: ${uuid}`);
     const deletedAsset = await pool.query(
       "DELETE FROM cnf.assets WHERE uuid = $1 AND cnf = FALSE RETURNING *",
       [uuid]

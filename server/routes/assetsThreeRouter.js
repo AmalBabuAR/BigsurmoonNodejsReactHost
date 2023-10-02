@@ -12,7 +12,7 @@ assets.post("/", async (req, res) => {
 
     res.json(newAsset.rows[0]);
   } catch (err) {
-    console.error(err.message);
+    console.error(`Error in assets router : ${err.message}`);
     res.status(500).send("Server error");
   }
 });

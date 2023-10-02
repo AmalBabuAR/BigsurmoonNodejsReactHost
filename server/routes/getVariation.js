@@ -27,7 +27,7 @@ getConfigNamesRouter.get("/:id", async (req, res) => {
       res.json({ success: false });
     }
   } catch (err) {
-    console.error(err.message);
+    console.error(`Error in get ConfigNames Router : ${err.message}`);
     res.status(500).send("Server error");
   }
 });

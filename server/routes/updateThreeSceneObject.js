@@ -3,12 +3,12 @@ import pool from "../database/postgresqlConnection.js";
 const updateSceneObjectRouter = express.Router();
 
 updateSceneObjectRouter.post("/", async (req, res) => {
-    console.log('req cm in update_sceneobject');
+    // console.log('req cm in update_sceneobject');
   try {
     const { uuid, projectid, type, object, update_type } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     if (update_type === "New") {
-      console.log(`Inserting new scene object with uuid: ${uuid}`);
+      // console.log(`Inserting new scene object with uuid: ${uuid}`);
       const insertedObject = await pool.query(
         "INSERT INTO cnf.threeobject (uuid, projectid, type, object) VALUES ($1, $2, $3, $4) RETURNING *",
         [uuid, projectid, type, object]
@@ -16,7 +16,7 @@ updateSceneObjectRouter.post("/", async (req, res) => {
 
       res.json(insertedObject.rows[0]);
     } else if (update_type === "Old") {
-      console.log(`Updating scene object with uuid: ${uuid}`);
+      // console.log(`Updating scene object with uuid: ${uuid}`);
       const updatedObject = await pool.query(
         "UPDATE cnf.threeobject SET projectid = $2, type = $3, object = $4 WHERE uuid = $1 RETURNING *",
         [uuid, projectid, type, object]
@@ -33,7 +33,7 @@ updateSceneObjectRouter.post("/", async (req, res) => {
       return res.status(400).json({ error: "Invalid update_type parameter" });
     }
   } catch (err) {
-    console.error(err.message);
+    console.error(`Error in update Scene Object Router : ${err.message}`);
     res.status(500).send("Server error");
   }
 });

@@ -67,7 +67,7 @@ generateSceneRouter.get("/", async (req, res) => {
           res.json({ existing: false });
         }
       } catch (err) {
-        console.error(err.message);
+        console.error(`Error ingenerate Scene Router try two : ${err.message}`);
         res
           .status(500)
           .json({ success: false, message: "Error deleting configuration." });
@@ -173,7 +173,7 @@ generateSceneRouter.get("/", async (req, res) => {
               res.json({ existing: false });
             }
           } catch (err) {
-            console.error(err.message);
+            console.error(`Error in generate Scene Router try four: ${err.message}`);
             res.status(500).json({
               success: false,
               message: "Error deleting configuration.",
@@ -181,7 +181,7 @@ generateSceneRouter.get("/", async (req, res) => {
           }
         }
       } catch (err) {
-        console.error(err.message);
+        console.error(`Error in generate Scene Router try three : ${err.message}`);
         res
           .status(500)
           .json({ success: false, message: "Error deleting configuration." });
@@ -189,7 +189,7 @@ generateSceneRouter.get("/", async (req, res) => {
     }
     // Query the assets table
   } catch (err) {
-    console.error(err.message);
+    console.error(`Error in generate Scene Router try one : ${err.message}`);
     res.status(500).send("Server error");
   }
 });

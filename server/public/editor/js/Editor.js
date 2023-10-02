@@ -7,6 +7,12 @@ import { Strings } from "./Strings.js";
 import { Storage as _Storage } from "./Storage.js";
 import { Selector } from "./Viewport.Selector.js";
 
+function getExistingProjectBoolean() {
+	let ls = localStorage.getItem("swCall");
+	// console.log("localStorage data", ls);
+	return ls;
+}
+
 var _DEFAULT_CAMERA = new THREE.PerspectiveCamera(50, 1, 0.01, 1000);
 _DEFAULT_CAMERA.name = "Camera";
 _DEFAULT_CAMERA.position.set(0, 5, 10);
@@ -16,15 +22,15 @@ _DEFAULT_CAMERA.lookAt(new THREE.Vector3());
 //calling the id of the project
 function getQueryParam(param) {
 	const queryString = window.location.search;
-	console.log(queryString);
+	// console.log(queryString);
 	const urlParams = new URLSearchParams(queryString);
-	console.log("urlParams", urlParams);
+	// console.log("urlParams", urlParams);
 	return urlParams.get(param);
 }
 
 // Extract the id from the URL
 const idFromUrl = getQueryParam("id");
-console.log("Extracted ID in editor:", idFromUrl);
+// console.log("Extracted ID in editor:", idFromUrl);
 
 function convertToStandard(oldMaterial) {
 	let newMaterial = new THREE.MeshStandardMaterial();
@@ -160,7 +166,9 @@ function Editor() {
 		callTheLoader: new Signal(),
 		callTheVarientWhenExistPro: new Signal(),
 		callSelectedConfigName: new Signal(),
-		variantArray: new Signal()
+		variantArray: new Signal(),
+		callTheServiceWorker: new Signal(),
+		callTheLoaderContent: new Signal()
 	};
 
 	this.config = new Config();
@@ -254,7 +262,7 @@ Editor.prototype = {
 		];
 
 		object.traverse(function (child) {
-			console.log(child);
+			// console.log(child);
 			if (child.geometry !== undefined) {
 				scope.addGeometry(child.geometry);
 				// Add child.geometry.uuid to newGeometries array
@@ -308,7 +316,7 @@ Editor.prototype = {
 
 		// BSM - Loop through newGeometries and newMaterials and log values
 		if (newGeometries.length > 0) {
-			console.log("coming in newGeo", newGeometries);
+			// console.log("coming in newGeo", newGeometries);
 			this.addtoDatabase(newGeometries, "geometry");
 		}
 
@@ -332,9 +340,7 @@ Editor.prototype = {
 
 		this.signals.objectAdded.dispatch(object);
 		this.signals.sceneGraphChanged.dispatch();
-		//BSM dev stop the loader
-		let stop = true;
-		this.signals.stopTheLoader.dispatch(stop);
+		
 	},
 
 	moveObject: function (object, parent, before) {
@@ -357,7 +363,7 @@ Editor.prototype = {
 
 	nameObject: function (object, name) {
 		object.name = name;
-		console.log("Object added");
+		// console.log("Object added");
 		this.signals.sceneGraphChanged.dispatch();
 	},
 
@@ -407,13 +413,13 @@ Editor.prototype = {
 						// Here, `materialJSON[mapType]` should give you the UUID of the texture
 						let textureUUID = childMaterial[mapType].uuid;
 						delTextures.push(textureUUID);
-						console.log(
-							`Material uses texture ${mapType} with UUID: ${textureUUID}`
-						);
+						// console.log(
+						// 	`Material uses texture ${mapType} with UUID: ${textureUUID}`
+						// );
 						let textureFound = sceneJSON.textures.find(
 							(obj) => obj.uuid === textureUUID
 						);
-						console.log("Image found: " + textureFound.image);
+						// console.log("Image found: " + textureFound.image);
 						delImages.push(textureFound.image);
 					}
 				});
@@ -426,7 +432,7 @@ Editor.prototype = {
 				let i = 0;
 				while (i < child.animations.length) {
 					delAnimations.push(child.animations[i].uuid);
-					console.log(child.animations[i].uuid);
+					// console.log(child.animations[i].uuid);
 					i++;
 				}
 			}
@@ -485,7 +491,7 @@ Editor.prototype = {
 					let geometrydata = sceneJSON.geometries;
 					let geometryFound = geometrydata.find((obj) => obj.uuid === uuid);
 					//console.log(geometryFound);
-
+					let call = getExistingProjectBoolean();
 					// call service worker
 					if (navigator.serviceWorker.controller) {
 						//console.log("Service Worker Called");
@@ -497,6 +503,7 @@ Editor.prototype = {
 								type: "geometry",
 								data: geometryFound,
 							},
+							permission: call,
 						});
 					} else {
 						console.log("Service worker is not available.");
@@ -510,6 +517,7 @@ Editor.prototype = {
 					let materialdata = sceneJSON.materials;
 					let materialFound = materialdata.find((obj) => obj.uuid === uuid);
 					//console.log(materialFound);
+					let call = getExistingProjectBoolean();
 					navigator.serviceWorker.controller.postMessage({
 						type: "UPDATE_DATABASE",
 						payload: {
@@ -518,6 +526,7 @@ Editor.prototype = {
 							type: "material",
 							data: materialFound,
 						},
+						permission: call,
 					});
 				});
 
@@ -533,6 +542,7 @@ Editor.prototype = {
 					);
 					//console.log("Image found: " + textureFound.image);
 					//console.log(textureFound);
+					let call = getExistingProjectBoolean();
 					navigator.serviceWorker.controller.postMessage({
 						type: "UPDATE_DATABASE",
 						payload: {
@@ -541,6 +551,7 @@ Editor.prototype = {
 							type: "texture",
 							data: textureFound,
 						},
+						permission: call,
 					});
 					//console.log(imageFound);
 					navigator.serviceWorker.controller.postMessage({
@@ -551,6 +562,7 @@ Editor.prototype = {
 							type: "image",
 							data: imageFound,
 						},
+						permission: call,
 					});
 				});
 				break;
@@ -560,6 +572,7 @@ Editor.prototype = {
 					let animationdata = sceneJSON.animations;
 					let animationFound = animationdata.find((obj) => obj.uuid === uuid);
 					//console.log(animationFound);
+					let call = getExistingProjectBoolean();
 					navigator.serviceWorker.controller.postMessage({
 						type: "UPDATE_DATABASE",
 						payload: {
@@ -568,6 +581,7 @@ Editor.prototype = {
 							type: "animation",
 							data: animationFound,
 						},
+						permission: call,
 					});
 				});
 
@@ -578,6 +592,7 @@ Editor.prototype = {
 					let skeletondata = sceneJSON.skeletons;
 					let skeletonFound = skeletondata.find((obj) => obj.uuid === uuid);
 					//console.log(skeletonFound);
+					let call = getExistingProjectBoolean();
 					navigator.serviceWorker.controller.postMessage({
 						type: "UPDATE_DATABASE",
 						payload: {
@@ -586,6 +601,7 @@ Editor.prototype = {
 							type: "skeleton",
 							data: skeletonFound,
 						},
+						permission: call,
 					});
 				});
 				break;
@@ -599,7 +615,7 @@ Editor.prototype = {
 		switch (type) {
 			case "geometry":
 				uuids.forEach(function (uuid) {
-					console.log("Geometry UUID: " + uuid);
+					// console.log("Geometry UUID: " + uuid);
 					// call service worker
 					if (navigator.serviceWorker.controller) {
 						console.log("Service Worker Called");
@@ -609,6 +625,7 @@ Editor.prototype = {
 								projectid: Projectid,
 								uuid: uuid,
 							},
+							permission: 'false',
 						});
 					} else {
 						console.log("Service worker is not available.");
@@ -618,63 +635,68 @@ Editor.prototype = {
 				break;
 			case "material":
 				uuids.forEach(function (uuid) {
-					console.log("Material UUID: " + uuid);
+					// console.log("Material UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
 							projectid: Projectid,
 							uuid: uuid,
 						},
+						permission: 'false',
 					});
 				});
 
 				break;
 			case "texture":
 				uuids.forEach(function (uuid) {
-					console.log("Texture UUID: " + uuid);
+					// console.log("Texture UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
 							projectid: Projectid,
 							uuid: uuid,
 						},
+						permission: 'false',
 					});
 				});
 				break;
 			case "animation":
 				uuids.forEach(function (uuid) {
-					console.log("Animation UUID: " + uuid);
+					// console.log("Animation UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
 							projectid: Projectid,
 							uuid: uuid,
 						},
+						permission: 'false',
 					});
 				});
 
 				break;
 			case "image":
 				uuids.forEach(function (uuid) {
-					console.log("Image UUID: " + uuid);
+					// console.log("Image UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
 							projectid: Projectid,
 							uuid: uuid,
 						},
+						permission: 'false',
 					});
 				});
 				break;
 			case "skeleton":
 				uuids.forEach(function (uuid) {
-					console.log("Skeleton UUID: " + uuid);
+					// console.log("Skeleton UUID: " + uuid);
 					navigator.serviceWorker.controller.postMessage({
 						type: "DELETE_DATABASE",
 						payload: {
 							projectid: Projectid,
 							uuid: uuid,
 						},
+						permission: 'false',
 					});
 				});
 				break;
@@ -685,11 +707,12 @@ Editor.prototype = {
 
 	updateSceneObjectOnDatabase: function (updateType) {
 		const sceneJSON = this.scene.toJSON();
-		console.log(
-			"--------------------------------Scene Object Called--------------------------------"
-		);
+		// console.log(
+		// 	"--------------------------------Scene Object Called--------------------------------"
+		// );
 		const uuid = sceneJSON.object.uuid;
-		console.log("--------------------------------" + sceneJSON.object);
+		let call = getExistingProjectBoolean();
+		// console.log("--------------------------------" + sceneJSON.object);
 		navigator.serviceWorker.controller.postMessage({
 			type: "UPDATE_SCENE_OBJECT",
 			payload: {
@@ -699,7 +722,11 @@ Editor.prototype = {
 				type: "scene",
 				update_type: updateType,
 			},
+			permission: call,
 		});
+		//BSM dev stop the loader
+		let stop = true;
+		this.signals.stopTheLoader.dispatch(stop);
 	},
 
 	setGeometryName: function (geometry, name) {
@@ -783,7 +810,7 @@ Editor.prototype = {
 
 	addTexture: function (texture) {
 		this.textures[texture.uuid] = texture;
-		console.log("texture.uuid");
+		// console.log("texture.uuid");
 	},
 
 	//
@@ -950,7 +977,7 @@ Editor.prototype = {
 	},
 
 	clear: function () {
-		console.log("get call in clear");
+		// console.log("get call in clear");
 		this.history.clear();
 		this.storage.clear();
 
