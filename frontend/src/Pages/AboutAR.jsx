@@ -1,14 +1,19 @@
 import React from "react";
-import ProductVisualisation from "../Components/AboutAR/ProductVisualisation";
-import AugumentedReality from "../Components/AboutAR/AugumentedReality";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import ARSimplified from "../Components/AboutAR/ARSimplified";
+import OneClick from "../Components/AboutAR/OneClick";
+import ARImageContainer from "../Components/AboutAR/ARImageContainer";
+import FreeTrail from "../Components/AboutAR/FreeTrail";
+
 const AboutAR = () => {
   return (
     <div>
       <Navbar />
-      <ProductVisualisation />
-      <AugumentedReality />
+      <ARSimplified />
+      <OneClick />
+      <ARImageContainer />
+      <FreeTrail />
       <Footer />
     </div>
   );

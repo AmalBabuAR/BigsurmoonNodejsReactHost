@@ -1,0 +1,22 @@
+.slides {
+  display: flex;
+  width: calc(240px * 6);
+  animation: scroll 40s linear infinite ;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-240px * 6));
+  }
+}
+
+.slide {
+  height: 200px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}

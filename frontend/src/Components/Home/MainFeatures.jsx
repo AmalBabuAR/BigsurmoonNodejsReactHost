@@ -1,182 +1,114 @@
 import React from "react";
-import { mainFeatures } from "../../assets/data/data";
-import box from "../../assets/Home/boximg.png";
-import lights from "../../assets/Home/lightsimg.png";
-import pc from "../../assets/Home/pcimg.png";
-import { useNavigate } from "react-router-dom";
+import img1 from "../../assets/Aboutar/imageContainer/imageContainer1.png";
+import img2 from "../../assets/Home/mainFeatures/image2.png";
+import img3 from "../../assets/Home/mainFeatures/image3.png";
+import img4 from "../../assets/Home/mainFeatures/image4.png";
+
 
 const MainFeatures = () => {
-  const navigate = useNavigate();
+  
   return (
-    <div className="bg-[#070911] w-auto ">
-      <div className="bg-[#070911] max-w-[1440px] mx-auto p-4 text-white">
-        <div className="md:hidden">
-          {mainFeatures.map((m) => (
-            <div
-              key={m.id}
-              className="md:grid md:grid-cols-2 md:gap-32 justify-center items-center"
-            >
-              <div className="flex justify-center mt-10  ">
-                <img
-                  src={m.img}
-                  className={` ${m.id === 1 ? "px-2 " : "px-[65px]"}  `}
-                />
-              </div>
-              <div>
-                <h2 className="font-bold text-2xl  mt-10 mb-3">{m.title}</h2>
-                <h2 className="mb-3 font-normal text-[14px] text-left">
-                  {m.desc}
-                </h2>
-                <h2 className="text-base mb-20 text-[#57BEF8]">{m.move}</h2>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="hidden ">
-          <div className="md:grid md:grid-cols-2 md:gap-32 mt-20   lg:justify-between items-center lg:px-10 ">
-            <div className="flex justify-center mt-10 ">
-              <img
-                src={lights}
-                className=" xl:w-[700px] xl:h-[380px] md:w-[350px] md:h-[199px] m  lg:pt-0   lg:mt-[-80px] "
-              />
-            </div>
-            <div className=" flex flex-col justify-center mx-auto  ">
-              <h2 className="font-bold text-3xl mt-10 mb-4 lg:w-full md:text-[25px] lg:text-5xl">
-                3D Modelling
-                <br />
-                Studio
-              </h2>
-              <h2 className="mb-4 font-light lg:text-2xl">
-                Doesn't have 3D Models? our experienced 3D team will help you
-                model the files and upload in platform with the best quality and
-                optimisation for much more loading experience and fluidity
-              </h2>
-              <h2
-                onClick={() => navigate("/studio")}
-                className="text-2xl mb-20 cursor-pointer text-[#57BEF8]"
-              >
-                Visit the Studio {">"}
-              </h2>
-            </div>
+    <div className="mx-auto w-full mt-[-2px] lg:mt-0 overflow-hidden text-white bg-[#0B0E1B]">
+      {/* image container */}
+      <div className="my-[50px] lg:my-[150px] flex flex-col mx-auto lg:mx-[78px] gap-y-[100px] font-outfit text-[30px] lg:text-[52px] leading-[30px] lg:leading-[51px] font-bold">
+        <div className="flex flex-col lg:flex-row gap-[50px] lg:gap-[160px] justify-center items-center">
+          <div>
+            <img
+              src={img1}
+              alt="imageContainer1.png"
+              className="w-[350px] lg:w-[611px] h-[217px] lg:h-[381px] rounded-[25px]"
+            />
           </div>
-
-          <div className="md:grid md:grid-cols-2 md:gap-32 mt-36  justify-between items-center lg:px-10 ">
-            <div className=" flex flex-col justify-center mx-auto ">
-              <h2 className="font-bold text-3xl mt-10 mb-4 lg:w-full lg:text-5xl">
-                Product <br />
-                Configurator
-              </h2>
-              <h2 className="mb-4 font-light lg:text-2xl ">
-                Customize and visualize your dream designs in real-time, from
-                furniture to architectural spaces. Experience the power of
-                personalization and bring your ideas to life with ease.
-              </h2>
-              <h2
-                onClick={() => navigate("/aboutconfigurator")}
-                className="text-2xl mb-20 cursor-pointer text-[#57BEF8]"
-              >
-                Explore customisation {">"}
-              </h2>
-            </div>
-            <div className="flex justify-center mt-10 ">
-              <img src={pc} className="xl:w-[450px] xl:h-[400px] " />
-            </div>
-          </div>
-
-          <div className="md:grid md:grid-cols-2 md:gap-32 mt-36  justify-between items-center lg:px-10 ">
-            <div className="flex justify-center mt-10 ">
-              <img
-                src={box}
-                className="xl:w-[340px] xl:h-[400px] mt-[-120px] "
-              />
-            </div>
-            <div className=" flex flex-col justify-center mx-auto ">
-              <h2 className="font-bold text-3xl mt-10 mb-4 lg:w-full lg:text-5xl">
-                Release your <br />
-                Product
-              </h2>
-              <h2 className="mb-4 font-light lg:text-2xl ">
-                Unleash your product to the world with confidence. With the best
-                quality lighting and shading, Bigsurmoon ensuring a viewer that
-                captures attention and drives sales. Maximize your market impact
-                and reach your target audience effectively.
-              </h2>
-              <h2 className="text-lg mb-44 text-[#57BEF8]"></h2>
-            </div>
+          <div className="w-[350px] lg:w-auto">
+            <h1>
+              Augmented <br /> Reality
+            </h1>
+            <h1 className="mt-[15px] lg:mt-[18px] font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
+              One Augmented Reality platform, wide use cases.{" "}
+              <br className="hidden lg:block" /> Closing the divide between
+              online and offline shopping, <br className="hidden lg:block" />{" "}
+              our Augmented Reality for e-commerce help audience to{" "}
+              <br className="hidden lg:block" />
+              visualise products in their real-space with just a click.
+            </h1>
+            <p className="mt-[15px] font-roboto text-[16px] lg:text-[22px] leading-[15px] lg:leading-[21px] font-medium text-[#57BFFF]">
+              Learn more{">"}
+            </p>
           </div>
         </div>
-
-        <div className="hidden md:block ">
-          <div className=" grid grid-cols-2 justify-between  pt-20 pb-24 px-4 lg:px-0 lg:pt-36 lg:pb-48">
-            <img
-              src={lights}
-              className="w-[350px] h-[199px] mx-auto lg:w-[629px] lg:h-[355px]  "
-            />
-
-            <div className="flex flex-col justify-between px-6 py-5   xl:py-10    ">
-              <div className="xl:w-[465px]  mx-auto  ">
-                <h2 className="text-[25px] lg:text-[52px] font-outfit font-bold  lg:w-3/4 lg:leading-[50px] lg:mb-2 ">
-                  3D Modelling Studio
-                </h2>
-                <h2 className=" text-[14px] lg:text-[23px] font-normal text-left lg:leading-[28px] lg:mb-2">
-                  Doesn't have 3D Models? our experienced 3D team will help you
-                  model the files and upload in platform with the best quality
-                  and optimisation for much more loading experience and fluidity
-                </h2>
-                <h2
-                  onClick={() => navigate("/studio")}
-                  className="text-[#57BEF8] cursor-pointer text-[16px] lg:text-[24px] font-medium"
-                >
-                  Visit the Studio {">"}
-                </h2>
-              </div>
-            </div>
+        <div className="flex flex-col lg:flex-row gap-[50px] lg:gap-[160px] justify-center items-center">
+          <div className="w-[350px] lg:w-auto">
+            <h1>
+              3D Viewer and <br /> Configurator
+            </h1>
+            <h1 className="mt-[15px] font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
+              Online shopping thrives on visual storytelling. Our{" "}
+              <br className="hidden lg:block" /> interactive, engaging, and
+              responsive engine is precisely <br className="hidden lg:block" />{" "}
+              crafted for e-commerce platforms ensuring sustained{" "}
+              <br className="hidden lg:block" /> audience engagement and
+              effective conversion.
+            </h1>
+            <p className="mt-[15px] font-roboto text-[16px] lg:text-[22px] leading-[15px] lg:leading-[21px] font-medium text-[#57BFFF]">
+              Learn more{">"}
+            </p>
           </div>
-
-          <div className="grid grid-cols-2 justify-between   pb-24 px-4 lg:pb-36  ">
-            <div className=" flex flex-col justify-between px-10 py-3   xl:py-14  ">
-              <h2 className="text-[25px] font-outfit font-bold xl:w-2/4  lg:w-3/4  lg:text-[52px]  lg:leading-[50px] xl:mb-2   ">
-                Product Configurator
-              </h2>
-              <h2 className=" font-normal text-[14px] lg:text-[23px] xl:w-[480px] lg:leading-[28px] ">
-                Customize and visualize your dream designs in real-time, from
-                furniture to architectural spaces. Experience the power of
-                personalization and bring your ideas to life with ease.
-              </h2>
-              <h2
-                onClick={() => navigate("/aboutconfigurator")}
-                className="text-[#57BEF8] cursor-pointer text-[16px] lg:text-[24px] font-"
-              >
-                Explore customisation {">"}
-              </h2>
-            </div>
+          <div className="order-first lg:order-last">
             <img
-              src={pc}
-              className="w-[269px] h-[216px]  mx-auto lg:w-[440px]  lg:h-[379px] "
+              src={img2}
+              alt="imageContainer1.png"
+              className="w-[350px] lg:w-[611px] h-[217px] lg:h-[381px] rounded-[25px]"
             />
           </div>
-
-          <div className="grid grid-cols-2 justify-center pb-14  items-cente px-4">
+        </div>
+        <div className="flex flex-col lg:flex-row gap-[50px] lg:gap-[160px] justify-center items-center">
+          <div>
             <img
-              src={box}
-              className=" w-[300px] h-[229px] px-10  mx-auto lg:w-[451px] lg:h-[389px] "
+              src={img3}
+              alt="imageContainer1.png"
+              className="w-[350px] lg:w-[611px] h-[217px] lg:h-[381px]"
             />
-            <div className=" flex flex-col justify-between px-6 py-5  lg:py-20   ">
-              <div className="xl:w-[495px]  mx-auto flex flex-col justify-around  ">
-                <h2 className=" text-[25px] font-outfit font-bold   lg:w-3/4 lg:leading-[50px] lg:mb-2  lg:text-[52px]">
-                  Release your Product
-                </h2>
-                <h2 className=" font-normal text-[14px] lg:text-[23px]  lg:leading-[28px] ">
-                  Unleash your product to the world with confidence. With the
-                  best quality lighting and shading, Bigsurmoon ensuring a
-                  viewer that captures attention and drives sales. Maximize your
-                  market impact and reach your target audience effectively.
-                </h2>
-                <h2 className=" text-[#57BEF8] text-[16px] lg:text-[24px] invisible  font-medium">
-                  s
-                </h2>
-              </div>
-            </div>
+          </div>
+          <div className="w-[350px] lg:w-auto">
+            <h1>
+              3D Modelling <br /> Support
+            </h1>
+            <h1 className="mt-[15px] font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
+              Doesn't have 3D Models? Our dedicated 3D Modelling{" "}
+              <br className="hidden lg:block" /> expertise providing 3D
+              resources, with the best quality-to-{" "}
+              <br className="hidden lg:block" />
+              optimisation possible for more fluid Web-AR loading{" "}
+              <br className="hidden lg:block" /> experience.
+            </h1>
+            <p className="mt-[15px] font-roboto text-[16px] lg:text-[22px] leading-[15px] lg:leading-[21px] font-medium text-[#57BFFF]">
+              Learn more{">"}
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col lg:flex-row gap-[50px] lg:gap-[160px] justify-center items-center">
+          <div className="w-[350px] lg:w-auto">
+            <button className="hidden lg:block w-[164px] h-[47px] font-roboto text-[18px] leading-[27px] font-bold text-center text-[#D9D9D9] border border-solid border-[#009BF2] cursor-none rounded-full">
+              COMING SOON
+            </button>
+            <h1 className="lg:mt-[43px]">Virtual Photography</h1>
+            <h1 className="mt-[18px]  font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
+              Create stunning photographs for any image use case{" "}
+              <br className="hidden lg:block" /> scenarios. choose your light
+              set up, create custom <br className="hidden lg:block" />
+              backgrounds and get the finest virtual photography studio{" "}
+              <br className="hidden lg:block" /> at your fingertips.
+            </h1>
+          </div>
+          <div className="order-first lg:order-last">
+            <button className=" lg:hidden w-[113px] h-[36px] font-roboto text-[12px] leading-[18px] font-bold text-center text-[#D9D9D9] border border-solid border-[#009BF2] cursor-none rounded-full">
+              COMING SOON
+            </button>
+            <img
+              src={img4}
+              alt="imageContainer1.png"
+              className="w-[350px] lg:w-[611px] h-[217px] lg:h-[381px] mt-[25px] lg:mt-0  rounded-[25px]"
+            />
           </div>
         </div>
       </div>

@@ -159,7 +159,7 @@ const Dash = () => {
           <div className=" md:p-4 lg:p-0 rounded-lg  mt-5">
             <div className="md:flex  flex justify-start">
               <div
-                className="w-[300px] mx-auto lg:mx-0 xl:w-[448px]  flex justify-between items-center gap-4 h-[60px] md:h-[87px] lg:h-[87px] text-white border border-gray-500 rounded-lg cursor-pointer"
+                className="w-[300px] mx-auto lg:mx-0 xl:w-[448px]  flex justify-between items-center gap-4 h-[60px] md:h-[87px] lg:h-[87px] text-white border-2 border-[#2D2D2D] rounded-lg cursor-pointer"
                 onClick={openModal}
               >
                 <div className="flex gap-5">
@@ -276,21 +276,26 @@ const Dash = () => {
         </div> */}
 
           <div className="">
-            <h1 className="text-gray-500 mt-8 mb-3">Projects</h1>
+            <h1 className="text-white mt-[72px] mb-3">Projects</h1>
             <div className={`${screen ? "h-full" : "h-screen"}`}>
               <div></div>
-              <div className="border text-white border-gray-500 rounded-lg mx-auto h-full">
+              <div className="text-white border-gray-500 rounded-lg mx-auto h-full">
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                  <table className="w-full text-sm text-left text-white">
+                  <table className="w-full text-[19px] text-left text-white">
                     <tbody>
+                    <td className="px-6 py-4 font-outfit text-[16px] text-[#797979] font-normal">Name</td>
+                      <td></td>
+                      <td></td>
+                      <td className="px-6 py-4 font-outfit text-[16px] text-[#797979] font-normal">Created</td>
+
                       {list ? (
                         list.map((item, ind) => (
                           <tr
                             key={ind.toString()}
-                            className=" border-b hover:bg-[#262626] hover:opacity-70"
+                            className=" border-b border-[#343434] border-solid hover:bg-[#262626] hover:opacity-70"
                           >
-                            <td className="px-6 py-4">{ind + 1}</td>
-                            <td className="px-6 py-4">{item.name}</td>
+                            {/* <td className="px-6 py-4">{ind + 1}</td> */}
+                            <td className="px-6 py-4 font-roboto">{item.name}</td>
                             <td className="px-6 py-4">
                               <button
                                 onClick={() => handleViewClick(item._id)}
@@ -307,8 +312,8 @@ const Dash = () => {
                                 Edit
                               </button>
                             </td>
-                            <td className="px-6 py-4">
-                              {`http://embed.${item._id}:html`}
+                            <td className="px-6 py-4  font-outfit text-[#C7C7C7]">
+                              {item.formattedTime}
                             </td>
                             <td className="px-6 py-4">
                               <button>

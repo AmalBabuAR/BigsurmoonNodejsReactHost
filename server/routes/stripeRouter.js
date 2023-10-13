@@ -20,9 +20,9 @@ stripeRouter.get("/config", (req, res) => {
 stripeRouter.post("/create-checkout-session", async (req, res) => {
   const user = req.user._id;
   console.log(req.body, user);
-  const { price, sliderValue } = req.body;
-  const priceId = "price_1NbGsnSDf73R9RBmaGRZNkwb";
-  const priceId2 = "price_1NhcZUSDf73R9RBmUcNDgfFI";
+  const { priceDetails, checkyear } = req.body;
+  // const priceId = "price_1NbGsnSDf73R9RBmaGRZNkwb";
+  // const priceId2 = "price_1NhcZUSDf73R9RBmUcNDgfFI";
   try {
     if (user) {
       const checkUser = await PaymentData.findOne({ user_id: user });
@@ -33,33 +33,76 @@ stripeRouter.post("/create-checkout-session", async (req, res) => {
           message: `You have Already Subscribed for ${checkUser.selectedQuantity} Files @ $${checkUser.Price}`,
         });
       } else {
-        const session = await stripe.checkout.sessions.create({
-          mode: "subscription",
-          line_items: [
-            {
-              quantity: sliderValue,
-              price: priceId2,
+        try {
+          let priceId;
+          let priceValue;
+          let filesValue;
+          let monthOrYear;
+          if (priceDetails.id === 1 && checkyear === false) {
+            priceId = "price_1Nwkq4SDf73R9RBmNuo9mjG7";
+            priceValue = priceDetails.price;
+            filesValue = priceDetails.files;
+            monthOrYear = "Month";
+          } else if (priceDetails.id === 1) {
+            priceId = "price_1NwlA3SDf73R9RBmIUuDWrkY";
+            priceValue = priceDetails.yearly.price;
+            filesValue = priceDetails.files;
+            monthOrYear = "Year";
+          } else if (priceDetails.id === 2 && checkyear === false) {
+            priceId = "price_1NwkszSDf73R9RBmmhlZeJXr";
+            priceValue = priceDetails.price;
+            filesValue = priceDetails.files;
+            monthOrYear = "Month";
+          } else if (priceDetails.id === 2) {
+            priceId = "price_1NwlB9SDf73R9RBmvoQlhsAG";
+            priceValue = priceDetails.yearly.price;
+            filesValue = priceDetails.files;
+            monthOrYear = "Year";
+          } else if (priceDetails.id === 3 && checkyear === false) {
+            priceId = "price_1NwlC8SDf73R9RBmEoGq8ZDH";
+            priceValue = priceDetails.price;
+            filesValue = priceDetails.files;
+            monthOrYear = "Month";
+          } else if (priceDetails.id === 3) {
+            priceId = "price_1Nwl7fSDf73R9RBm4AriHnZV";
+            priceValue = priceDetails.yearly.price;
+            filesValue = priceDetails.files;
+            monthOrYear = "Year";
+          }
+
+          const session = await stripe.checkout.sessions.create({
+            mode: "subscription",
+            line_items: [
+              {
+                quantity: 1,
+                price: priceId,
+              },
+            ],
+            subscription_data: {
+              trial_period_days: 7,
             },
-          ],
-          subscription_data: {
-            trial_period_days: 7,
-          },
-          metadata: {
-            user: user,
-            quantity: sliderValue,
-            price: price,
-          },
-          // {CHECKOUT_SESSION_ID} is a string literal; do not change it!
-          // the actual Session ID is returned in the query parameter when your customer
-          // is redirected to the success page.
+            metadata: {
+              user: user,
+              quantity: priceDetails.files,
+              price: priceValue,
+              monthORYear: monthOrYear,
+            },
+            // {CHECKOUT_SESSION_ID} is a string literal; do not change it!
+            // the actual Session ID is returned in the query parameter when your customer
+            // is redirected to the success page.
 
-          success_url: `${process.env.CLIENT_URL}/checkoutSuccess`,
-          cancel_url: `${process.env.CLIENT_URL}/checkoutFailed`,
-        });
-        console.log("session---------------", session);
-        console.log("respons--------------", res);
+            success_url: `${process.env.CLIENT_URL}/checkoutSuccess`,
+            cancel_url: `${process.env.CLIENT_URL}/checkoutFailed`,
+          });
+          console.log("session---------------", session);
+          console.log("respons--------------", res);
 
-        res.json({ success: true, url: session.url });
+          res.json({ success: true, url: session.url });
+
+          console.log(priceId);
+        } catch (error) {
+          console.log(error);
+        }
       }
     } else {
       res.json({

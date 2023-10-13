@@ -63,18 +63,63 @@ export const postProjectName = async (req, res) => {
 
 export const getProjectsList = async (req, res) => {
   try {
+    console.log("coming");
     const user = req.user._id;
     const listProjects = await ProjectDetails.find({ user });
-    // console.log(listProjects);
+    console.log("listProjects", listProjects);
+    const currentDate = new Date();
+
+    // Calculate and update the projects with the formatted time difference
+    const projectsWithFormattedTime = listProjects.map((project) => {
+      const projectDate = project.createdAt;
+      const timeDifference = currentDate - projectDate;
+      const yearsAgo = Math.floor(
+        timeDifference / (1000 * 60 * 60 * 24 * 365.25)
+      ); // Average days in a year
+      const monthsAgo = Math.floor(
+        timeDifference / (1000 * 60 * 60 * 24 * 30.44)
+      ); // Average days in a month
+      const weeksAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 7));
+      const daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hoursAgo = Math.floor(timeDifference / (1000 * 60 * 60));
+      const minutesAgo = Math.floor(timeDifference / (1000 * 60));
+
+      let formattedTime;
+
+      if (yearsAgo > 0) {
+        formattedTime = `${yearsAgo} year${yearsAgo > 1 ? "s" : ""} ago`;
+      } else if (monthsAgo > 0) {
+        formattedTime = `${monthsAgo} month${monthsAgo > 1 ? "s" : ""} ago`;
+      } else if (weeksAgo > 0) {
+        formattedTime = `${weeksAgo} week${weeksAgo > 1 ? "s" : ""} ago`;
+      } else if (daysAgo > 0) {
+        formattedTime = `${daysAgo} day${daysAgo > 1 ? "s" : ""} ago`;
+      } else if (hoursAgo > 0) {
+        formattedTime = `${hoursAgo} hour${hoursAgo > 1 ? "s" : ""} ago`;
+      } else {
+        formattedTime = `${minutesAgo} minute${minutesAgo > 1 ? "s" : ""} ago`;
+      }
+
+      return {
+        _id: project._id,
+        user: project.user,
+        name: project.name,
+        formattedTime,
+      };
+    });
+
+    // console.log(projectsWithFormattedTime);
+
     res.status(200).send({
       success: true,
-      data: listProjects,
+      data: projectsWithFormattedTime,
     });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }
 };
+
 
 // export const deleteProjectFromID = async (req, res) => {
 //   try {

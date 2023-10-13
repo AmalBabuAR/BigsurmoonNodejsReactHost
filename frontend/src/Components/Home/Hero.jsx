@@ -5,6 +5,7 @@ import vid from "../../assets/Home/Trailer.mp4";
 import watch from "../../assets/Home/watch.jpeg";
 import pcimg from "../../assets/backgrounds/homepc.png";
 import { useNavigate } from "react-router-dom";
+
 const Hero = () => {
   const navigate = useNavigate();
   return (
@@ -50,8 +51,8 @@ const Hero = () => {
 
             <div className="w-[320px] lg:w-[550px] lg:text-2xl font-normal  text-sm mx-auto fo text-center lg:mt-5 lg:mb-6 mt-8 pb-8 ">
               <p>
-                Personalised 3D and AR solutions for e-commerce <br /> that
-                build brand loyalty and drive conversions
+                Interactive 3D and A.R shopping experience for <br /> e-commerce
+                that drive sales
               </p>
             </div>
 
@@ -60,7 +61,7 @@ const Hero = () => {
                 onClick={() => navigate("/support")}
                 className="bg-gradient-to-r text-[12px] font-normal md:text-base lg:text-lg from-blue-600 to-blue-400 rounded-full p-3 lg:p-5 w-32 lg:h-16 lg:w-44 text-center"
               >
-                Book a Demo
+                Get a Demo
               </button>
               <button
                 onClick={() => navigate("/pricing")}
@@ -77,7 +78,7 @@ const Hero = () => {
             <div className="max-w-[1440px] mx-auto font-outfit  p-2 bg-bl text-white">
               <div className="flex justify-center items-center w-full">
                 <video
-                  className="max-w-[90vw] lg:max-w-[80vw] border-4 rounded-3xl"
+                  className="max-w-[90vw] lg:max-w-[80vw] rounded-3xl"
                   src={vid}
                   controls
                 />
@@ -215,7 +216,7 @@ const Hero = () => {
                       height="450"
                     ></iframe>
                   </div>
-                  
+
                   <div className="hidden lg:block mb-10">
                     <iframe
                       src="https://bigsurmoon.com/editor/ModelViewer/?id=64e7894df4c05cc7bb31e15d"

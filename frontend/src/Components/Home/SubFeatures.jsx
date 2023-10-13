@@ -145,13 +145,11 @@ const SubFeatures = () => {
     setTouchStartX(null);
   };
 
-  
-
   return (
     <>
-      <div className="md:hidden relative overflow-hidden bg-black text-white">
+      <div className="md:hidden relative overflow-hidden bg-black text-white mt-[-2px] lg:mt-0 md:mt-0">
         <div>
-          <h1 className="text-4xl font-semibold text-center mt-16">Features</h1>
+          <h1 className="text-4xl font-semibold font-outfit text-center mt-16">Features</h1>
           <h2 className="text-sm w-[300px] mx-auto text-center mt-4 mb-10">
             We are constantly working to bring new updates and features to
             Bigsurmoon, such as:
@@ -192,7 +190,7 @@ const SubFeatures = () => {
           ))}
         </div>
       </div>
-      <div className="relative hidden md:block md:px-8 lg:px-0 overflow-hidden bg-black text-white">
+      <div className="relative hidden md:block md:px-8 lg:px-0 overflow-hidden bg-black text-white pb-20">
         <h3 className="text-center text-5xl font-outfit font-bold mt-36 mb-4 ">
           Features
         </h3>
@@ -214,7 +212,7 @@ const SubFeatures = () => {
           ))}
         </div>
       </div>
-      <div className="bg-black">
+      {/* <div className="bg-black">
         <div className="bg-black max-w-[1440px] mx-auto text-white px-3 pt-10 md:pt-40 md:flex md:items-center md:justify-between md:px-10 lg:px-16 lg:pb-8 ">
           <div className=" lg:pl-0">
             <h1 className="text-[25px] pl-3 lg:pl-0 font-bold lg:font-semibold lg:text-[36px] mb-3">
@@ -238,7 +236,7 @@ const SubFeatures = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

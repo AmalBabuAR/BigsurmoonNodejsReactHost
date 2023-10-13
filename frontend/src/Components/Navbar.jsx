@@ -49,7 +49,7 @@ const Navbar = () => {
   useEffect(() => {
     const data = localStorage.getItem("auth");
     const userID = JSON.parse(data);
-    console.log(userID);
+    // console.log(userID);
     if (userID !== null) {
       setUser(true);
     }
@@ -62,7 +62,7 @@ const Navbar = () => {
 
     setPageName(lastPart);
   }, []);
-  console.log(pageName);
+  // console.log(pageName);
   return (
     <>
       <div className="bg-black lg:hidden lg:bg-opacity-50 w-full ">
@@ -106,16 +106,12 @@ const Navbar = () => {
                   pageName === "register" && "invisible"
                 } ${
                   pageName === "login" && "invisible"
-                } text-sm flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400  rounded-full w-[65px] h-7 md:w-20`}
+                }  flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400  rounded-full w-[57px] h-[22px] md:w-20`}
               >
-                <h3 className=" px-4 py-1 text-[10px] md:text-[13px]">
+                <h3 className="w-[32px] text-center my-auto h-[14px] text-[8px] font-semibold md:text-[13px]">
                   Login{" "}
                 </h3>
-                <img
-                  src={arrowlogin}
-                  alt="arrowright"
-                  className="h-6 ml-[-10px]"
-                />
+                <img src={arrowlogin} alt="arrowright" className="" />
               </div>
             </div>
 
@@ -129,7 +125,7 @@ const Navbar = () => {
                       </Link>
                       <div>
                         <div onClick={handleButtonClick} className="flex">
-                          <h1 className="w-[150px]">About </h1>
+                          <h1 className="w-[150px]">Platform </h1>
                           <div className="flex items-center">
                             <svg
                               data-accordion-icon=""
@@ -225,7 +221,7 @@ const Navbar = () => {
                         : ""
                     }`}
                   >
-                    About
+                    Platform
                   </h3>
                 </Link>
                 {showDropdown && (
@@ -239,9 +235,7 @@ const Navbar = () => {
                       <Link to="/aboutar">
                         <li
                           className={`${
-                            pageName === "aboutar"
-                              ? "text-gray-50"
-                              : ""
+                            pageName === "aboutar" ? "text-gray-50" : ""
                           }hover:text-white hover:text-lg text-base`}
                         >
                           Augmented Reality
