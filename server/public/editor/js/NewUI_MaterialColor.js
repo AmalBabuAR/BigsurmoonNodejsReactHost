@@ -1,6 +1,7 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 import { NewUI_SidebarMaterialColorProperty } from "./NewUI_SidebarMaterialColorProperty.js";
 import { SidebarMaterialNumberProperty } from "./Sidebar.Material.NumberProperty.js";
+import { SidebarMaterialBooleanProperty } from "./Sidebar.Material.BooleanProperty.js";
 
 import { UIDiv } from "./libs/ui.js";
 
@@ -48,6 +49,32 @@ function NewUI_MaterialColor(editor) {
 	materialRoughness.dom.appendChild(roughnessIcon);
 	container.add(materialRoughness);
 
+	// metalness
+	const materialMetalness = new SidebarMaterialNumberProperty(
+		editor,
+		"metalness",
+		strings.getKey("sidebar/material/metalness"),
+		[0, 1]
+	);
+	materialMetalness.setId("metalnessDiv");
+	const metalnessIcon = document.createElement("img");
+	metalnessIcon.src = "images/roughness.svg";
+	materialMetalness.dom.appendChild(metalnessIcon);
+	container.add(materialMetalness);
+
+	//opacity
+	const materialOpacity = new SidebarMaterialNumberProperty(
+		editor,
+		"opacity",
+		strings.getKey("sidebar/material/opacity"),
+		[0, 1]
+	);
+	materialOpacity.setId("opacityDiv");
+	const opacityIcon = document.createElement("img");
+	opacityIcon.src = "images/roughness.svg";
+	materialOpacity.dom.appendChild(opacityIcon);
+	container.add(materialOpacity);
+
 	// alpha test
 
 	const materialAlphaTest = new SidebarMaterialNumberProperty(
@@ -61,6 +88,16 @@ function NewUI_MaterialColor(editor) {
 	alphaTestIcon.src = "images/alpha.svg";
 	materialAlphaTest.dom.appendChild(alphaTestIcon);
 	container.add(materialAlphaTest);
+
+	// transparent
+
+	const materialTransparent = new SidebarMaterialBooleanProperty(
+		editor,
+		"transparent",
+		strings.getKey("sidebar/material/transparent")
+	);
+	materialTransparent.setId("transparentDiv");
+	container.add(materialTransparent);
 
 	//
 

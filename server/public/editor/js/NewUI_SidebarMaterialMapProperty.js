@@ -40,17 +40,17 @@ function NewUI_SidebarMaterialMapProperty(editor, property, name) {
 
 	if (property === "bumpMap" || property === "displacementMap") {
 		scale = new UINumber().setWidth("30px").onChange(onScaleChange);
-		// container.add(scale);
+		container.add(scale);
 	}
 
 	let scaleX, scaleY;
 
 	if (property === "normalMap" || property === "clearcoatNormalMap") {
 		scaleX = new UINumber().setWidth("30px").onChange(onScaleXYChange);
-		// container.add(scaleX);
+		container.add(scaleX);
 
 		scaleY = new UINumber().setWidth("30px").onChange(onScaleXYChange);
-		// container.add(scaleY);
+		container.add(scaleY);
 	}
 
 	let rangeMin, rangeMax;

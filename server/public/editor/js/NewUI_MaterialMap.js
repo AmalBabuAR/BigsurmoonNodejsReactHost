@@ -13,7 +13,7 @@ function NewUI_MaterialMap(editor) {
 	const container = new UIDiv();
 	container.setId("materialMap");
 
-	// Diffuse map
+	// Diffuse map old name map
 	const materialMap = new NewUI_SidebarMaterialMapProperty(
 		editor,
 		"map",

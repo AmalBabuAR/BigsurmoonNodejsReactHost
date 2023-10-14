@@ -137,17 +137,20 @@ input {
   display: inline-block;
   width: 14px;
   height: 14px;
-  margin: 0px 4px;
+  margin: 0px 10px;
   vertical-align: top;
   text-align: center;
+  font-size: 20px;
 }
 
 #outliner .opener.open:after {
-  content: "−";
+  content: "🢓";
 }
 
 #outliner .opener.closed:after {
-  content: "+";
+  content: "🢒";
+  position: absolute;
+  top: 0px;
 }
 
 #outliner .option {
@@ -174,9 +177,9 @@ input {
   text-align: center;
 }
 
-#outliner .type:after {
+/* #outliner .type:after {
   content: "●";
-}
+} */
 
 /* */
 
@@ -792,6 +795,15 @@ select:hover {
   margin-bottom: 15px;
 }
 
+#newModelList .active .newModelListHeader {
+  background: #1d8ee6;
+  .modelDropDownBtn,
+  #newModelDeleteListBTN,
+  #newModelConfirmListBTN {
+    background-color: #1d8ee6;
+  }
+}
+
 .newModelListHeader {
   display: flex;
   justify-content: space-evenly;
@@ -1052,6 +1064,11 @@ select:hover {
   line-height: normal;
 }
 
+/* transparent */
+#materialColor .Row .Checkbox {
+  margin-left: 62px;
+}
+
 #colorInput {
   width: 16px;
 }
@@ -1245,7 +1262,6 @@ select:hover {
   min-width: 240px;
   max-width: fit-content;
   padding: 4px 14px 4px 4px;
-  
 }
 
 /* outliner visiblity */
