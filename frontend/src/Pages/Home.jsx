@@ -9,6 +9,7 @@ import EnterprisesCard from "../Components/Home/EnterprisesCard";
 import WhyBigsurmoonCard from "../Components/Home/WhyBigsurmoonCard";
 import Gallery from "../Components/Home/Gallery";
 import Intergration from "../Components/Home/Intergration";
+import ThreeDModel from "../Components/Home/ThreeDModel";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <WhyBigsurmoonCard />
       <Gallery />
       <SubFeatures />
+      <ThreeDModel />
       <Intergration />
       <Footer />
     </>

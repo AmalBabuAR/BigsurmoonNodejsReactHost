@@ -9,6 +9,11 @@ import {
 } from "react-icons/sl";
 const Footer = () => {
   const navigate = useNavigate();
+  const youtubeLink =
+    "https://www.youtube.com/channel/UCBKhKN-gaz0AT3tEEucIakw";
+  const linkedInLink =
+    "https://www.linkedin.com/company/91409077/admin/feed/posts/";
+  const twitterLink = "https://twitter.com/BigsurmoonLtd";
 
   const handleClick = () => {
     console.log("upbutton");
@@ -35,13 +40,13 @@ const Footer = () => {
               <h3 className="text-[10px]">Blogs</h3>
               <h3 className="text-[10px]">F.A.Q</h3>
               <div className="flex gap-4 mt-10">
-                <span>
+                <span onClick={() => window.open(linkedInLink, "_blank")}>
                   <SlSocialLinkedin />
                 </span>
-                <span>
+                <span onClick={() => window.open(twitterLink, "_blank")}>
                   <SlSocialTwitter />
                 </span>
-                <span>
+                <span onClick={() => window.open(youtubeLink, "_blank")}>
                   <SlSocialYoutube />
                 </span>
               </div>
@@ -49,11 +54,24 @@ const Footer = () => {
 
             <div></div>
             <div className="text-[10px] font-extralight leading-5 text-right">
-              <h3>Contact</h3>
+              <h3
+                onClick={() => navigate("/support")}
+                className="cursor-pointer"
+              >
+                Contact
+              </h3>
               <h3>Careers</h3>
-              <h3>About</h3>
-              <h3>Privacy Policy</h3>
-              <h3>
+              {/* <h3>About</h3> */}
+              <h3
+                onClick={() => navigate("/privacyPolicy")}
+                className="cursor-pointer"
+              >
+                Privacy Policy
+              </h3>
+              <h3
+                onClick={() => navigate("/termsAndCondition")}
+                className="cursor-pointer"
+              >
                 Terms & <br />
                 conditions
               </h3>
@@ -79,10 +97,23 @@ const Footer = () => {
           </div>
           <div className="flex w-[680px] mx-auto  justify-between">
             <div className="opacity-70">
-              <h3 className="mb-1">Contact</h3>
+            <h3
+                onClick={() => navigate("/support")}
+                className="mb-1 cursor-pointer"
+              >
+                Contact
+              </h3>
               <h3 className="mb-1">Careers</h3>
-              <h3 className="mb-1">Privacy Policy</h3>
-              <h3 className="mb-1">
+              <h3
+                onClick={() => navigate("/privacyPolicy")}
+                className="mb-1 cursor-pointer"
+              >
+                Privacy Policy
+              </h3>
+              <h3
+                onClick={() => navigate("/termsAndCondition")}
+                className="mb-1 cursor-pointer"
+              >
                 Terms & <br />
                 Conditions
               </h3>
@@ -93,9 +124,24 @@ const Footer = () => {
               <h3 className="mb-1">Blogs</h3>
             </div>
             <div className="opacity-70">
-              <h3 className="mb-1">LinkedIn</h3>
-              <h3 className="mb-1">Twitter</h3>
-              <h3 className="mb-1">Youtube</h3>
+            <h3
+                onClick={() => window.open(linkedInLink, "_blank")}
+                className="mb-1 cursor-pointer"
+              >
+                LinkedIn
+              </h3>
+              <h3
+                onClick={() => window.open(twitterLink, "_blank")}
+                className="mb-1 cursor-pointer"
+              >
+                Twitter
+              </h3>
+              <h3
+                onClick={() => window.open(youtubeLink, "_blank")}
+                className="mb-1 cursor-pointer"
+              >
+                Youtube
+              </h3>
             </div>
           </div>
           <div className="mt-14">
@@ -112,10 +158,23 @@ const Footer = () => {
                 <img src={logo} alt="logo" className="w-52 cursor-pointer" />
               </div>
               <div className="opacity-70">
-                <h3 className="mb-[9px]">Contact</h3>
-                <h3 className="mb-[9px]">Careers</h3>
-                <h3 className="mb-[9px]">Privacy Policy</h3>
-                <h3 className="mb-[9px]">
+              <h3
+                  onClick={() => navigate("/support")}
+                  className="mb-[9px] cursor-pointer"
+                >
+                  Contact
+                </h3>
+                <h3 className="mb-[9px] cursor-none">Careers</h3>
+                <h3
+                  onClick={() => navigate("/privacyPolicy")}
+                  className="mb-[9px] cursor-pointer"
+                >
+                  Privacy Policy
+                </h3>
+                <h3
+                  onClick={() => navigate("/termsAndCondition")}
+                  className="mb-[9px] cursor-pointer"
+                >
                   Terms & <br />
                   Conditions
                 </h3>
@@ -126,9 +185,24 @@ const Footer = () => {
                 <h3 className="mb-[9px]">Blogs</h3>
               </div>
               <div className="opacity-70">
-                <h3 className="mb-[9px]">LinkedIn</h3>
-                <h3 className="mb-[9px]">Twitter</h3>
-                <h3 className="mb-[9px]">Youtube</h3>
+              <h3
+                  onClick={() => window.open(linkedInLink, "_blank")}
+                  className="mb-[9px] cursor-pointer"
+                >
+                  LinkedIn
+                </h3>
+                <h3
+                  onClick={() => window.open(twitterLink, "_blank")}
+                  className="mb-[9px] cursor-pointer"
+                >
+                  Twitter
+                </h3>
+                <h3
+                  onClick={() => window.open(youtubeLink, "_blank")}
+                  className="mb-[9px] cursor-pointer"
+                >
+                  Youtube
+                </h3>
               </div>
               <div onClick={handleClick} className="w-16 cursor-pointer">
                 <img src={arrowup} className="w-10" />

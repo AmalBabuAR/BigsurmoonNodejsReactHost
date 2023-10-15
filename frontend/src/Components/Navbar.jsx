@@ -3,8 +3,7 @@ import logo from "../assets/Logos/logo.gif";
 import arrowlogin from "../assets/Arrows/Login shape 1.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
-  SlSocialFacebook,
-  SlSocialInstagram,
+  SlSocialYoutube,
   SlSocialLinkedin,
   SlSocialTwitter,
 } from "react-icons/sl";
@@ -18,6 +17,12 @@ const Navbar = () => {
   const [aboutMobOpen, SetAboutMobOpen] = useState(false);
 
   const navigate = useNavigate();
+  const youtubeLink =
+  "https://www.youtube.com/channel/UCBKhKN-gaz0AT3tEEucIakw";
+const linkedInLink =
+  "https://www.linkedin.com/company/91409077/admin/feed/posts/";
+const twitterLink = "https://twitter.com/BigsurmoonLtd";
+
 
   const handleButtonClick = () => {
     SetAboutMobOpen(!aboutMobOpen);
@@ -170,24 +175,27 @@ const Navbar = () => {
                       </Link>
                     </ul>
                     <div className=" pl-10 mt-10 md:pl-16 opacity-60">
-                      <Link to="">
+                      <Link to="/privacyPolicy">
                         <h2 className="mt-2">Privacy & legal</h2>
                       </Link>
-                      <Link to="">
+                      <Link to="/termsAndCondition">
                         <h2 className="mt-2">Terms and conditions</h2>
                       </Link>
                       <div className="flex gap-4 mt-4">
-                        <span>
-                          <SlSocialInstagram />
-                        </span>
-                        <span>
-                          <SlSocialFacebook />
-                        </span>
-                        <span>
+                      <span
+                          onClick={() => window.open(linkedInLink, "_blank")}
+                        >
                           <SlSocialLinkedin />
                         </span>
-                        <span>
+                        <span
+                          onClick={() => window.open(twitterLink, "_blank")}
+                        >
                           <SlSocialTwitter />
+                        </span>
+                        <span
+                          onClick={() => window.open(youtubeLink, "_blank")}
+                        >
+                          <SlSocialYoutube />
                         </span>
                       </div>
                     </div>

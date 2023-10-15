@@ -9,7 +9,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-240px * 6));
+    transform: translateX(calc(-170px * 6));
   }
 }
 

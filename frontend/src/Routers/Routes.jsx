@@ -14,6 +14,9 @@ import ProtectedRoute from "./ProtectedRoute";
 import PrivateRoute from "./PrivateRoute";
 import CheckoutSuccess from "../Pages/CheckoutSuccess";
 import CheckoutFailed from "../Pages/CheckoutFailed";
+import TermsAndCondition from "../Pages/TermsAndCondition";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
+import Error from "../Pages/Error";
 
 const Wrapper = ({ children, title }) => {
   useEffect(() => {
@@ -126,6 +129,22 @@ const Router = createBrowserRouter([
     ),
   },
   {
+    path: "/termsAndCondition",
+    element: (
+      <Wrapper title="Terms And Condition">
+        <TermsAndCondition />
+      </Wrapper>
+    ),
+  },
+  {
+    path: "/privacyPolicy",
+    element: (
+      <Wrapper title="Privacy Policy">
+        <PrivacyPolicy />
+      </Wrapper>
+    ),
+  },
+  {
     path: "/",
     element: <PrivateRoute />,
     children: [
@@ -138,6 +157,14 @@ const Router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "*",
+    element: (
+      <Wrapper title="404">
+        <Error />
+      </Wrapper>
+    ),
   },
 ]);
 export default Router;
