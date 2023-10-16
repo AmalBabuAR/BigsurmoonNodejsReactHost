@@ -2,7 +2,7 @@ import React from "react";
 import pcimg from "../../assets/backgrounds/ARBg.png";
 import mobimg from "../../assets/backgrounds/ARBgMobile.png";
 
-import chair from "../../assets/Aboutar/ARChair.png";
+import chair from "../../assets/Aboutar/ARChair4.gif";
 import chairMob from "../../assets/Aboutar/ChairMobile.gif";
 import { useNavigate } from "react-router-dom";
 
