@@ -4,7 +4,7 @@ import { pricingSubFeatures } from "../../assets/data/data";
 const PricingSubFeature = () => {
   return (
     <>
-      <div className="mt-[-2px] lg:mt-0bg-black flex justify-center font-outfit mx-auto text-white ">
+      <div className="mt-[-2px] lg:mt-0 bg-black flex justify-center font-outfit mx-auto text-white ">
         <div className="lg:my-[100px] my-[76px]">
           <h1 className="text-[24px] lg:text-[45px] text-center font-bold">
             We’re here for you
