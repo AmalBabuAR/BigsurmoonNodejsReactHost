@@ -1,9 +1,9 @@
 import React from "react";
 import img1 from "../../assets/Aboutar/imageContainer/imageContainer1.png";
 import img2 from "../../assets/Home/mainFeatures/image2.png";
-import img3 from "../../assets/Home/mainFeatures/image3.png";
-import img4 from "../../assets/Home/mainFeatures/image4.png";
-
+import img3 from "../../assets/Home/mainFeatures/image3b.png";
+import img4 from "../../assets/Home/mainFeatures/image4.gif";
+import { Link } from "react-router-dom";
 
 const MainFeatures = () => {
   
@@ -31,9 +31,12 @@ const MainFeatures = () => {
               <br className="hidden lg:block" />
               visualise products in their real-space with just a click.
             </h1>
-            <p className="mt-[15px] font-roboto text-[16px] lg:text-[22px] leading-[15px] lg:leading-[21px] font-medium text-[#57BFFF]">
+            <Link
+              to={"/aboutar"}
+              className="mt-[15px] font-roboto text-[16px] lg:text-[22px] leading-[15px] lg:leading-[21px] font-medium text-[#57BFFF]"
+            >
               Learn more{">"}
-            </p>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col lg:flex-row gap-[50px] lg:gap-[160px] justify-center items-center">
@@ -49,9 +52,12 @@ const MainFeatures = () => {
               <br className="hidden lg:block" /> audience engagement and
               effective conversion.
             </h1>
-            <p className="mt-[15px] font-roboto text-[16px] lg:text-[22px] leading-[15px] lg:leading-[21px] font-medium text-[#57BFFF]">
+            <Link
+              to={"/aboutconfigurator"}
+              className="mt-[15px] font-roboto text-[16px] lg:text-[22px] leading-[15px] lg:leading-[21px] font-medium text-[#57BFFF]"
+            >
               Learn more{">"}
-            </p>
+            </Link>
           </div>
           <div className="order-first lg:order-last">
             <img
@@ -81,9 +87,11 @@ const MainFeatures = () => {
               optimisation possible for more fluid Web-AR loading{" "}
               <br className="hidden lg:block" /> experience.
             </h1>
-            <p className="mt-[15px] font-roboto text-[16px] lg:text-[22px] leading-[15px] lg:leading-[21px] font-medium text-[#57BFFF]">
+            <Link
+            to={'/studio'}
+            className="mt-[15px] font-roboto text-[16px] lg:text-[22px] leading-[15px] lg:leading-[21px] font-medium text-[#57BFFF]">
               Learn more{">"}
-            </p>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col lg:flex-row gap-[50px] lg:gap-[160px] justify-center items-center">

@@ -15,8 +15,9 @@ const EnterprisesCard = () => {
         </div>
         <div className="hidden lg:block">
           <button
-          onClick={() => navigate("/pricing")}
-          className="w-[175px] h-[61px] text-[12px] font-medium md:text-base lg:text-[18px] bg-gradient-to-r from-blue-600 to-blue-400 rounded-full  text-center">
+            onClick={() => navigate("/pricing")}
+            className="w-[175px] h-[61px] text-[12px] font-medium md:text-base lg:text-[18px] bg-gradient-to-r from-blue-600 to-blue-400 rounded-full  text-center"
+          >
             Start Trial
           </button>
         </div>
@@ -30,11 +31,11 @@ const EnterprisesCard = () => {
           />
           <h1 className="text-[14px] lg:text-[22px] mt-[32px] lg:mt-[25px] leading-[17px] lg:leading-[26px] font-normal overflow-hidden ">
             3D product visualisation and marketing events with Bigsurmoon had
-            the highest rate of engagement ever. Additionally, our costs for
-            photography and other visual content creation has been lot more
-            cost-effective and streamlined.
+            the highest rate of engagement ever. Additionally, our photography
+            and other visual content creation has been lot more cost-effective
+            and streamlined.
           </h1>
-          <p className="mt-[32px] lg:mt-[25px] text-[14px] font-normal leading-4 ">
+          <p className="mt-[32px] lg:mt-[25px] text-[14px] font-normal leading-4 opacity-75">
             Founder: Fala & Bebe
           </p>
         </div>
@@ -50,8 +51,8 @@ const EnterprisesCard = () => {
             us standout from the competition and create unforgettable campaigns.
             Kudos to the whole team!
           </h1>
-          <p className="mt-[32px] lg:mt-[25px] text-[14px] font-normal leading-4 ">
-            C.E.O: Travellux
+          <p className="mt-[32px] lg:mt-[25px] text-[14px] font-normal leading-4 opacity-75">
+            C.E.O: Traveluxis.in
           </p>
         </div>
       </div>

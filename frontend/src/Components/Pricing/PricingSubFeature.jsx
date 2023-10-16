@@ -4,7 +4,7 @@ import { pricingSubFeatures } from "../../assets/data/data";
 const PricingSubFeature = () => {
   return (
     <>
-      <div className="bg-black flex justify-center font-outfit mx-auto text-white ">
+      <div className="mt-[-2px] lg:mt-0bg-black flex justify-center font-outfit mx-auto text-white ">
         <div className="lg:my-[100px] my-[76px]">
           <h1 className="text-[24px] lg:text-[45px] text-center font-bold">
             We’re here for you
@@ -33,7 +33,7 @@ const PricingSubFeature = () => {
           Talk to Experts
         </button>
       </div>
-      <div className="bg-black lg:hidden w-full pb-[76px]">
+      <div className="mt-[-2px] lg:mt-0 bg-black lg:hidden w-full pb-[76px]">
         <div className="w-[343px] mx-auto flex flex-col">
           <h1 className="text-[30px] leading-[39px] font-semibold tracking-wide text-[#CDCDCD] font-outfit ">
             Still have questions about how Bigsurmoon can help your

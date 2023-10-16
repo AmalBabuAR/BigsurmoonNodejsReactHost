@@ -28,20 +28,15 @@ const OneClick = () => {
               devices.
             </h1>
           </div>
-          <div className="mt-[25px] flex justify-center items-center flex-row gap-[300px] ">
-            <div className="w-[75px] lg:w-[169px] h-[93px] lg:h-[210px]">
-              <img src={qr} alt="" className="" />
-            </div>
+          <div className="mt-[25px] lg:mt-[45px] flex justify-center items-center flex-row">
             <div className="">
               <button
-               onClick={() => navigate("/pricing")}
-              className="h-[38px] lg:h-[61px] w-[115px] lg:w-[218px] text-center text-[12px] lg:text-[18px] font-medium bg-gradient-to-r from-blue-500 to-blue-400 rounded-full">
+                onClick={() => navigate("/pricing")}
+                className="h-[38px] lg:h-[61px] w-[115px] lg:w-[218px] text-center text-[12px] lg:text-[18px] font-medium bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+              >
                 Start <span className="hidden lg:inline-block">Free </span>{" "}
                 Trial
               </button>
-            </div>
-            <div className="w-[75px] h-[93px] lg:w-[169px] lg:h-[210px]">
-              <img src={barBg} alt="" className=" " />
             </div>
           </div>
         </div>
@@ -74,7 +69,11 @@ const OneClick = () => {
       </div>
       {/* NO CODE CONTENT */}
       <div className="w-full mx-auto overflow-hidden relative text-white font-outfit">
-        <img src={codeBg} alt="" className="w-full h-full object-fill -z-10 absolute" />
+        <img
+          src={codeBg}
+          alt=""
+          className="w-full h-full object-fill -z-10 absolute"
+        />
         <div className="flex flex-col justify-center items-center my-[27px] lg:my-[100px]">
           <h1 className="text-[20px] lg:text-[50px] leading-[25px] lg:leading-[60px] font-bold ">
             No-Code, No App{" "}
@@ -88,7 +87,6 @@ const OneClick = () => {
           </h1>
         </div>
       </div>
-  
     </>
   );
 };

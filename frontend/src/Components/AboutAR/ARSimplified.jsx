@@ -3,7 +3,7 @@ import pcimg from "../../assets/backgrounds/ARBg.png";
 import mobimg from "../../assets/backgrounds/ARBgMobile.png";
 
 import chair from "../../assets/Aboutar/ARChair.png";
-import chairMob from "../../assets/Aboutar/ARChairMob.png";
+import chairMob from "../../assets/Aboutar/ChairMobile.gif";
 import { useNavigate } from "react-router-dom";
 
 const ARSimplified = () => {
@@ -20,7 +20,7 @@ const ARSimplified = () => {
         src={mobimg}
         alt=""
       />
-      <div className="mt-[130px] lg:mt-[190px] mb-[50px] lg:mb-[100px] mx-auto">
+      <div className="mt-[100px] lg:mt-[190px] mb-[50px] lg:mb-[100px] mx-auto">
         <div className="flex flex-col lg:flex-row justify-center gap-[25px]">
           <div className="font-outfit lg:order-first order-last text-center lg:text-left">
             <div className="text-[40px] lg:text-[80px] font-bold lg:font-medium leading-[51px] lg:leading-[102px]  lg:w-[669px] ">
@@ -43,7 +43,7 @@ const ARSimplified = () => {
             </div>
           </div>
           <div className="">
-            <div className="hidden lg:block w-[580px] h-[474px] ">
+            <div className="hidden lg:block w-[580px] px-9 h-[474px] ">
               <img src={chair} alt="" />
             </div>
             <div className=" lg:hidden flex justify-center">

@@ -2,7 +2,7 @@ import React from "react";
 import pic1 from "../../assets/Home/gallery/gallery1.png";
 import pic2 from "../../assets/Home/gallery/gallery2.png";
 import pic2b from "../../assets/Home/gallery/gallery2b.svg";
-import pic3 from "../../assets/Home/gallery/gallery3.svg";
+import pic3 from "../../assets/Home/gallery/Clothing.gif";
 import pic4 from "../../assets/Home/gallery/gallery4.svg";
 import pic5 from "../../assets/Home/gallery/gallery5.svg";
 import pic6 from "../../assets/Home/gallery/gallery6.svg";
@@ -62,7 +62,7 @@ const Gallery = () => {
             {/* section 3 */}
 
             <div className="bg-[#0D0230] flex flex-col w-[220px] h-[395px] rounded-[20px]">
-              <img src={pic3} alt="Clothing" className="w-[220px] h-[375px]" />
+              <img src={pic3} alt="Clothing" className="w-[220px] h-[375px] object-cover rounded-[20px]" />
               <h1 className="pl-3">Clothing</h1>
             </div>
             {/* section 4 */}
@@ -105,7 +105,7 @@ const Gallery = () => {
           <h1 className="pl-2">Furniture</h1>
         </div>
         <div className="bg-[#0D0230] flex row-span-2 flex-col w-[224px] h-[411px] rounded-[20px]">
-          <img className=" w-[224px] h-[385px]" src={pic3} alt="Clothing" />
+          <img className=" w-[224px] h-[385px] object-cover rounded-[20px]" src={pic3} alt="Clothing" />
           <h1 className="pl-2">Clothing</h1>
         </div>
         <div className="bg-[#0D0230] flex flex-col w-[220px] h-[200px] rounded-[20px]">

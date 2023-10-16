@@ -6,14 +6,14 @@ import PaymentData from "../models/paymentModel.js";
 const env = dotenv.config();
 
 //stripe config
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const stripeRouter = express.Router();
 
 stripeRouter.get("/config", (req, res) => {
   console.log("req in config", req.body);
   res.send({
-    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY_TEST,
+    publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
   });
 });
 
@@ -39,32 +39,32 @@ stripeRouter.post("/create-checkout-session", async (req, res) => {
           let filesValue;
           let monthOrYear;
           if (priceDetails.id === 1 && checkyear === false) {
-            priceId = "price_1Nwkq4SDf73R9RBmNuo9mjG7";
+            priceId = process.env.STRIPE_PAYMENTID_STARTER_MONTH;
             priceValue = priceDetails.price;
             filesValue = priceDetails.files;
             monthOrYear = "Month";
           } else if (priceDetails.id === 1) {
-            priceId = "price_1NwlA3SDf73R9RBmIUuDWrkY";
+            priceId = process.env.STRIPE_PAYMENTID_STARTER_YEAR;
             priceValue = priceDetails.yearly.price;
             filesValue = priceDetails.files;
             monthOrYear = "Year";
           } else if (priceDetails.id === 2 && checkyear === false) {
-            priceId = "price_1NwkszSDf73R9RBmmhlZeJXr";
+            priceId = process.env.STRIPE_PAYMENTID_GROWTH_MONTH;
             priceValue = priceDetails.price;
             filesValue = priceDetails.files;
             monthOrYear = "Month";
           } else if (priceDetails.id === 2) {
-            priceId = "price_1NwlB9SDf73R9RBmvoQlhsAG";
+            priceId = process.env.STRIPE_PAYMENTID_GROWTH_YEAR;
             priceValue = priceDetails.yearly.price;
             filesValue = priceDetails.files;
             monthOrYear = "Year";
           } else if (priceDetails.id === 3 && checkyear === false) {
-            priceId = "price_1NwlC8SDf73R9RBmEoGq8ZDH";
+            priceId = process.env.STRIPE_PAYMENTID_ELITE_MONTH;
             priceValue = priceDetails.price;
             filesValue = priceDetails.files;
             monthOrYear = "Month";
           } else if (priceDetails.id === 3) {
-            priceId = "price_1Nwl7fSDf73R9RBm4AriHnZV";
+            priceId = process.env.STRIPE_PAYMENTID_ELITE_YEAR;
             priceValue = priceDetails.yearly.price;
             filesValue = priceDetails.files;
             monthOrYear = "Year";

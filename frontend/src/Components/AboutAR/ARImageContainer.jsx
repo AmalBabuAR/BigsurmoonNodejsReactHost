@@ -2,7 +2,7 @@ import React from "react";
 import { ARCard } from "../../assets/data/data";
 import img1 from "../../assets/Aboutar/imageContainer/imageContainer1.png";
 import img2 from "../../assets/Aboutar/imageContainer/imageContainer2.png";
-import img3 from "../../assets/Aboutar/imageContainer/imageContainer3.png";
+import img3 from "../../assets/Aboutar/imageContainer/sofaAr2.gif";
 
 const ARImageContainer = () => {
   return (

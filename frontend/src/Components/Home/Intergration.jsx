@@ -46,12 +46,12 @@ const Intergration = () => {
           </div>
         </div>
       </div>
-      <div className="hidden lg:flex mb-[100px] mx-[150px] flex-row gap-[250px]">
+      <div className="hidden lg:flex mb-[100px] mx-[72px] flex-row gap-[325px]">
         <div className="flex flex-col font-outfit">
           <h1 className="text-[25px] lg:text-[52px] font-bold leading-[24px] lg:leading-[51px]">
             Take the next step
           </h1>
-          <p className="mt-[20px] text-[20px] font-normal leading-[24px]">
+          <p className="mt-[20px] text-[20px] font-normal leading-[24px] font-roboto">
             Click below to start your journey to enhanced shopping experience.
             <br /> Explore all the features and benefits with Our 7 day free
             trial.
@@ -73,11 +73,11 @@ const Intergration = () => {
           </button>
         </div>
       </div>
-      <div className="lg:hidden mt-[50px] flex flex-col justify-center mx-[32px] font-outfit">
+      <div className="lg:hidden mt-[50px] flex flex-col justify-center mx-[20px] font-outfit">
         <h1 className="text-[25px] leading-[24px] font-bold">
           Take the next step
         </h1>
-        <p className="mt-[20px] text-[14px] leading-[17px]">
+        <p className="mt-[20px] text-[14px] leading-[17px] font-roboto">
           Click below to start your journey to enhanced shopping experience.
           Explore all the features and benefits with Our 7 day free trial.
         </p>
