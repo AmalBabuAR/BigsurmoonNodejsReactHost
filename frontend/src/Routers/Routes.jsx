@@ -19,6 +19,29 @@ import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import Error from "../Pages/Error";
 
 const Wrapper = ({ children, title }) => {
+  let description;
+  if (title === "Bigsurmoon") {
+    description =
+      "Interactive 3D and Augmented Reality experiences for e-commerce. All-in-one visualisation solution that drive Engagement and sales.";
+  } else if (title === "About | Augmented Reality") {
+    description =
+      "Discover the Augmented reality benefits with Bigsurmoon| Learn how AR is reshaping industries and creating great customer experiences. ";
+  } else if (title === "About | Configurator") {
+    description =
+      "Immersive e-commerce 360 and configurator. Create your 3D experiences today| Tailored for businesses.";
+  } else if (title === "Pricing") {
+    description =
+      "Our affordable pricing scales with your business. You get all the features on every plan. Start your free trial. ";
+  } else if (title === "Support") {
+    description =
+      "Get reliable support from Bigsurmoon. Our dedicated team is here to assist you in harnessing the full potential of 3D and AR technology.";
+  } else if (title === "3D Modelling Support") {
+    description =
+      "Step into the world of creativity at Bigsurmoon's 3D Studio. Transform your ideas into stunning 3D visuals with our expert team.";
+  } else if (title === "Dashboard") {
+    description = "Login | Streamline your AR and 3D projects | Upload";
+  }
+
   useEffect(() => {
     let t = "Bigsurmoon";
     if (title) {
@@ -26,6 +49,11 @@ const Wrapper = ({ children, title }) => {
     }
     document.title = t;
   }, [title]);
+
+  useEffect(() => {
+    document.getElementsByTagName("META")[2].content = description;
+  }, [description, title]);
+
   const location = useLocation();
   useLayoutEffect(() => {
     document.documentElement.scrollTo(0, 0);
@@ -45,7 +73,7 @@ const Router = createBrowserRouter([
   {
     path: "/aboutar",
     element: (
-      <Wrapper title="About">
+      <Wrapper title="About | Augmented Reality">
         <AboutAR />
       </Wrapper>
     ),
@@ -53,7 +81,7 @@ const Router = createBrowserRouter([
   {
     path: "/aboutconfigurator",
     element: (
-      <Wrapper title="About">
+      <Wrapper title="About | Configurator">
         <AboutConfigurator />
       </Wrapper>
     ),
@@ -123,7 +151,7 @@ const Router = createBrowserRouter([
   {
     path: "/studio",
     element: (
-      <Wrapper title="3D Studio">
+      <Wrapper title="3D Modelling Support">
         <ThreeDStudio />
       </Wrapper>
     ),

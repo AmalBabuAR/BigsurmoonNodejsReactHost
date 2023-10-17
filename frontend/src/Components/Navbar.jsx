@@ -165,7 +165,7 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                       </div>
 
                       <Link to="/studio">
-                        <li className="w-[150px]">3D Studio</li>
+                        <li className="w-[150px]">3D Modelling</li>
                       </Link>
                       <Link to="/pricing">
                         <li className="w-[150px]">Pricing</li>
@@ -270,7 +270,7 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                     pageName === "studio" ? "text-gray-50" : ""
                   } hover:text-white hover:text-xl`}
                 >
-                  3D Studio
+                  3D Modelling
                 </h3>
               </Link>
               <Link to="/pricing">
