@@ -39,7 +39,6 @@ model-viewer {
   position: relative;
 }
 
-
 #toggle-animation {
   display: inline-flex;
   align-items: center;
@@ -62,20 +61,18 @@ model-viewer {
   align-items: center;
   justify-content: center;
   padding: 8px;
-  border: 1px solid black;
+  border: 1px solid #848484;
   background-color: #ffffff;
-  border-radius: 10%;
+  border-radius: 16px;
   cursor: pointer;
   outline: none;
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   right: 10vw;
   top: 13%;
   z-index: 1;
-  color: #3a82f7;
-  font-weight: 600;
-  font-size: 17px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 #qrcode-container {
@@ -128,6 +125,10 @@ model-viewer {
   padding-left: 5px;
   border-radius: 8px;
   text-transform: capitalize;
+  fill: #fff;
+  stroke-width: 1px;
+  stroke: #d6d6d6;
+  box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.1) inset;
 }
 
 #texture-selector {
@@ -138,6 +139,10 @@ model-viewer {
   font-weight: 400;
   border-radius: 8px;
   text-transform: capitalize;
+  fill: #fff;
+  stroke-width: 1px;
+  stroke: #d6d6d6;
+  box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.1) inset
   /* background-color: green; */
 }
 
@@ -153,11 +158,12 @@ model-viewer {
 }
 
 #fieldGroupSecond {
-  background-color: rgba(138, 138, 138, 0.5);
+  background-color: D6D6D6;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 6px;
   display: flex;
-  gap: 10px;
+  gap: 11px;
+  box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.15);
 }
 
 .Text {

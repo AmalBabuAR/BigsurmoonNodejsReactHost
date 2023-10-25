@@ -8,7 +8,7 @@
     <link
       rel="icon"
       type="image/gif"
-      href="../images/Icon.gif"             
+      href="../images/Icon.gif"
       sizes="32*32 48*48 64*64"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,7 +41,7 @@
     <div id="loader-overlay">
       <div class="loader-container">
         <img
-          src="../images/spinner.svg"
+          src="https://res.cloudinary.com/dfv0eesne/image/upload/v1690798724/Bigsurmoon/Moon_in_Logo_Low_Res-03_onyxkr.png"
           alt="Loader"
           class="loader"
         />
@@ -91,24 +91,8 @@
         shadow-intensity="1"
         auto-rotate
         camera-controls
-        touch-action="pan-y"
-        camera-target="0m 0.2m 0m"
         ar-modes="webxr scene-viewer quick-look"
-      >
-      <button
-      slot="ar-button"
-      style="
-        background-color: transparent;
-        border-radius: 4px;
-        border: none;
-        position: absolute;
-        top: 50px;
-        right: 16px;
-      "
-    >
-      <img src="../images/ARicon.svg" />
-    </button>
-    </model-viewer>
+      ></model-viewer>
 
       <div id="fieldGroup">
         <div id="fieldGroupSecond">
@@ -131,7 +115,7 @@
       }
 
       const idFromUrl = getQueryParam("id");
-      const urlToGenerateQRCodeFor = `https://bigsurmoon.com/editor/Viewer`;
+      const urlToGenerateQRCodeFor = `http://localhost:5000/editor/ModelViewer/?id=${idFromUrl}`;
 
       if (!document.getElementById("qrcode").hasChildNodes()) {
         const qrcode = new QRCode("qrcode", {
@@ -244,10 +228,10 @@
       async function getViewProject() {
         try {
           const idFromUrl = getQueryParam("id");
-          const id = "64f336826a9c405834134bbe";
+          const id = "652a2cf901ca3767039c349c";
           showLoaderContent();
           const response = await fetch(
-            `modelFile.json`
+            `http://localhost:5000/generate_scene_view/${id}`
           );
 
           // Check if the fetch was successful

@@ -63,10 +63,10 @@ export const postProjectName = async (req, res) => {
 
 export const getProjectsList = async (req, res) => {
   try {
-    console.log("coming");
+    // console.log("coming");
     const user = req.user._id;
     const listProjects = await ProjectDetails.find({ user });
-    console.log("listProjects", listProjects);
+    // console.log("listProjects", listProjects);
     const currentDate = new Date();
 
     // Calculate and update the projects with the formatted time difference

@@ -82,23 +82,162 @@ const PricingCard = () => {
                 {p.desc}
               </h1>
               <div className="mt-[35px] lg:mt-[40px] flex flex-row">
-                <button
-                  onClick={() => handleMonthely(p.id)}
-                  className="w-[172px] h-[41px] flex flex-col justify-center items-center  bg-[#1C1C1C] rounded-l-3xl"
-                >
-                  <h1 className="text-[12px] font-bold">Pay Monthly</h1>
-                  <h1 className="text-[10px] font-normal">Commit monthly</h1>
-                </button>
-                <button
-                  onClick={() => handleYearly(p.id)}
-                  className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px]
+              {yearStarter === false && p.id === 1 && (
+                  <>
+                    <button
+                      onClick={() => handleMonthely(p.id)}
+                      className="w-[172px] h-[41px] flex flex-col justify-center items-center  bg-[#1C1C1C] rounded-l-3xl"
+                    >
+                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit monthly
+                      </h1>
+                    </button>
+                    <button
+                      onClick={() => handleYearly(p.id)}
+                      className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px]
                 "
-                >
-                  <h1 className="text-[12px] font-bold">
-                    Pay Upfront <span className="text-[#31A8FE]">SAVE 10%</span>
-                  </h1>
-                  <h1 className="text-[10px] font-normal">Commit Annually</h1>
-                </button>
+                    >
+                      <h1 className="text-[12px] font-bold">
+                        Pay Upfront{" "}
+                        <span className="text-[#31A8FE]">SAVE 10%</span>
+                      </h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit Annually
+                      </h1>
+                    </button>
+                  </>
+                )}
+                {yearStarter && p.id === 1 && (
+                  <>
+                    <button
+                      onClick={() => handleMonthely(p.id)}
+                      className="w-[147px] h-[46px] flex flex-col justify-center items-center bg-black rounded-3xl mr-[-12px] z-10 border-[#2482FF] border border-solid px-[9px] py-[12px]"
+                    >
+                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit monthly
+                      </h1>
+                    </button>
+                    <button
+                      onClick={() => handleYearly(p.id)}
+                      className=" w-[172px] h-[41px]  flex flex-col justify-center items-center bg-[#1C1C1C]  rounded-r-3xl 
+                "
+                    >
+                      <h1 className="text-[12px] font-bold">
+                        Pay Upfront{" "}
+                        <span className="text-[#31A8FE]">SAVE 10%</span>
+                      </h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit Annually
+                      </h1>
+                    </button>
+                  </>
+                )}
+                {yearGrowth === false && p.id === 2 && (
+                  <>
+                    <button
+                      onClick={() => handleMonthely(p.id)}
+                      className="w-[172px] h-[41px] flex flex-col justify-center items-center  bg-[#1C1C1C] rounded-l-3xl"
+                    >
+                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit monthly
+                      </h1>
+                    </button>
+                    <button
+                      onClick={() => handleYearly(p.id)}
+                      className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px]
+            "
+                    >
+                      <h1 className="text-[12px] font-bold">
+                        Pay Upfront{" "}
+                        <span className="text-[#31A8FE]">SAVE 10%</span>
+                      </h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit Annually
+                      </h1>
+                    </button>
+                  </>
+                )}
+                {yearGrowth && p.id === 2 && (
+                  <>
+                    <button
+                      onClick={() => handleMonthely(p.id)}
+                      className="w-[147px] h-[46px] flex flex-col justify-center items-center bg-black rounded-3xl mr-[-12px] z-10 border-[#2482FF] border border-solid px-[9px] py-[12px]"
+                    >
+                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit monthly
+                      </h1>
+                    </button>
+                    <button
+                      onClick={() => handleYearly(p.id)}
+                      className=" w-[172px] h-[41px]  flex flex-col justify-center items-center bg-[#1C1C1C]  rounded-r-3xl 
+            "
+                    >
+                      <h1 className="text-[12px] font-bold">
+                        Pay Upfront{" "}
+                        <span className="text-[#31A8FE]">SAVE 10%</span>
+                      </h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit Annually
+                      </h1>
+                    </button>
+                  </>
+                )}
+                {yearElite === false && p.id === 3 && (
+                  <>
+                    <button
+                      onClick={() => handleMonthely(p.id)}
+                      className="w-[172px] h-[41px] flex flex-col justify-center items-center  bg-[#1C1C1C] rounded-l-3xl"
+                    >
+                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit monthly
+                      </h1>
+                    </button>
+                    <button
+                      onClick={() => handleYearly(p.id)}
+                      className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px]
+        "
+                    >
+                      <h1 className="text-[12px] font-bold">
+                        Pay Upfront{" "}
+                        <span className="text-[#31A8FE]">SAVE 10%</span>
+                      </h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit Annually
+                      </h1>
+                    </button>
+                  </>
+                )}
+                {yearElite && p.id === 3 && (
+                  <>
+                    <button
+                      onClick={() => handleMonthely(p.id)}
+                      className="w-[147px] h-[46px] flex flex-col justify-center items-center bg-black rounded-3xl mr-[-12px] z-10 border-[#2482FF] border border-solid px-[9px] py-[12px]"
+                    >
+                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit monthly
+                      </h1>
+                    </button>
+                    <button
+                      onClick={() => handleYearly(p.id)}
+                      className=" w-[172px] h-[41px]  flex flex-col justify-center items-center bg-[#1C1C1C]  rounded-r-3xl 
+              "
+                    >
+                      <h1 className="text-[12px] font-bold">
+                        Pay Upfront{" "}
+                        <span className="text-[#31A8FE]">SAVE 10%</span>
+                      </h1>
+                      <h1 className="text-[10px] font-normal">
+                        Commit Annually
+                      </h1>
+                    </button>
+                  </>
+                )}
               </div>
               <div className="mt-[35px] lg:mt-[40px] text-[24px] lg:text-[30px] font-bold lg:font-medium">
                 {yearStarter === false && p.id === 1 && <h1>{p.priceTitle}</h1>}
