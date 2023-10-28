@@ -258,8 +258,8 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("message", async function (event) {
 	const URL_COM = "https://bigsurmoon.com";
 	if (event.data.permission === "false") {
-		console.log("Service Worker Received Message", event.data.type);
-		console.log("Service Worker Payload", event.data.payload.type);
+		// console.log("Service Worker Received Message", event.data.type);
+		// console.log("Service Worker Payload", event.data.payload.type);
 		let url = "";
 		let method = "";
 		if (event.data.type === "UPDATE_DATABASE") {
@@ -269,7 +269,7 @@ self.addEventListener("message", async function (event) {
 			url = `${URL_COM}/delete`;
 			method = "delete";
 		} else if (event.data.type == "UPDATE_SCENE_OBJECT") {
-			console.log("Service Worker for UPDATE_SCENE_OBJECT called");
+			// console.log("Service Worker for UPDATE_SCENE_OBJECT called");
 			url = `${URL_COM}/update_sceneobject`;
 			method = "post";
 		}

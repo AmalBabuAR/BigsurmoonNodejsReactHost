@@ -40,48 +40,52 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script> -->
     <div id="loader-overlay">
       <div class="loader-container">
-        <img
-          src="../images/spinner.svg"
-          alt="Loader"
-          class="loader"
-        />
+        <img src="../images/spinner.svg" alt="Loader" class="loader" />
       </div>
     </div>
 
     <div class="sectionOne">
-      <button id="toggle-ar-button">AR</button>
-      <div id="qrcode-container">
-        <div id="qrcode"></div>
-        <p class="text-qr">
-          Scan Q.R code on any mobile device to view in your space
-        </p>
+      <button id="toggle-ar-button">
+        <span id="button-text">View in A.R</span>
+        <img src="../images/viewer/ar8.png" alt="" />
+      </button>
+      <div id="qrcode-main">
+        <div id="qrcode-container">
+          <div id="qrcode"></div>
+          <p class="text-qr">
+            Scan Q.R code on any mobile device<br />
+            to view in your space
+          </p>
+        </div>
       </div>
       <button id="toggle-animation">
         <svg
-          id="play-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="13"
-          height="13"
-          viewBox="0 0 13 13"
-          fill="none"
-        >
-          <path
-            d="M12.2753 7.16357L2.30905 12.2752C1.49378 12.6976 0.54541 12.3335 0.54541 11.6053V1.03249C0.54541 0.289765 1.5437 -0.0451873 2.30905 0.348017L12.2753 5.48881C12.9907 5.86745 13.0074 6.78493 12.2753 7.16357Z"
-            fill="#1C1C1E"
-          />
-        </svg>
-        <svg
-          id="pause-icon"
-          style="display: none"
-          xmlns="http://www.w3.org/2000/svg"
-          width="13"
-          height="13"
-          viewBox="0 0 13 13"
-          fill="none"
-        >
-          <rect x="2" y="1" width="2" height="11" fill="#1C1C1E" />
-          <rect x="7" y="1" width="2" height="11" fill="#1C1C1E" />
-        </svg>
+        id="play-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="19"
+        viewBox="0 0 18 19"
+        fill="none"
+      >
+        <path
+          d="M2.37677 18.2586C2.8232 18.2586 3.21648 18.1082 3.70542 17.8373L16.2586 10.9869C17.1727 10.4854 17.5553 10.0942 17.5553 9.46231C17.5553 8.83042 17.1727 8.44928 16.2586 7.93775L3.70542 1.08727C3.21648 0.816465 2.8232 0.666016 2.37677 0.666016C1.50517 0.666016 0.888672 1.2979 0.888672 2.29087V16.6338C0.888672 17.6367 1.50517 18.2586 2.37677 18.2586Z"
+          fill="black"
+        />
+      </svg>
+      <svg
+        id="pause-icon"
+        style="display: none"
+        xmlns="http://www.w3.org/2000/svg"
+        width="8"
+        height="15"
+        viewBox="0 0 8 15"
+        fill="none"
+      >
+        <path
+          d="M0.970748 14.5455C1.51679 14.5455 1.9415 14.14 1.9415 13.6051V0.940364C1.9415 0.405478 1.51679 0 0.970748 0C0.424702 0 0 0.405478 0 0.940364V13.6051C0 14.14 0.424702 14.5455 0.970748 14.5455ZM7.02925 14.5455C7.5753 14.5455 8 14.14 8 13.6051V0.940364C8 0.405478 7.5753 0 7.02925 0C6.48321 0 6.05851 0.405478 6.05851 0.940364V13.6051C6.05851 14.14 6.48321 14.5455 7.02925 14.5455Z"
+          fill="#0090F8"
+        />
+      </svg>
       </button>
       <model-viewer
         id="model-viewer"
@@ -92,22 +96,27 @@
         auto-rotate
         camera-controls
         touch-action="pan-y"
-        camera-target="0m 0m 0m"
+        camera-target="0m 0.2m 0m"
         ar-modes="webxr scene-viewer quick-look"
       >
-        <button
-          slot="ar-button"
-          style="
-            background-color: transparent;
-            border-radius: 4px;
-            border: none;
-            position: absolute;
-            top: 50px;
-            right: 16px;
-          "
-        >
-          <img src="../images/ARicon.svg" />
-        </button>
+      <button
+      slot="ar-button"
+      style="
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 35px;
+        height: 35px;
+        background-color: #0090f8;
+        border-radius: 50px;
+        border: 1px solid white;
+        position: absolute;
+        top: 50px;
+        right: 16px;
+      "
+    >
+      <img src="../images/viewer/mobAR3.svg" />
+    </button>
       </model-viewer>
 
       <div id="fieldGroup">
@@ -136,20 +145,21 @@
       if (!document.getElementById("qrcode").hasChildNodes()) {
         const qrcode = new QRCode("qrcode", {
           text: urlToGenerateQRCodeFor,
-          width: 150,
-          height: 150,
+          width: 400,
+          height: 400,
         });
       }
 
       const toggleARButton = document.getElementById("toggle-ar-button");
-      const qrcodeContainer = document.getElementById("qrcode-container");
+      const qrcodeMain = document.getElementById("qrcode-main");
       let isQRCodeVisible = false;
 
       toggleARButton.addEventListener("click", () => {
         if (!isQRCodeVisible) {
-          qrcodeContainer.style.display = "flex";
+          qrcodeMain.style.display = "flex";
+          toggleARButton.style.zIndex = "999";
         } else {
-          qrcodeContainer.style.display = "none";
+          qrcodeMain.style.display = "none";
         }
         isQRCodeVisible = !isQRCodeVisible;
       });
@@ -451,9 +461,11 @@
           // Get references to the play and pause icons
           const playIcon = document.getElementById("play-icon");
           const pauseIcon = document.getElementById("pause-icon");
+          const animationButton = document.getElementById("toggle-animation");
           if (animationFlag) {
             playIcon.style.display = "none";
             pauseIcon.style.display = "inline-block";
+            animationButton.style.borderColor = '#0090F8'
 
             // Add your play animation logic here
             document.querySelector("model-viewer").play();
@@ -462,6 +474,7 @@
             // Animation is paused, show the play button
             playIcon.style.display = "inline-block";
             pauseIcon.style.display = "none";
+            animationButton.style.borderColor = '#909090'
 
             // Add your pause animation logic here
             document.querySelector("model-viewer").pause();

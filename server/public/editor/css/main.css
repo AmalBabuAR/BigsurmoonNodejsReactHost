@@ -145,10 +145,12 @@ input {
 
 #outliner .opener.open:after {
   content: "🢓";
+  font-family: system-ui;
 }
 
 #outliner .opener.closed:after {
   content: "🢒";
+  font-family: system-ui;
   position: absolute;
   top: 0px;
 }
