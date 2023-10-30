@@ -13,6 +13,7 @@ body {
   font-family: "Outfit", sans-serif;
   color: #222;
   overflow: hidden;
+  touch-action: none;
 }
 
 html {
