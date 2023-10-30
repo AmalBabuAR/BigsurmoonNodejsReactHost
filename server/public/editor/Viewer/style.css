@@ -13,7 +13,7 @@ body {
   font-family: "Outfit", sans-serif;
   color: #222;
   overflow: hidden;
-  touch-action: manipulation;
+  touch-action: none;
 }
 
 html {
@@ -39,6 +39,7 @@ model-viewer {
   background-color: #ffffff;
   --poster-color: #ffffff00;
   position: relative;
+  touch-action: auto;
 }
 
 #toggle-animation {
