@@ -44,6 +44,14 @@ model-viewer canvas {
   touch-action: none;
 }
 
+.canvas slot canvas {
+  touch-action: none;
+}
+
+#webgl-canvas {
+  touch-action: none;
+}
+
 #toggle-animation {
   display: inline-flex;
   align-items: center;
