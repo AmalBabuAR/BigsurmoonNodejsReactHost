@@ -39,7 +39,7 @@ model-viewer {
   background-color: #ffffff;
   --poster-color: #ffffff00;
   position: relative;
-  touch-action: auto;
+  touch-action: auto !important;
 }
 
 #toggle-animation {
