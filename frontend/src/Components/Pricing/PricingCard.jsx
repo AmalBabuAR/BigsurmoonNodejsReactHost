@@ -240,17 +240,46 @@ const PricingCard = () => {
                 )}
               </div>
               <div className="mt-[35px] lg:mt-[40px] text-[24px] lg:text-[30px] font-bold lg:font-medium">
-                {yearStarter === false && p.id === 1 && <h1>{p.priceTitle}</h1>}
+                {yearStarter === false && p.id === 1 && (
+                  <h1 className="pb-[31px]">{p.priceTitle}</h1>
+                )}
                 {yearStarter && p.id === 1 && <h1>{p.yearly.priceTitle}</h1>}
-                {yearGrowth === false && p.id === 2 && <h1>{p.priceTitle}</h1>}
+                {yearGrowth === false && p.id === 2 && (
+                  <h1 className="pb-[31px]">{p.priceTitle}</h1>
+                )}
                 {yearGrowth && p.id === 2 && <h1>{p.yearly.priceTitle}</h1>}
-                {yearElite === false && p.id === 3 && <h1>{p.priceTitle}</h1>}
+                {yearElite === false && p.id === 3 && (
+                  <h1 className="pb-[31px]">{p.priceTitle}</h1>
+                )}
                 {yearElite && p.id === 3 && <h1>{p.yearly.priceTitle}</h1>}
               </div>
-              <h1 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
-                billed at <span className="line-through">{p.priceDesc}</span> $
-                {p.yearly.price}
-              </h1>
+              {yearStarter && p.id === 1 && (
+                <h1>
+                  <h1 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
+                    billed at{" "}
+                    <span className="line-through">{p.priceDesc}</span> $
+                    {p.yearly.price}
+                  </h1>
+                </h1>
+              )}
+              {yearGrowth && p.id === 2 && (
+                <h1>
+                  <h1 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
+                    billed at{" "}
+                    <span className="line-through">{p.priceDesc}</span> $
+                    {p.yearly.price}
+                  </h1>
+                </h1>
+              )}
+              {yearElite && p.id === 3 && (
+                <h1>
+                  <h1 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
+                    billed at{" "}
+                    <span className="line-through">{p.priceDesc}</span> $
+                    {p.yearly.price}
+                  </h1>
+                </h1>
+              )}
               <h1 className="mt-[35px] lg:mt-[40px] text-[14px] font-medium">
                 <span className="text-[20px] font-bold">{p.files}</span>
                 &nbsp;
