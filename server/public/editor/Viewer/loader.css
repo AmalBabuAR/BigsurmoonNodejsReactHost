@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background-color: black; /* Set the background to black */
-  touch-action: none;
+  touch-action: manipulation;
 }
 
 #loader-overlay {
