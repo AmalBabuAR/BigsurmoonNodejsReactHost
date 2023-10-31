@@ -7,6 +7,7 @@ import pcimg1 from "../../assets/backgrounds/client.png";
 import axiosInstance from "../../axios/axiosInterceptors/axiosInstance";
 import { URL } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
+import EmbedModal from "./EmbedModal";
 
 const Dash = () => {
   const [list, setList] = useState([]);
@@ -14,6 +15,8 @@ const Dash = () => {
   const [projectName, setProjectName] = useState("");
   const [err, setErr] = useState("");
   const [screen, setSceen] = useState(false);
+  const [embedModel, setEmbedModel] = useState(false);
+  const [embedID, setEmbedId] = useState(null);
 
   const navigate = useNavigate();
 
@@ -111,6 +114,15 @@ const Dash = () => {
   };
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleEmbedClick = (id) => {
+    setEmbedModel(!embedModel);
+    setEmbedId(id);
+  };
+
+  const handleDataReceived = (data) => {
+    setEmbedModel(data);
   };
   //===============================
   //GET THE PROJECT LIST
@@ -268,7 +280,9 @@ const Dash = () => {
                                 {item.formattedTime}
                               </td>
                               <td className="px-6 py-4">
-                                <button>
+                                <button
+                                  onClick={() => handleEmbedClick(item._id)}
+                                >
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="20"
@@ -391,6 +405,13 @@ const Dash = () => {
           )}
         </div>
       </div>
+      {embedModel && (
+        <EmbedModal
+          onDataReceived={handleDataReceived}
+          embedID={embedID}
+          embedModel={embedModel}
+        />
+      )}
     </>
   );
 };
