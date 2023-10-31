@@ -64,7 +64,7 @@ const EmbedModal = (props) => {
           </h1>
           <button
             onClick={handleCloseButton}
-            className="mt-[18px] w-[44px] h-[44px] rounded-[10px] border border-solid border-[#545454] hover:bg-[#0000008e] bg-black flex items-center justify-center"
+            className=" w-[44px] h-[44px] rounded-[10px] border border-solid border-[#545454] hover:bg-[#0000008e] bg-black flex items-center justify-center"
           >
             <svg
               width="14"
@@ -80,11 +80,11 @@ const EmbedModal = (props) => {
             </svg>
           </button>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="mt-[18px] flex flex-row items-center">
           <h1 className="text-[14px] mt-3 font-normal leading-5">
             Choose Resolution
           </h1>
-          <div className="ml-[15px] text-center flex flex-row gap-[9px]">
+          <div className="ml-[15px] flex flex-row gap-[9px]">
             <div className="">
               <h1 className="text-[10px] font-light  leading-5">Width</h1>
               <input
@@ -106,7 +106,7 @@ const EmbedModal = (props) => {
           </div>
         </div>
         <div className="mt-[40px]">
-          <div className="flex justify-center items-center text-[12px] font-semibold leading-5 text-[#fff]">
+          <div className="flex justify-center items-center text-[14px] font-semibold leading-5 text-[#fff]">
             <button
               onClick={() => {
                 setIframeBtn(!iframeBtn);
@@ -115,8 +115,8 @@ const EmbedModal = (props) => {
               }}
               className={
                 iframeBtn
-                  ? `h-[31px] w-[67px] bg-[#444] `
-                  : `h-[31px] w-[67px] bg-black`
+                  ? `h-[31px] w-[86px] bg-[#1E1E1E] `
+                  : `h-[31px] w-[86px] bg-[#444]`
               }
             >
               Iframe
@@ -129,8 +129,8 @@ const EmbedModal = (props) => {
               }}
               className={
                 urlBtn
-                  ? `h-[31px] w-[67px] bg-[#444] `
-                  : `h-[31px] w-[67px] bg-black`
+                  ? `h-[31px] w-[86px] bg-[#1E1E1E] `
+                  : `h-[31px] w-[86px] bg-[#444]`
               }
             >
               URL
@@ -139,7 +139,7 @@ const EmbedModal = (props) => {
           <div className="flex flex-wrap ">
             <textarea
               type="text"
-              className="text-[#fff] text-[10px] px-[12px] py-[7px] bg-[#1E1E1E] tracking-wider resize-none font-medium leading-[26PX] w-full h-auto overscroll-none overflow-hidden"
+              className="text-[#fff] text-[12px] px-[12px] py-[7px] bg-[#1E1E1E] tracking-wider resize-none font-medium leading-[26px] w-full h-auto overscroll-none overflow-hidden"
               value={iframeBtn ? inputValue : urlValue}
             ></textarea>
           </div>
