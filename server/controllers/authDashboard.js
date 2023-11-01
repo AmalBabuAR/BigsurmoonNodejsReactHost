@@ -5,7 +5,7 @@ import PaymentData from "../models/paymentModel.js";
 export const postProjectName = async (req, res) => {
   try {
     const user = req.user._id;
-    console.log(req.body);
+    // console.log(req.body);
     const { nameValue } = req.body;
     const existingProjects = await ProjectDetails.find({ user });
     if (existingProjects) {
@@ -61,6 +61,31 @@ export const postProjectName = async (req, res) => {
   }
 };
 
+export const getProjectsSize = async (req, res) => {
+  try {
+    const user = req.user._id;
+    const existingProjects = await ProjectDetails.find({ user });
+    console.log("existingProjects", existingProjects);
+    if (existingProjects) {
+      const check = await PaymentData.find({ user_id: user });
+      if (check.length > 0) {
+        const quantity = parseInt(check[0]?.selectedQuantity);
+        const per = (existingProjects.length / quantity) * 100;
+        const resData = {
+          used: existingProjects.length,
+          quantity: quantity,
+          percentage: per,
+        };
+        res.status(200).send({ success: true, resData });
+      } else {
+        res.status(200).send({ success: false });
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getProjectsList = async (req, res) => {
   try {
     // console.log("coming");
@@ -105,14 +130,26 @@ export const getProjectsList = async (req, res) => {
         user: project.user,
         name: project.name,
         formattedTime,
+        createdAt: project.createdAt,
       };
     });
+
+    const sortedProjects = projectsWithFormattedTime.sort((a, b) => {
+      return b.createdAt - a.createdAt;
+    });
+
+    const sortedData = sortedProjects.map((project) => ({
+      _id: project._id,
+      user: project.user,
+      name: project.name,
+      formattedTime: project.formattedTime,
+    }));
 
     // console.log(projectsWithFormattedTime);
 
     res.status(200).send({
       success: true,
-      data: projectsWithFormattedTime,
+      data: sortedData,
     });
   } catch (error) {
     console.error(error);
@@ -121,13 +158,6 @@ export const getProjectsList = async (req, res) => {
 };
 
 
-// export const deleteProjectFromID = async (req, res) => {
-//   try {
-//     const resInSql = await s
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
 export const deleteProjectFromID = async (req, res) => {
   const projectId = req.params.id;
   console.log(projectId);

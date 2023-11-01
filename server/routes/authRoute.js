@@ -6,7 +6,7 @@ import {
   testController,
 } from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
-import { deleteProjectFromID, getProjectsList, postProjectName } from "../controllers/authDashboard.js";
+import { deleteProjectFromID, getProjectsList, getProjectsSize, postProjectName } from "../controllers/authDashboard.js";
 
 //router object
 const router = express.Router();
@@ -36,6 +36,8 @@ router.use(requireSignIn)
 router.post('/user/postProject', postProjectName )
 
 router.get('/user/getProjects', getProjectsList)
+
+router.get('/user/getProjectSize', getProjectsSize)
 
 router.delete('/user/deleteProject/:id', deleteProjectFromID)
 
