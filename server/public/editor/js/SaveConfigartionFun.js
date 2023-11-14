@@ -7,20 +7,12 @@ function getQueryParam(param) {
 function saveConfig(defaultName, editor, variantName, container) {
 	return new Promise((resolve, reject) => {
 		const idFromUrl = getQueryParam("id");
-		// const projectIDParse = JSON.parse(idFromUrl);
-
-		// console.log(container);
-		// console.log(
-		// 	`Saving configuration with default name: ${(defaultName, idFromUrl)}`
-		// );
 		const sceneJson = editor.toJSON();
 		// console.log("sceneJson", sceneJson);
 		const materialData = sceneJson.scene.materials;
 		const textureData = sceneJson.scene.textures;
 		const imageData = sceneJson.scene.images;
 		const objectData = sceneJson.scene.object;
-		// console.log("imageData ++++++++", imageData);
-
 		// Get the project id and the config name
 		const configData = {
 			variant: variantName,
@@ -70,7 +62,14 @@ function saveConfig(defaultName, editor, variantName, container) {
 	});
 }
 
-function updateConfig(variantName, defaultName, editor) {
+function updateConfig(
+	defaultName,
+	variantName,
+	variantContainer,
+	created_at,
+	editor,
+	typedValue
+) {
 	// console.log(variantName, defaultName, editor);
 	return new Promise((resolve, reject) => {
 		const idFromUrl = getQueryParam("id");
@@ -86,6 +85,8 @@ function updateConfig(variantName, defaultName, editor) {
 			variant: variantName,
 			configname: defaultName,
 			projectId: idFromUrl,
+			variantContainer: variantContainer,
+			created_at: created_at,
 		};
 		const updateQuery = {
 			object: {
@@ -98,6 +99,7 @@ function updateConfig(variantName, defaultName, editor) {
 		const reqdata = {
 			searchQuery,
 			updateQuery,
+			typedValue,
 		};
 		// Then send the data to the server with specifying the  type
 		fetch(`https://bigsurmoon.com/update_variation`, {

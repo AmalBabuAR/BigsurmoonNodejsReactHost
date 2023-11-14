@@ -16,10 +16,10 @@ function NewUI_AnimationPlay(editor) {
 		const container = new UIPanel();
 
 		const button = new UIToolbarButton();
-		button.setId('playBTN')
+		button.setId("playBTN");
 
 		//play
-		console.log(action);
+		// console.log(action);
 		const play = document.createElement("img");
 		play.title = strings.getKey("sidebar/animations/play");
 		play.src = "images/play.svg";
@@ -30,22 +30,24 @@ function NewUI_AnimationPlay(editor) {
 		stop.src = "images/stop.svg";
 
 		const status = getButtonText(action);
-		console.log(status, typeof status);
+		// console.log(status, typeof status);
 		if (status == "Play") {
 			button.dom.appendChild(play);
+		} else {
+			button.dom.appendChild(stop);
 		}
 
 		button.onClick(function () {
 			action.isRunning() ? action.stop() : action.play();
 			const status = getButtonText(action);
-			console.log(status, typeof status);
+			// console.log(status, typeof status);
 			if (status == "Stop") {
-                button.dom.removeChild(play);
+				button.dom.innerHTML = "";
 				button.dom.appendChild(stop);
-			}else{
-                button.dom.removeChild(stop);
+			} else {
+				button.dom.innerHTML = "";
 				button.dom.appendChild(play);
-            }
+			}
 		});
 
 		container.add(button);

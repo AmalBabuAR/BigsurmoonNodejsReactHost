@@ -62,7 +62,7 @@ generateSceneRouter.get("/", async (req, res) => {
             }
           });
 
-          res.json(output);
+          res.json({ configName: configName, output: output });
         } else {
           res.json({ existing: false });
         }
@@ -118,7 +118,7 @@ generateSceneRouter.get("/", async (req, res) => {
               output.skeletons.push(row.data);
             }
           });
-          res.json(output);
+          res.json({ configName: firstConfigName, output: output });
         } else {
           try {
             const query = `
@@ -173,7 +173,9 @@ generateSceneRouter.get("/", async (req, res) => {
               res.json({ existing: false });
             }
           } catch (err) {
-            console.error(`Error in generate Scene Router try four: ${err.message}`);
+            console.error(
+              `Error in generate Scene Router try four: ${err.message}`
+            );
             res.status(500).json({
               success: false,
               message: "Error deleting configuration.",
@@ -181,7 +183,9 @@ generateSceneRouter.get("/", async (req, res) => {
           }
         }
       } catch (err) {
-        console.error(`Error in generate Scene Router try three : ${err.message}`);
+        console.error(
+          `Error in generate Scene Router try three : ${err.message}`
+        );
         res
           .status(500)
           .json({ success: false, message: "Error deleting configuration." });

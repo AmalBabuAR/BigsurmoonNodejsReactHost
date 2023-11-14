@@ -17,7 +17,8 @@ getConfigNamesRouter.get("/:id", async (req, res) => {
         const output = {
           configname: row.configname,
           variant: row.variant,
-          variantContainer: row.variantcontainer
+          variantContainer: row.variantcontainer,
+          created_at: row.created_at,
         };
         return output;
       });

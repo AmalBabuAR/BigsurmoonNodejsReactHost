@@ -42,11 +42,11 @@ function NewUI_Attribute(editor) {
 		const header = document.querySelector("#attributeHeader");
 		if (content.style.display === "none") {
 			content.style.display = "flex";
-			icon.style.transform = "rotate(180deg)";
+			icon.style.transform = "rotate(0deg)";
 			header.style.borderBottom = "none";
 		} else {
 			content.style.display = "none";
-			icon.style.transform = "rotate(0deg)";
+			icon.style.transform = "rotate(180deg)";
 			header.style.borderBottom = "0.5px solid #313131";
 		}
 	}

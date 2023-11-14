@@ -168,7 +168,9 @@ function Editor() {
 		callSelectedConfigName: new Signal(),
 		variantArray: new Signal(),
 		callTheServiceWorker: new Signal(),
-		callTheLoaderContent: new Signal()
+		callTheLoaderContent: new Signal(),
+		selectedTextureName: new Signal(),
+		textureAfterDelete: new Signal(),
 	};
 
 	this.config = new Config();

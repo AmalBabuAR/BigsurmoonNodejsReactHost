@@ -33,7 +33,7 @@ function NewUI_Publish(editor) {
 	// embed box
 	const embed = new UIDiv();
 	embed.setId("embed");
-	embed.setStyle(['display'], ['none'])
+	embed.setStyle(["display"], ["none"]);
 	// input div
 	const embedInputDiv = new UIDiv();
 	embedInputDiv.setId("embedInputDiv");
@@ -165,6 +165,9 @@ function NewUI_Publish(editor) {
 					const heightCurrentValue = document.getElementById("heightInput");
 					const heightDefaultValue = heightCurrentValue.value;
 					if (event.key === "Backspace") {
+						event.stopPropagation();
+					}
+					if (event.key === "Backspace") {
 						event.preventDefault();
 						// Manually erase the last character from the input
 						const currentValue = widthInput.value;
@@ -177,13 +180,16 @@ function NewUI_Publish(editor) {
 					const widthCurrentValue = document.getElementById("widthInput");
 					const widthDefaultValue = widthCurrentValue.value;
 					const typedValue = event.target.value;
-					console.log("Typed value: " + typedValue);
+					// console.log("Typed value: " + typedValue);
 					embedCode(widthDefaultValue, typedValue);
 				});
 				// height value - when backspace
 				heightInput.addEventListener("keydown", function (event) {
 					const widthCurrentValue = document.getElementById("widthInput");
 					const widthDefaultValue = widthCurrentValue.value;
+					if (event.key === "Backspace") {
+						event.stopPropagation();
+					}
 					if (event.key === "Backspace") {
 						event.preventDefault();
 						// Manually erase the last character from the input
@@ -265,7 +271,7 @@ function NewUI_Publish(editor) {
 	}
 
 	function copyTextToClipboard() {
-		console.log("btn clicked for copy");
+		// console.log("btn clicked for copy");
 		// Get the text area element
 		const textArea = document.getElementById("embedTextInput");
 

@@ -764,7 +764,7 @@ select:hover {
   bottom: 0px; /* BSM right chnaged 0 to 13px*/
   width: 300px; /* BSM width chnaged 300px to 13px*/
   background: #eee;
-  overflow: auto;
+  overflow-y: auto;
   border-left: 1px solid #313131; /*BSM added width and radius*/
 }
 
@@ -799,6 +799,91 @@ select:hover {
   margin-left: auto;
   margin-right: auto;
 }
+.createNewVariantBtn {
+  width: 270px;
+  height: 32px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 15px auto;
+  border-radius: 10px;
+  border: 1px solid #1d8ee6;
+}
+
+.createNewVariantBtn span {
+  color: #fff;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: none;
+}
+
+.createNewVariantBtn input {
+  color: #fff;
+  background-color: transparent;
+  width: 180px;
+}
+
+.createNewVariantBtn button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.newTextureContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  order: 1;
+}
+
+.newTextureList {
+  height: 31px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+.newTextureList span {
+  width: 157px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.newTextureList input {
+  width: 178px;
+  order: -9999;
+  background-color: transparent;
+  color: #fff;
+}
+
+.newTextureList input::placeholder {
+  color: #ffffffa9;
+}
+
+.newTextureListDeleteBtn {
+  order: 9999;
+}
+
+.newTextureList button {
+  background-color: transparent;
+}
+.newTextureList button:hover {
+  background-color: transparent;
+}
+.newTextureListEditBtn img {
+  object-fit: fill;
+  padding-top: 3px;
+}
+
 .createVariantBtn {
   background-color: #4a4a4a;
   display: flex;
@@ -1377,13 +1462,11 @@ select:hover {
 
 .Outliner .option.active #visibleInput {
   margin-left: auto;
-  
 }
 
 /* outliner visiblity */
 #visibleInput {
   margin-left: auto;
-  
 }
 
 #visibleInput input[type="checkbox"] {
