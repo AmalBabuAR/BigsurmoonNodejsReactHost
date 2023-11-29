@@ -19,14 +19,14 @@ stripeRouter.get("/config", (req, res) => {
 
 stripeRouter.post("/create-checkout-session", async (req, res) => {
   const user = req.user._id;
-  console.log(req.body, user);
+  // console.log(req.body, user);
   const { priceDetails, checkyear } = req.body;
   // const priceId = "price_1NbGsnSDf73R9RBmaGRZNkwb";
   // const priceId2 = "price_1NhcZUSDf73R9RBmUcNDgfFI";
   try {
     if (user) {
       const checkUser = await PaymentData.findOne({ user_id: user });
-      console.log("checkUser", checkUser);
+      // console.log("checkUser", checkUser);
       if (checkUser) {
         res.json({
           success: false,
@@ -81,6 +81,7 @@ stripeRouter.post("/create-checkout-session", async (req, res) => {
             subscription_data: {
               trial_period_days: 7,
             },
+            allow_promotion_codes: true,
             metadata: {
               user: user,
               quantity: priceDetails.files,

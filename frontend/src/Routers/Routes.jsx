@@ -17,6 +17,7 @@ import CheckoutFailed from "../Pages/CheckoutFailed";
 import TermsAndCondition from "../Pages/TermsAndCondition";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import Error from "../Pages/Error";
+import Referral from "../Pages/Referral";
 
 const Wrapper = ({ children, title }) => {
   let description;
@@ -169,6 +170,14 @@ const Router = createBrowserRouter([
     element: (
       <Wrapper title="Privacy Policy">
         <PrivacyPolicy />
+      </Wrapper>
+    ),
+  },
+  {
+    path: "/referral",
+    element: (
+      <Wrapper title="Bigsurmoon">
+        <Referral />
       </Wrapper>
     ),
   },
