@@ -21,6 +21,10 @@ const ReferralContent = () => {
   const [terms, setTerms] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const link = {
+    youTube: "https://www.youtube.com/channel/UCBKhKN-gaz0AT3tEEucIakw",
+    linkedIN: "https://www.linkedin.com/company/91409077/admin/feed/posts/",
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -91,7 +95,7 @@ const ReferralContent = () => {
 
   return (
     <>
-      <div className="h-screen mx-auto w-screen py-[70px] px-[27px] lg:px-[108px] flex flex-col lg:flex-row justify-between overflow-x-hidden font-inter">
+      <div className="h-screen mx-auto w-screen py-[70px] px-[27px] lg:px-[108px] flex flex-col lg:flex-row justify-between lg:justify-center lg:gap-[15vw] gap-10 overflow-x-hidden font-inter">
         <div className="flex flex-col gap-[33px] lg:gap-[50px]">
           <img
             src={logo}
@@ -120,11 +124,25 @@ const ReferralContent = () => {
             </div>
           </div>
           <div className="hidden gap-[15px] items-center lg:flex">
-            <img src={LI} alt="LinkedIN" width="62px" height="59px" />
-            <img src={YT} alt="Youtube" width="60px" height="54px" />
+            <img
+              onClick={() => window.open(link.linkedIN, "_blank")}
+              src={LI}
+              alt="LinkedIN"
+              className="cursor-pointer"
+              width="62px"
+              height="59px"
+            />
+            <img
+              onClick={() => window.open(link.youTube, "_blank")}
+              src={YT}
+              alt="Youtube"
+              className="cursor-pointer"
+              width="60px"
+              height="54px"
+            />
           </div>
         </div>
-        <div className="mt-[20px] lg:mt-0 rounded-[32px] shadow-lg p-[21px] lg:p-[30px] flex flex-col items-center">
+        <div className="mt-[20px] lg:mt-0 rounded-[32px] shadow-3xl p-[21px] lg:p-[30px] flex flex-col items-center">
           <h1 className="mb-[10px] text-[16px] lg:text-[28px] font-bold leading-[40px] text-[#001246]">
             10% Every month
           </h1>
@@ -171,8 +189,20 @@ const ReferralContent = () => {
           </button>
         </div>
         <div className="flex gap-[15px] items-center lg:hidden mt-[35px]">
-          <img src={LI} alt="LinkedIN" width="34px" height="32px" />
-          <img src={YT} alt="Youtube" width="32px" height="30px" />
+          <img
+            onClick={() => window.open(link.linkedIN, "_blank")}
+            src={LI}
+            alt="LinkedIN"
+            width="34px"
+            height="32px"
+          />
+          <img
+            onClick={() => window.open(link.youTube, "_blank")}
+            src={YT}
+            alt="Youtube"
+            width="32px"
+            height="30px"
+          />
         </div>
       </div>
       {model && (

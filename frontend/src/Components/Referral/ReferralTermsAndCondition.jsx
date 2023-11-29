@@ -12,7 +12,7 @@ const ReferralTermsAndCondition = (props) => {
   return (
     <div>
       <div className="fixed inset-0 flex justify-center z-50 items-center bg-black text-white bg-opacity-80">
-        <div className="bg-black w-[90vw] h-[90vh] rounded-3xl px-[5vw] py-[8vh] overflow-auto ">
+        <div className="bg-black lg:w-[90vw] h-[99vh] lg:h-[90vh] lg:rounded-3xl px-[5vw] py-[8vh] overflow-auto ">
           <div className="flex justify-between items-start">
             <h1 className="text-[40px] font-bold">
               Referral Program: <br />
@@ -22,7 +22,7 @@ const ReferralTermsAndCondition = (props) => {
               onClick={handleCloseButton}
               src={close}
               alt="close"
-              className="cursor-pointer"
+              className="cursor-pointer mt-[-40px] lg:mt-0"
             />
           </div>
           <h1 className="mt-6">
