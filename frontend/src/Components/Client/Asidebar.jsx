@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../axios/axiosInterceptors/axiosInstance";
 
-const Asidebar = () => {
-  const [data, setData] = useState({});
-  async function getProjectSize() {
-    try {
-      const res = await axiosInstance.get("/getProjectSize");
-      if (res.data.success) {
-        setData(res.data.resData);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+const Asidebar = (props) => {
+  const { data } = props;
+  // const [data, setData] = useState({});
+  // async function getProjectSize() {
+  //   try {
+  //     const res = await axiosInstance.get("/getProjectSize");
+  //     if (res.data.success) {
+  //       setData(res.data.resData);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  useEffect(() => {
-    getProjectSize();
-  }, []);
+  // useEffect(() => {
+  //   getProjectSize();
+  // }, []);
 
   return (
     <div>
@@ -52,7 +53,7 @@ const Asidebar = () => {
                     className="bg-gradient-to-r from-[#181D9A] to-[#2265D5] text-xs font-medium text-blue-100 text-center p-1 leading-none rounded-full"
                     style={{ width: `${data.percentage}%` }}
                   >
-                    {data.percentage}%
+                    {Math.round(data.percentage)}%
                   </div>
                 </div>
                 <h1 className="text-gray-400 text-[12px] pt-2">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../assets/Logos/logo.gif";
+import drop from "../assets/Navbar/dropDown.svg";
 import arrowlogin from "../assets/Arrows/Login shape 1.svg";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
@@ -7,6 +8,7 @@ import {
   SlSocialLinkedin,
   SlSocialTwitter,
 } from "react-icons/sl";
+import "./style.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -207,138 +209,163 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
         </div>
       </div>
 
-      <div className="hidden lg:block bg-black fixed bg-opacity-50 text-gray-400  w-screen font-medium z-10  ">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="flex  justify-between px-10 items-center  ">
-            <div>
-              <Link to="/">
-                <img src={logo} alt="logo" className="w-[204px] h-[44px] " />
-              </Link>
-            </div>
-            <div className="flex opacity-50 py-8 ml-[-50px] text-lg gap-10">
-              <div className="relative group">
-                <Link
-                  className="cursor-pointer"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
+      <div className="hidden lg:block fixed text-white  font-medium z-10  ">
+        <div className=" w-screen bg-black">
+          <div className="max-w-[1440px] mx-auto">
+            <div className="flex  justify-between px-10 items-center  ">
+              <div>
+                <Link to="/">
+                  <img
+                    src={logo}
+                    alt="logo"
+                    className="w-[180px] h-[31px] object-contain"
+                  />
+                </Link>
+              </div>
+              <div className="flex py-8 ml-[-50px] text-[18px] font-normal tracking-wide gap-10">
+                <div className="relative group">
+                  <Link
+                    className="cursor-pointer"
+                    onMouseEnter={handleMouseEnter}
+                    // onMouseLeave={handleMouseLeave}
+                  >
+                    <h3
+                      className={`${
+                        pageName === "aboutar" ||
+                        pageName === "aboutconfigurator"
+                          ? "text-[#07BDFF]"
+                          : "hover:text-gray-500"
+                      } flex`}
+                    >
+                      Platform
+                      <img
+                        src={drop}
+                        alt="drop"
+                        className="self-center mt-2 ml-1"
+                      />
+                    </h3>
+                  </Link>
+                </div>
+                <Link to="/studio">
                   <h3
                     className={`${
-                      pageName === "aboutar" || pageName === "aboutconfigurator"
-                        ? "text-gray-50 opacity-100"
-                        : ""
-                    }`}
+                      pageName === "studio"
+                        ? "text-[#07BDFF]"
+                        : "hover:text-gray-500"
+                    }  `}
                   >
-                    Platform
+                    3D Modelling
                   </h3>
                 </Link>
-                {showDropdown && (
-                  <div
-                    className="absolute top-full left-0 rounded-xl bg-black border-gray-300 p-2 w-52 shadow-md"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    {/* Dropdown content */}
-                    <ul>
-                      <Link to="/aboutar">
-                        <li
-                          className={`${
-                            pageName === "aboutar" ? "text-gray-50" : ""
-                          }hover:text-white hover:text-lg text-base`}
-                        >
-                          Augmented Reality
-                        </li>
-                      </Link>
-                      <Link to="/aboutconfigurator">
-                        <li
-                          className={`${
-                            pageName === "aboutconfigurator"
-                              ? "text-gray-50 opacity-100"
-                              : ""
-                          }hover:text-white hover:text-lg text-base`}
-                        >
-                          Configurator
-                        </li>
-                      </Link>
-                    </ul>
-                  </div>
-                )}
-              </div>
-              <Link to="/studio">
-                <h3
-                  className={`${
-                    pageName === "studio" ? "text-gray-50" : ""
-                  } hover:text-white hover:text-xl`}
-                >
-                  3D Modelling
-                </h3>
-              </Link>
-              <Link to="/pricing">
-                <h3
-                  className={`${
-                    pageName === "pricing" ? "text-gray-50" : ""
-                  } hover:text-white hover:text-xl`}
-                >
-                  Pricing
-                </h3>
-              </Link>
-              <Link to="/support">
-                <h3
-                  className={`${
-                    pageName === "support" ? "text-gray-50" : ""
-                  } hover:text-white hover:text-xl`}
-                >
-                  Support
-                </h3>
-              </Link>
-              {user && (
-                <Link to="/dashboard">
+                <Link to="/pricing">
                   <h3
                     className={`${
-                      pageName === "dashboard" ? "text-gray-50" : ""
-                    } hover:text-white hover:text-xl`}
+                      pageName === "pricing"
+                        ? "text-[#07BDFF]"
+                        : "hover:text-gray-500"
+                    } `}
                   >
-                    Dashboard
-                  </h3>{" "}
+                    Pricing
+                  </h3>
                 </Link>
-              )}
-            </div>
-            {user ? (
-              <button
-                onClick={handleLogout}
-                className={`text-white text-base flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 ${
-                  pageName === "register" && "invisible"
-                } ${
-                  pageName === "login" && "invisible"
-                }  rounded-full w-[155px] h-[61px] `}
-              >
-                <h3 className="px-6 py-6 text-lg">Logout</h3>
-                <img
-                  src={arrowlogin}
-                  alt="arrowright"
-                  className="h-8 ml-[-10px]"
-                />
-              </button>
-            ) : (
-              <Link to="/login">
-                <div
-                  className={`text-white text-base flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 ${
+                <Link to="/support">
+                  <h3
+                    className={`${
+                      pageName === "support"
+                        ? "text-[#07BDFF]"
+                        : " hover:text-gray-500"
+                    } `}
+                  >
+                    Support
+                  </h3>
+                </Link>
+                {user && (
+                  <Link to="/dashboard">
+                    <h3
+                      className={`${
+                        pageName === "dashboard"
+                          ? "text-[#07BDFF]"
+                          : " hover:text-gray-500"
+                      }`}
+                    >
+                      Dashboard
+                    </h3>{" "}
+                  </Link>
+                )}
+              </div>
+              {user ? (
+                <button
+                  onClick={handleLogout}
+                  className={`text-white flex items-center justify-center ${
                     pageName === "register" && "invisible"
                   } ${
                     pageName === "login" && "invisible"
-                  }  rounded-full w-[155px] h-[61px] `}
+                  }  rounded-full btnClr`}
                 >
-                  <h3 className="px-6 py-6 text-lg">Login</h3>
-                  <img
-                    src={arrowlogin}
-                    alt="arrowright"
-                    className="h-8 ml-[-10px]"
-                  />
-                </div>
-              </Link>
-            )}
+                  <h3 className="text-[18px] font-medium tracking-widest font-roboto pl-[29px] pr-[30px] pt-[15px] pb-[14px]">
+                    Logout
+                  </h3>
+                </button>
+              ) : (
+                <Link to="/login">
+                  <div
+                    className={`text-white text-base flex items-center justify-center ${
+                      pageName === "register" && "invisible"
+                    } ${
+                      pageName === "login" && "invisible"
+                    }  rounded-full btnClr`}
+                  >
+                    <h3 className="text-[18px] font-medium tracking-widest font-roboto pl-[29px] pr-[30px] pt-[15px] pb-[14px]">
+                      Login
+                    </h3>
+                  </div>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
+        {showDropdown && (
+          <div
+            className="bg-black w-[90vw] mx-auto p-[25px] flex justify-evenly"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="m-[25px]">
+              <Link to="/aboutar">
+                <h1
+                  className={`${
+                    pageName === "aboutar"
+                      ? "text-[#07BDFF]"
+                      : "hover:text-gray-500"
+                  } text-[20px] font-medium`}
+                >
+                  Augmented Reality
+                </h1>
+                <p className="text-[16px] font-light tracking-tight mt-[10px]">
+                  Try-before-you-buy solution for unparalleled <br />
+                  Engagement and Sales Growth
+                </p>
+              </Link>
+            </div>
+            <div className="m-[25px]">
+              <Link to="/aboutconfigurator">
+                <h1
+                  className={`${
+                    pageName === "aboutconfigurator"
+                      ? "text-[#07BDFF]"
+                      : "hover:text-gray-500"
+                  } text-[20px] font-medium`}
+                >
+                  Platform
+                </h1>
+                <p className="text-[16px] font-light tracking-tight mt-[10px]">
+                  Explore Endless possibilities to create engaging <br />
+                  experiences
+                </p>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

@@ -11,6 +11,7 @@ import EmbedModal from "./EmbedModal";
 
 const Dash = () => {
   const [list, setList] = useState([]);
+  const [sizeData, setSizeData] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [projectName, setProjectName] = useState("");
   const [err, setErr] = useState("");
@@ -42,6 +43,26 @@ const Dash = () => {
     }
   }
 
+  // Size of the project list
+  async function getProjectSize() {
+    try {
+      const res = await axiosInstance.get("/getProjectSize");
+      console.log(res.data);
+      if (res.data.success) {
+        setSizeData(res.data.resData);
+        // console.log(data);
+      } else {
+        setSizeData({
+          percentage: 0,
+          quantity: 0,
+          used: 0,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   //view click
   function handleViewClick(id) {
     const link = `${URL}/editor/ModelViewer/?id=${id}`;
@@ -65,6 +86,7 @@ const Dash = () => {
       const res = await axiosInstance.delete(`/deleteProject/${id}`);
       // console.log("res in delete", res.data, res);
       getProject();
+      getProjectSize();
     } catch (error) {
       console.log(error);
     }
@@ -87,6 +109,7 @@ const Dash = () => {
         }, 1000);
         setIsModalOpen(false);
         getProject();
+        getProjectSize();
       } else {
         if (res.data.noSub) {
           alert(res.data.message);
@@ -128,6 +151,7 @@ const Dash = () => {
   //GET THE PROJECT LIST
   useEffect(() => {
     getProject();
+    getProjectSize();
   }, []);
 
   //ADDED EventListener
@@ -166,7 +190,7 @@ const Dash = () => {
         <div className=" md:hidden">
           <Navbar />
         </div>
-        <Asidebar />
+        <Asidebar data={sizeData} />
         <div className="p-10 pt-20 lg:p-20 sm:ml-64 bg-[#262626] h-full">
           <div className=" md:p-4 lg:p-0 rounded-lg  mt-5">
             <div className="md:flex  flex justify-start">
