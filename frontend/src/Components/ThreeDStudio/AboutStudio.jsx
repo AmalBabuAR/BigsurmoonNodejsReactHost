@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import bgphone from "../../assets/Background/3DstudioMobile1.png";
 import sofarotating from "../../assets/3Dstudio/sofa1.png";
 import ringpng from "../../assets/Aboutar/Logo (2) 2.png";
-import bglarge from "../../assets/Aboutar/BG 1.png";
+// import bglarge from "../../assets/Aboutar/BG 1.png";
 import { studitems } from "../../assets/data/data";
 import pcimg from "../../assets/backgrounds/3D2.png";
 import { useNavigate } from "react-router-dom";
+import "../style.css";
 
 const AboutStudio = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -70,7 +71,7 @@ const AboutStudio = () => {
 
             <button
               onClick={() => navigate("/support")}
-              className="p-2 md:ml-12 mx-auto text-[12px] md:mx-0 bg-gradient-to-r from-blue-500  to-blue-400 text-center flex justify-center items-center rounded-full w-[125px] h-[30px] mb-10"
+              className="p-2 md:ml-12 mx-auto text-[12px] md:mx-0 text-center flex justify-center items-center rounded-full w-[125px] h-[30px] mb-10 btnClr"
             >
               Get in Touch
             </button>
@@ -124,7 +125,7 @@ const AboutStudio = () => {
             <div className="xl:px-28 mt-[-100px]">
               <button
                 onClick={() => navigate("/support")}
-                className="p-2 hidden bg-gradient-to-r from-blue-500  to-blue-400 text-center text-lg justify-center lg:flex  items-center rounded-full w-[238px] h-[65px] "
+                className="p-2 hidden text-center text-lg justify-center lg:flex  items-center rounded-full w-[238px] h-[65px] btnClr"
               >
                 Get in Touch
               </button>

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import backgroundImage from "../assets/Background/BG.png";
+// import backgroundImage from "../assets/Background/BG.png";
 import overlayImagesm from "../assets/Login/bg-s.png";
 import overlayImagelg from "../assets/Login/bg-l.png";
 import pcimg from "../assets/backgrounds/login.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { isEmail, isEmpty, isLength } from "../utils/validation";
 import axios from "axios";
+import "../Components/style.css";
 
 const ForgotPassword = () => {
   const [values, setValues] = useState({
@@ -171,7 +172,7 @@ const ForgotPassword = () => {
                     </label>
                   </div>
                   <button
-                    className="text-white text-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[150px]  h-[50px] mx-auto rounded-full mt-12"
+                    className="text-white text-lg flex items-center justify-center w-[150px]  h-[50px] mx-auto rounded-full mt-12 btnClr"
                     type="submit"
                   >
                     <h3 className="px-4 py-1">Submit </h3>
@@ -182,10 +183,7 @@ const ForgotPassword = () => {
             {answerVerificationOpen && (
               <form onSubmit={handleQuestionSubmit}>
                 <div className="mb-10">
-                  <label
-                    htmlFor=""
-                    className="text-left mr-32 w-[320px] mb-3"
-                  >
+                  <label htmlFor="" className="text-left mr-32 w-[320px] mb-3">
                     {question}
                   </label>
                   <br />
@@ -207,7 +205,7 @@ const ForgotPassword = () => {
                   />
                 </div>
                 <button
-                  className="text-white text-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[150px]  h-[50px] mx-auto rounded-full mt-12"
+                  className="text-white text-lg flex items-center justify-center w-[150px]  h-[50px] mx-auto rounded-full mt-12 btnClr"
                   type="submit"
                 >
                   <h3 className="px-4 py-1">Submit </h3>
@@ -324,7 +322,7 @@ const ForgotPassword = () => {
                 </div>
 
                 <button
-                  className="text-white text-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[150px]  h-[50px] mx-auto rounded-full mt-12"
+                  className="text-white text-lg flex items-center justify-center w-[150px]  h-[50px] mx-auto rounded-full mt-12 btnClr"
                   type="submit"
                 >
                   <h3 className="px-4 py-1">Submit </h3>
@@ -381,7 +379,7 @@ const ForgotPassword = () => {
                   </label>
                 </div>
                 <button
-                  className="text-white text-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[200px]  h-[65px] mx-auto rounded-full mt-12"
+                  className="text-white text-lg flex items-center justify-center w-[200px]  h-[65px] mx-auto rounded-full mt-12 btnClr"
                   type="submit"
                 >
                   <h3 className="px-4 py-1">Submit </h3>
@@ -414,7 +412,7 @@ const ForgotPassword = () => {
                 />
               </div>
               <button
-                className="text-white text-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[200px]  h-[65px] mx-auto rounded-full mt-12"
+                className="text-white text-lg flex items-center justify-center w-[200px]  h-[65px] mx-auto rounded-full mt-12 btnClr"
                 type="submit"
               >
                 <h3 className="px-4 py-1">Submit </h3>
@@ -531,7 +529,7 @@ const ForgotPassword = () => {
               </div>
 
               <button
-                className="text-white text-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[200px]  h-[65px] mx-auto rounded-full mt-12"
+                className="text-white text-lg flex items-center justify-center  w-[200px]  h-[65px] mx-auto rounded-full mt-12 btnClr"
                 type="submit"
               >
                 <h3 className="px-4 py-1">Submit </h3>

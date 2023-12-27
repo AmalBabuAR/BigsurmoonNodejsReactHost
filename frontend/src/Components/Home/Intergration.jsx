@@ -8,6 +8,7 @@ import picMob2 from "../../assets/Home/intergration/int2.svg";
 import picMob3 from "../../assets/Home/intergration/int3.svg";
 import picMob4 from "../../assets/Home/intergration/int4.svg";
 import { useNavigate } from "react-router-dom";
+import "../style.css";
 
 const Intergration = () => {
   const navigate = useNavigate();
@@ -60,13 +61,13 @@ const Intergration = () => {
         <div className="flex flex-row gap-[25px] items-end justify-center text-[18px] font-medium">
           <button
             onClick={() => navigate("/support")}
-            className="bg-gradient-to-r from-blue-500 to-blue-400 rounded-full w-[175px] h-[62px] text-center"
+            className="btnClr rounded-full w-[175px] h-[62px] text-center"
           >
             Get A Demo
           </button>
           <button
             onClick={() => navigate("/pricing")}
-            className="bg-gradient-to-r from-blue-500 to-blue-400 rounded-full w-[175px] h-[62px] text-center"
+            className="btnClr rounded-full w-[175px] h-[62px] text-center"
           >
             {" "}
             Start Trial
@@ -86,12 +87,12 @@ const Intergration = () => {
           onClick={() => navigate("/support")}
           className="mt-[25px] mb-[50px] flex gap-[21px] font-roboto font-medium text-xs"
         >
-          <button className="w-[123px] h-[41px]  bg-gradient-to-r from-blue-500 to-blue-400 rounded-full">
+          <button className="w-[123px] h-[41px] rounded-full btnClr">
             Get A Demo
           </button>
           <button
             onClick={() => navigate("/pricing")}
-            className="w-[123px] h-[41px]  bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+            className="w-[123px] h-[41px] rounded-full btnClr"
           >
             Start Trial
           </button>

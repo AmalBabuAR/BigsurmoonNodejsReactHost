@@ -36,7 +36,7 @@ import s3 from "../3Dstudio/img3.png";
 import p1 from "../3Dstudio/giflight.gif";
 import p2 from "../3Dstudio/3lights.png";
 import p3 from "../3Dstudio/step3.png";
-import p4 from "../3Dstudio/step4.png";
+import p4 from "../3Dstudio/studioUpload.png";
 
 import k1 from "../3Dstudio/studitems/q.png";
 import k2 from "../3Dstudio/studitems/w.png";

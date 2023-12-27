@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import overlayImage from "../assets/Arrows/Ar.png";
-import backgroundImage from "../assets/Background/BG.png";
+// import overlayImage from "../assets/Arrows/Ar.png";
+// import backgroundImage from "../assets/Background/BG.png";
 import overlayImagesm from "../assets/Login/bg-s.png";
 import overlayImagelg from "../assets/Login/bg-l.png";
-import g from "../assets/Login/g.png";
-import t from "../assets/Login/t.png";
-import f from "../assets/Login/f.png";
+// import g from "../assets/Login/g.png";
+// import t from "../assets/Login/t.png";
+// import f from "../assets/Login/f.png";
 import pcimg from "../assets/backgrounds/login.png";
 import { Link, useNavigate } from "react-router-dom";
 import { isEmail, isEmpty, isLength } from "../utils/validation";
 import axios from "axios";
+import "../Components/style.css";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -64,6 +65,9 @@ const Register = () => {
         navigate("/login");
       } else {
         setError(res.data.message);
+        setTimeout(() => {
+          navigate("/login");
+        }, 5000);
       }
     } catch (error) {
       console.log(error);
@@ -88,7 +92,7 @@ const Register = () => {
             <h1 className="text-white text-3xl  font-bold shadow-md mb-9">
               Get Started
             </h1>
-            {error && <p className="text-red-600 text-center mb-10">{error}</p>}
+            {error && <p className="text-red-600 mb-12">{error}</p>}
             <form onSubmit={handleSubmit}>
               <div className="relative z-0 mb-5">
                 <input
@@ -266,7 +270,7 @@ const Register = () => {
               </div>
               <button
                 type="submit"
-                className="text-white text-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[125px]  h-[40px] mx-auto rounded-full mt-12"
+                className="text-white text-lg flex items-center justify-center  w-[125px]  h-[40px] mx-auto rounded-full mt-12 btnClr"
               >
                 <h3 className="px-4 py-1">Sign up </h3>
               </button>
@@ -299,7 +303,7 @@ const Register = () => {
             Get Started
           </h1>
           {error && (
-            <p style={{ color: "red", paddingBottom: "10px" }}>{error}</p>
+            <p className="text-center text-red-600 mt-[-25px] mb-5">{error}</p>
           )}
           <form onSubmit={handleSubmit}>
             <div className="relative z-0 mb-10">
@@ -479,7 +483,7 @@ const Register = () => {
 
             <button
               type="submit"
-              className="text-white text-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[200px]  h-[65px] mx-auto rounded-full mt-12"
+              className="text-white text-lg flex items-center justify-center w-[200px]  h-[65px] mx-auto rounded-full mt-12 btnClr"
             >
               <h3 className="px-4 py-1">Sign up </h3>
             </button>

@@ -1,5 +1,6 @@
 import React from "react";
 import { pricingSubFeatures } from "../../assets/data/data";
+import "../style.css";
 
 const PricingSubFeature = () => {
   return (
@@ -29,17 +30,16 @@ const PricingSubFeature = () => {
           Still have questions about how Bigsurmoon can <br /> help your
           business?{" "}
         </h1>
-        <button className="w-[181px] h-[48px] text-white font-roboto text-[12px] font-medium tracking-wider rounded-full bg-gradient-to-r from-blue-600 to-blue-400 ">
+        <button className="w-[181px] h-[48px] text-white font-roboto text-[12px] font-medium tracking-wider rounded-full btnClr ">
           Talk to Experts
         </button>
       </div>
       <div className="mt-[-2px] lg:mt-0 bg-black lg:hidden w-full pb-[76px]">
         <div className="w-[343px] mx-auto flex flex-col">
           <h1 className="text-[30px] leading-[39px] font-semibold tracking-wide text-[#CDCDCD] font-outfit ">
-            Still have questions about how Bigsurmoon can help your
-            business?{" "}
+            Still have questions about how Bigsurmoon can help your business?{" "}
           </h1>
-          <button className="w-[125px] h-[30px] mt-[25px] text-white font-roboto text-[12px] font-medium tracking-wider rounded-full bg-gradient-to-r from-blue-600 to-blue-400 ">
+          <button className="w-[125px] h-[30px] mt-[25px] text-white font-roboto text-[12px] font-medium tracking-wider rounded-full btnClr ">
             Talk to Experts
           </button>
         </div>

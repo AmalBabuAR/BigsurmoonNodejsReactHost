@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import backgroundImage from "../assets/Background/BG.png";
+// import backgroundImage from "../assets/Background/BG.png";
 import overlayImagesm from "../assets/Login/bg-s.png";
 import overlayImagelg from "../assets/Login/bg-l.png";
 import pcimg from "../assets/backgrounds/login.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { isEmail, isEmpty, isLength } from "../utils/validation";
 import axios from "axios";
+import "../Components/style.css";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -163,7 +164,7 @@ const Login = () => {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="text-white text-sm flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[125px] h-[40px]  rounded-full mt-5"
+                  className="text-white text-sm flex items-center justify-center w-[125px] h-[40px] rounded-full mt-5 btnClr"
                 >
                   <h3 className=" px-4 py-1  ">Login </h3>
                 </button>
@@ -270,7 +271,7 @@ const Login = () => {
             </div>
 
             <button
-              className="text-white text-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 w-[200px]  h-[65px] mx-auto rounded-full mt-12"
+              className="text-white text-lg flex items-center justify-center w-[200px] h-[65px] mx-auto rounded-full mt-12 btnClr"
               type="submit"
             >
               <h3 className="px-4 py-1">Login </h3>

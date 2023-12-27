@@ -7,6 +7,7 @@ import {
   SlSocialTwitter,
   SlSocialYoutube,
 } from "react-icons/sl";
+
 const Footer = () => {
   const navigate = useNavigate();
   const youtubeLink =
@@ -24,7 +25,7 @@ const Footer = () => {
   };
   return (
     <>
-      <div className="bg-[#0A142F]">
+      <div className="bg-[#0A142F] w-full">
         <div className="bg-[#0A142F] max-w-[1440px] mx-auto font-roboto p-4 text-white text-sm md:hidden ">
           <div className="flex justify-between px-3 mb-5">
             <div onClick={() => navigate("/")}>
@@ -97,7 +98,7 @@ const Footer = () => {
           </div>
           <div className="flex w-[680px] mx-auto  justify-between">
             <div className="opacity-70">
-            <h3
+              <h3
                 onClick={() => navigate("/support")}
                 className="mb-1 cursor-pointer"
               >
@@ -124,7 +125,7 @@ const Footer = () => {
               <h3 className="mb-1">Blogs</h3>
             </div>
             <div className="opacity-70">
-            <h3
+              <h3
                 onClick={() => window.open(linkedInLink, "_blank")}
                 className="mb-1 cursor-pointer"
               >
@@ -151,14 +152,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="bg-[#0A142F] max-w-[1440px] mx-auto font-roboto p-4 text-white hidden lg:block ">
-          <div className="px-20 pt-20 pb-4">
+        <div className="bg-[#0A142F] max-w-[1440px] mx-auto font-roboto text-white hidden lg:block ">
+          <div className="pl-12 pr-8 pt-20 pb-4">
             <div className="flex justify-between">
               <div onClick={() => navigate("/")}>
-                <img src={logo} alt="logo" className="w-52 cursor-pointer" />
+                <img
+                  src={logo}
+                  alt="logo"
+                  className="w-52 cursor-pointer object-contain"
+                />
               </div>
               <div className="opacity-70">
-              <h3
+                <h3
                   onClick={() => navigate("/support")}
                   className="mb-[9px] cursor-pointer"
                 >
@@ -185,7 +190,7 @@ const Footer = () => {
                 <h3 className="mb-[9px]">Blogs</h3>
               </div>
               <div className="opacity-70">
-              <h3
+                <h3
                   onClick={() => window.open(linkedInLink, "_blank")}
                   className="mb-[9px] cursor-pointer"
                 >
@@ -204,7 +209,10 @@ const Footer = () => {
                   Youtube
                 </h3>
               </div>
-              <div onClick={handleClick} className="w-16 cursor-pointer">
+              <div
+                onClick={handleClick}
+                className="w-16 flex items-start justify-end cursor-pointer"
+              >
                 <img src={arrowup} className="w-10" />
               </div>
             </div>

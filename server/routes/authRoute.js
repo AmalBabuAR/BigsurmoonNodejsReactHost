@@ -10,6 +10,7 @@ import {
   deleteProjectFromID,
   getProjectsList,
   getProjectsSize,
+  getUserName,
   postProjectName,
 } from "../controllers/authDashboard.js";
 import { referralEmailSubscribe } from "../controllers/referralControl.js";
@@ -49,5 +50,7 @@ router.get("/user/getProjects", getProjectsList);
 router.get("/user/getProjectSize", getProjectsSize);
 
 router.delete("/user/deleteProject/:id", deleteProjectFromID);
+
+router.get('/user/getUserName', getUserName)
 
 export default router;

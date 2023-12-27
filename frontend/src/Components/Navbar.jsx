@@ -20,11 +20,10 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const youtubeLink =
-  "https://www.youtube.com/channel/UCBKhKN-gaz0AT3tEEucIakw";
-const linkedInLink =
-  "https://www.linkedin.com/company/91409077/admin/feed/posts/";
-const twitterLink = "https://twitter.com/BigsurmoonLtd";
-
+    "https://www.youtube.com/channel/UCBKhKN-gaz0AT3tEEucIakw";
+  const linkedInLink =
+    "https://www.linkedin.com/company/91409077/admin/feed/posts/";
+  const twitterLink = "https://twitter.com/BigsurmoonLtd";
 
   const handleButtonClick = () => {
     SetAboutMobOpen(!aboutMobOpen);
@@ -108,30 +107,46 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                   <img src={logo} alt="logo" className="h-6 ml-8 md:ml-10" />
                 </Link>
               </div>
-              <div
-                className={`text-white ${
-                  pageName === "register" && "invisible"
-                } ${
-                  pageName === "login" && "invisible"
-                }  flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400  rounded-full w-[57px] h-[22px] md:w-20`}
-              >
-                <h3 className="w-[32px] text-center my-auto h-[14px] text-[8px] font-semibold md:text-[13px]">
-                  Login{" "}
-                </h3>
-                <img src={arrowlogin} alt="arrowright" className="" />
-              </div>
+              {user ? (
+                <button
+                  onClick={handleLogout}
+                  className={`text-white ${
+                    pageName === "register" && "invisible"
+                  } ${
+                    pageName === "login" && "invisible"
+                  }  flex items-center justify-center rounded-full btnClr`}
+                >
+                  <h3 className=" text-center my-auto text-[10px] font-semibold md:text-[13px] px-[15px] py-[5px]">
+                    Logout
+                  </h3>
+                </button>
+              ) : (
+                <Link to="/login">
+                  <button
+                    className={`text-white ${
+                      pageName === "register" && "invisible"
+                    } ${
+                      pageName === "login" && "invisible"
+                    }  flex items-center justify-center rounded-full btnClr`}
+                  >
+                    <h3 className=" text-center my-auto text-[10px] font-semibold md:text-[13px] px-[15px] py-[5px]">
+                      Login{" "}
+                    </h3>
+                  </button>
+                </Link>
+              )}
             </div>
 
             <div>
               {isMenuOpen && (
                 <div className="  fixed left-0 right-0 bg-black md:w-[400px] w-3/4  z-50">
                   <div className="bg-black py-10  h-screen text-white  mx-auto ">
-                    <ul className="  h-72 flex flex-col justify-around text-2xl pl-10 md:pl-16 font-outfit font-bold  ">
+                    <ul className=" flex flex-col justify-around text-2xl pl-10 md:pl-16 font-outfit font-bold   ">
                       <Link to="/">
-                        <li className="w-[150px]">Home</li>
+                        <li className="w-[150px] mb-3">Home</li>
                       </Link>
                       <div>
-                        <div onClick={handleButtonClick} className="flex">
+                        <div onClick={handleButtonClick} className="flex mb-3">
                           <h1 className="w-[150px]">Platform </h1>
                           <div className="flex items-center">
                             <svg
@@ -157,7 +172,9 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                         {aboutMobOpen && (
                           <div className="bg-black flex justify-start items-start flex-col p-4 w-[200px]">
                             <Link to="/aboutar">
-                              <li className="w-[150px]">Augmented Reality</li>
+                              <li className="w-[150px] mb-3">
+                                Augmented Reality
+                              </li>
                             </Link>
                             <Link to="/aboutconfigurator">
                               <li className="w-[150px]">Configurator</li>
@@ -167,10 +184,10 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                       </div>
 
                       <Link to="/studio">
-                        <li className="w-[150px]">3D Modelling</li>
+                        <li className="w-[150px] mb-3">3D Modelling</li>
                       </Link>
                       <Link to="/pricing">
-                        <li className="w-[150px]">Pricing</li>
+                        <li className="w-[150px] mb-3">Pricing</li>
                       </Link>
                       <Link to="/support">
                         <li className="w-[150px]">Support</li>
@@ -184,7 +201,7 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                         <h2 className="mt-2">Terms and conditions</h2>
                       </Link>
                       <div className="flex gap-4 mt-4">
-                      <span
+                        <span
                           onClick={() => window.open(linkedInLink, "_blank")}
                         >
                           <SlSocialLinkedin />
@@ -209,20 +226,20 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
         </div>
       </div>
 
-      <div className="hidden lg:block fixed text-white  font-medium z-10  ">
-        <div className=" w-screen bg-black">
+      <div className="hidden lg:block fixed text-white font-roboto font-medium z-10  ">
+        <div className="w-screen bg-black">
           <div className="max-w-[1440px] mx-auto">
-            <div className="flex  justify-between px-10 items-center  ">
+            <div className="flex justify-between px-10 items-center">
               <div>
                 <Link to="/">
                   <img
                     src={logo}
                     alt="logo"
-                    className="w-[180px] h-[31px] object-contain"
+                    className="w-[180px] h-[31px] object-cover"
                   />
                 </Link>
               </div>
-              <div className="flex py-8 ml-[-50px] text-[18px] font-normal tracking-wide gap-10">
+              <div className="flex py-8 ml-[-50px] text-[18px] font-medium tracking-wide gap-10">
                 <div className="relative group">
                   <Link
                     className="cursor-pointer"
@@ -302,7 +319,7 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                     pageName === "login" && "invisible"
                   }  rounded-full btnClr`}
                 >
-                  <h3 className="text-[18px] font-medium tracking-widest font-roboto pl-[29px] pr-[30px] pt-[15px] pb-[14px]">
+                  <h3 className="text-[18px] font-medium tracking-[0.72px]  font-roboto pl-[50px] pr-[50px] pt-[15px] pb-[15px]">
                     Logout
                   </h3>
                 </button>
@@ -315,7 +332,7 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                       pageName === "login" && "invisible"
                     }  rounded-full btnClr`}
                   >
-                    <h3 className="text-[18px] font-medium tracking-widest font-roboto pl-[29px] pr-[30px] pt-[15px] pb-[14px]">
+                    <h3 className="text-[18px] font-medium tracking-[0.72px] font-roboto pl-[50px] pr-[50px] pt-[15px] pb-[15px]">
                       Login
                     </h3>
                   </div>
@@ -341,7 +358,7 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                 >
                   Augmented Reality
                 </h1>
-                <p className="text-[16px] font-light tracking-tight mt-[10px]">
+                <p className="text-[16px] font-light tracking-custome mt-[10px]">
                   Try-before-you-buy solution for unparalleled <br />
                   Engagement and Sales Growth
                 </p>
@@ -358,7 +375,7 @@ const twitterLink = "https://twitter.com/BigsurmoonLtd";
                 >
                   Platform
                 </h1>
-                <p className="text-[16px] font-light tracking-tight mt-[10px]">
+                <p className="text-[16px] font-light tracking-custome mt-[10px]">
                   Explore Endless possibilities to create engaging <br />
                   experiences
                 </p>

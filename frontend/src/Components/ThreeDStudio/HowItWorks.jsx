@@ -18,6 +18,7 @@ import p3 from "../../assets/3Dstudio/step3.png";
 import p4 from "../../assets/3Dstudio/step4.png";
 import arrowlogin from "../../assets/Arrows/Login shape 1.svg";
 import { useNavigate } from "react-router-dom";
+import "../style.css";
 
 const HowItWorks = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const HowItWorks = () => {
             <div className="flex justify-center mb-8">
               <button
                 onClick={() => navigate("/support")}
-                className="p-2 mx-auto text-[11px] md:mx-0 bg-gradient-to-r from-blue-500  to-blue-400 text-center flex justify-center items-center rounded-full font-normal mt-[-20px] w-[125px] h-[30px] my-6"
+                className="p-2 mx-auto text-[11px] md:mx-0  text-center flex justify-center items-center rounded-full font-normal mt-[-20px] w-[125px] h-[30px] my-6 btnClr"
               >
                 Get A Free Demo
               </button>
@@ -56,7 +57,7 @@ const HowItWorks = () => {
                     "w-[291px] md:h-[150px] md:w-[250px] h-[281px] rounded-xl"
                   } ${m.id === 2 && "w-[290px] h-[170px]"} ${
                     m.id === 3 && "w-[131px] h-[148px]"
-                  } ${m.id === 4 && "w-[190px]  h-[145px]"}`}
+                  } ${m.id === 4 && "w-[190px]  h-[115px]"}`}
                 />
               </div>
               <div>
@@ -85,7 +86,7 @@ const HowItWorks = () => {
             <div className="flex justify-center">
               <button
                 onClick={() => navigate("/support")}
-                className="p-2 mx-auto text-[14px] md:mx-0 bg-gradient-to-r from-blue-500  to-blue-400 text-center flex justify-center items-center rounded-full font-medium w-[150px] h-[40px] mt-[-25px] mb-10"
+                className="p-2 mx-auto text-[14px] md:mx-0 text-center flex justify-center items-center rounded-full font-medium w-[150px] h-[40px] mt-[-25px] mb-10 btnClr"
               >
                 Get A Free Demo
               </button>
@@ -150,11 +151,11 @@ const HowItWorks = () => {
             </div>
           </div>
 
-          <div className="md:grid md:grid-cols-2 mt-28    lg:px-10 ">
+          <div className="md:grid md:grid-cols-2 mt-28 lg:px-10 ">
             <div className="flex ">
               <img
                 src={p4}
-                className="xl:w-[302px] w-[190px] h-[125px] mx-auto  xl:h-[300px]  "
+                className="xl:w-[302px] w-[190px] h-[125px] mx-auto xl:h-[300px]  "
               />
             </div>
             <div className=" flex flex-col justify-around   ">

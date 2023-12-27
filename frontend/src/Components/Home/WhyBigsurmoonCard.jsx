@@ -2,6 +2,7 @@ import React from "react";
 import bg from "../../assets/Home/WhyBigsurmoon.png";
 import mobBg from "../../assets/Home/WhyBigsurmoonMobBG.png";
 import { whyBigsurmoonCard } from "../../assets/data/data";
+import "../style.css";
 
 const WhyBigsurmoonCard = () => {
   return (
@@ -25,7 +26,7 @@ const WhyBigsurmoonCard = () => {
         <div className="mt-[50px]  gap-[50px] grid grid-cols-1 lg:grid-cols-2 ">
           {whyBigsurmoonCard.map((c) => (
             <div
-              className="flex flex-col w-[350px] lg:w-[466px] py-[30px] pl-[25px] pr-[25px] lg:pr-[120px] border border-solid border-[#4767D8] rounded-[20px] shadow-2xl"
+              className="flex flex-col w-[350px] lg:w-[466px] py-[30px] pl-[25px] pr-[25px] lg:pr-[120px] border border-solid border-[#4767D8] rounded-[20px] shadow-2xl whyBigsurmoonCard"
               key={c.id}
             >
               <img className="w-[57px] h-[56px]" src={c.img} alt={c.title} />

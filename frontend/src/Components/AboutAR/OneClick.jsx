@@ -1,12 +1,13 @@
 import React from "react";
-import qr from "../../assets/Aboutar/QRcode.svg";
 import codeBg from "../../assets/Aboutar/codeBG.png";
-import barBg from "../../assets/Aboutar/barCode.png";
 import screenChair from "../../assets/Aboutar/ARScreenChair.png";
-import noCodeImg1 from "../../assets/Aboutar/noCode/noCodeImg1.svg";
-import noCodeImg2 from "../../assets/Aboutar/noCode/noCodeimg2.svg";
-import noCodeBg from "../../assets/Aboutar/noCode/noCodeBG.png";
 import { useNavigate } from "react-router-dom";
+import "../style.css";
+// import qr from "../../assets/Aboutar/QRcode.svg";
+// import barBg from "../../assets/Aboutar/barCode.png";
+// import noCodeImg1 from "../../assets/Aboutar/noCode/noCodeImg1.svg";
+// import noCodeImg2 from "../../assets/Aboutar/noCode/noCodeimg2.svg";
+// import noCodeBg from "../../assets/Aboutar/noCode/noCodeBG.png";
 
 const OneClick = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ const OneClick = () => {
             <div className="">
               <button
                 onClick={() => navigate("/pricing")}
-                className="h-[38px] lg:h-[61px] w-[115px] lg:w-[218px] text-center text-[12px] lg:text-[18px] font-medium bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+                className="h-[38px] lg:h-[61px] w-[115px] lg:w-[218px] text-center text-[12px] lg:text-[18px] font-medium rounded-full btnClr"
               >
                 Start <span className="hidden lg:inline-block">Free </span>{" "}
                 Trial

@@ -5,6 +5,7 @@ import mobimg from "../../assets/backgrounds/ARBgMobile.png";
 import chair from "../../assets/Aboutar/ARChair4.gif";
 import chairMob from "../../assets/Aboutar/ChairMobile.gif";
 import { useNavigate } from "react-router-dom";
+import "../style.css";
 
 const ARSimplified = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const ARSimplified = () => {
             <div className="mt-[25px]">
               <button
                 onClick={() => navigate("/support")}
-                className="py-[15px] lg:py-[20px] px-auto text-center w-[125px] lg:w-[227px] text-[12px] lg:text-[18px] font-medium bg-gradient-to-r from-blue-500 to-blue-400 rounded-full font-roboto"
+                className="py-[15px] lg:py-[20px] px-auto text-center w-[125px] lg:w-[227px] text-[12px] lg:text-[18px] font-medium rounded-full font-roboto btnClr"
               >
                 Get a Demo
               </button>

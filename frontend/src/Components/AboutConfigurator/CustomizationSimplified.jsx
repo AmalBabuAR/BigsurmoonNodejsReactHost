@@ -1,11 +1,12 @@
 import React from "react";
 import bgphone from "../../assets/Aboutar/BG 1.png";
 import imglap from "../../assets/Configurator/imglap.png";
-import ringpng from "../../assets/Aboutar/Logo (2) 2.png";
-import bglarge from "../../assets/Aboutar/BG 1.png";
 import { confitems } from "../../assets/data/data";
 import pcimg from "../../assets/backgrounds/custpc.png";
 import { useNavigate } from "react-router-dom";
+import "../style.css";
+// import bglarge from "../../assets/Aboutar/BG 1.png";
+// import ringpng from "../../assets/Aboutar/Logo (2) 2.png";
 
 const CustomizationSimplified = () => {
   const navigate = useNavigate();
@@ -47,13 +48,13 @@ const CustomizationSimplified = () => {
           <div className="w-[320px] flex justify-around mx-auto md:mx-0 mb-10">
             <button
               onClick={() => navigate("/pricing")}
-              className="p-2 bg-gradient-to-r text-[12px] md:text-base from-blue-500 to-blue-400 text-center w-[125px] h-[30px] rounded-full  md:h-8 flex items-center justify-center md:w-32 md:ml-[-20px] "
+              className="p-2 text-[12px] md:text-base text-center w-[125px] h-[30px] rounded-full  md:h-8 flex items-center justify-center md:w-32 md:ml-[-20px] btnClr"
             >
               Start Trial
             </button>
             <button
               onClick={() => navigate("/support")}
-              className="p-2 bg-gradient-to-r text-[12px] md:text-base from-blue-500 to-blue-400 text-center rounded-full w-[125px] h-[30px] md:h-8 flex items-center justify-center md:w-32 "
+              className="p-2 text-[12px] md:text-base text-center rounded-full w-[125px] h-[30px] md:h-8 flex items-center justify-center md:w-32 btnClr"
             >
               Learn More
             </button>
@@ -84,13 +85,13 @@ const CustomizationSimplified = () => {
               <div className=" flex w-full  gap-10 mt-28 lg:mt-14 mb-10">
                 <button
                   onClick={() => navigate("/pricing")}
-                  className="p-2 bg-gradient-to-r text-[18px] from-blue-500 to-blue-400 text-center flex justify-center items-center rounded-full w-48 h-16"
+                  className="p-2 text-[18px] text-center flex justify-center items-center rounded-full w-48 h-16 btnClr"
                 >
                   Start Trial
                 </button>
                 <button
                   onClick={() => navigate("/support")}
-                  className="p-2 bg-gradient-to-r text-[18px] from-blue-500 to-blue-400 text-center  flex justify-center items-center rounded-full w-48 h-16"
+                  className="p-2 text-[18px] text-center  flex justify-center items-center rounded-full w-48 h-16 btnClr"
                 >
                   Learn More
                 </button>
@@ -139,7 +140,9 @@ const CustomizationSimplified = () => {
               <img
                 src={m.img}
                 className={`${
-                  m.id === 1 ? "w-[150px] h-[130px] mb-6" : "w-[150px] h-[150px]"
+                  m.id === 1
+                    ? "w-[150px] h-[130px] mb-6"
+                    : "w-[150px] h-[150px]"
                 } ${
                   m.id === 3 ? "w-[145px] h-[150px]" : "w-[150px] h-[150px]"
                 } mt-10 pt-3 mx-auto`}

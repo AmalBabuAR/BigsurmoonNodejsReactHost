@@ -8,6 +8,7 @@ import axiosInstance from "../../axios/axiosInterceptors/axiosInstance";
 import { URL } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import EmbedModal from "./EmbedModal";
+import DeleteModal from "./DeleteModal";
 
 const Dash = () => {
   const [list, setList] = useState([]);
@@ -16,8 +17,10 @@ const Dash = () => {
   const [projectName, setProjectName] = useState("");
   const [err, setErr] = useState("");
   const [screen, setSceen] = useState(false);
-  const [embedModel, setEmbedModel] = useState(false);
   const [embedID, setEmbedId] = useState(null);
+  const [embedModel, setEmbedModel] = useState(false);
+  const [deleteModel, setDeleteModel] = useState(false);
+  const [deleteId, setDeleteID] = useState(null);
 
   const navigate = useNavigate();
 
@@ -47,7 +50,7 @@ const Dash = () => {
   async function getProjectSize() {
     try {
       const res = await axiosInstance.get("/getProjectSize");
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.success) {
         setSizeData(res.data.resData);
         // console.log(data);
@@ -80,16 +83,8 @@ const Dash = () => {
 
   //to delete
   const handleDeleteButtonClick = async (id) => {
-    alert("Do you want to delete this project ?");
-    // console.log(id);
-    try {
-      const res = await axiosInstance.delete(`/deleteProject/${id}`);
-      // console.log("res in delete", res.data, res);
-      getProject();
-      getProjectSize();
-    } catch (error) {
-      console.log(error);
-    }
+    setDeleteModel(!deleteModel);
+    setDeleteID(id);
   };
 
   //post method to create newFile
@@ -142,6 +137,14 @@ const Dash = () => {
   const handleEmbedClick = (id) => {
     setEmbedModel(!embedModel);
     setEmbedId(id);
+  };
+
+  const handleDeleteDataReceeived = (data) => {
+    setDeleteModel(data.model);
+    if (data.callFun) {
+      getProject();
+      getProjectSize();
+    }
   };
 
   const handleDataReceived = (data) => {
@@ -364,6 +367,13 @@ const Dash = () => {
           onDataReceived={handleDataReceived}
           embedID={embedID}
           embedModel={embedModel}
+        />
+      )}
+      {deleteModel && (
+        <DeleteModal
+          onDeleteDataReceived={handleDeleteDataReceeived}
+          deleteId={deleteId}
+          deleteModel={deleteModel}
         />
       )}
     </>

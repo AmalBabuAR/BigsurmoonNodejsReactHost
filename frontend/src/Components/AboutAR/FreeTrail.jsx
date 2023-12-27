@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../style.css";
 
 const FreeTrail = () => {
   const navigate = useNavigate();
@@ -17,9 +18,10 @@ const FreeTrail = () => {
           </p>
         </div>
         <div className="font-roboto text-center">
-          <button 
-           onClick={() => navigate("/pricing")}
-          className="w-[125px] lg:w-[175px] h-[41px] lg:h-[61px] text-[12px] lg:text-[18px] font-medium bg-gradient-to-r from-blue-500 to-blue-400 rounded-full">
+          <button
+            onClick={() => navigate("/pricing")}
+            className="w-[125px] lg:w-[175px] h-[41px] lg:h-[61px] text-[12px] lg:text-[18px] font-medium rounded-full btnClr"
+          >
             Start Trial
           </button>
         </div>

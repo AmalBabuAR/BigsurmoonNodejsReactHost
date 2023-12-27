@@ -1,6 +1,7 @@
 import React from "react";
 import QuotationMark from "../../assets/Home/QuotationMark.svg";
 import { useNavigate } from "react-router-dom";
+import "../style.css";
 
 const EnterprisesCard = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const EnterprisesCard = () => {
         <div className="hidden lg:block">
           <button
             onClick={() => navigate("/pricing")}
-            className="w-[175px] h-[61px] text-[12px] font-medium md:text-base lg:text-[18px] bg-gradient-to-r from-blue-600 to-blue-400 rounded-full  text-center"
+            className="w-[175px] h-[61px] text-[12px] font-medium md:text-base lg:text-[18px] btnClr rounded-full  text-center"
           >
             Start Trial
           </button>
@@ -46,7 +47,7 @@ const EnterprisesCard = () => {
             className="w-[52px] lg:w-[72px] h-[46px] lg:h-[64px]"
           />
           <h1 className="text-[14px] lg:text-[22px] mt-[32px] lg:mt-[25px] leading-[17px] lg:leading-[26px] font-normal overflow-hidden ">
-            Custom requirements and suggestions are handles well by Bigsurmoon.
+            Custom requirements and suggestions are handled well by Bigsurmoon.
             Augmented reality experiences for travel and tourism industry helped
             us standout from the competition and create unforgettable campaigns.
             Kudos to the whole team!

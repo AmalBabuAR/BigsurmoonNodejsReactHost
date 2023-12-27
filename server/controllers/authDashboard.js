@@ -1,6 +1,7 @@
 import pool from "../database/postgresqlConnection.js";
 import ProjectDetails from "../models/projectDetailsModel.js";
 import PaymentData from "../models/paymentModel.js";
+import userModel from "../models/userModel.js";
 
 export const postProjectName = async (req, res) => {
   try {
@@ -157,7 +158,6 @@ export const getProjectsList = async (req, res) => {
   }
 };
 
-
 export const deleteProjectFromID = async (req, res) => {
   const projectId = req.params.id;
   console.log(projectId);
@@ -179,5 +179,19 @@ export const deleteProjectFromID = async (req, res) => {
     res
       .status(500)
       .json({ success: false, message: "Error deleting project." });
+  }
+};
+
+export const getUserName = async (req, res) => {
+  const user = req.user._id;
+  try {
+    const userName = await userModel.find({ _id: user });
+    if (userName.length > 0) {
+      const name = userName[0].name;
+      res.status(201).json({ success: true, name });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ success: false });
   }
 };

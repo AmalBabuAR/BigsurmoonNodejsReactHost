@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { pricingDetails } from "../../assets/data/data";
 import { useLocation, useNavigate } from "react-router-dom";
 import axiosInstance from "../../axios/axiosInterceptors/axiosInstance";
+import "../style.css";
 
 const PricingCard = () => {
   const [yearStarter, setYearStarter] = useState(false);
@@ -296,7 +297,7 @@ const PricingCard = () => {
               <div className="mt-[35px] lg:mt-[40px] flex justify-center">
                 <button
                   onClick={() => handlePayButton(p)}
-                  className="w-[307px] h-[48px] bg-gradient-to-r from-blue-600 to-blue-400 text-center rounded-[65px] text-[18px] font-roboto font-medium"
+                  className="w-[307px] h-[48px] text-center rounded-[65px] text-[18px] font-roboto font-medium btnClr"
                 >
                   Buy Now
                 </button>
