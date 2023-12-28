@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/Logos/logo.gif";
 import { Link } from "react-router-dom";
 import axiosInstance from "../../axios/axiosInterceptors/axiosInstance";
@@ -20,6 +20,7 @@ const NewClientNavbar = () => {
   useEffect(() => {
     userName();
   }, []);
+
   return (
     <div>
       <nav className="fixed top-0 z-50 w-full   bg-black">
