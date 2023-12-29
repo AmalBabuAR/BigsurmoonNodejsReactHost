@@ -21,22 +21,33 @@ import Referral from "../Pages/Referral";
 
 const Wrapper = ({ children, title }) => {
   let description;
+  let keywords;
   if (title === "Bigsurmoon") {
     description =
       "Interactive 3D and Augmented Reality experiences for e-commerce. All-in-one visualisation solution that drive Engagement and sales.";
+    keywords =
+      "All in One product visualisation solution, best tool for e-commerce to boost sales, Augmented reality for business, Augmented reality for furniture, fashion, electronics, accessories, events, marketing ,luxury, jewelery, 3D configurator,3D configurator for automobile ,furniture, e-commerce , fashion, luxury, jewelery ";
   } else if (title === "About | Augmented Reality") {
     description =
       "Discover the Augmented reality benefits with Bigsurmoon| Learn how AR is reshaping industries and creating great customer experiences. ";
+    keywords =
+      "Augmented reality for business, Augmented reality for furniture, fashion, electronics, accessories, events, marketing ,luxury, jewelery, ";
   } else if (title === "About | Configurator") {
     description =
       "Immersive e-commerce 360 and configurator. Create your 3D experiences today| Tailored for businesses.";
+    keywords =
+      "3D configurator,3D configurator for automobile ,furniture, e-commerce , fashion, luxury, jewelery";
   } else if (title === "Pricing") {
     description =
       "Our affordable pricing scales with your business. You get all the features on every plan. Start your free trial. ";
+    keywords =
+      "Start free trail , Suitable for small scale business and startups, Suitable for medium scale business with medium traffic, Suitable for large scale business with high traffic,Our affordable pricing scales with your business";
   } else if (title === "Support") {
     description =
       "Get reliable support from Bigsurmoon. Our dedicated team is here to assist you in harnessing the full potential of 3D and AR technology.";
-  } else if (title === "3D Modelling Support") {
+    keywords =
+      "24/7 support,Tailored Onboarding,Free Online Training,Talk to experts";
+  } else if (title === "3D Modelling support") {
     description =
       "Step into the world of creativity at Bigsurmoon's 3D Studio. Transform your ideas into stunning 3D visuals with our expert team.";
   } else if (title === "Dashboard") {
@@ -54,6 +65,10 @@ const Wrapper = ({ children, title }) => {
   useEffect(() => {
     document.getElementsByTagName("META")[2].content = description;
   }, [description, title]);
+
+  useEffect(() => {
+    document.getElementsByTagName("META")[3].content = keywords;
+  }, [keywords, title]);
 
   const location = useLocation();
   useLayoutEffect(() => {

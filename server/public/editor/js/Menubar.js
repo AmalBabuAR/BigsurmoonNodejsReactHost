@@ -21,13 +21,13 @@ function Menubar(editor) {
 	container.setId("menubar");
 
 	container.add(new NewUI_MenubarImport(editor));
-	container.add(new NewUI_Toolbar(editor))
-	container.add(new NewUI_AnimationPlay(editor))
-	container.add(new NewUI_ReduUndo(editor))
+	container.add(new NewUI_Toolbar(editor));
+	container.add(new NewUI_AnimationPlay(editor));
+	container.add(new NewUI_ReduUndo(editor));
 	container.add(new Preview(editor));
-	container.add(new NewUI_Publish(editor))
-	container.add(new NewUI_Reset(editor))
-	
+	container.add(new NewUI_Publish(editor));
+	container.add(new NewUI_Reset(editor));
+
 	// container.add(new MenubarFile(editor));
 	// container.add(new MenubarEdit(editor));
 	// container.add( new MenubarAdd( editor ) );

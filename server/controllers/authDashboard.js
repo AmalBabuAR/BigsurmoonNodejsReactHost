@@ -16,7 +16,7 @@ export const postProjectName = async (req, res) => {
         const eligible = quantity < existingProjects.length + 1;
         if (eligible) {
           res
-            .status(201)
+            .status(200)
             .json({ status: false, message: "Upgrade Your Subscription Plan" });
         } else {
           if (existingProjects.length > 0) {
@@ -186,9 +186,11 @@ export const getUserName = async (req, res) => {
   const user = req.user._id;
   try {
     const userName = await userModel.find({ _id: user });
-    if (userName.length > 0) {
+    if (userName && userName.length > 0) {
       const name = userName[0].name;
-      res.status(201).json({ success: true, name });
+      res.status(200).json({ success: true, name });
+    } else {
+      res.status(404).json({ success: false, error: "User not found" });
     }
   } catch (error) {
     console.log(error);
