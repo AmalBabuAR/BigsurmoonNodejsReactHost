@@ -64,11 +64,10 @@ const Wrapper = ({ children, title }) => {
 
   useEffect(() => {
     document.getElementsByTagName("META")[2].content = description;
-  }, [description, title]);
-
-  useEffect(() => {
     document.getElementsByTagName("META")[3].content = keywords;
-  }, [keywords, title]);
+    document.getElementsByTagName("META")[6].content = title;
+    document.getElementsByTagName("META")[7].content = description;
+  }, [description, title, keywords]);
 
   const location = useLocation();
   useLayoutEffect(() => {
