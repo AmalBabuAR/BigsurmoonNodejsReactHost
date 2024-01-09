@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import axiosInstance from "../../axios/axiosInterceptors/axiosInstance";
+import { ImSpinner } from "react-icons/im";
 
 const DeleteModal = (props) => {
   console.log(props);
   const { deleteId, deleteModel } = props;
+
+  const [deleting, setDeleteing] = useState(false);
 
   const handleCloseButton = () => {
     sendDataToParent(!deleteModel);
@@ -15,8 +18,14 @@ const DeleteModal = (props) => {
 
   const handleDeleteButtonClick = async () => {
     try {
+      setDeleteing(true);
       const res = await axiosInstance.delete(`/deleteProject/${deleteId}`);
-      props.onDeleteDataReceived({ model: !deleteModel, callFun: true });
+      if (res.data.success) {
+        setDeleteing(false);
+        props.onDeleteDataReceived({ model: !deleteModel, callFun: true });
+      } else {
+        setDeleteing(false);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -59,9 +68,16 @@ const DeleteModal = (props) => {
           </button>
           <button
             onClick={handleDeleteButtonClick}
-            className="bg-[#dc3546] py-[10px] px-[20px] text-center text-[16px] font-semibold text-white rounded-[10px]"
+            className="bg-[#dc3546] py-[10px] px-[20px] text-center text-[16px] font-semibold text-white rounded-[10px] flex justify-center items-center gap-2"
           >
-            Delete
+            {deleting && deleting ? (
+              <>
+                <ImSpinner className="animate-spin" />
+                <p>Deteting</p>
+              </>
+            ) : (
+              "Delete"
+            )}
           </button>
         </div>
       </div>

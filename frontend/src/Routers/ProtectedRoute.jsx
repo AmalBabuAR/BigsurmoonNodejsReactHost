@@ -8,7 +8,7 @@ export default function ProtectedRoute() {
       console.log(path);
   if (localStorage.getItem("auth")) {
     console.log(path);
-     if(path==='/pricing'){
+     if(path==='/plan'){
        return <Navigate to='/book-a-demo'/>
       }else{
        return <Navigate to={path}/>

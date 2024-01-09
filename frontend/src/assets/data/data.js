@@ -7,10 +7,10 @@ import card2 from "../Home/card/card2.svg";
 import card3 from "../Home/card/card3.svg";
 import card4 from "../Home/card/card4.svg";
 
-import ARCard1 from '../Aboutar/ARCard/ARCard1.svg'
-import ARCard2 from '../Aboutar/ARCard/ARCard2.svg'
-import ARCard3 from '../Aboutar/ARCard/ARCard3.svg'
-import ARCard4 from '../Aboutar/ARCard/ARCard4.svg'
+import ARCard1 from "../Aboutar/ARCard/ARCard1.svg";
+import ARCard2 from "../Aboutar/ARCard/ARCard2.svg";
+import ARCard3 from "../Aboutar/ARCard/ARCard3.svg";
+import ARCard4 from "../Aboutar/ARCard/ARCard4.svg";
 
 // import jewellery from "../../assets/Aboutar/Ring.png";
 // import furnitures from "../../assets/Aboutar/fur.png";
@@ -46,6 +46,9 @@ import k4 from "../3Dstudio/studitems/r.png";
 import psf1 from "../pricing/support.svg";
 import psf2 from "../pricing/training.svg";
 import psf3 from "../pricing/Training2.svg";
+
+import blogPic from "../Blog/blog.png";
+import { icon1, icon2, icon3, pic1, pic2, pic3 } from "../V2Home";
 
 export const mainFeatures = [
   {
@@ -345,5 +348,131 @@ export const ARCard = [
     title: "Innovative",
     titleBR: "Marketing",
     desc: "Create unforgettable campaigns with 3D and Augmented Reality for marketing. Our visualisation tools convey descriptions and stories like never before possible",
+  },
+];
+
+export const BlogData = [
+  {
+    id: 1,
+    img: blogPic,
+    imgTitle: "Industry",
+    heading: "This Section is for title of the blog",
+    time: "6 min read",
+    desc: "This Section is for subtitle of the blog content. Lorem Ipzum in Advatage as sucj that.",
+  },
+  {
+    id: 2,
+    img: blogPic,
+    imgTitle: "Industry",
+    heading: "This Section is for title of the blog",
+    time: "6 min read",
+    desc: "This Section is for subtitle of the blog content. Lorem Ipzum in Advatage as sucj that.",
+  },
+  {
+    id: 3,
+    img: blogPic,
+    imgTitle: "Industry",
+    heading: "This Section is for title of the blog",
+    time: "6 min read",
+    desc: "This Section is for subtitle of the blog content. Lorem Ipzum in Advatage as sucj that.",
+  },
+  {
+    id: 4,
+    img: blogPic,
+    imgTitle: "Industry",
+    heading: "This Section is for title of the blog",
+    time: "6 min read",
+    desc: "This Section is for subtitle of the blog content. Lorem Ipzum in Advatage as sucj that.",
+  },
+  {
+    id: 5,
+    img: blogPic,
+    imgTitle: "Industry",
+    heading: "This Section is for title of the blog",
+    time: "6 min read",
+    desc: "This Section is for subtitle of the blog content. Lorem Ipzum in Advatage as sucj that.",
+  },
+  {
+    id: 6,
+    img: blogPic,
+    imgTitle: "Industry",
+    heading: "This Section is for title of the blog",
+    time: "6 min read",
+    desc: "This Section is for subtitle of the blog content. Lorem Ipzum in Advatage as sucj that.",
+  },
+  {
+    id: 7,
+    img: blogPic,
+    imgTitle: "Industry",
+    heading: "This Section is for title of the blog",
+    time: "6 min read",
+    desc: "This Section is for subtitle of the blog content. Lorem Ipzum in Advatage as sucj that.",
+  },
+  {
+    id: 8,
+    img: blogPic,
+    imgTitle: "Industry",
+    heading: "This Section is for title of the blog",
+    time: "6 min read",
+    desc: "This Section is for subtitle of the blog content. Lorem Ipzum in Advatage as sucj that.",
+  },
+  {
+    id: 9,
+    img: blogPic,
+    imgTitle: "Industry",
+    heading: "This Section is for title of the blog",
+    time: "6 min read",
+    desc: "This Section is for subtitle of the blog content. Lorem Ipzum in Advatage as sucj that.",
+  },
+];
+
+export const V2HomeScreen2Data = [
+  {
+    id: 1,
+    img: icon1,
+    imgSpeck: `w-[57px] xl:w-[102px] h-[57px] xl:h-[102px]`,
+    title: "No-code",
+    dec: "No-code development platform designed for ease of use. 3D visualization with all major platform support gives the freedom for targeting wide audience. ",
+  },
+  {
+    id: 2,
+    img: icon2,
+    imgSpeck: `w-[57px] xl:w-[80px] h-[56px] xl:h-[79px]`,
+    title: "Targeted",
+    dec: "Bigsurmoon is designed for enterprise and tailored to address the specific needs of businesses, unlocking a new era of visual storytelling to help businesses thrive in a competitive space.",
+  },
+  {
+    id: 3,
+    img: icon3,
+    imgSpeck: `w-[57px] xl:w-[80px] h-[56px] xl:h-[78.596px]`,
+    title: "All-in-one",
+    dec: "A responsive 3D configurator, Augmented Reality ,platform to configure and publish, and a dedicated support team for the entire pipeline.",
+  },
+];
+
+export const V2HomeScreen3Data = [
+  {
+    id: 1,
+    title: "PLATFORM",
+    titleHead: "Powerful 3D and AR tools that drive conversions",
+    desc: "Bigsurmoon’s interactive and responsive engine is precisely crafted to ensuring sustained audience engagement, create inspirations, educate audience and drive sales. Craft your visual storytelling to the next level.",
+    btn: "LEARN MORE",
+    img: pic1,
+  },
+  {
+    id: 2,
+    title: "AUGMENTED REALITY",
+    titleHead: "Create immersive experiences with Augmented reality",
+    desc: "One Augmented Reality platform, wide use cases. Closing the divide between online and offline shopping, our No-code Augmented Reality for e-commerce help audience to visualise products in their real-space with just a click. ",
+    btn: "EXPLORE CONFIGURATIONS",
+    img: pic2,
+  },
+  {
+    id: 3,
+    title: "VIRTUAL PHOTOGRAPHY",
+    titleHead: "Instant high-quality product photos with a single click",
+    desc: "Create hassle-free and cost effective virtual photographs for any image use case scenarios. choose your light set up, create custom backgrounds and get the finest virtual photography studio at your fingertips.",
+    btn: "COMING SOON",
+    img: pic3,
   },
 ];

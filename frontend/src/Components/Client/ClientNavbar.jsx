@@ -301,7 +301,7 @@ const Navbar = () => {
               <Link to="/studio">
                 <h3>3D Studio</h3>
               </Link>
-              <Link to="/pricing">
+              <Link to="/plan">
                 <h3>Pricing</h3>
               </Link>
               <Link to="/support">

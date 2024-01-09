@@ -19,7 +19,7 @@ const FreeTrail = () => {
         </div>
         <div className="font-roboto text-center">
           <button
-            onClick={() => navigate("/pricing")}
+            onClick={() => navigate("/plan")}
             className="w-[125px] lg:w-[175px] h-[41px] lg:h-[61px] text-[12px] lg:text-[18px] font-medium rounded-full btnClr"
           >
             Start Trial

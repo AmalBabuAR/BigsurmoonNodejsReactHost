@@ -16,7 +16,7 @@ const EnterprisesCard = () => {
         </div>
         <div className="hidden lg:block">
           <button
-            onClick={() => navigate("/pricing")}
+            onClick={() => navigate("/plan")}
             className="w-[175px] h-[61px] text-[12px] font-medium md:text-base lg:text-[18px] btnClr rounded-full  text-center"
           >
             Start Trial
@@ -59,7 +59,7 @@ const EnterprisesCard = () => {
       </div>
       <div className="lg:hidden md:hidden my-[50px]">
         <button
-          onClick={() => navigate("/pricing")}
+          onClick={() => navigate("/plan")}
           className="bg-gradient-to-r text-[12px] font-medium md:text-base lg:text-lg from-blue-600 to-blue-400 rounded-full p-3 lg:p-5 w-32 lg:h-16 lg:w-44 text-center"
         >
           Start Trial

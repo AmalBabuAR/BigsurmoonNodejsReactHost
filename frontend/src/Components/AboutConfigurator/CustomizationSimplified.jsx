@@ -47,7 +47,7 @@ const CustomizationSimplified = () => {
           </div>
           <div className="w-[320px] flex justify-around mx-auto md:mx-0 mb-10">
             <button
-              onClick={() => navigate("/pricing")}
+              onClick={() => navigate("/plan")}
               className="p-2 text-[12px] md:text-base text-center w-[125px] h-[30px] rounded-full  md:h-8 flex items-center justify-center md:w-32 md:ml-[-20px] btnClr"
             >
               Start Trial
@@ -84,7 +84,7 @@ const CustomizationSimplified = () => {
               </h3>
               <div className=" flex w-full  gap-10 mt-28 lg:mt-14 mb-10">
                 <button
-                  onClick={() => navigate("/pricing")}
+                  onClick={() => navigate("/plan")}
                   className="p-2 text-[18px] text-center flex justify-center items-center rounded-full w-48 h-16 btnClr"
                 >
                   Start Trial

@@ -57,7 +57,8 @@ const Asidebar = (props) => {
                   </div>
                 </div>
                 <h1 className="text-gray-400 text-[12px] pt-2">
-                  {data.quantity - data.used} Out of {data.quantity} files used
+                  {data.quantity - data.used} out of {data.quantity} project
+                  left.
                 </h1>
               </div>
             </div>

@@ -108,7 +108,7 @@ const Dash = () => {
       } else {
         if (res.data.noSub) {
           alert(res.data.message);
-          navigate("/pricing");
+          navigate("/plan");
         } else {
           // console.log("req coming in else");
           setErr(res.data.message);

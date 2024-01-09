@@ -52,7 +52,7 @@ const CheckoutFailed = () => {
                 <h1 className="text-3xl text-center font-medium text-black mt-5">
                   Subscribing Failed
                 </h1>
-                <button onClick={() => navigate('/pricing') } className="text-center text-blue-700 text-base mt-4 font-normal">Go Back To Pricing</button>
+                <button onClick={() => navigate('/plan') } className="text-center text-blue-700 text-base mt-4 font-normal">Go Back To Pricing</button>
               </div>
             </div>
           </div>

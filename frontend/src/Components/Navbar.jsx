@@ -186,7 +186,7 @@ const Navbar = () => {
                       <Link to="/studio">
                         <li className="w-[150px] mb-3">3D Modelling</li>
                       </Link>
-                      <Link to="/pricing">
+                      <Link to="/plan">
                         <li className="w-[150px] mb-3">Pricing</li>
                       </Link>
                       <Link to="/support">
@@ -274,7 +274,7 @@ const Navbar = () => {
                     3D Modelling
                   </h3>
                 </Link>
-                <Link to="/pricing">
+                <Link to="/plan">
                   <h3
                     className={`${
                       pageName === "pricing"

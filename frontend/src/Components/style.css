@@ -1,3 +1,7 @@
+.homeVideo {
+  height: calc(100vh - 90px);
+}
+
 .btnClr {
   background: linear-gradient(90deg, #267bff 0.04%, #0cb2ff 99.96%);
 }
@@ -10,4 +14,19 @@ video[poster] {
 
 .whyBigsurmoonCard {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.blogTextShadow {
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.blogBoxShadow {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.blogImagetextshadow {
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+.homeHead {
+  text-shadow: 0px 0px 10px #000;
 }

@@ -66,7 +66,7 @@ const Intergration = () => {
             Get A Demo
           </button>
           <button
-            onClick={() => navigate("/pricing")}
+            onClick={() => navigate("/plan")}
             className="btnClr rounded-full w-[175px] h-[62px] text-center"
           >
             {" "}
@@ -91,7 +91,7 @@ const Intergration = () => {
             Get A Demo
           </button>
           <button
-            onClick={() => navigate("/pricing")}
+            onClick={() => navigate("/plan")}
             className="w-[123px] h-[41px] rounded-full btnClr"
           >
             Start Trial

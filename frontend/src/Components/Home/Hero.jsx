@@ -65,7 +65,7 @@ const Hero = () => {
                 Get a Demo
               </button>
               <button
-                onClick={() => navigate("/pricing")}
+                onClick={() => navigate("/plan")}
                 className="btnClr lg:text-lg text-[12px] font-normal md:text-base  rounded-full p-3 w-32 lg:p-5 lg:w-44 lg:h-16 text-center"
               >
                 Start Trial

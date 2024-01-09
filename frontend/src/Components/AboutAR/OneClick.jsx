@@ -32,7 +32,7 @@ const OneClick = () => {
           <div className="mt-[25px] lg:mt-[45px] flex justify-center items-center flex-row">
             <div className="">
               <button
-                onClick={() => navigate("/pricing")}
+                onClick={() => navigate("/plan")}
                 className="h-[38px] lg:h-[61px] w-[115px] lg:w-[218px] text-center text-[12px] lg:text-[18px] font-medium rounded-full btnClr"
               >
                 Start <span className="hidden lg:inline-block">Free </span>{" "}

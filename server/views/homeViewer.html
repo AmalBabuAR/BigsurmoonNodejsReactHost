@@ -41,7 +41,8 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script> -->
     <div id="loader-overlay">
       <div class="loader-container">
-        <img src="../images/spinner.svg" alt="Loader" class="loader" />
+        <!-- <img src="../images/spinner.svg" alt="Loader" class="loader" /> -->
+        <div class="loader"></div>
       </div>
     </div>
 
@@ -97,7 +98,7 @@
         auto-rotate
         camera-controls
         touch-action="pan-y"
-        camera-target="0m 0.2m 0m"
+        camera-target="0m auto 0m"
         ar-modes="webxr scene-viewer quick-look"
       >
         <button
@@ -106,8 +107,8 @@
             align-items: center;
             justify-content: center;
             display: flex;
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             background-color: #0090f8;
             border-radius: 50px;
             border: 1px solid white;
@@ -252,7 +253,13 @@
         return urlParams.get(param);
       }
 
+      // Function to update the loader progress
+      function updateLoaderProgress(progress) {
+        document.querySelector(".loader").style.width = `${progress}%`;
+      }
+
       async function getViewProject() {
+        showProgressBar();
         try {
           const idFromUrl = getQueryParam("id");
           const id = "64f336826a9c405834134bbe";
@@ -410,7 +417,9 @@
                       "flex";
                   }
                 },
-                undefined,
+                function (error) {
+                  console.log("An error happened in gltfExporter");
+                },
                 { animations: anim }
               );
             });
@@ -447,7 +456,35 @@
             error
           );
         }
+
+        // Function to show the loader and start the progress animation
+        function showProgressBar() {
+          document.getElementById("loader-overlay").style.display = "flex";
+          const animationTime = 5; // Set the maximum animation time (5 seconds in this example)
+          document.querySelector(
+            ".loader"
+          ).style.animation = `load ${animationTime}s linear forwards`;
+
+          // Simulate progress update based on the actual API call
+          const interval = setInterval(() => {
+            const progress =
+              ((performance.now() - startTime) / (animationTime * 1000)) * 100;
+            // console.log("time", Math.round(progress));
+            updateLoaderProgress(Math.round(progress));
+            if (progress >= 100) {
+              console.log("interval", interval);
+              clearInterval(interval);
+            }
+          }, 20); // Update every 16 milliseconds (approximately 60 frames per second)
+        }
       }
+      // Function to hide the loader
+      function hideLoader() {
+        document.getElementById("loader-overlay").style.display = "none";
+      }
+
+      // Call the function to load data
+      const startTime = performance.now();
 
       getViewProject();
 

@@ -18,6 +18,9 @@ import TermsAndCondition from "../Pages/TermsAndCondition";
 import PrivacyPolicy from "../Pages/PrivacyPolicy";
 import Error from "../Pages/Error";
 import Referral from "../Pages/Referral";
+import Blog from "../Pages/Blog";
+import BlogCategory from "../Pages/BlogCategory";
+import V2Home from "../Pages/V2Home";
 
 const Wrapper = ({ children, title }) => {
   let description;
@@ -132,7 +135,7 @@ const Router = createBrowserRouter([
     ],
   },
   {
-    path: "/pricing",
+    path: "/plan",
     element: (
       <Wrapper title="Pricing">
         <Pricing />
@@ -188,6 +191,30 @@ const Router = createBrowserRouter([
     ),
   },
   {
+    path: "/blog",
+    element: (
+      <Wrapper title="Blog">
+        <Blog />
+      </Wrapper>
+    ),
+  },
+  {
+    path: "/blog/:blogName",
+    element: (
+      <Wrapper title="Blog">
+        <BlogCategory />
+      </Wrapper>
+    ),
+  },
+  {
+    path: "/home",
+    element: (
+      <Wrapper title="home">
+        <V2Home />
+      </Wrapper>
+    ),
+  },
+  {
     path: "/referral",
     element: (
       <Wrapper title="Bigsurmoon">
@@ -195,6 +222,7 @@ const Router = createBrowserRouter([
       </Wrapper>
     ),
   },
+
   {
     path: "/",
     element: <PrivateRoute />,
