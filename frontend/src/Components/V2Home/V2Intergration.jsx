@@ -15,7 +15,7 @@ const V2Intergration = () => {
       </div>
       <div className="flex gap-[50px] xl:gap-[100px]">
         <button className="btnClr text-[10px] xl:text-[18px] px-[25px] py-[10px] xl:px-[50px] xl:py-[20px] rounded-[21px] xl:rounded-[51px] font-medium">
-          Get a Demo
+          Talk to Experts
         </button>
         <button className="btnClr text-[10px] xl:text-[18px] px-[25px] py-[10px] xl:px-[44px] xl:py-[20px] rounded-[21px] xl:rounded-[51px] font-medium">
           Start Trial

@@ -462,8 +462,8 @@ export const V2HomeScreen3Data = [
   {
     id: 2,
     title: "AUGMENTED REALITY",
-    titleHead: "Create immersive experiences with Augmented reality",
-    desc: "One Augmented Reality platform, wide use cases. Closing the divide between online and offline shopping, our No-code Augmented Reality for e-commerce help audience to visualise products in their real-space with just a click. ",
+    titleHead: "Precise and detailed visualisation with Augmented reality",
+    desc: "One Augmented Reality platform, wide use cases. Closing the divide between online and offline shopping, our No-code Augmented Reality for e-commerce help audience to visualise products in their real-space with just a click with real-world scale.",
     btn: "EXPLORE CONFIGURATIONS",
     img: pic2,
   },

@@ -222,7 +222,6 @@ const Router = createBrowserRouter([
       </Wrapper>
     ),
   },
-
   {
     path: "/",
     element: <PrivateRoute />,

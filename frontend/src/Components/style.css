@@ -30,3 +30,12 @@ video[poster] {
 .homeHead {
   text-shadow: 0px 0px 10px #000;
 }
+
+.homeSecondScreenImage {
+  box-shadow: 0px 0px 100px 0px rgba(141, 141, 141, 0.5);
+}
+
+.homeConversionCard {
+  box-shadow: 0px 0px 51.9px 0px #2875ff;
+  border-color: #07bdff;
+}

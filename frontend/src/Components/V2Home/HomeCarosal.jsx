@@ -8,7 +8,7 @@ const HomeCarosal = () => {
         <h1 className="text-[26px] xl:text-[50px] leading-[26px] xl:leading-[50px] font-bold">
           Industries we serve
         </h1>
-        <p className="text-[16px] xl:text-[18px] leading-[24px] xl:leading-[27px] w-[293px] xl:w-[1258px]">
+        <p className="hidden xl:block text-[16px] xl:text-[18px] leading-[24px] xl:leading-[27px] w-[293px] xl:w-[1258px]">
           Create stunning photographs for any image use case scenarios. choose
           your light set up, create custom backgrounds and get the finest
           virtual photography studio at your fingertips.
