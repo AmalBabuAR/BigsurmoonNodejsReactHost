@@ -1,5 +1,6 @@
 import bgImage from "./homeImg.png";
 import bgImageMob from "./homeImgMob.png";
+import bgImageLap from "./homeImgLap.png";
 import pic1 from "./Image.png";
 import pic2 from "./Image2.png";
 import pic3 from "./image4.gif";
@@ -23,6 +24,7 @@ import shopify from "./Shopify_Logo.png";
 export {
   bgImage,
   bgImageMob,
+  bgImageLap,
   pic1,
   pic2,
   pic3,
