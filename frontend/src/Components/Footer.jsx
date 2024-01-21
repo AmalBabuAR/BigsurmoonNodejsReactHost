@@ -135,7 +135,7 @@ const Footer = () => {
                 onClick={() => window.open(twitterLink, "_blank")}
                 className="mb-1 cursor-pointer"
               >
-                Twitter
+                X
               </h3>
               <h3
                 onClick={() => window.open(youtubeLink, "_blank")}
@@ -200,7 +200,7 @@ const Footer = () => {
                   onClick={() => window.open(twitterLink, "_blank")}
                   className="mb-[9px] cursor-pointer"
                 >
-                  Twitter
+                  X
                 </h3>
                 <h3
                   onClick={() => window.open(youtubeLink, "_blank")}
@@ -211,9 +211,9 @@ const Footer = () => {
               </div>
               <div
                 onClick={handleClick}
-                className="w-16 flex items-start justify-end cursor-pointer"
+                className="w-16 flex items-start xl:justify-end cursor-pointer"
               >
-                <img src={arrowup} className="w-10" />
+                <img src={arrowup} className="w-9 h-8" />
               </div>
             </div>
             <div className="mt-[123px]">

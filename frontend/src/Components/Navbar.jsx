@@ -227,7 +227,7 @@ const Navbar = () => {
       </div>
 
       <div className="hidden lg:block fixed text-white font-roboto font-medium z-10  ">
-        <div className="w-screen bg-black">
+        <div className="w-screen bg-black opacity-30">
           <div className="max-w-[1440px] mx-auto">
             <div className="flex justify-between px-10 items-center">
               <div>
@@ -313,26 +313,26 @@ const Navbar = () => {
               {user ? (
                 <button
                   onClick={handleLogout}
-                  className={`text-white flex items-center justify-center ${
+                  className={`text-white  ${
                     pageName === "register" && "invisible"
                   } ${
                     pageName === "login" && "invisible"
-                  }  rounded-full btnClr`}
+                  } rounded-[50px] btnClr lg:px-[25px] xl:px-[30px] lg:py-auto xl:py-[15px] lg:h-[40px] xl:h-[50px] lg:w-auto flex justify-center items-center`}
                 >
-                  <h3 className="text-[18px] font-medium tracking-[0.72px]  font-roboto pl-[50px] pr-[50px] pt-[15px] pb-[15px]">
+                  <h3 className="text-[18px] font-medium tracking-[0.72px] font-roboto ">
                     Logout
                   </h3>
                 </button>
               ) : (
                 <Link to="/login">
                   <div
-                    className={`text-white text-base flex items-center justify-center ${
+                    className={`text-white ${
                       pageName === "register" && "invisible"
                     } ${
                       pageName === "login" && "invisible"
-                    }  rounded-full btnClr`}
+                    } rounded-[50px] btnClr lg:px-[25px] xl:px-[30px] lg:py-auto xl:py-[15px] lg:h-[40px] xl:h-[50px] lg:w-auto flex justify-center items-center`}
                   >
-                    <h3 className="text-[18px] font-medium tracking-[0.72px] font-roboto pl-[50px] pr-[50px] pt-[15px] pb-[15px]">
+                    <h3 className="text-[18px] font-medium tracking-[0.72px] font-roboto ">
                       Login
                     </h3>
                   </div>

@@ -3,7 +3,7 @@ import CarouselComp from "../util/CarouselComp";
 
 const HomeCarosal = () => {
   return (
-    <div className='"w-full h-auto font-roboto text-white bg-black mx-auto flex flex-col justify-center items-center px-[24px] lg:px-[50px] xl:px-[100px] gap-[25px] text-center'>
+    <div className="w-full h-auto font-roboto text-white bg-black mx-auto flex flex-col justify-center items-center pt-[25px] pb-[50px] px-[24px] lg:px-[50px] xl:px-[100px] gap-[25px] text-center">
       <div className="flex flex-col text-center py-[25px] lg:py-[50px] xl:py-[50px] gap-[25px]">
         <h1 className="text-[26px] lg:text-[50px] xl:text-[50px] leading-[26px] lg:leading-[50px] xl:leading-[50px] font-bold">
           Industries we serve

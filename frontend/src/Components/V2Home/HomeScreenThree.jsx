@@ -26,14 +26,14 @@ const HomeScreenThree = (props) => {
           <button
             className={`${
               x.id === 3 && "bg-[#2875FF] lg:bg-transparent xl:bg-transparent"
-            } px-[25px] lg:px-[30px] xl:px-[30px] py-[7.5px] lg:py-[15px] xl:py-[15px] text-[14px] lg:text-[18px] xl:text-[18px] font-medium border border-solid border-[#0090F8] rounded-[20px] lg:rounded-[50px] xl:rounded-[50px] order-5 lg:order-4 xl:order-4`}
+            } h-[30px] w-auto lg:h-[40px] lg:w-auto flex justify-center items-center px-[25px] lg:px-[25px] xl:px-[30px] py-auto lg:py-auto xl:py-[15px] text-[14px] lg:text-[18px] xl:text-[18px] font-medium border-2 border-solid border-[#0090F8] rounded-[20px] lg:rounded-[50px] xl:rounded-[50px] order-5 lg:order-4 xl:order-4`}
           >
             {x.btn}
           </button>
           <img
             src={x.img}
             alt="images"
-            className=" w-[343px] lg:w-[1064px] xl:w-[1248px] h-[195.136px] lg:h-[590.188px] xl:h-[710px] rounded-[20px] border border-solid border-[#8D8D8D] homeSecondScreenImage order-2 lg:order-5 xl:order-5"
+            className=" w-[343px] lg:w-[1064px] xl:w-[1248px] h-[195.136px] lg:h-[590.188px] xl:h-[710px] bg-cover rounded-[20px] border border-solid border-[#8D8D8D] homeSecondScreenImage order-2 lg:order-5 xl:order-5"
           />
         </div>
       ))}

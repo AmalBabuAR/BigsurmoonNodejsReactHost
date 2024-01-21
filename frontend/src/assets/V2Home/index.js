@@ -1,12 +1,13 @@
 import bgImage from "./homeImg.png";
 import bgImageMob from "./homeImgMob.png";
 import bgImageLap from "./homeImgLap.png";
+import homeVideo from './HomeVideoMuted.mp4'
 import pic1 from "./Image.png";
 import pic2 from "./Image2.png";
 import pic3 from "./image4.gif";
-import icon1 from "./iconOne.svg";
-import icon2 from "./iconTwo.svg";
-import icon3 from "./iconThree.svg";
+import icon1 from "./icon1.png";
+import icon2 from "./icon2.png";
+import icon3 from "./icon3.png";
 import Slide1 from "./Slide1.png";
 import Slide2 from "./Slide2.png";
 import Slide3 from "./Slide3.png";
@@ -25,6 +26,7 @@ export {
   bgImage,
   bgImageMob,
   bgImageLap,
+  homeVideo,
   pic1,
   pic2,
   pic3,

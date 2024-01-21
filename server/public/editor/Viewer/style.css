@@ -25,13 +25,13 @@ canvas {
 }
 
 .sectionOne {
-    display: -webkit-box; /* Safari */
-    display: flex;
-    -webkit-box-align: center; /* Safari */
-    align-items: center;
-    -webkit-box-pack: start; /* Safari */
-    justify-content: flex-start;
-    position: relative;
+  display: -webkit-box; /* Safari */
+  display: flex;
+  -webkit-box-align: center; /* Safari */
+  align-items: center;
+  -webkit-box-pack: start; /* Safari */
+  justify-content: flex-start;
+  position: relative;
 }
 
 model-viewer {
@@ -217,7 +217,7 @@ model-viewer {
     bottom: 0;
     left: 0;
     right: 0;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
 
   #fieldGroupSecond {

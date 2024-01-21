@@ -1,45 +1,53 @@
 import React from "react";
 import { ovel } from "../../assets/V2Home";
 import "../style.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const HomeConversionCard = () => {
+  const [fade, setFade] = React.useState(false);
+
+  const [fadeTwo, setFadeTwo] = React.useState(false);
+
   const [divOne, setDivOne] = React.useState(false);
 
   const [divTwo, setDivTwo] = React.useState(false);
 
   const handleEnterDivOne = () => {
     setDivOne(true);
+    setFade(true);
   };
 
   const handleLeaveDivOne = () => {
     setDivOne(false);
+    setFade(false);
   };
 
   const handleEnterDivTwo = () => {
     setDivTwo(true);
+    setFadeTwo(true);
   };
 
   const handleLeaveDivTwo = () => {
     setDivTwo(false);
+    setFadeTwo(false);
   };
 
   return (
     <>
       {" "}
-      <div className="w-full h-auto font-roboto text-white bg-black flex flex-col lg:flex-row xl:flex-row justify-center items-center gap-[25px] lg:gap-[64px] xl:gap-[100px] mx-auto p-[25px] lg:px-[50px] lg:py-[150px] xl:p-[100px] ">
+      <div className="w-full h-auto font-roboto text-white bg-black flex flex-col lg:flex-row xl:flex-row justify-center items-center gap-[25px] lg:gap-[64px] xl:gap-[100px] mx-auto px-[25px] py-[50px] lg:px-[50px] lg:py-[150px] xl:p-[100px] ">
         <div
           onTouchStart={handleEnterDivOne}
           onMouseEnter={handleEnterDivOne}
           onTouchEnd={handleLeaveDivOne}
           onMouseLeave={handleLeaveDivOne}
-          className={`${
-            divOne && "homeConversionCard"
+          className={`${divOne && "homeConversionCard"} ${
+            fade && "homeConversionCardFade"
           } flex flex-col justify-start items-start gap-[15px] px-[25px] py-[50px] lg:p-[50px] xl:p-[50px] border border-solid rounded-[15px] w-[343px] lg:w-[500px] xl:w-[574px] h-[419px] lg:h-[510px] xl:h-[510px]`}
         >
           <img
@@ -79,8 +87,8 @@ const HomeConversionCard = () => {
           onMouseEnter={handleEnterDivTwo}
           onTouchEnd={handleLeaveDivTwo}
           onMouseLeave={handleLeaveDivTwo}
-          className={`${
-            divTwo && "homeConversionCard"
+          className={`${divTwo && "homeConversionCard"} ${
+            fadeTwo && "homeConversionCardFade"
           } flex flex-col justify-start items-start gap-[15px] px-[25px] py-[50px] lg:p-[50px] xl:p-[50px] border border-solid rounded-[15px] w-[343px] lg:w-[500px] xl:w-[574px] h-[419px] lg:h-[510px] xl:h-[510px]`}
         >
           <img

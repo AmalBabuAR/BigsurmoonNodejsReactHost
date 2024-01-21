@@ -437,14 +437,14 @@ export const V2HomeScreen2Data = [
   {
     id: 2,
     img: icon2,
-    imgSpeck: `w-[57px] lg:w-[80px] xl:w-[80px] h-[56px] lg:h-[79px] xl:h-[79px]`,
+    imgSpeck: `w-[57px] lg:w-[103.291px] xl:w-[80px] h-[56px] lg:h-[102px] xl:h-[79px]`,
     title: "Targeted",
     dec: "Bigsurmoon is designed for enterprise and tailored to address the specific needs of businesses, unlocking a new era of visual storytelling to help businesses thrive in a competitive space.",
   },
   {
     id: 3,
     img: icon3,
-    imgSpeck: `w-[57px] lg:w-[80px] xl:w-[80px] h-[56px] lg:h-[78.596px] xl:h-[78.596px]`,
+    imgSpeck: `w-[57px] lg:w-[103.821px] xl:w-[80px] h-[56px] lg:h-[102px] xl:h-[78.596px]`,
     title: "All-in-one",
     dec: "A responsive 3D configurator, Augmented Reality ,platform to configure and publish, and a dedicated support team for the entire pipeline.",
   },
@@ -462,9 +462,9 @@ export const V2HomeScreen3Data = [
   {
     id: 2,
     title: "AUGMENTED REALITY",
-    titleHead: "Precise and detailed visualisation with Augmented reality",
+    titleHead: `Precise and detailed visualisation with Augmented reality`,
     desc: "One Augmented Reality platform, wide use cases. Closing the divide between online and offline shopping, our No-code Augmented Reality for e-commerce help audience to visualise products in their real-space with just a click with real-world scale.",
-    btn: "EXPLORE CONFIGURATIONS",
+    btn: "EXPLORE PLATFORM",
     img: pic2,
   },
   {
