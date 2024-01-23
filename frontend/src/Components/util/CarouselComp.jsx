@@ -27,7 +27,7 @@ const CarouselComp = () => {
     1: "https://bigsurmoon.com/editor/ModelViewer/?id=65aea1ed4e3deb609979a694",
     2: "https://bigsurmoon.com/editor/ModelViewer/?id=659c268abe41b4fd28f24a0c",
     3: "https://bigsurmoon.com/editor/ModelViewer/?id=659a7c8ebe41b4fd28f249da",
-    4: "https://bigsurmoon.com/home",
+    4: "https://bigsurmoon.com",
     5: "https://bigsurmoon.com/editor/ModelViewer/?id=6586ccb7fb64a82e0bb9b36b",
   };
 

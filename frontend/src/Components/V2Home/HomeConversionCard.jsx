@@ -56,7 +56,7 @@ const HomeConversionCard = () => {
             className="w-[100px] h-[98.729px] rounded-[100px] border border-solid border-[#fff]"
           />
           <p className="text-[14px] leading-[16.616px] tracking-[0.56px] opacity-75">
-            Founder: Fala & Bebe
+            Fala & Bebe
           </p>
           {divOne ? (
             <h1 className="xl:text-[22px] lg:text-[22px] text-[16px] leading-[20px] lg:leading-[33px] xl:leading-[33px] tracking-[0.88px] self-stretch">
@@ -97,7 +97,7 @@ const HomeConversionCard = () => {
             className="w-[100px] h-[98.729px] rounded-[100px] border border-solid border-[#fff]"
           />
           <p className="text-[14px] leading-[16.616px] tracking-[0.56px] opacity-75">
-            Founder: Travelluxis.in
+            Travelluxis.in
           </p>
           {divTwo ? (
             <h1 className="xl:text-[22px] lg:text-[22px] text-[16px] leading-[20px] lg:leading-[33px] xl:leading-[33px] tracking-[0.88px] self-stretch">
