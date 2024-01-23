@@ -84,10 +84,18 @@ const Router = createBrowserRouter([
     path: "/",
     element: (
       <Wrapper title="Bigsurmoon">
-        <Home />
+        <V2Home />
       </Wrapper>
     ),
   },
+  // {
+  //   path: "/home",
+  //   element: (
+  //     <Wrapper title="home">
+  //       <Home />
+  //     </Wrapper>
+  //   ),
+  // },
   {
     path: "/aboutar",
     element: (
@@ -203,14 +211,6 @@ const Router = createBrowserRouter([
     element: (
       <Wrapper title="Blog">
         <BlogCategory />
-      </Wrapper>
-    ),
-  },
-  {
-    path: "/home",
-    element: (
-      <Wrapper title="home">
-        <V2Home />
       </Wrapper>
     ),
   },

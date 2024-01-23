@@ -1,8 +1,17 @@
 import React from "react";
 import "../style.css";
+import { useNavigate } from "react-router-dom";
 
 const HomeScreenThree = (props) => {
-  // console.log(props);
+  const navigate = useNavigate();
+
+  const handleLinkClick = (id) => {
+    if (id === 1) {
+      navigate("/aboutconfigurator");
+    } else if (id === 2) {
+      navigate("/aboutar");
+    }
+  };
   return (
     <>
       {props.data.map((x) => (
@@ -24,9 +33,11 @@ const HomeScreenThree = (props) => {
             {x.desc}
           </p>
           <button
+            onClick={() => handleLinkClick(x.id)}
             className={`${
-              x.id === 3 && "bg-[#2875FF] lg:bg-transparent xl:bg-transparent"
-            } h-[30px] w-auto lg:h-[40px] lg:w-auto flex justify-center items-center px-[25px] lg:px-[25px] xl:px-[30px] py-auto lg:py-auto xl:py-[15px] text-[14px] lg:text-[18px] xl:text-[18px] font-medium border-2 border-solid border-[#0090F8] rounded-[20px] lg:rounded-[50px] xl:rounded-[50px] order-5 lg:order-4 xl:order-4`}
+              x.id === 3 &&
+              "bg-[#2875FF] lg:bg-transparent xl:bg-transparent cursor-default"
+            } h-[30px] w-auto lg:h-[40px] xl:h-[51px] flex justify-center items-center px-[25px] lg:px-[25px] xl:px-[30px] py-auto  text-[14px] lg:text-[18px] xl:text-[18px] font-medium border-2 border-solid border-[#0090F8] rounded-[20px] lg:rounded-[50px] xl:rounded-[50px] order-5 lg:order-4 xl:order-4`}
           >
             {x.btn}
           </button>

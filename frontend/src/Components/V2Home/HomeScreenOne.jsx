@@ -1,8 +1,10 @@
 import React from "react";
 import { homeVideo } from "../../assets/V2Home";
 import "../style.css";
+import { useNavigate } from "react-router-dom";
 
 const HomeScreenOne = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full bg-black text-white font-roboto h-auto lg:h-auto xl:h-auto mx-auto overflow-hidden">
       <div className="min-w-[320px] max-w-[450px] lg:max-w-[1280px] xl:max-w-[1920px] mx-auto  mt-[60px] lg:mt-0 xl:mt-0 relative">
@@ -42,7 +44,10 @@ const HomeScreenOne = () => {
                 No downloads, no-code: all in the browser.
               </span>
             </p>
-            <button className="h-[27px] lg:h-[40px] flex justify-center items-center text-[14px] lg:text-[18px] xl:text-[18px] tracking-[0.56px] lg:tracking-[0px] xl:tracking-[0px] font-medium px-[15px] lg:px-[25px] xl:px-[50px] py-auto lg:py-auto xl:py-[20px] btnClr rounded-[20px] lg:rounded-[50px] xl:rounded-[50px]">
+            <button
+              onClick={() => navigate("/plan")}
+              className="h-[27px] lg:h-[40px] xl:h-[61px] flex justify-center items-center text-[14px] lg:text-[18px] xl:text-[18px] tracking-[0.56px] lg:tracking-[0px] xl:tracking-[0px] font-medium px-[15px] lg:px-[25px] xl:px-[50px] py-auto  btnClr rounded-[20px] lg:rounded-[50px] xl:rounded-[50px]"
+            >
               Get started for free
             </button>
           </div>

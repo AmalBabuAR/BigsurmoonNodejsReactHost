@@ -1,7 +1,7 @@
 import bgImage from "./homeImg.png";
 import bgImageMob from "./homeImgMob.png";
 import bgImageLap from "./homeImgLap.png";
-import homeVideo from './HomeVideoMuted.mp4'
+import homeVideo from "./HomeVideo.mp4";
 import pic1 from "./Image.png";
 import pic2 from "./Image2.png";
 import pic3 from "./image4.gif";
@@ -18,7 +18,8 @@ import SlideMob2 from "./SlideMob2.png";
 import SlideMob3 from "./SlideMob3.png";
 import SlideMob4 from "./SlideMob4.png";
 import SlideMob5 from "./SlideMob5.png";
-import ovel from "./Oval.png";
+import ovelOne from "./EngaImgOne.png";
+import ovelTwo from "./EngaImgTwo.png";
 import google from "./Google_Ads_logo.png";
 import shopify from "./Shopify_Logo.png";
 
@@ -43,7 +44,8 @@ export {
   SlideMob3,
   SlideMob4,
   SlideMob5,
-  ovel,
+  ovelOne,
+  ovelTwo,
   google,
   shopify,
 };

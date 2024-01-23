@@ -38,7 +38,7 @@ const Home3DModel = () => {
       </p>
       <button
         onClick={handelCopyBtn}
-        className="lg:h-[40px] lg:w-auto flex justify-center items-center px-[25px] lg:px-[30px] xl:px-[30px] py-[7.5px] lg:py-auto xl:py-[15px] text-[10px] lg:text-[18px] xl:text-[18px] font-medium border-2 border-solid border-[#0090F8] rounded-[20px] lg:rounded-[50px] xl:rounded-[50px]"
+        className=" h-[30px] lg:h-[40px] xl:h-[51px] w-auto flex justify-center items-center px-[25px] lg:px-[30px] xl:px-[30px] py-auto text-[16px] lg:text-[18px] xl:text-[18px] font-medium border-2 border-solid border-[#0090F8] rounded-[20px] lg:rounded-[50px] xl:rounded-[50px]"
       >
         {copyText}
       </button>

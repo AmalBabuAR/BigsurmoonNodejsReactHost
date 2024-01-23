@@ -73,7 +73,7 @@ const DeleteModal = (props) => {
             {deleting && deleting ? (
               <>
                 <ImSpinner className="animate-spin" />
-                <p>Deteting</p>
+                <p>Deleting</p>
               </>
             ) : (
               "Delete"

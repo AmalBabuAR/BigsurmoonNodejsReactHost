@@ -1,5 +1,5 @@
 import React from "react";
-import { ovel } from "../../assets/V2Home";
+import { ovelOne, ovelTwo } from "../../assets/V2Home";
 import "../style.css";
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
@@ -51,9 +51,9 @@ const HomeConversionCard = () => {
           } flex flex-col justify-start items-start gap-[15px] px-[25px] py-[50px] lg:p-[50px] xl:p-[50px] border border-solid rounded-[15px] w-[343px] lg:w-[500px] xl:w-[574px] h-[419px] lg:h-[510px] xl:h-[510px]`}
         >
           <img
-            src={ovel}
-            alt=""
-            className="w-[100px] h-[98.729px] rounded-[100px]"
+            src={ovelOne}
+            alt="Fala"
+            className="w-[100px] h-[98.729px] rounded-[100px] border border-solid border-[#fff]"
           />
           <p className="text-[14px] leading-[16.616px] tracking-[0.56px] opacity-75">
             Founder: Fala & Bebe
@@ -92,12 +92,12 @@ const HomeConversionCard = () => {
           } flex flex-col justify-start items-start gap-[15px] px-[25px] py-[50px] lg:p-[50px] xl:p-[50px] border border-solid rounded-[15px] w-[343px] lg:w-[500px] xl:w-[574px] h-[419px] lg:h-[510px] xl:h-[510px]`}
         >
           <img
-            src={ovel}
-            alt=""
-            className="w-[100px] h-[98.729px] rounded-[100px]"
+            src={ovelTwo}
+            alt="Travelluxis"
+            className="w-[100px] h-[98.729px] rounded-[100px] border border-solid border-[#fff]"
           />
           <p className="text-[14px] leading-[16.616px] tracking-[0.56px] opacity-75">
-            C.E.O: Traveluxis.in
+            Founder: Travelluxis.in
           </p>
           {divTwo ? (
             <h1 className="xl:text-[22px] lg:text-[22px] text-[16px] leading-[20px] lg:leading-[33px] xl:leading-[33px] tracking-[0.88px] self-stretch">

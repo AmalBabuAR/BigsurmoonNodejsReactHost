@@ -17,6 +17,8 @@ const Navbar = () => {
   const [user, setUser] = useState(false);
   const [activeButton, setActiveButton] = useState(null);
   const [aboutMobOpen, SetAboutMobOpen] = useState(false);
+  const [home, setHome] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const navigate = useNavigate();
   const youtubeLink =
@@ -63,10 +65,31 @@ const Navbar = () => {
 
   useEffect(() => {
     const pathname = window.location.pathname;
+    if (pathname === "/") {
+      setHome(true);
+    } else {
+      setHome(false);
+    }
     const parts = pathname.split("/");
     const lastPart = parts[parts.length - 1];
 
     setPageName(lastPart);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight / 2) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
   // console.log(pageName);
   return (
@@ -227,7 +250,11 @@ const Navbar = () => {
       </div>
 
       <div className="hidden lg:block fixed text-white font-roboto font-medium z-10  ">
-        <div className="w-screen bg-black opacity-30">
+        <div
+          className={`${home && "opacity-100"} ${
+            home && scrolled && "opacity-100"
+          } w-screen bg-black `}
+        >
           <div className="max-w-[1440px] mx-auto">
             <div className="flex justify-between px-10 items-center">
               <div>
@@ -343,7 +370,9 @@ const Navbar = () => {
         </div>
         {showDropdown && (
           <div
-            className="bg-black w-[90vw] mx-auto p-[25px] flex justify-evenly"
+            className={`${home && "opacity-100"} ${
+              home && scrolled && "opacity-100"
+            } bg-black w-[90vw] mx-auto p-[25px] flex justify-evenly`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
