@@ -11,6 +11,8 @@ const HomeScreenOne = () => {
         <video
           autoPlay
           muted
+          preload="auto"
+          playsInline
           loop
           className=" xl:hidden lg:hidden w-full h-auto"
         >
@@ -20,6 +22,7 @@ const HomeScreenOne = () => {
           autoPlay
           muted
           loop
+          playsInline
           className="videot hidden xl:block lg:block"
           id="videot"
           height="100%"
