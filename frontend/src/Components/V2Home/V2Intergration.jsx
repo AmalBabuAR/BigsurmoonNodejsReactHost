@@ -18,15 +18,19 @@ const V2Intergration = () => {
       <div className="flex justify-center lg:justify-normal xl:justify-normal w-full lg:w-auto xl:w-auto gap-[50px] lg:gap-[50px] xl:gap-[100px]">
         <button
           onClick={() => navigate("/support")}
-          className="btnClr w-auto h-[30px] lg:h-[40px] xl:h-[61px] flex justify-center items-center text-[16px] lg:text-[18px] xl:text-[18px] tracking-[0.64px] lg:tracking-[0.72px] px-[20px]  lg:px-[20px] xl:px-[50px] py-auto rounded-[21px] lg:rounded-[51px] xl:rounded-[51px] font-medium"
+          className="btnClr w-auto h-[30px] lg:h-[40px] xl:h-[61px] flex justify-center items-center  px-[20px]  lg:px-[20px] xl:px-[50px] py-auto  rounded-[21px] lg:rounded-[51px] xl:rounded-[51px] "
         >
-          Talk to Experts
+          <h1 className="h-auto w-[116px] lg:w-[130px] text-[16px] lg:text-[18px] xl:text-[18px] tracking-[0.64px] lg:tracking-[0.72px] font-medium">
+            Talk to Experts
+          </h1>
         </button>
         <button
           onClick={() => navigate("/plan")}
-          className="btnClr w-auto h-[30px] lg:h-[40px] xl:h-[61px] flex justify-center items-center text-[16px] lg:text-[18px] xl:text-[18px] tracking-[0.64px] lg:tracking-[0.72px] px-[20px] lg:px-[25px] xl:px-[44px] py-auto rounded-[21px] lg:rounded-[51px] xl:rounded-[51px] font-medium"
+          className="btnClr w-auto h-[30px] lg:h-[40px] xl:h-[61px] flex justify-center items-center  px-[20px] lg:px-[25px] xl:px-[44px] py-auto rounded-[21px] lg:rounded-[51px] xl:rounded-[51px]"
         >
-          Start Trial
+          <h1 className="h-auto w-[87px] text-[16px] lg:text-[18px] xl:text-[18px] tracking-[0.64px] lg:tracking-[0.72px] font-medium">
+            Start Trial
+          </h1>
         </button>
       </div>
     </div>

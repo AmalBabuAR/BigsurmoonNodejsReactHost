@@ -1,5 +1,5 @@
 import React from "react";
-import { homeVideo } from "../../assets/V2Home";
+import { homeVideo, homeVideoMob } from "../../assets/V2Home";
 import "../style.css";
 import { useNavigate } from "react-router-dom";
 
@@ -7,16 +7,16 @@ const HomeScreenOne = () => {
   const navigate = useNavigate();
   return (
     <div className="w-full bg-black text-white font-roboto h-auto lg:h-auto xl:h-auto mx-auto overflow-hidden">
-      <div className="min-w-[320px] max-w-[450px] lg:max-w-[1280px] xl:max-w-[1920px] mx-auto  mt-[60px] lg:mt-0 xl:mt-0 relative">
+      <div className="min-w-[320px] max-w-[450px] lg:max-w-[1280px] xl:max-w-[1920px] mx-auto mt-0 relative">
         <video
           autoPlay
           muted
           preload="auto"
           playsInline
           loop
-          className=" xl:hidden lg:hidden w-full h-auto"
+          className=" xl:hidden lg:hidden w-screen max-w-[450px] mx-auto h-screen"
         >
-          <source src={homeVideo} type="video/mp4" />
+          <source src={homeVideoMob} type="video/mp4" />
         </video>
         <video
           autoPlay
@@ -35,7 +35,7 @@ const HomeScreenOne = () => {
             <param name="loop" value="true" />
           </object>
         </video>
-        <div className="absolute top-0 left-0 right-0 mx-auto">
+        <div className="absolute top-[35vh] xl:top-0 lg:top-0 left-0 right-0 mx-auto">
           <div className="flex flex-col justify-center items-center homeCreateVirtual py-[25px] lg:py-0 xl:py-0 text-center gap-[15px] lg:gap-[25px] xl:gap-[25px] lg:mt-[90px]">
             <h1 className="text-[26px] lg:text-[100px] xl:text-[100px] leading-[26px] lg:leading-[100px] xl:leading-[100px] font-bold blogTextShadow">
               Create Virtual <br className="lg:block xl:block hidden" />

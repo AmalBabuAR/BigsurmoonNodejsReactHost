@@ -8,11 +8,13 @@ import {
   Slide3,
   Slide4,
   Slide5,
+  Slide6,
   SlideMob1,
   SlideMob2,
   SlideMob3,
   SlideMob4,
   SlideMob5,
+  SlideMob6,
 } from "../../assets/V2Home";
 import "../util/swiper.css";
 import "swiper/css";
@@ -24,11 +26,12 @@ const CarouselComp = () => {
   const [activeSlot, setActiveSlot] = useState(0);
 
   const urls = {
-    1: "https://bigsurmoon.com/editor/ModelViewer/?id=65aea1ed4e3deb609979a694",
+    1: "https://bigsurmoon.com/editor/ModelViewer/?id=659a7c8ebe41b4fd28f249da",
     2: "https://bigsurmoon.com/editor/ModelViewer/?id=659c268abe41b4fd28f24a0c",
-    3: "https://bigsurmoon.com/editor/ModelViewer/?id=659a7c8ebe41b4fd28f249da",
-    4: "https://bigsurmoon.com",
-    5: "https://bigsurmoon.com/editor/ModelViewer/?id=6586ccb7fb64a82e0bb9b36b",
+    3: "https://bigsurmoon.com/editor/ModelViewer/?id=65ae1c514e3deb609979a664",
+    4: "https://bigsurmoon.com/editor/ModelViewer/?id=65ab560ce8c9b2d4a0a655d7",
+    5: "https://bigsurmoon.com/editor/ModelViewer/?id=65492fbc23d350407c12e11a",
+    6: "https://bigsurmoon.com/editor/ModelViewer/?id=65af85680dd34c73a74dad1c",
   };
 
   function handleViewDemo() {
@@ -155,12 +158,29 @@ const CarouselComp = () => {
             />
           )}
         </SwiperSlide>
+        <SwiperSlide>
+          {window.innerWidth < 768 ? (
+            <img
+              slot="6"
+              src={SlideMob6}
+              alt="slide_image"
+              className="object-cover swiperImg"
+            />
+          ) : (
+            <img
+              slot="6"
+              src={Slide6}
+              alt="slide_image"
+              className="w-full h-full object-cover"
+            />
+          )}
+        </SwiperSlide>
         <div className="flex justify-center items-center flex-col ">
           <div className="">
             <div className="mt-[35px] flex justify-center items-center flex-col gap-[25px]">
               {activeSlot == 1 && (
                 <>
-                  <p className={style.p}>Automobile</p>
+                  <p className={style.p}>Education</p>
                   <button className={style.btn} onClick={handleViewDemo}>
                     View Demo
                   </button>
@@ -176,7 +196,7 @@ const CarouselComp = () => {
               )}
               {activeSlot == 3 && (
                 <>
-                  <p className={style.p}>Education</p>
+                  <p className={style.p}>Electronics</p>
                   <button className={style.btn} onClick={handleViewDemo}>
                     View Demo
                   </button>
@@ -184,7 +204,7 @@ const CarouselComp = () => {
               )}
               {activeSlot == 4 && (
                 <>
-                  <p className={style.p}>Electronics</p>
+                  <p className={style.p}>Gym Equipments</p>
                   <button className={style.btn} onClick={handleViewDemo}>
                     View Demo
                   </button>
@@ -192,7 +212,15 @@ const CarouselComp = () => {
               )}
               {activeSlot == 5 && (
                 <>
-                  <p className={style.p}>Gym Equipments</p>
+                  <p className={style.p}>Furniture</p>
+                  <button className={style.btn} onClick={handleViewDemo}>
+                    View Demo
+                  </button>
+                </>
+              )}
+              {activeSlot == 6 && (
+                <>
+                  <p className={style.p}>Automobile</p>
                   <button className={style.btn} onClick={handleViewDemo}>
                     View Demo
                   </button>
@@ -200,7 +228,7 @@ const CarouselComp = () => {
               )}
             </div>
           </div>
-          <div className=" flex justify-center items-center xl:gap-[10px] mt-[15px] w-[190px]">
+          <div className=" flex justify-center items-center xl:gap-[10px] mt-[15px] w-auto">
             <div>
               {" "}
               <IoArrowBackOutline className="text-[25px] xl:text-[45px] text-[#999999] cursor-pointer prevv" />
