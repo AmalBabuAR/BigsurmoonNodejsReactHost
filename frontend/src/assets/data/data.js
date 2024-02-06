@@ -456,7 +456,7 @@ export const V2HomeScreen3Data = [
     title: "PLATFORM",
     titleHead: "Powerful 3D and AR tools that drive conversions",
     desc: "Bigsurmoon’s interactive and responsive engine is precisely crafted to ensuring sustained audience engagement, create inspirations, educate audience and drive sales. Craft your visual storytelling to the next level.",
-    btn: "LEARN MORE",
+    btn: "EXPLORE PLATFORM",
     img: pic1,
   },
   {
@@ -464,7 +464,7 @@ export const V2HomeScreen3Data = [
     title: "AUGMENTED REALITY",
     titleHead: `Precise and detailed visualisation with Augmented reality`,
     desc: "One Augmented Reality platform, wide use cases. Closing the divide between online and offline shopping, our No-code Augmented Reality for e-commerce help audience to visualise products in their real-space with just a click with real-world scale.",
-    btn: "EXPLORE PLATFORM",
+    btn: "LEARN MORE",
     img: pic2,
   },
   {
