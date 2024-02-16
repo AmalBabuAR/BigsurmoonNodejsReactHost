@@ -34,7 +34,7 @@ const Home3DModel = () => {
       </p>
       <p className="hidden lg:block xl:block lg:w-[1064px] xl:w-[1258px] lg:text-[20px] xl:text-[20px]  lg:leading-[27px] xl:leading-[27px] font-bold">
         Try it out. Copy the link and add it to any catalog, website, social
-        mediaor a presentation.
+        media or a presentation.
       </p>
       <button
         onClick={handelCopyBtn}
