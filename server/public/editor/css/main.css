@@ -1716,6 +1716,169 @@ select:hover {
   }
 }
 
+/* LIGHT MODE */
+
+@media (prefers-color-scheme: light) {
+  button {
+    color: #aaa;
+    background-color: #222;
+  }
+
+  button:hover {
+    color: #ccc;
+    background-color: #444;
+  }
+
+  .toolbarButton:hover {
+    background-color: #4a4a4a;
+  }
+  .toolbarButton.selected {
+    background-color: #1d8ee6;
+  }
+
+  button.selected {
+    color: #fff;
+    background-color: #08f;
+  }
+
+  input,
+  textarea {
+    background-color: #222;
+    border: 1px solid transparent;
+    color: #888;
+  }
+
+  select {
+    color: #aaa;
+    background-color: #222;
+  }
+
+  select:hover {
+    color: #ccc;
+    background-color: #444;
+  }
+
+  /* UI */
+
+  #menubar {
+    background: #1f1f1f;
+  }
+
+  #menubar .menu .options {
+    background: #111;
+  }
+
+  #menubar .menu .options hr {
+    border-color: #222;
+  }
+
+  #menubar .menu .options .option {
+    color: #888;
+  }
+
+  #menubar .menu .options .inactive {
+    color: #444;
+  }
+
+  #sidebar {
+    background-color: #1f1f1f;
+  }
+  /*BSM dev added new sidebarConfig color */
+  #sidebarConfig {
+    background-color: #1f1f1f;
+  }
+  #newUI_SidebarConfig {
+    background-color: #1f1f1f;
+  }
+
+  #sidebar .Panel {
+    border-top: 1px solid #222;
+  }
+
+  #sidebar .Panel.Material canvas {
+    border: solid 1px #5a5a5a;
+  }
+
+  #tabs {
+    background-color: #1b1b1b;
+    border-top: 1px solid #222;
+  }
+
+  #tabs span {
+    color: #555;
+    border-right: 1px solid #222;
+  }
+
+  #tabs span.selected {
+    background-color: #111;
+  }
+
+  #toolbar {
+    background-color: #1f1f1f;
+  }
+
+  #toolbar img {
+    filter: invert(1);
+  }
+
+  .Outliner {
+    color: #fff;
+    background: #1f1f1f;
+  }
+
+  .Outliner .option:hover {
+    background-color: rgba(21, 60, 94, 0.5);
+  }
+
+  .Outliner .option.active {
+    background-color: #1d8ee6;
+  }
+
+  .TabbedPanel .Tabs {
+    background-color: #1b1b1b;
+    border-top: 1px solid #222;
+  }
+
+  .TabbedPanel .Tab {
+    color: #555;
+    border-right: 1px solid #222;
+  }
+
+  .TabbedPanel .Tab.selected {
+    color: #888;
+    background-color: #111;
+  }
+
+  .Listbox {
+    color: #888;
+    background: #222;
+  }
+
+  .Listbox .ListboxItem:hover {
+    background-color: rgba(21, 60, 94, 0.5);
+  }
+
+  .Listbox .ListboxItem.active {
+    background-color: rgba(21, 60, 94, 1);
+  }
+
+  #configurationHeader {
+    color: white;
+  }
+
+  #materialHeader {
+    color: white;
+  }
+
+  #attributeHeader {
+    color: white;
+  }
+
+  .newTextureList span {
+    color: white;
+  }
+}
+
 /* Temporary Chrome fix (#24794) */
 
 [draggable="true"] {
