@@ -85,7 +85,7 @@ app.get("/editor/ModelViewer/", (req, res) => {
 });
 
 app.get("/configurator/", (req, res) => {
-  res.sendFile(__dirname + "/views/viewer.html");
+  res.sendFile(__dirname + "/views/configurator.html");
 });
 
 app.get("/editor/Viewer/", (req, res) => {
