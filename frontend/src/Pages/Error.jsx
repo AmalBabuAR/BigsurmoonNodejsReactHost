@@ -12,7 +12,7 @@ const Error = () => {
         <img src={img} alt="" className="" />
       </div>
       <div className="flex flex-col top-[40vh] items-end right-0 absolute mr-[10vw]">
-        <h1 className="text-[48px] font-bold ">Are you lost?</h1>
+        <h2 className="text-[48px] font-bold ">Are you lost?</h2>
         <p className="mt-[28px] text-right text-[24px] font-medium">
           Looks like the page you were looking <br />
           for is not found.

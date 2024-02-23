@@ -30,7 +30,7 @@ function Preview(editor) {
 	button.onClick(() => {
 		const idFromUrl = getQueryParam("id");
 		console.log("BUTTON", idFromUrl);
-		const url = `https://bigsurmoon.com/editor/ModelViewer/?id=${idFromUrl}`;
+		const url = `https://bigsurmoon.com/configurator/?id=${idFromUrl}`;
 
 		// Redirect to the new URL
 		// window.location.href = url

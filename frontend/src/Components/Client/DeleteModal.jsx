@@ -52,12 +52,12 @@ const DeleteModal = (props) => {
             </svg>
           </button>
         </div>
-        <h1 className="text-[24px] font-medium leading-[26px] text-[#F1EEF9]">
+        <h4 className="text-[24px] font-medium leading-[26px] text-[#F1EEF9]">
           Are you sure you wanna delete this ?
-        </h1>
-        <h1 className="mt-[18px] text-[14px] font-normal leading-5">
+        </h4>
+        <h4 className="mt-[18px] text-[14px] font-normal leading-5">
           This Process cannot be undone.
-        </h1>
+        </h4>
 
         <div className="flex justify-center gap-5 mt-[40px]">
           <button

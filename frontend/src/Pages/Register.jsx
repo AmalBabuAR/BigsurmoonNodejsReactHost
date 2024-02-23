@@ -88,7 +88,7 @@ const Register = () => {
             className="mx-auto  absolute -z-10 w-screen h-full "
           />
           <div className=" flex flex-col justify-center h-full items-center  ">
-            <h1 className="invisible w-screen">e</h1>
+            <p className="invisible w-screen">e</p>
             <h1 className="text-white text-3xl  font-bold shadow-md mb-9">
               Get Started
             </h1>

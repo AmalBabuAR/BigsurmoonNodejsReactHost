@@ -9,24 +9,24 @@ const EmbedModal = (props) => {
   const [copyText, setCopyText] = useState("Copy to Clipboard");
 
   const [urlValue, setUrlValue] = useState(
-    `https://bigsurmoon.com/editor/ModelViewer/?id=${props.embedID}`
+    `https://bigsurmoon.com/configurator/?id=${props.embedID}`
   );
 
   const [inputValue, setInputValue] = useState(
-    `<div> <iframe src="https://bigsurmoon.com/editor/ModelViewer/?id=${props.embedID}" frameborder="0" width="${width}" height="${height}" > </iframe> </div>`
+    `<iframe src="https://bigsurmoon.com/configurator/?id=${props.embedID}" frameborder="0" width="${width}" height="${height}" > </iframe>`
   );
 
   const handleWidthChange = (e) => {
     setWidth(e.target.value);
     setInputValue(
-      `<div> <iframe src="https://bigsurmoon.com/editor/ModelViewer/?id=${props.embedID}" frameborder="0" width="${e.target.value}" height="${height}" > </iframe> </div>`
+      `<iframe src="https://bigsurmoon.com/configurator/?id=${props.embedID}" frameborder="0" width="${e.target.value}" height="${height}" > </iframe>`
     );
   };
 
   const handleHeightChange = (e) => {
     setHeight(e.target.value);
     setInputValue(
-      `<div> <iframe src="https://bigsurmoon.com/editor/ModelViewer/?id=${props.embedID}" frameborder="0" width="${width}" height="${e.target.value}" > </iframe> </div>`
+      `<iframe src="https://bigsurmoon.com/configurator/?id=${props.embedID}" frameborder="0" width="${width}" height="${e.target.value}" > </iframe>`
     );
   };
 
@@ -59,9 +59,9 @@ const EmbedModal = (props) => {
     <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-70">
       <div className="bg-[#232234] text-gray-400 px-[52px] py-[37px] w-[300px]  xl:w-[721px] xl:h-auto rounded-lg font-roboto">
         <div className="flex justify-between items-center">
-          <h1 className="text-left text-[24px] font-medium leading-[26px] text-[#F1EEF9] ">
+          <h4 className="text-left text-[24px] font-medium leading-[26px] text-[#F1EEF9] ">
             Share/Embed
-          </h1>
+          </h4>
           <button
             onClick={handleCloseButton}
             className=" w-[44px] h-[44px] rounded-[10px] border border-solid border-[#545454] hover:bg-[#0000008e] bg-black flex items-center justify-center"
@@ -81,12 +81,12 @@ const EmbedModal = (props) => {
           </button>
         </div>
         <div className="mt-[18px] flex flex-row items-center">
-          <h1 className="text-[14px] mt-3 font-normal leading-5">
+          <h4 className="text-[14px] mt-3 font-normal leading-5">
             Choose Resolution
-          </h1>
+          </h4>
           <div className="ml-[15px] flex flex-row gap-[9px]">
             <div className="">
-              <h1 className="text-[10px] font-light  leading-5">Width</h1>
+              <h4 className="text-[10px] font-light  leading-5">Width</h4>
               <input
                 type="number"
                 value={width}
@@ -95,7 +95,7 @@ const EmbedModal = (props) => {
               />
             </div>
             <div>
-              <h1 className="text-[10px] font-light leading-5">Height</h1>
+              <h4 className="text-[10px] font-light leading-5">Height</h4>
               <input
                 type="number"
                 value={height}

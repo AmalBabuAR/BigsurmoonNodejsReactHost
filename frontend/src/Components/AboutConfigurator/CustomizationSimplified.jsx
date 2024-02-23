@@ -30,20 +30,20 @@ const CustomizationSimplified = () => {
         </div>
         <div>
           <div className="flex flex-col justify-center  content-center items-center   md:items-start mt-5 mb-5  ">
-            <h3 className="text-[35px] md:text-4xl font-outfit font-medium  ">
+            <h1 className="text-[35px] md:text-4xl font-outfit font-medium  ">
               Customization,
-            </h3>
+            </h1>
 
-            <h3 className="text-[35px] md:text-4xl font-outfit font-medium  ">
+            <h1 className="text-[35px] md:text-4xl font-outfit font-medium  ">
               Simplified
-            </h3>
+            </h1>
           </div>
 
           <div className="text-xl md:text-2xl text-center md:text-left flex justify-center md:justify-start  mb-5 ">
-            <h3 className="text-sm w-[300px]">
+            <h2 className="text-sm w-[300px]">
               No-Code, No app required. <br />
               Completely web-based and easy-to-use.
-            </h3>
+            </h2>
           </div>
           <div className="w-[320px] flex justify-around mx-auto md:mx-0 mb-10">
             <button

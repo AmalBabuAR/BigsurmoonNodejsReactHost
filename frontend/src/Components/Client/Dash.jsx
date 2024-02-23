@@ -68,7 +68,8 @@ const Dash = () => {
 
   //view click
   function handleViewClick(id) {
-    const link = `${URL}/editor/ModelViewer/?id=${id}`;
+    // viewer link
+    const link = `${URL}/configurator/?id=${id}`;
     window.open(link, "_blank");
   }
 
@@ -98,6 +99,7 @@ const Dash = () => {
         // console.log("req coming in if");
         const id = res.data.newProject._id;
         const newFile = true;
+        // editor link
         const link = `${URL}/editor/?id=${id}&new=${newFile}`;
         setTimeout(() => {
           win.location.href = link;
@@ -209,24 +211,24 @@ const Dash = () => {
                   />
 
                   <div>
-                    <h1 className="lg:text-[19px] text-[15px] md:text-[19px]">
+                    <h3 className="lg:text-[19px] text-[15px] md:text-[19px]">
                       New file
-                    </h1>
-                    <h1 className="lg:text-[16px] md:text-[16px] text-[12px] opacity-50">
+                    </h3>
+                    <h3 className="lg:text-[16px] md:text-[16px] text-[12px] opacity-50">
                       Design and prototype
-                    </h1>
+                    </h3>
                   </div>
                 </div>
-                <h1 className="mr-4 lg:text-4xl md:text-4xl text-3xl text-gray-400">
+                <h3 className="mr-4 lg:text-4xl md:text-4xl text-3xl text-gray-400">
                   +
-                </h1>
+                </h3>
               </div>
               {isModalOpen && (
                 <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-70">
                   <div className="bg-[#232234] text-gray-400 p-6 w-[300px]  xl:w-[500px] xl:h-auto rounded-lg">
-                    <h1 className="xl:my-4 text-center text-xl  text-white font-bold">
+                    <h3 className="xl:my-4 text-center text-xl  text-white font-bold">
                       Create A New Project
-                    </h1>
+                    </h3>
                     {err && (
                       <p className="text-red-700 text-center text-sm">{err}</p>
                     )}
@@ -261,7 +263,7 @@ const Dash = () => {
 
           {list ? (
             <div className="">
-              <h1 className="text-white mt-[72px] mb-3">Projects</h1>
+              <h3 className="text-white mt-[72px] mb-3">Projects</h3>
               <div className={`${screen ? "h-full" : "h-screen"}`}>
                 <div></div>
                 <div className="text-white border-gray-500 rounded-lg mx-auto h-full">
@@ -355,9 +357,9 @@ const Dash = () => {
             </div>
           ) : (
             <div className="h-screen flex justify-center items-center">
-              <h1 className="h-[50vh] text-gray-500 text-lg">
+              <h3 className="h-[50vh] text-gray-500 text-lg">
                 Your Recent Project will Appear here
-              </h1>
+              </h3>
             </div>
           )}
         </div>

@@ -76,12 +76,12 @@ const PricingCard = () => {
         {pricingDetails.map((p) => (
           <div className="bg-[#0F1425] rounded-[20px] lg:w-[400px]" key={p.id}>
             <div className="my-[40px] lg:my-[50px] mx-[28px] lg:mx-[46px]  font-outfit">
-              <h1 className="text-[28px] lg:text-[30px] font-bold text-[#EFEFEF]">
+              <h2 className="text-[28px] lg:text-[30px] font-bold text-[#EFEFEF]">
                 {p.title}
-              </h1>
-              <h1 className="mt-[5px] lg:mt-[10px] text-[12px] pr-[120px] lg:pr-0 lg:text-[12.8px] font-normal leading-[18px] lg:leading-5 text-[#F1F1F1]">
+              </h2>
+              <p className="mt-[5px] lg:mt-[10px] text-[12px] pr-[120px] lg:pr-0 lg:text-[12.8px] font-normal leading-[18px] lg:leading-5 text-[#F1F1F1]">
                 {p.desc}
-              </h1>
+              </p>
               <div className="mt-[35px] lg:mt-[40px] flex flex-row">
                 {yearStarter && p.id === 1 && (
                   <>
@@ -89,23 +89,22 @@ const PricingCard = () => {
                       onClick={() => handleMonthely(p.id)}
                       className="w-[172px] h-[41px] flex flex-col justify-center items-center  bg-[#1C1C1C] rounded-l-3xl"
                     >
-                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
-                      <h1 className="text-[10px] font-normal">
+                      <h4 className="text-[12px] font-bold">Pay Monthly</h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit monthly
-                      </h1>
+                      </h4>
                     </button>
                     <button
                       onClick={() => handleYearly(p.id)}
-                      className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px]
-              "
+                      className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px]"
                     >
-                      <h1 className="text-[12px] font-bold">
+                      <h4 className="text-[12px] font-bold">
                         Pay Upfront{" "}
                         <span className="text-[#31A8FE]">SAVE 10%</span>
-                      </h1>
-                      <h1 className="text-[10px] font-normal">
+                      </h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit Annually
-                      </h1>
+                      </h4>
                     </button>
                   </>
                 )}
@@ -115,23 +114,23 @@ const PricingCard = () => {
                       onClick={() => handleMonthely(p.id)}
                       className="w-[147px] h-[46px] flex flex-col justify-center items-center bg-black rounded-3xl mr-[-12px] z-10 border-[#2482FF] border border-solid px-[9px] py-[12px]"
                     >
-                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
-                      <h1 className="text-[10px] font-normal">
+                      <h4 className="text-[12px] font-bold">Pay Monthly</h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit monthly
-                      </h1>
+                      </h4>
                     </button>
                     <button
                       onClick={() => handleYearly(p.id)}
-                      className=" w-[172px] h-[41px]  flex flex-col justify-center items-center bg-[#1C1C1C]  rounded-r-3xl 
+                      className=" w-[172px] h-[41px] flex flex-col justify-center items-center bg-[#1C1C1C] rounded-r-3xl 
               "
                     >
-                      <h1 className="text-[12px] font-bold">
+                      <h4 className="text-[12px] font-bold">
                         Pay Upfront{" "}
                         <span className="text-[#31A8FE]">SAVE 10%</span>
-                      </h1>
-                      <h1 className="text-[10px] font-normal">
+                      </h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit Annually
-                      </h1>
+                      </h4>
                     </button>
                   </>
                 )}
@@ -141,23 +140,22 @@ const PricingCard = () => {
                       onClick={() => handleMonthely(p.id)}
                       className="w-[172px] h-[41px] flex flex-col justify-center items-center  bg-[#1C1C1C] rounded-l-3xl"
                     >
-                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
-                      <h1 className="text-[10px] font-normal">
+                      <h4 className="text-[12px] font-bold">Pay Monthly</h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit monthly
-                      </h1>
+                      </h4>
                     </button>
                     <button
                       onClick={() => handleYearly(p.id)}
-                      className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px]
-          "
+                      className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px]"
                     >
-                      <h1 className="text-[12px] font-bold">
+                      <h4 className="text-[12px] font-bold">
                         Pay Upfront{" "}
                         <span className="text-[#31A8FE]">SAVE 10%</span>
-                      </h1>
-                      <h1 className="text-[10px] font-normal">
+                      </h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit Annually
-                      </h1>
+                      </h4>
                     </button>
                   </>
                 )}
@@ -167,23 +165,22 @@ const PricingCard = () => {
                       onClick={() => handleMonthely(p.id)}
                       className="w-[147px] h-[46px] flex flex-col justify-center items-center bg-black rounded-3xl mr-[-12px] z-10 border-[#2482FF] border border-solid px-[9px] py-[12px]"
                     >
-                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
-                      <h1 className="text-[10px] font-normal">
+                      <h4 className="text-[12px] font-bold">Pay Monthly</h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit monthly
-                      </h1>
+                      </h4>
                     </button>
                     <button
                       onClick={() => handleYearly(p.id)}
-                      className=" w-[172px] h-[41px]  flex flex-col justify-center items-center bg-[#1C1C1C]  rounded-r-3xl 
-          "
+                      className=" w-[172px] h-[41px]  flex flex-col justify-center items-center bg-[#1C1C1C]  rounded-r-3xl"
                     >
-                      <h1 className="text-[12px] font-bold">
+                      <h4 className="text-[12px] font-bold">
                         Pay Upfront{" "}
                         <span className="text-[#31A8FE]">SAVE 10%</span>
-                      </h1>
-                      <h1 className="text-[10px] font-normal">
+                      </h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit Annually
-                      </h1>
+                      </h4>
                     </button>
                   </>
                 )}
@@ -193,23 +190,22 @@ const PricingCard = () => {
                       onClick={() => handleMonthely(p.id)}
                       className="w-[172px] h-[41px] flex flex-col justify-center items-center  bg-[#1C1C1C] rounded-l-3xl"
                     >
-                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
-                      <h1 className="text-[10px] font-normal">
+                      <h4 className="text-[12px] font-bold">Pay Monthly</h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit monthly
-                      </h1>
+                      </h4>
                     </button>
                     <button
                       onClick={() => handleYearly(p.id)}
-                      className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px]
-      "
+                      className="w-[147px] h-[46px] flex flex-col justify-center items-center  bg-black ml-[-12px] rounded-3xl border-[#2482FF] border border-solid px-[9px] py-[12px] "
                     >
-                      <h1 className="text-[12px] font-bold">
+                      <h4 className="text-[12px] font-bold">
                         Pay Upfront{" "}
                         <span className="text-[#31A8FE]">SAVE 10%</span>
-                      </h1>
-                      <h1 className="text-[10px] font-normal">
+                      </h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit Annually
-                      </h1>
+                      </h4>
                     </button>
                   </>
                 )}
@@ -219,81 +215,81 @@ const PricingCard = () => {
                       onClick={() => handleMonthely(p.id)}
                       className="w-[147px] h-[46px] flex flex-col justify-center items-center bg-black rounded-3xl mr-[-12px] z-10 border-[#2482FF] border border-solid px-[9px] py-[12px]"
                     >
-                      <h1 className="text-[12px] font-bold">Pay Monthly</h1>
-                      <h1 className="text-[10px] font-normal">
+                      <h4 className="text-[12px] font-bold">Pay Monthly</h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit monthly
-                      </h1>
+                      </h4>
                     </button>
                     <button
                       onClick={() => handleYearly(p.id)}
                       className=" w-[172px] h-[41px]  flex flex-col justify-center items-center bg-[#1C1C1C]  rounded-r-3xl 
             "
                     >
-                      <h1 className="text-[12px] font-bold">
+                      <h4 className="text-[12px] font-bold">
                         Pay Upfront{" "}
                         <span className="text-[#31A8FE]">SAVE 10%</span>
-                      </h1>
-                      <h1 className="text-[10px] font-normal">
+                      </h4>
+                      <h4 className="text-[10px] font-normal">
                         Commit Annually
-                      </h1>
+                      </h4>
                     </button>
                   </>
                 )}
               </div>
               <div className="mt-[35px] lg:mt-[40px] text-[24px] lg:text-[30px] font-bold lg:font-medium">
                 {yearStarter === false && p.id === 1 && (
-                  <h1 className="pb-[31px]">{p.priceTitle}</h1>
+                  <h4 className="pb-[31px]">{p.priceTitle}</h4>
                 )}
-                {yearStarter && p.id === 1 && <h1>{p.yearly.priceTitle}</h1>}
+                {yearStarter && p.id === 1 && <h4>{p.yearly.priceTitle}</h4>}
                 {yearGrowth === false && p.id === 2 && (
-                  <h1 className="pb-[31px]">{p.priceTitle}</h1>
+                  <h4 className="pb-[31px]">{p.priceTitle}</h4>
                 )}
-                {yearGrowth && p.id === 2 && <h1>{p.yearly.priceTitle}</h1>}
+                {yearGrowth && p.id === 2 && <h4>{p.yearly.priceTitle}</h4>}
                 {yearElite === false && p.id === 3 && (
-                  <h1 className="pb-[31px]">{p.priceTitle}</h1>
+                  <h4 className="pb-[31px]">{p.priceTitle}</h4>
                 )}
-                {yearElite && p.id === 3 && <h1>{p.yearly.priceTitle}</h1>}
+                {yearElite && p.id === 3 && <h4>{p.yearly.priceTitle}</h4>}
               </div>
               {yearStarter && p.id === 1 && (
-                <h1>
-                  <h1 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
+                <h4>
+                  <h4 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
                     billed at{" "}
                     <span className="line-through">{p.priceDesc}</span> $
                     {p.yearly.price}
-                  </h1>
-                </h1>
+                  </h4>
+                </h4>
               )}
               {yearGrowth && p.id === 2 && (
-                <h1>
-                  <h1 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
+                <h4>
+                  <h4 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
                     billed at{" "}
                     <span className="line-through">{p.priceDesc}</span> $
                     {p.yearly.price}
-                  </h1>
-                </h1>
+                  </h4>
+                </h4>
               )}
               {yearElite && p.id === 3 && (
-                <h1>
-                  <h1 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
+                <h4>
+                  <h4 className="mt-[5px] lg:mt-[10px] text-[14px] font-normal">
                     billed at{" "}
                     <span className="line-through">{p.priceDesc}</span> $
                     {p.yearly.price}
-                  </h1>
-                </h1>
+                  </h4>
+                </h4>
               )}
-              <h1 className="mt-[35px] lg:mt-[40px] text-[14px] font-medium">
+              <h4 className="mt-[35px] lg:mt-[40px] text-[14px] font-medium">
                 <span className="text-[20px] font-bold">{p.files}</span>
                 &nbsp;
                 {p.filesDetails}
-              </h1>
-              <h1 className="mt-[35px] lg:mt-[40px] text-[12px] lg:text-[14px] font-normal">
+              </h4>
+              <h4 className="mt-[35px] lg:mt-[40px] text-[12px] lg:text-[14px] font-normal">
                 Includes <span className="font-medium">{p.view}</span>
                 &nbsp;views/month
-              </h1>
-              <h1 className="mt-[5px] lg:mt-[10px] font-normal text-[12px]">
+              </h4>
+              <h4 className="mt-[5px] lg:mt-[10px] font-normal text-[12px]">
                 Additional views will be charged $0.01/view <br />
                 Billed monthly.
-              </h1>
+              </h4>
               <div className="mt-[35px] lg:mt-[40px] flex justify-center">
                 <button
                   onClick={() => handlePayButton(p)}

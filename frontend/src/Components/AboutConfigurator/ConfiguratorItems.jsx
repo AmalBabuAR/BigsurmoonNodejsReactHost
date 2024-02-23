@@ -43,14 +43,14 @@ const ConfiguratorItems = () => {
           </div>
         ))}
         <div>
-          <h1 className="text-center text-[30px] font-outfit mt-14 font-bold ">
+          <h2 className="text-center text-[30px] font-outfit mt-14 font-bold ">
             Get in touch with us
-          </h1>
-          <h2 className="w-[300px] md:w-[500px] font-light mt-1 mb-10 text-[12px] text-center mx-auto">
+          </h2>
+          <p className="w-[300px] md:w-[500px] font-light mt-1 mb-10 text-[12px] text-center mx-auto">
             We're excited to connect with you! Whether you have questions about
             our services, want to discuss a project, we're here and ready to
             help.{" "}
-          </h2>
+          </p>
           <div className="w-full border-black max-h-screen overflow-hidden mb-8">
             <div
               id="SOIDIV_Bigsurmoon"
@@ -77,11 +77,11 @@ const ConfiguratorItems = () => {
                 <br />
                 for single product
               </h2>
-              <h2 className="mb-4 font-light lg:text-2xl leading-5 xl:leading-7  xl:w-3/4 xl:pl-16 ">
+              <p className="mb-4 font-light lg:text-2xl leading-5 xl:leading-7  xl:w-3/4 xl:pl-16 ">
                 Offer endless choices with multiple variations for your product.
                 Cater to diverse customer preferences and increase customer
                 satisfaction by providing a wide range of customizable options.
-              </h2>
+              </p>
             </div>
           </div>
 
@@ -95,12 +95,12 @@ const ConfiguratorItems = () => {
               <h2 className="font-bold hidden md:block lg:hidden text-2xl  mb-4 lg:w-full font-outfit lg:text-5xl">
                 Animated 3D Content
               </h2>
-              <h2 className="mb-4 font-light px-3 lg:text-2xl xl:w-3/4 leading-5 xl:leading-7 xl:pl-20 ">
+              <p className="mb-4 font-light px-3 lg:text-2xl xl:w-3/4 leading-5 xl:leading-7 xl:pl-20 ">
                 Engage your audience with hassle-free animated 3D content, a
                 dynamic alternative to traditional explainer videos. Convey your
                 message effectively with captivating visuals that leave a
                 lasting impact.
-              </h2>
+              </p>
             </div>
             <div className="flex justify-center  ">
               <img
@@ -118,11 +118,11 @@ const ConfiguratorItems = () => {
               <h2 className="font-bold text-2xl xl:pl-14  mb-4 lg:w-full font-outfit lg:text-5xl">
                 Image mode
               </h2>
-              <h2 className="mb-4 font-light lg:text-2xl lg:w-3/4 leading-5 xl:leading-7 xl:pl-14 ">
+              <p className="mb-4 font-light lg:text-2xl lg:w-3/4 leading-5 xl:leading-7 xl:pl-14 ">
                 Experience the ultimate all-in-one image mode. Immerse yourself
                 in stunning visuals with enhanced details and vibrant colors,
                 all in a single, comprehensive viewing experience.
-              </h2>
+              </p>
               <h2 className="text-lg  text-[#57BEF8]"></h2>
             </div>
           </div>
@@ -136,12 +136,12 @@ const ConfiguratorItems = () => {
               <h2 className="font-bold  lg:hidden text-2xl   mb-4 lg:w-full lg:text-5xl">
                 Streamlined Project <br /> Management <br />
               </h2>
-              <h2 className="mb-4 font-light lg:text-2xl lg:w-3/4 leading-5 xl:leading-7 xl:pl-12 ">
+              <p className="mb-4 font-light lg:text-2xl lg:w-3/4 leading-5 xl:leading-7 xl:pl-12 ">
                 No matter the size of your project, we possess the expertise to
                 fulfill your requirements. Our platform seamlessly handles
                 projects, allowing you to store files, make edits at any time,
                 and publish whenever you choose.
-              </h2>
+              </p>
             </div>
             <div className="flex justify-center">
               <img src={m4} className=" h-[300px] xl:h-[450px] md:h-[360px] " />
@@ -164,12 +164,12 @@ const ConfiguratorItems = () => {
                 No code, No App <br />
                 All through your Browser
               </h2>
-              <h2 className="mb-4 font-light lg:text-2xl lg:w-3/4 leading-5 xl:leading-7 xl:pl-10 ">
+              <p className="mb-4 font-light lg:text-2xl lg:w-3/4 leading-5 xl:leading-7 xl:pl-10 ">
                 Unlock limitless possibilities without the need for code or an
                 app. Access and control everything through your browser,
                 simplifying the process and empowering you to create and
                 customize with ease.
-              </h2>
+              </p>
             </div>
           </div>
         </div>
@@ -177,15 +177,15 @@ const ConfiguratorItems = () => {
 
       <div className="hidden lg:block">
         <div>
-          <h1 className="text-center text-[50px] font-outfit  font-bold">
+          <h3 className="text-center text-[50px] font-outfit  font-bold">
             Get in touch with us
-          </h1>
-          <h2 className="w-[300px] md:w-[500px] font-light mt-5 mb-10 text-[18px] text-center mx-auto">
+          </h3>
+          <p className="w-[300px] md:w-[500px] font-light mt-5 mb-10 text-[18px] text-center mx-auto">
             We're excited to connect with you! Whether you have questions about
             our services, want to discuss a project, we're here and ready to
             help.{" "}
-          </h2>
-          <div className="w-full h-full border-black max-h-screen">
+          </p>
+          <div className="w-full h-full border-black max-h-screen pb-10">
             <div
               id="SOIDIV_Bigsurmoon"
               data-so-page="Bigsurmoon"

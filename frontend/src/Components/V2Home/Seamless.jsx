@@ -4,9 +4,9 @@ import { google, shopify } from "../../assets/V2Home";
 const Seamless = () => {
   return (
     <div className="w-full h-auto font-roboto text-white bg-[#0F1425] mx-auto flex flex-col justify-center items-center px-[25px] py-[50px] lg:p-[100px] xl:p-[100px] gap-[15px]">
-      <h1 className="text-[26px] lg:text-[40px] xl:text-[40px] font-bold lg:font-normal xl:font-normal leading-[34px] lg:leading-[77.5px] xl:leading-[77.5px]  lg:tracking-[1.6px]  xl:tracking-[1.6px] text-center lg:w-[1021px] ">
+      <h4 className="text-[26px] lg:text-[40px] xl:text-[40px] font-bold lg:font-normal xl:font-normal leading-[34px] lg:leading-[77.5px] xl:leading-[77.5px]  lg:tracking-[1.6px]  xl:tracking-[1.6px] text-center lg:w-[1021px] ">
         Seamless Integration: No Change In Existing Process
-      </h1>
+      </h4>
       <p className="text-[16px] lg:text-[16px] xl:text-[16px] font-normal leading-[16px] lg:leading-[20px] xl:leading-[20px] lg:tracking-[0.64px] xl:tracking-[0.64px] text-center">
         Bigsurmoon also seamlessly integrates with:
       </p>

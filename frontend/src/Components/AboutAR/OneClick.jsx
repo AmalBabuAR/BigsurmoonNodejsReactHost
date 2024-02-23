@@ -17,17 +17,17 @@ const OneClick = () => {
       <div className="mx-auto w-full relative overflow-hidden text-white font-roboto bg-[rgb(0,6,30)]">
         <div className="mt-[50px] lg:mt-[100px] mb-[40px] mx-[20px] lg:mx-auto flex justify-center flex-col">
           <div className="flex justify-center flex-col text-center ">
-            <h1 className="text-[25px] lg:text-[50px] leading-[40px] lg:leading-[110px] font-bold ">
+            <h4 className="text-[25px] lg:text-[50px] leading-[40px] lg:leading-[110px] font-bold ">
               One-Click Augmented Reality <br className="lg:hidden" /> for
               E-commerce
-            </h1>
-            <h1 className="mt-[15px] lg:mt-0 text-[14px] lg:text-[20px] font-normal leading-[21px] lg:leading-[30px] ">
+            </h4>
+            <h4 className="mt-[15px] lg:mt-0 text-[14px] lg:text-[20px] font-normal leading-[21px] lg:leading-[30px] ">
               Simply scan the QR code with your camera and place the object in
               your space <br className="hidden lg:block" />
               or <br className="hidden lg:block" />
               just click the “A.R” icon in <br className="lg:hidden" /> mobile
               devices.
-            </h1>
+            </h4>
           </div>
           <div className="mt-[25px] lg:mt-[45px] flex justify-center items-center flex-row">
             <div className="">
@@ -45,24 +45,24 @@ const OneClick = () => {
       {/* MEET THE UNLIMATE CONTENT */}
       <div className="bg-black text-white flex flex-col lg:flex-row justify-center items-center gap-[60px] py-[50px] mx-auto">
         <div className="w-[350px] lg:w-[655px] flex flex-col order-last lg:order-first gap-[15px] lg:gap-[25px] items-start font-outfit ">
-          <h1 className="text-[20px] leading-[30px] lg:text-[30px] lg:leading-[40px] font-bold">
+          <h4 className="text-[20px] leading-[30px] lg:text-[30px] lg:leading-[40px] font-bold">
             Meet the Ultimate E-commerce solution
-          </h1>
-          <h1 className="text-[16px] leading-[24px] lg:text-[24px] lg:leading-[36px] ">
+          </h4>
+          <h4 className="text-[16px] leading-[24px] lg:text-[24px] lg:leading-[36px] ">
             E-commerce relies on visual storytelling, but many businesses
             struggle to bridge the online-in-store gap, leading to customer
             uncertainty and cart abandonment.
-          </h1>
-          <h1 className="text-[14px] leading-[21px] lg:text-[20px] lg:leading-[30px] font-normal">
+          </h4>
+          <h4 className="text-[14px] leading-[21px] lg:text-[20px] lg:leading-[30px] font-normal">
             Switch to Bigsurmoon’s game-changing solution. We bring products to
             life using augmented reality, allowing customers to virtually try
             before they buy. Conveying the true essence of a product to Boost
             confidence, reduce returns, and supercharge conversions with our
             immersive shopping experience.
-          </h1>
-          <h1 className="text-[14px] leading-[21px] lg:text-[20px] lg:leading-[30px] font-normal">
+          </h4>
+          <h4 className="text-[14px] leading-[21px] lg:text-[20px] lg:leading-[30px] font-normal">
             No more leaving your audience uncertain about their purchases.
-          </h1>
+          </h4>
         </div>
         <div className="w-[250px] lg:w-[483px]">
           <img src={screenChair} alt="" />
@@ -76,16 +76,16 @@ const OneClick = () => {
           className="w-full h-full object-fill -z-10 absolute"
         />
         <div className="flex flex-col justify-center items-center my-[27px] lg:my-[100px]">
-          <h1 className="text-[20px] lg:text-[50px] leading-[25px] lg:leading-[60px] font-bold ">
+          <h4 className="text-[20px] lg:text-[50px] leading-[25px] lg:leading-[60px] font-bold ">
             No-Code, No App{" "}
-          </h1>
-          <h1 className="mt-[15px] lg:mt-[25px] text-[12px] lg:text-[20px] font-normal leading-[18px] lg:leading-[30px] px-7 lg:px-0 text-center">
+          </h4>
+          <h4 className="mt-[15px] lg:mt-[25px] text-[12px] lg:text-[20px] font-normal leading-[18px] lg:leading-[30px] px-7 lg:px-0 text-center">
             Integrations made easy with Bigsurmoon’s No-code, no-app{" "}
             <br className="lg:hidden" /> augmented reality.{" "}
             <br className="hidden lg:block" /> We eliminate the need of any app
             download or <br className="lg:hidden" /> plug-ins with our easy to
             use API.
-          </h1>
+          </h4>
         </div>
       </div>
     </>

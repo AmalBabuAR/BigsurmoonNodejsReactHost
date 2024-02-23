@@ -170,7 +170,7 @@ const Navbar = () => {
                       </Link>
                       <div>
                         <div onClick={handleButtonClick} className="flex mb-3">
-                          <h1 className="w-[150px]">Platform </h1>
+                          <h3 className="w-[150px]">Platform </h3>
                           <div className="flex items-center">
                             <svg
                               data-accordion-icon=""
@@ -378,7 +378,7 @@ const Navbar = () => {
           >
             <div className="m-[25px]">
               <Link to="/aboutar">
-                <h1
+                <h3
                   className={`${
                     pageName === "aboutar"
                       ? "text-[#07BDFF]"
@@ -386,7 +386,7 @@ const Navbar = () => {
                   } text-[20px] font-medium`}
                 >
                   Augmented Reality
-                </h1>
+                </h3>
                 <p className="text-[16px] font-light tracking-custome mt-[10px]">
                   Try-before-you-buy solution for unparalleled <br />
                   Engagement and Sales Growth
@@ -395,7 +395,7 @@ const Navbar = () => {
             </div>
             <div className="m-[25px]">
               <Link to="/aboutconfigurator">
-                <h1
+                <h3
                   className={`${
                     pageName === "aboutconfigurator"
                       ? "text-[#07BDFF]"
@@ -403,7 +403,7 @@ const Navbar = () => {
                   } text-[20px] font-medium`}
                 >
                   Platform
-                </h1>
+                </h3>
                 <p className="text-[16px] font-light tracking-custome mt-[10px]">
                   Explore Endless possibilities to create engaging <br />
                   experiences

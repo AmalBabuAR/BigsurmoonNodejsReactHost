@@ -12,15 +12,15 @@ import picMob4 from "../../assets/Home/intergration/int4.svg";
 const PricingSeamless = () => {
   return (
     <div className="flex justify-center items-center flex-col h-full mt-[-2px] lg:mt-0 lg:h-auto bg-[#0F1425] text-white font-outfit">
-      <h1 className="mt-[58px] text-[24px] lg:text-[30px] font-bold">
+      <h4 className="mt-[58px] text-[24px] lg:text-[30px] font-bold">
         Seamless Integrations
-      </h1>
-      <h1 className="mt-[10px] text-[14px] lg:flex hidden font-normal">
+      </h4>
+      <p className="mt-[10px] text-[14px] lg:flex hidden font-normal">
         Bigsurmoon integrates with all major e-commerce platforms
-      </h1>
-      <h1 className="mt-[10px] lg:hidden text-[12px] lg:text-[14px] font-normal text-center">
+      </p>
+      <p className="mt-[10px] lg:hidden text-[12px] lg:text-[14px] font-normal text-center">
         Bigsurmoon integrates with all major <br /> e-commerce platforms
-      </h1>
+      </p>
       <div className="mx-auto hidden lg:flex">
         <img src={pic1} alt="" />
         <img src={pic2} alt="" />

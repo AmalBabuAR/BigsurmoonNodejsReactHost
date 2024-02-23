@@ -18,26 +18,26 @@ const ARImageContainer = () => {
             />
           </div>
           <div>
-            <h1>
+            <h4>
               Immersive <br /> Augmented Reality
-            </h1>
-            <h1 className="mt-[18px] font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
+            </h4>
+            <p className="mt-[18px] font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
               Augmented reality reshapes interaction and informed <br /> buying.
               Immersive try-before-you-buy for confident <br />
               purchases
-            </h1>
+            </p>
           </div>
         </div>
         <div className="flex flex-col lg:flex-row gap-[50px] lg:gap-[160px] justify-center items-center">
           <div>
-            <h1>
+            <h4>
               Real-world scale <br /> and fit
-            </h1>
-            <h1 className="mt-[18px] font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
+            </h4>
+            <p className="mt-[18px] font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
               Tailored to fit in exact dimension as of real-world , Our <br />
               technology ensures that every product you see in <br /> augmented
               reality matches its real-world scale and fit
-            </h1>
+            </p>
           </div>
           <div className="order-first lg:order-last">
             <img
@@ -56,24 +56,24 @@ const ARImageContainer = () => {
             />
           </div>
           <div>
-            <h1>
+            <h4>
               Try all Variations in <br /> your space
-            </h1>
-            <h1 className="mt-[18px] font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
+            </h4>
+            <p className="mt-[18px] font-roboto text-[14px] lg:text-[20px] leading-[21px] lg:leading-[30px] font-normal">
               Configure your variations and view in Augmented Reality. <br />{" "}
               Creating new possibilities for configurations and how it <br />{" "}
               looks in your space, for a faster and easier decision <br />{" "}
               making
-            </h1>
+            </p>
           </div>
         </div>
       </div>
       {/* card container */}
       <div className="flex justify-center items-center flex-col mt-[50px] lg:mt-0 mb-[50px] lg:mb-[75px]">
-        <h1 className="font-outfit text-[30px] lg:text-[39px] leading-[45px]  lg:leading-[29px] font-semibold lg:font-bold text-center">
+        <h4 className="font-outfit text-[30px] lg:text-[39px] leading-[45px]  lg:leading-[29px] font-semibold lg:font-bold text-center">
           Augmented Reality <br className="lg:hidden" /> Benefits to the Fullest{" "}
           <br className="lg:hidden" /> with Bigsurmoon
-        </h1>
+        </h4>
         <div className="mt-[50px] lg:mt-[60px] flex flex-col lg:flex-row gap-[25px] lg:gap-[20px]">
           {ARCard.map((c) => (
             <div
@@ -85,13 +85,13 @@ const ARImageContainer = () => {
                 alt={c.title}
                 className="lg:pt-[43px]"
               />
-              <h1 className="pt-[15px] lg:pt-[34px] text-[20px] lg:text-[22px] leading-[30px] lg:leading-[29px] font-bold">
+              <h4 className="pt-[15px] lg:pt-[34px] text-[20px] lg:text-[22px] leading-[30px] lg:leading-[29px] font-bold">
                 {c.title} <br />
                 {c.titleBR}
-              </h1>
-              <h1 className="pt-[15px] lg:pt-[31px] text-[14px] lg:text-[18px] leading-[21px] lg:leading-[20px] font-normal lg:px-[47px] tracking-wide">
+              </h4>
+              <h4 className="pt-[15px] lg:pt-[31px] text-[14px] lg:text-[18px] leading-[21px] lg:leading-[20px] font-normal lg:px-[47px] tracking-wide">
                 {c.desc}
-              </h1>
+              </h4>
             </div>
           ))}
         </div>

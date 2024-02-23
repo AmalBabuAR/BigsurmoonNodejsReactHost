@@ -138,16 +138,16 @@ const ForgotPassword = () => {
             className="mx-auto  absolute -z-10 w-screen h-full "
           />
           <div className=" flex flex-col justify-center h-full items-center  ">
-            <h1 className="invisible w-screen">e</h1>
+            <p className="invisible w-screen">e</p>
             <h1 className="text-white text-3xl  font-bold shadow-md mb-9">
               Visualisation <br /> Re-imagined
             </h1>
 
             {emailVerificationOpen && (
-              <h1 className="text-sm text-center mb-16 text-gray-200">
+              <p className="text-sm text-center mb-16 text-gray-200">
                 Please provide the email address that you used <br /> when you
                 signed up for your account.
-              </h1>
+              </p>
             )}
             {error && <p className="text-red-600 text-center mb-10">{error}</p>}
             {emailVerificationOpen && (
@@ -351,10 +351,10 @@ const ForgotPassword = () => {
             Visualisation <br /> Re-imagined
           </h1>
           {emailVerificationOpen && (
-            <h1 className="text-sm text-center mb-16 text-gray-200">
+            <p className="text-sm text-center mb-16 text-gray-200">
               Please provide the email address that you used <br /> when you
               signed up for your account.
-            </h1>
+            </p>
           )}
           {error && <p className="text-red-600 text-center mb-10">{error}</p>}
           {emailVerificationOpen && (

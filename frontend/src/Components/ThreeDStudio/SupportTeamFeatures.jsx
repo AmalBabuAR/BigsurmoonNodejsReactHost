@@ -57,11 +57,11 @@ const SupportTeamFeatures = () => {
               <h2 className="font-medium lg:hidden font-outfit text-2xl mb-4 lg:w-full lg:text-5xl">
                 Dedicated Support Team{" "}
               </h2>
-              <h2 className="mb-4 text-[14px] font-light xl:pl-10 lg:text-2xl leading-5 xl:w-3/4 ">
+              <p className="mb-4 text-[14px] font-light xl:pl-10 lg:text-2xl leading-5 xl:w-3/4 ">
                 With our dedicated support team to meet all your queries
                 throughout, we value your input, ensuring your vision is
                 accurately reflected in the final deliverables.
-              </h2>
+              </p>
             </div>
           </div>
 
@@ -75,11 +75,11 @@ const SupportTeamFeatures = () => {
               <h2 className="font-medium font-outfit lg:hidden text-2xl pt-4 mb-4 lg:w-full lg:text-5xl">
                 Scalability and Flexibility
               </h2>
-              <h2 className="mb-4 text-[14px] font-light lg:text-2xl leading-5 xl:w-3/4">
+              <p className="mb-4 text-[14px] font-light lg:text-2xl leading-5 xl:w-3/4">
                 Whether it's a single 3D model or a large-scale project, we have
                 the expertise to meet your needs. Our team efficiently handles
                 projects of all sizes, ensuring quality and timely delivery.
-              </h2>
+              </p>
             </div>
             <div className="flex justify-center pl-12  ">
               <img
@@ -104,12 +104,12 @@ const SupportTeamFeatures = () => {
               <h2 className="font-medium lg:hidden font-outfit  text-2xl  mb-4 lg:w-full lg:text-5xl">
                 Streamlined Project Management{" "}
               </h2>
-              <h2 className="mb-4 text-[14px] xl:pl-10   font-light lg:text-2xl leading-5  xl:w-3/4 ">
+              <p className="mb-4 text-[14px] xl:pl-10   font-light lg:text-2xl leading-5  xl:w-3/4 ">
                 Our seamless project management solutions ensure efficient
                 workflows from start to finish. With proven methodologies and
                 expert coordination, we meet deadlines, maintain clear
                 communication, and deliver exceptional results within budget.
-              </h2>
+              </p>
             </div>
           </div>
         </div>

@@ -19,9 +19,9 @@ const PricingScreeen = () => {
             <h1 className="pt-1 flex justify-center text-[20px] lg:text-[45px]  font-outfit font-bold">
               Grow better with the right plan
             </h1>
-            <h1 className="mt-[6px] lg:mt-5 flex justify-center text-[12px] lg:text-[16px] font-outfit font-normal leading-[16px] lg:leading-[21px]">
+            <p className="mt-[6px] lg:mt-5 flex justify-center text-[12px] lg:text-[16px] font-outfit font-normal leading-[16px] lg:leading-[21px]">
               Pay for what you need (when you need it)
-            </h1>
+            </p>
           </div>
           <div className="mt-[76px] lg:mt-[100px] flex justify-center text-[12px] lg:text-[16px] font-outfit  tracking-wide">
             <button
@@ -49,27 +49,27 @@ const PricingScreeen = () => {
           {priceFormView ? (
             <>
               <div className="flex justify-center mt-[31px]">
-                <h1 className="text-center hidden lg:flex lg:text-[16px] font-outfit font-normal leading-5">
+                <h4 className="text-center hidden lg:flex lg:text-[16px] font-outfit font-normal leading-5">
                   Our affordable pricing scales with your business. We don’t
                   lock our features <br /> behind expensive plans. You get all
                   the features on every plan.
-                </h1>
-                <h1 className="text-center text-[12px] lg:hidden font-outfit font-normal leading-5">
+                </h4>
+                <h4 className="text-center text-[12px] lg:hidden font-outfit font-normal leading-5">
                   Our affordable pricing scales with your business. We don’t
                   <br />
                   lock our features behind expensive plans. You get all <br />
                   the features on every plan.
-                </h1>
+                </h4>
               </div>
               <PricingCard />
             </>
           ) : (
             <>
               <div className="flex justify-center mt-[31px]">
-                <h1 className="text-center text-[12px] lg:text-[16px] font-outfit font-normal leading-5">
+                <h4 className="text-center text-[12px] lg:text-[16px] font-outfit font-normal leading-5">
                   Custom solutions tailored for businesses. <br /> Talk to one
                   of our experts.
-                </h1>
+                </h4>
               </div>
               <EnterPriseForm />
             </>

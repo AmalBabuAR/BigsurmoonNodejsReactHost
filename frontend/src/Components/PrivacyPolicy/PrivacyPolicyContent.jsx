@@ -11,9 +11,9 @@ const PrivacyPolicyContent = () => {
         </p>
         {privacyPolicyData.map((p) => (
           <div className="text-left mt-5" key={p.id}>
-            <h1 className="text-[19px] font-semibold mb-5 uppercase">
+            <h4 className="text-[19px] font-semibold mb-5 uppercase">
               {p.title}
-            </h1>
+            </h4>
             <p style={{ whiteSpace: "pre-line" }} className="text-[17px]">
               {p.desc}
             </p>

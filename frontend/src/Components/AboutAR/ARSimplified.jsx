@@ -28,7 +28,7 @@ const ARSimplified = () => {
               <h1 className="lg:hidden">Augmented Reality</h1>
               <h1 className="hidden lg:block">Augmented</h1>
               <h1 className="hidden lg:block">Reality</h1>
-              <h1 className="text-[#07B5FF]">Simplified</h1>
+              <h2 className="text-[#07B5FF]">Simplified</h2>
             </div>
             <p className="mt-[5px] lg:mt-[25px] text-[14px] lg:text-[24px] leading-[21px] lg:leading-[37px] font-normal ">
               Try-before-you-buy for Unparalleled Engagement <br /> and Sales
@@ -53,49 +53,49 @@ const ARSimplified = () => {
           </div>
         </div>
         <div className="mt-[100px] flex justify-center mx-auto font-outfit flex-col">
-          <h1 className="text-center text-[25px] lg:text-[40px] font-semibold lg:font-bold leading-[35px] lg:leading-[56px]">
+          <h3 className="text-center text-[25px] lg:text-[40px] font-semibold lg:font-bold leading-[35px] lg:leading-[56px]">
             One Step, Huge Leap. <br /> Augmented Reality{" "}
             <br className="lg:hidden" /> Powered Transformation.
-          </h1>
+          </h3>
           <div className="mt-[25px] lg:mt-[100px] text-[14px] lg:text-[40px] font-bold leading-[18px] lg:leading-[50px] text-center flex flex-col items-center  lg:flex-row justify-center gap-y-[25px] lg:gap-[119px]">
             <div className="flex flex-row gap-[90px] lg:gap-[119px]">
               <div>
-                <h1 className="text-[18px] lg:text-[55px] leading-[22px] lg:leading-[69px] text-[#07BDFF]">
+                <h4 className="text-[18px] lg:text-[55px] leading-[22px] lg:leading-[69px] text-[#07BDFF]">
                   {">3x"}
-                </h1>
-                <h1>
+                </h4>
+                <h4>
                   Sales <br />
                   Conversions
-                </h1>
+                </h4>
               </div>
               <div>
-                <h1 className="text-[18px] lg:text-[55px] leading-[22px] lg:leading-[69px] text-[#07BDFF]">
+                <h4 className="text-[18px] lg:text-[55px] leading-[22px] lg:leading-[69px] text-[#07BDFF]">
                   200%
-                </h1>
-                <h1>
+                </h4>
+                <h4>
                   More <br />
                   Engagement
-                </h1>
+                </h4>
               </div>
             </div>
             <div className="flex flex-row gap-[60px] lg:gap-[119px]">
               <div>
-                <h1 className="text-[18px] lg:text-[55px] leading-[22px] lg:leading-[69px] text-[#07BDFF]">
+                <h4 className="text-[18px] lg:text-[55px] leading-[22px] lg:leading-[69px] text-[#07BDFF]">
                   50%
-                </h1>
-                <h1>
+                </h4>
+                <h4>
                   Total Cost <br className="hidden lg:block" />
                   Saving
-                </h1>
+                </h4>
               </div>
               <div>
-                <h1 className="text-[18px] lg:text-[55px] leading-[22px] lg:leading-[69px] text-[#07BDFF]">
+                <h4 className="text-[18px] lg:text-[55px] leading-[22px] lg:leading-[69px] text-[#07BDFF]">
                   80%
-                </h1>
-                <h1>
+                </h4>
+                <h4>
                   Less Return <br className="hidden lg:block" />
                   Rate
-                </h1>
+                </h4>
               </div>
             </div>
           </div>

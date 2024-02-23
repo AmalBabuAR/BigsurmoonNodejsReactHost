@@ -54,9 +54,9 @@ const AboutStudio = () => {
 
           <div className="">
             <div className="flex flex-col  font-outfit md:pt-20 justify-center items-center md:items-start font-medium ">
-              <h3 className="text-4xl md:text-5xl  mb-2  md:pl-14 md:text-[38px]">
+              <h1 className="text-4xl md:text-5xl  mb-2  md:pl-14 md:text-[38px]">
                 3D Modelling
-              </h3>
+              </h1>
               <div className="flex gap-2 items-center  md:pl-14">
                 <img src={ringpng} className="w-6 h-7 " />
                 <h3 className="text-4xl md:text-5xl mb-2 md:text-[38px] ">
@@ -85,7 +85,7 @@ const AboutStudio = () => {
             <h3 className="text-2xl pb-3">
               About Bigsurmoon <span className="text-[#3090f7]">Studio</span>
             </h3>
-            <h3 className="text-sm px-6 font-light leading-6 text-center pb-10">
+            <p className="text-sm px-6 font-light leading-6 text-center pb-10">
               At Bigsurmoon, we understand the significance of captivating
               visuals in today's digital world. Our expert team of skilled 3D
               artists and designers harness the power of advanced technologies
@@ -94,7 +94,7 @@ const AboutStudio = () => {
               techniques, we create realistic representations that allow your
               customers to explore and interact with your products in ways never
               before possible.
-            </h3>
+            </p>
           </div>
         </div>
 
@@ -102,9 +102,9 @@ const AboutStudio = () => {
           <div className="max-w-[1440px]  mx-auto ">
             <div className=" hidden xl:px-28 lg:grid lg:grid-cols-2 items-center justify-center  font-outfit font-medium  mt-[-50px]">
               <div className="flex flex-col justify-center text-left  content-center items-center   ">
-                <h3 className="text-4xl md:text-5xl lg:text-8xl   w-full mb-4">
+                <h1 className="text-4xl md:text-5xl lg:text-8xl   w-full mb-4">
                   3D Modelling
-                </h3>
+                </h1>
                 <div className="flex gap-2  w-full   items-center">
                   <img
                     src={ringpng}
@@ -138,7 +138,7 @@ const AboutStudio = () => {
               About Bigsurmoon <span className="text-[#3090f7]">Studio</span>
             </h3>
 
-            <h3 className=" px-3 font-light pb-10 lg:px-20 xl:px-32  text-[26px] leading-[40px]   mx-auto">
+            <p className=" px-3 font-light pb-10 lg:px-20 xl:px-32  text-[26px] leading-[40px]   mx-auto">
               At Bigsurmoon, we understand the significance of captivating
               visuals in today's digital world. Our expert team of skilled 3D
               artists and designers harness the power of advanced technologies
@@ -147,7 +147,7 @@ const AboutStudio = () => {
               techniques, we create realistic representations that allow your
               customers to explore and interact with your products in ways never
               before possible.
-            </h3>
+            </p>
           </div>
         </div>
         {/*  */}

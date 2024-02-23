@@ -217,7 +217,7 @@ function NewUI_Publish(editor) {
 			function embedCode(width, height) {
 				const booleanValue = codeFormatCheckbox.getValue();
 				const idFromUrl = getQueryParam("id");
-				let baseUrl = `https://bigsurmoon.com/editor/ModelViewer/?id=${idFromUrl}`;
+				let baseUrl = `https://bigsurmoon.com/configurator/?id=${idFromUrl}`;
 				if (booleanValue) {
 					textInput.setValue(baseUrl);
 				} else {
