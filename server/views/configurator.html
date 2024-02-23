@@ -116,7 +116,7 @@
             right: 16px;
           "
         >
-          <img src="../images/viewer/mobAR3.svg" />
+          <img src="images/mobAR3.svg" />
         </button>
       </model-viewer>
 
@@ -141,7 +141,7 @@
       }
 
       const idFromUrl = getQueryParam("id");
-      const urlToGenerateQRCodeFor = `https://bigsurmoon.com/editor/ModelViewer/?id=${idFromUrl}`;
+      const urlToGenerateQRCodeFor = `https://bigsurmoon.com/configurator/?id=${idFromUrl}`;
 
       if (!document.getElementById("qrcode").hasChildNodes()) {
         const qrcode = new QRCode("qrcode", {
