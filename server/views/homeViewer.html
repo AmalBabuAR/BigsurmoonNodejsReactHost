@@ -100,6 +100,7 @@
         touch-action="pan-y"
         camera-target="0m auto 0m"
         ar-modes="webxr scene-viewer quick-look"
+        poster="poster.png"
       >
         <button
           slot="ar-button"
@@ -264,7 +265,7 @@
           const idFromUrl = getQueryParam("id");
           const id = "64f336826a9c405834134bbe";
           showLoaderContent();
-          const response = await fetch(`modelFile.json`);
+          const response = await fetch(`homeModel.json`);
 
           // Check if the fetch was successful
           if (!response.ok) {
