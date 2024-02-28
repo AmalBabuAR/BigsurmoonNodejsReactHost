@@ -26,11 +26,11 @@ const HowItWorks = () => {
     <div className="bg-black">
       <div className="bg-black max-w-[1440px] mx-auto p-4 text-white">
         <div className="md:hidden">
-          <div className="text-center items-center">
+          <div className="items-center text-center">
             <h4 className="text-xl font-bold tracking-[8px] mb-3 mt-12 xl:mt-7 ">
               HOW IT WORKS
             </h4>
-            <p className="text-sm px-2 mb-10">
+            <p className="px-2 mb-10 text-sm">
               Our well-defined and efficient process ensures that projects are
               executed smoothly, deadlines are met, and the final deliverables
               align with our client's visions.
@@ -47,11 +47,12 @@ const HowItWorks = () => {
           {howitwork.map((m) => (
             <div
               key={m.id}
-              className="md:hidden md:grid-cols-2 md:gap-32 justify-center items-center"
+              className="items-center justify-center md:hidden md:grid-cols-2 md:gap-32"
             >
-              <div className="flex justify-center  ">
+              <div className="flex justify-center ">
                 <img
                   src={m.img}
+                  alt={m.imgAlt}
                   className={`  ${
                     m.id === 1 &&
                     "w-[291px] md:h-[150px] md:w-[250px] h-[281px] rounded-xl"
@@ -66,7 +67,7 @@ const HowItWorks = () => {
                 >
                   {m.title}
                 </h2>
-                <h2 className="mb-12 pl-3 pr-8 text-left text-sm font-normal">
+                <h2 className="pl-3 pr-8 mb-12 text-sm font-normal text-left">
                   {m.desc}
                 </h2>
               </div>
@@ -74,7 +75,7 @@ const HowItWorks = () => {
           ))}
         </div>
         <div className="hidden md:block">
-          <div className="text-center  items-center">
+          <div className="items-center text-center">
             <h4 className=" md:text-[20px] lg:text-3xl font-medium font-outfit md:tracking-[13px] lg:tracking-[15px] mb-5 mt-20 ">
               HOW IT WORKS
             </h4>
@@ -93,8 +94,8 @@ const HowItWorks = () => {
             </div>
           </div>
 
-          <div className="md:grid md:grid-cols-2  md:px-10 mt-28  justify-center items-center lg:px-28  ">
-            <div className=" flex flex-col justify-center mx-auto  ">
+          <div className="items-center justify-center md:grid md:grid-cols-2 md:px-10 mt-28 lg:px-28 ">
+            <div className="flex flex-col justify-center mx-auto ">
               <h2 className="text-[20px]   mb-4 lg:w-full lg:text-5xl">
                 Step 1: Provide <br />
                 Reference Materials
@@ -104,22 +105,24 @@ const HowItWorks = () => {
                 dimensions. That’s it, from your end.
               </p>
             </div>
-            <div className="flex justify-center   ">
+            <div className="flex justify-center ">
               <img
                 src={p1}
+                alt="Provide Reference Materials"
                 className="xl:w-[363px] w-[291px] h-[281px]   lg:h-[350px]  border rounded-xl   "
               />
             </div>
           </div>
 
-          <div className="md:grid md:grid-cols-2 px- mt-28  gap-10   justify-between items-center lg:px-10 ">
-            <div className="flex justify-center  ">
+          <div className="items-center justify-between gap-10 md:grid md:grid-cols-2 px- mt-28 lg:px-10 ">
+            <div className="flex justify-center ">
               <img
                 src={p2}
+                alt="3D Model Creation We Analyse and study the images, create 3d model as provided informations"
                 className=" xl:w-[498px] w-[290px] h-[170px] xl:h-[293px]  "
               />
             </div>
-            <div className=" flex flex-col justify-center mx-auto ">
+            <div className="flex flex-col justify-center mx-auto ">
               <h2 className="text-3xl  mb-3 pt-5 lg:w-full text-[20px] lg:text-5xl">
                 Step 2: 3D Model Creation
               </h2>
@@ -132,8 +135,8 @@ const HowItWorks = () => {
             </div>
           </div>
 
-          <div className="md:grid md:grid-cols-2 px-10  mt-28 justify-between items-center lg:px-20 ">
-            <div className=" flex flex-col justify-center mx-auto ">
+          <div className="items-center justify-between px-10 md:grid md:grid-cols-2 mt-28 lg:px-20 ">
+            <div className="flex flex-col justify-center mx-auto ">
               <h2 className=" text-[20px] mb-7 lg:w-full  lg:text-5xl">
                 Step 3: Quality check
               </h2>
@@ -143,9 +146,10 @@ const HowItWorks = () => {
                 representation.
               </p>
             </div>
-            <div className="flex justify-center  ">
+            <div className="flex justify-center ">
               <img
                 src={p3}
+                alt="3D Modelling Quality check"
                 className=" xl:w-[302px] w-[131px] h-[148] lg:h-[300px]"
               />
             </div>
@@ -155,10 +159,11 @@ const HowItWorks = () => {
             <div className="flex ">
               <img
                 src={p4}
+                alt="3D Modelling Upload"
                 className="xl:w-[302px] w-[190px] h-[125px] mx-auto xl:h-[300px]  "
               />
             </div>
-            <div className=" flex flex-col justify-around   ">
+            <div className="flex flex-col justify-around ">
               <h2 className=" text-[20px]  lg:w-full lg:text-5xl">
                 Step 4: Upload
               </h2>
@@ -191,7 +196,11 @@ const HowItWorks = () => {
               <h3 className="text-[10px] font-roboto g lg:text-[18px]  ">
                 Get in touch{" "}
               </h3>
-              <img src={arrowlogin} className="h-4 lg:h-10" />
+              <img
+                src={arrowlogin}
+                alt="3D Modelling get in touch"
+                className="h-4 lg:h-10"
+              />
             </button>
           </div>
         </div>

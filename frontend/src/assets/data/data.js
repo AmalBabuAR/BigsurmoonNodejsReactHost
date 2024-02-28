@@ -132,6 +132,8 @@ export const studitems = [
     title: "Highly Optimised",
     t: "With years of experience,  we provide highly optimized files for fast loading and seamless user experience",
     img: k1,
+    imgAlt:
+      "highly optimized files for fast loading and seamless user experience",
   },
 
   {
@@ -139,6 +141,7 @@ export const studitems = [
     title: "Attention to Detail",
     t: "We study your product like it was made from beginning. Each detail your product has is represented exactly",
     img: k2,
+    imgAlt: "Attention to Detail",
   },
 
   {
@@ -146,12 +149,14 @@ export const studitems = [
     title: "Quality, TAT & Delivery",
     t: "Assured quality because of proficiency and experience and quick TAT assuring on-time delivery",
     img: k3,
+    imgAlt: "Quality, TAT & Delivery",
   },
   {
     id: 4,
     title: "Technical Competency",
     t: "Technically qualified team in various mfg. technologies, ensuring exceptional expertise ",
     img: k4,
+    imgAlt: "Technical Competency",
   },
 ];
 
@@ -198,6 +203,7 @@ export const supportitems = [
     title: "Dedicated Support Team",
     desc: "With our dedicated support team to meet all your queries throughout, we value your input, ensuring your vision is accurately reflected in the final deliverables.",
     img: s1,
+    imgAlt: "Bigsurmoon Studio's Dedicated Support Team",
   },
 
   {
@@ -205,6 +211,7 @@ export const supportitems = [
     title: "Scalability and Flexibility",
     desc: "Whether it's a single 3D model or a large-scale project, we have the expertise to meet your needs. Our team efficiently handles projects of all sizes, ensuring quality and timely delivery.",
     img: s2,
+    imgAlt: "3D Modelling Scalability and Flexibility",
   },
 
   {
@@ -212,6 +219,7 @@ export const supportitems = [
     title: "Streamlined Project Management",
     desc: "Our seamless project management solutions ensure efficient workflows from start to finish. With proven methodologies and expert coordination, we meet deadlines, maintain clear communication, and deliver exceptional results within budget.",
     img: s3,
+    imgAlt: "3D Modelling Streamlined Project Management",
   },
 ];
 
@@ -221,6 +229,7 @@ export const howitwork = [
     title: "Step 1: Provide Reference Materials",
     desc: "Provide us with product images, color variations and Product dimensions. That’s it, from your end.",
     img: p1,
+    imgAlt: "Provide Reference Materials",
   },
 
   {
@@ -228,6 +237,8 @@ export const howitwork = [
     title: "Step 2: 3D Model Creation",
     desc: "We Analyses and study the images, create 3d model as provided information. We also optimise the file heavily without losing quality.",
     img: p2,
+    imgAlt:
+      "3D Model Creation We Analyse and study the images, create 3d model as provided informations",
   },
 
   {
@@ -235,6 +246,7 @@ export const howitwork = [
     title: "Step 3: Quality check",
     desc: "We undergo a comprehensive and rigorous quality check, guaranteeing precise details and accurate texture representation.",
     img: p3,
+    imgAlt: "3D Modelling Quality check",
   },
 
   {
@@ -242,6 +254,7 @@ export const howitwork = [
     title: "Step 4: Upload",
     desc: "After your 3D model is prepared, we upload it to bigsurmoon platform, which can be effortlessly embedded on any website and also can be downloaded any time.",
     img: p4,
+    imgAlt: "3D Modelling Upload",
   },
 ];
 
@@ -303,18 +316,24 @@ export const pricingSubFeatures = [
   {
     id: 1,
     img: psf1,
+    imgAlt:
+      "Looking for expert advice on maximising your Bigsurmoon utilisation? Our dedicated customer support and service teams are here to help.",
     title: "24/7 support",
     desc: "Looking for expert advice on maximising your Bigsurmoon utilisation? Our dedicated customer support and service teams are here to help.",
   },
   {
     id: 2,
     img: psf2,
+    imgAlt:
+      "Bigsurmoon offers comprehensive resources that covers all the essential knowledge for the most in-demand scenarios.",
     title: "Tailored Onboarding",
     desc: "For those who want fast, practical courses or deep ones, Bigsurmoon offers comprehensive resources that covers all the essential knowledge for the most in-demand scenarios.",
   },
   {
     id: 3,
     img: psf3,
+    imgAlt:
+      "Your customized onboarding plan will help you get up to speed with Bigsurmoon’s platform in no time.",
     title: "Free Online Training",
     desc: "Prepare yourself for success with assistance from a certified solutions partner or a dedicated onboarding specialist. Your customized onboarding plan will help you get up to speed with Bigsurmoon’s platform in no time.",
   },
@@ -324,6 +343,8 @@ export const ARCard = [
   {
     id: 1,
     img: ARCard1,
+    imgAlt:
+      "Implementing A.R, with Bigsurmoon sets your e-commerce business apart from competitors",
     title: "Create Competative",
     titleBR: "advantage",
     desc: "Implementing A.R, with Bigsurmoon sets your e-commerce business apart from competitors, signaling a commitment to technology and and customer value.",
@@ -331,6 +352,8 @@ export const ARCard = [
   {
     id: 2,
     img: ARCard2,
+    imgAlt:
+      "AR provides a more immersive and enjoyable shopping experience, leading to increased customer satisfaction and loyalty",
     title: "Enhanced",
     titleBR: "User Experience:",
     desc: "AR provides a more immersive and enjoyable shopping experience, leading to increased customer satisfaction and loyalty",
@@ -338,6 +361,8 @@ export const ARCard = [
   {
     id: 3,
     img: ARCard3,
+    imgAlt:
+      "Augment reality, with precision by Bigsurmoon creates unbreakable trust on products and the brand significantly",
     title: "Increased",
     titleBR: "Trust",
     desc: "Augment reality, with precision by Bigsurmoon creates unbreakable trust on products and the brand significantly",
@@ -345,6 +370,8 @@ export const ARCard = [
   {
     id: 4,
     img: ARCard4,
+    imgAlt:
+      "Create unforgettable campaigns with 3D and Augmented Reality for marketing. Our visualisation tools convey descriptions and stories like never before possible",
     title: "Innovative",
     titleBR: "Marketing",
     desc: "Create unforgettable campaigns with 3D and Augmented Reality for marketing. Our visualisation tools convey descriptions and stories like never before possible",
@@ -430,6 +457,7 @@ export const V2HomeScreen2Data = [
   {
     id: 1,
     img: icon1,
+    imgAlt: "No-code development platform designed for ease of use",
     imgSpeck: `w-[57px] lg:w-[102px] xl:w-[102px] h-[57px] lg:h-[102px] xl:h-[102px]`,
     title: "No-code",
     dec: "No-code development platform designed for ease of use. 3D visualization with all major platform support gives the freedom for targeting wide audience. ",
@@ -437,6 +465,8 @@ export const V2HomeScreen2Data = [
   {
     id: 2,
     img: icon2,
+    imgAlt:
+      "designed for enterprise and tailored to address the specific needs of businesses",
     imgSpeck: `w-[57px] lg:w-[103.291px] xl:w-[80px] h-[56px] lg:h-[102px] xl:h-[79px]`,
     title: "Targeted",
     dec: "Bigsurmoon is designed for enterprise and tailored to address the specific needs of businesses, unlocking a new era of visual storytelling to help businesses thrive in a competitive space.",
@@ -444,6 +474,8 @@ export const V2HomeScreen2Data = [
   {
     id: 3,
     img: icon3,
+    imgAlt:
+      "A responsive 3D configurator, Augmented Reality ,platform to configure and publish",
     imgSpeck: `w-[57px] lg:w-[103.821px] xl:w-[80px] h-[56px] lg:h-[102px] xl:h-[78.596px]`,
     title: "All-in-one",
     dec: "A responsive 3D configurator, Augmented Reality ,platform to configure and publish, and a dedicated support team for the entire pipeline.",
@@ -456,16 +488,18 @@ export const V2HomeScreen3Data = [
     title: "PLATFORM",
     titleHead: "Powerful 3D and AR tools that drive conversions",
     desc: "Bigsurmoon’s interactive and responsive engine is precisely crafted to ensuring sustained audience engagement, create inspirations, educate audience and drive sales. Craft your visual storytelling to the next level.",
-    btn: "EXPLORE PLATFORM",
+    btn: "LEARN MORE",
     img: pic1,
+    imgAlt: "Powerful 3D and AR tools that drive conversions",
   },
   {
     id: 2,
     title: "AUGMENTED REALITY",
     titleHead: `Precise and detailed visualisation with Augmented reality`,
     desc: "One Augmented Reality platform, wide use cases. Closing the divide between online and offline shopping, our No-code Augmented Reality for e-commerce help audience to visualise products in their real-space with just a click with real-world scale.",
-    btn: "LEARN MORE",
+    btn: "EXPLORE PLATFORM",
     img: pic2,
+    imgAlt: "Precise and detailed visualisation with Augmented reality",
   },
   {
     id: 3,
@@ -474,5 +508,6 @@ export const V2HomeScreen3Data = [
     desc: "Create hassle-free and cost effective virtual photographs for any image use case scenarios. choose your light set up, create custom backgrounds and get the finest virtual photography studio at your fingertips.",
     btn: "COMING SOON",
     img: pic3,
+    imgAlt: "Instant high-quality product photos with a single click",
   },
 ];

@@ -69,21 +69,21 @@ const Login = () => {
     <>
       <Navbar />
       <div
-        className="flex md:hidden   min-h-screen overflow-hidden bg-cover bg-black text-white bg-center relative"
+        className="relative flex min-h-screen overflow-hidden text-white bg-black bg-center bg-cover md:hidden"
         style={{ backgroundImage: `url(${pcimg})` }}
       >
-        <div className="  transform  text-center">
+        <div className="text-center transform ">
           <img
             src={overlayImagesm}
-            alt="Overlay"
-            className="mx-auto  absolute -z-10 w-screen h-full "
+            alt="Bigsurmoon"
+            className="absolute w-screen h-full mx-auto -z-10 "
           />
-          <div className=" flex flex-col justify-center h-full items-center  ">
+          <div className="flex flex-col items-center justify-center h-full ">
             <p className="invisible w-screen">e</p>
-            <h1 className="text-white text-3xl  font-bold shadow-md mb-9">
+            <h1 className="text-3xl font-bold text-white shadow-md mb-9">
               Visualisation <br /> Re-imagined
             </h1>
-            {error && <p className="text-red-600 text-center mb-10">{error}</p>}
+            {error && <p className="mb-10 text-center text-red-600">{error}</p>}
             <form onSubmit={handleSubmit}>
               <div className="relative z-0 mb-10">
                 <input
@@ -123,7 +123,7 @@ const Login = () => {
                 <i
                   type="button"
                   onClick={togglePasswordVisibility}
-                  className="absolute right-4 top-3 text-white"
+                  className="absolute text-white right-4 top-3"
                 >
                   {showPassword ? (
                     <svg
@@ -153,10 +153,10 @@ const Login = () => {
                   )}
                 </i>
               </div>
-              <div className="flex justify-end mb-10 mt-3">
+              <div className="flex justify-end mt-3 mb-10">
                 <p
                   onClick={(e) => navigate("/forgot")}
-                  className="text-gray-400 text-sm cursor-pointer"
+                  className="text-sm text-gray-400 cursor-pointer"
                 >
                   Forgot Password ?
                 </p>
@@ -166,15 +166,15 @@ const Login = () => {
                   type="submit"
                   className="text-white text-sm flex items-center justify-center w-[125px] h-[40px] rounded-full mt-5 btnClr"
                 >
-                  <h3 className=" px-4 py-1  ">Login </h3>
+                  <h3 className="px-4 py-1 ">Login </h3>
                 </button>
               </div>
             </form>
-            <div className="flex  w-full justify-around items-center mt-10">
+            <div className="flex items-center justify-around w-full mt-10">
               <h2 className="text-gray-300">
                 {" "}
                 Don't have an account yet?{" "}
-                <Link to="/register" className="pl-2 text-white font-semibold">
+                <Link to="/register" className="pl-2 font-semibold text-white">
                   Sign Up
                 </Link>
               </h2>
@@ -184,14 +184,14 @@ const Login = () => {
       </div>
 
       <div
-        className=" hidden md:flex items-center justify-center h-screen bg-cover bg-black text-white bg-center bg-bla xl:gap-20"
+        className="items-center justify-center hidden h-screen text-white bg-black bg-center bg-cover md:flex bg-bla xl:gap-20"
         style={{ backgroundImage: `url(${pcimg})` }}
       >
-        <div className="  xl:mt-28 xl:ml-10">
+        <div className=" xl:mt-28 xl:ml-10">
           <h1 className="text-white text-4xl lg:text-[40px] font-bold leading-[50px] text-center mb-16">
             Visualisation <br /> Re-imagined
           </h1>
-          {error && <p className="text-red-600 text-center mb-10">{error}</p>}
+          {error && <p className="mb-10 text-center text-red-600">{error}</p>}
           <form onSubmit={handleSubmit}>
             <div className="relative z-0 mb-10">
               <input
@@ -231,7 +231,7 @@ const Login = () => {
               <i
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute right-4 top-3 text-white"
+                className="absolute text-white right-4 top-3"
               >
                 {showPassword ? (
                   <svg
@@ -261,10 +261,10 @@ const Login = () => {
                 )}
               </i>
             </div>
-            <div className="flex justify-end mb-10 mt-3">
+            <div className="flex justify-end mt-3 mb-10">
               <p
                 onClick={(e) => navigate("/forgot")}
-                className="text-gray-400 text-sm cursor-pointer"
+                className="text-sm text-gray-400 cursor-pointer"
               >
                 Forgot Password ?
               </p>
@@ -277,18 +277,18 @@ const Login = () => {
               <h3 className="px-4 py-1">Login </h3>
             </button>
           </form>
-          <div className="flex w-full justify-around items-center mt-10">
+          <div className="flex items-center justify-around w-full mt-10">
             <h2 className="text-gray-300">
               {" "}
               Don't have an account yet?{" "}
-              <Link to="/register" className="pl-2 text-white font-semibold">
+              <Link to="/register" className="pl-2 font-semibold text-white">
                 Sign Up
               </Link>
             </h2>
           </div>
         </div>
-        <div className="hidden  md:block">
-          <img src={overlayImagelg} alt="Large Overlay" />
+        <div className="hidden md:block">
+          <img src={overlayImagelg} alt="Bigsurmoon" />
         </div>
       </div>
 

@@ -11,25 +11,28 @@ import "../style.css";
 const CustomizationSimplified = () => {
   const navigate = useNavigate();
   return (
-    <div className=" mx-auto font-roboto text-white overflow-hidden relative lg:h-full  ">
+    <div className="relative mx-auto overflow-hidden text-white font-roboto lg:h-full">
       <img
         src={bgphone}
-        className=" lg:hidden absolute -z-10 w-full h-full bg-black "
+        alt="Customization, Simplified"
+        className="absolute w-full h-full bg-black lg:hidden -z-10"
       />
       <img
         src={pcimg}
-        className="  hidden lg:block absolute -z-10 w-full bg-black  "
+        alt="Customization, Simplified"
+        className="absolute hidden w-full bg-black lg:block -z-10"
       />
 
-      <div className="pt-5 md:grid md:grid-cols-2 lg:hidden md:pt-32  md:px-10 ">
+      <div className="pt-5 md:grid md:grid-cols-2 lg:hidden md:pt-32 md:px-10 ">
         <div className=" md:hidden">
           <img
             src={imglap}
+            alt="No-Code, No app required. Completely web-based and easy-to-use"
             className="w-[310px] md:w-[510px] md:h-[200px] md:mt-10 md:ml-[-40px]  h-[124px] mt-20 mx-auto"
           />
         </div>
         <div>
-          <div className="flex flex-col justify-center  content-center items-center   md:items-start mt-5 mb-5  ">
+          <div className="flex flex-col items-center content-center justify-center mt-5 mb-5 md:items-start ">
             <h1 className="text-[35px] md:text-4xl font-outfit font-medium  ">
               Customization,
             </h1>
@@ -39,7 +42,7 @@ const CustomizationSimplified = () => {
             </h1>
           </div>
 
-          <div className="text-xl md:text-2xl text-center md:text-left flex justify-center md:justify-start  mb-5 ">
+          <div className="flex justify-center mb-5 text-xl text-center md:text-2xl md:text-left md:justify-start ">
             <h2 className="text-sm w-[300px]">
               No-Code, No app required. <br />
               Completely web-based and easy-to-use.
@@ -63,14 +66,15 @@ const CustomizationSimplified = () => {
         <div className="hidden md:block">
           <img
             src={imglap}
+            alt="No-Code, No app required. Completely web-based and easy-to-use"
             className="w-[310px] md:w-[510px] md:h-[200px] md:mt-0   h-[124px] mt-20 mx-auto"
           />
         </div>
       </div>
       <div className="flex items-center justify-center lg:min-h-screen">
         <div className="max-w-[1440px]  mx-auto  ">
-          <div className="pt-28 hidden xl:px-28 lg:grid lg:grid-cols-2 items-center justify-center ">
-            <div className="flex flex-col justify-center text-left  content-center items-center   ">
+          <div className="items-center justify-center hidden pt-28 xl:px-28 lg:grid lg:grid-cols-2 ">
+            <div className="flex flex-col items-center content-center justify-center text-left ">
               <h3 className="text-4xl md:text-4xl lg:text-[94px] font-outfit xl:leading-[90px] font-medium  w-full mb-6">
                 Customization,{" "}
               </h3>
@@ -78,11 +82,11 @@ const CustomizationSimplified = () => {
               <h3 className="text-4xl md:text-5xl font-outfit font-medium w-full   mb-10 lg:text-[94px]">
                 Simplified
               </h3>
-              <h3 className="text-2xl w-full lg:pt-4">
+              <h3 className="w-full text-2xl lg:pt-4">
                 No-Code, No app required. <br /> Completely web-based and
                 easy-to-use.
               </h3>
-              <div className=" flex w-full  gap-10 mt-28 lg:mt-14 mb-10">
+              <div className="flex w-full gap-10 mb-10 mt-28 lg:mt-14">
                 <button
                   onClick={() => navigate("/plan")}
                   className="p-2 text-[18px] text-center flex justify-center items-center rounded-full w-48 h-16 btnClr"
@@ -100,12 +104,13 @@ const CustomizationSimplified = () => {
 
             <img
               src={imglap}
+              alt="No-Code, No app required. Completely web-based and easy-to-use"
               className=" xl:scale-125 xl:w-[700px] xl:pr-10  "
             />
           </div>
         </div>
       </div>
-      <div className=" text-white md:flex md:gap-5 md:px-12 md:justify-around md:pb-0 pt-8 pb-5 lg:hidden">
+      <div className="pt-8 pb-5 text-white md:flex md:gap-5 md:px-12 md:justify-around md:pb-0 lg:hidden">
         {confitems.map((m) => (
           <div
             id={m.id}
@@ -113,6 +118,7 @@ const CustomizationSimplified = () => {
           >
             <img
               src={m.img}
+              alt={m.t}
               className={`${
                 m.id === 3
                   ? "w-[110px] md:w-[80px] md:h-[82px]"
@@ -131,7 +137,7 @@ const CustomizationSimplified = () => {
         ))}
       </div>
       <div className="max-w-[1240px]  mx-auto hidden lg:block  ">
-        <div className="text-white hidden md:flex md:gap-5 md:justify-around items-center mt-32 ">
+        <div className="items-center hidden mt-32 text-white md:flex md:gap-5 md:justify-around ">
           {confitems.map((m) => (
             <div
               id={m.id}
@@ -139,6 +145,7 @@ const CustomizationSimplified = () => {
             >
               <img
                 src={m.img}
+                alt={m.t}
                 className={`${
                   m.id === 1
                     ? "w-[150px] h-[130px] mb-6"

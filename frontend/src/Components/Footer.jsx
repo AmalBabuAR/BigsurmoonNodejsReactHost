@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/Logos/logo.gif";
 import arrowup from "../assets/Arrows/Arrowup.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   SlSocialLinkedin,
   SlSocialTwitter,
@@ -29,27 +29,31 @@ const Footer = () => {
         <div className="bg-[#0A142F] max-w-[1440px] mx-auto font-roboto p-4 text-white text-sm md:hidden ">
           <div className="flex justify-between px-3 mb-5">
             <div onClick={() => navigate("/")}>
-              <img src={logo} alt="logo" className="w-35 h-7 cursor-pointer" />
+              <img
+                src={logo}
+                alt="Bigsurmoon"
+                className="cursor-pointer w-35 h-7"
+              />
             </div>
             <div onClick={handleClick}>
-              <img src={arrowup} className="w-8" />
+              <img src={arrowup} alt="Bigsurmoon" className="w-8" />
             </div>
           </div>
-          <div className="px-4 flex justify-between opacity-70 ">
+          <div className="flex justify-between px-4 opacity-70 ">
             <div>
               <h3 className="text-[10px] font-semibold">Resources</h3>
               <h3 className="text-[10px]">Blogs</h3>
               <h3 className="text-[10px]">F.A.Q</h3>
-              <div className="flex gap-4 mt-10">
-                <span onClick={() => window.open(linkedInLink, "_blank")}>
+              <div className="flex items-center justify-center gap-4 mt-10">
+                <Link to={linkedInLink} target="_blank">
                   <SlSocialLinkedin />
-                </span>
-                <span onClick={() => window.open(twitterLink, "_blank")}>
+                </Link>
+                <Link to={twitterLink} target="_blank">
                   <SlSocialTwitter />
-                </span>
-                <span onClick={() => window.open(youtubeLink, "_blank")}>
+                </Link>
+                <Link to={youtubeLink} target="_blank">
                   <SlSocialYoutube />
-                </span>
+                </Link>
               </div>
             </div>
 
@@ -78,7 +82,7 @@ const Footer = () => {
               </h3>
             </div>
           </div>
-          <div className="flex justify-center mt-4 px-3 opacity-70">
+          <div className="flex justify-center px-3 mt-4 opacity-70">
             <div className="opacity-70">
               <h2 className="text-[10px] font-extralight ">
                 © 2023 Bigsurmoon pvt ltd. all rights reserved.
@@ -90,10 +94,14 @@ const Footer = () => {
         <div className="bg-[#0A142F] max-w-[1440px] mx-auto font-roboto p-4 text-white hidden md:block text-sm lg:hidden ">
           <div className="flex w-[700px] justify-between mx-auto  px-3 mb-8">
             <div onClick={() => navigate("/")}>
-              <img src={logo} alt="logo" className="w-40 cursor-pointer" />
+              <img
+                src={logo}
+                alt="Bigsurmoon"
+                className="w-40 cursor-pointer"
+              />
             </div>
             <div onClick={handleClick}>
-              <img src={arrowup} className="w-8" />
+              <img src={arrowup} alt="Bigsurmoon" className="w-8" />
             </div>
           </div>
           <div className="flex w-[680px] mx-auto  justify-between">
@@ -124,25 +132,28 @@ const Footer = () => {
               <h3 className="mb-1">F.A.Q</h3>
               <h3 className="mb-1">Blogs</h3>
             </div>
-            <div className="opacity-70">
-              <h3
-                onClick={() => window.open(linkedInLink, "_blank")}
+            <div className="flex flex-col opacity-70">
+              <Link
+                to={linkedInLink}
+                target="_blank"
                 className="mb-1 cursor-pointer"
               >
                 LinkedIn
-              </h3>
-              <h3
-                onClick={() => window.open(twitterLink, "_blank")}
+              </Link>
+              <Link
+                to={twitterLink}
+                target="_blank"
                 className="mb-1 cursor-pointer"
               >
                 X
-              </h3>
-              <h3
-                onClick={() => window.open(youtubeLink, "_blank")}
+              </Link>
+              <Link
+                to={youtubeLink}
+                target="_blank"
                 className="mb-1 cursor-pointer"
               >
                 Youtube
-              </h3>
+              </Link>
             </div>
           </div>
           <div className="mt-14">
@@ -153,13 +164,13 @@ const Footer = () => {
         </div>
 
         <div className="bg-[#0A142F] max-w-[1440px] mx-auto font-roboto text-white hidden lg:block ">
-          <div className="pl-12 pr-8 pt-20 pb-4">
+          <div className="pt-20 pb-4 pl-12 pr-8">
             <div className="flex justify-between">
               <div onClick={() => navigate("/")}>
                 <img
                   src={logo}
-                  alt="logo"
-                  className="w-52 cursor-pointer object-contain"
+                  alt="Bigsurmoon"
+                  className="object-contain cursor-pointer w-52"
                 />
               </div>
               <div className="opacity-70">
@@ -189,31 +200,34 @@ const Footer = () => {
                 <h3 className="mb-[9px]">F.A.Q</h3>
                 <h3 className="mb-[9px]">Blogs</h3>
               </div>
-              <div className="opacity-70">
-                <h3
-                  onClick={() => window.open(linkedInLink, "_blank")}
+              <div className="flex flex-col opacity-70">
+                <Link
+                  to={linkedInLink}
+                  target="_blank"
                   className="mb-[9px] cursor-pointer"
                 >
                   LinkedIn
-                </h3>
-                <h3
-                  onClick={() => window.open(twitterLink, "_blank")}
+                </Link>
+                <Link
+                  to={twitterLink}
+                  target="_blank"
                   className="mb-[9px] cursor-pointer"
                 >
                   X
-                </h3>
-                <h3
-                  onClick={() => window.open(youtubeLink, "_blank")}
+                </Link>
+                <Link
+                  to={youtubeLink}
+                  target="_blank"
                   className="mb-[9px] cursor-pointer"
                 >
                   Youtube
-                </h3>
+                </Link>
               </div>
               <div
                 onClick={handleClick}
-                className="w-16 flex items-start xl:justify-end cursor-pointer"
+                className="flex items-start w-16 cursor-pointer xl:justify-end"
               >
-                <img src={arrowup} className="w-9 h-8" />
+                <img src={arrowup} alt="Bigsurmoon" className="h-8 w-9" />
               </div>
             </div>
             <div className="mt-[123px]">

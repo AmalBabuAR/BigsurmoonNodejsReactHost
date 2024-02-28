@@ -8,11 +8,11 @@ const PricingScreeen = () => {
   const [priceFormView, setPriceFormView] = useState(true);
   return (
     <>
-      <div className="mx-auto font-roboto bg-black  bg-cover bg-center text-white relative overflow-hidden lg:h-full z-0">
-        <img src={mob} className="md:flex bg-black w-full absolute -z-10" />
+      <div className="relative z-0 mx-auto overflow-hidden text-white bg-black bg-center bg-cover font-roboto lg:h-full">
+        <img src={mob} alt="Grow better with the right plan" className="absolute w-full bg-black md:flex -z-10" />
         <img
-          src={lap}
-          className="hidden md:flex bg-black w-full absolute -z-10"
+          src={lap} alt="Grow better with the right plan"
+          className="absolute hidden w-full bg-black md:flex -z-10"
         />
         <div className="mt-[133px] lg:mt-44 mb-[104px]">
           <div className="">

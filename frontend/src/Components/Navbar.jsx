@@ -94,14 +94,14 @@ const Navbar = () => {
   // console.log(pageName);
   return (
     <>
-      <div className="bg-black lg:hidden lg:bg-opacity-50 w-full ">
-        <div className="mx-auto font-roboto  items-center">
-          <div className=" lg:hidden fixed w-screen bg-black  z-10   ">
-            <div className="flex  justify-between items-center p-4  ">
+      <div className="w-full bg-black lg:hidden lg:bg-opacity-50 ">
+        <div className="items-center mx-auto font-roboto">
+          <div className="fixed z-10 w-screen bg-black lg:hidden">
+            <div className="flex items-center justify-between p-4 ">
               <div className="text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-7  cursor-pointer"
+                  className="cursor-pointer h-7"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -127,7 +127,11 @@ const Navbar = () => {
 
               <div>
                 <Link to="/">
-                  <img src={logo} alt="logo" className="h-6 ml-8 md:ml-10" />
+                  <img
+                    src={logo}
+                    alt="Bigsurmoon"
+                    className="h-6 ml-8 md:ml-10"
+                  />
                 </Link>
               </div>
               {user ? (
@@ -163,8 +167,8 @@ const Navbar = () => {
             <div>
               {isMenuOpen && (
                 <div className="  fixed left-0 right-0 bg-black md:w-[400px] w-3/4  z-50">
-                  <div className="bg-black py-10  h-screen text-white  mx-auto ">
-                    <ul className=" flex flex-col justify-around text-2xl pl-10 md:pl-16 font-outfit font-bold   ">
+                  <div className="h-screen py-10 mx-auto text-white bg-black ">
+                    <ul className="flex flex-col justify-around pl-10 text-2xl font-bold md:pl-16 font-outfit">
                       <Link to="/">
                         <li className="w-[150px] mb-3">Home</li>
                       </Link>
@@ -216,7 +220,7 @@ const Navbar = () => {
                         <li className="w-[150px]">Support</li>
                       </Link>
                     </ul>
-                    <div className=" pl-10 mt-10 md:pl-16 opacity-60">
+                    <div className="pl-10 mt-10 md:pl-16 opacity-60">
                       <Link to="/privacyPolicy">
                         <h2 className="mt-2">Privacy & legal</h2>
                       </Link>
@@ -224,21 +228,15 @@ const Navbar = () => {
                         <h2 className="mt-2">Terms and conditions</h2>
                       </Link>
                       <div className="flex gap-4 mt-4">
-                        <span
-                          onClick={() => window.open(linkedInLink, "_blank")}
-                        >
+                        <Link to={linkedInLink} target="_blank">
                           <SlSocialLinkedin />
-                        </span>
-                        <span
-                          onClick={() => window.open(twitterLink, "_blank")}
-                        >
+                        </Link>
+                        <Link to={twitterLink} target="_blank">
                           <SlSocialTwitter />
-                        </span>
-                        <span
-                          onClick={() => window.open(youtubeLink, "_blank")}
-                        >
+                        </Link>
+                        <Link to={youtubeLink} target="_blank">
                           <SlSocialYoutube />
-                        </span>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -249,19 +247,19 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="hidden lg:block fixed text-white font-roboto font-medium z-10  ">
+      <div className="fixed z-10 hidden font-medium text-white lg:block font-roboto ">
         <div
           className={`${home && "opacity-100"} ${
             home && scrolled && "opacity-100"
           } w-screen bg-black `}
         >
           <div className="max-w-[1440px] mx-auto">
-            <div className="flex justify-between px-10 items-center">
+            <div className="flex items-center justify-between px-10">
               <div>
                 <Link to="/">
                   <img
                     src={logo}
-                    alt="logo"
+                    alt="Bigsurmoon"
                     className="w-[180px] h-[31px] object-cover"
                   />
                 </Link>

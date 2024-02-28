@@ -14,7 +14,7 @@ const HomeScreenTwo = () => {
             className="py-[25px] pl-0 pr-[25px] mx-auto lg:p-[25px] xl:p-[25px] flex flex-col justify-start items-start gap-[25px]"
             key={x.id}
           >
-            <img src={x.img} alt="iconone" className={x.imgSpeck} />
+            <img src={x.img} alt={x.imgAlt} className={x.imgSpeck} />
             <h4 className="text-[30px] font-bold leading-[29.906px] tracking-[1.2px]">
               {x.title}
             </h4>

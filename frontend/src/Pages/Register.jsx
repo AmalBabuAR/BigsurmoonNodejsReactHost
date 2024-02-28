@@ -78,21 +78,21 @@ const Register = () => {
     <>
       <Navbar />
       <div
-        className="flex md:hidden   min-h-screen overflow-hidden bg-cover bg-black text-white bg-center relative"
+        className="relative flex min-h-screen overflow-hidden text-white bg-black bg-center bg-cover md:hidden"
         style={{ backgroundImage: `url(${pcimg})` }}
       >
-        <div className="  transform  text-center">
+        <div className="text-center transform ">
           <img
             src={overlayImagesm}
-            alt="Overlay"
-            className="mx-auto  absolute -z-10 w-screen h-full "
+            alt="Bigsurmoon"
+            className="absolute w-screen h-full mx-auto -z-10 "
           />
-          <div className=" flex flex-col justify-center h-full items-center  ">
+          <div className="flex flex-col items-center justify-center h-full ">
             <p className="invisible w-screen">e</p>
-            <h1 className="text-white text-3xl  font-bold shadow-md mb-9">
+            <h1 className="text-3xl font-bold text-white shadow-md mb-9">
               Get Started
             </h1>
-            {error && <p className="text-red-600 mb-12">{error}</p>}
+            {error && <p className="mb-12 text-red-600">{error}</p>}
             <form onSubmit={handleSubmit}>
               <div className="relative z-0 mb-5">
                 <input
@@ -238,7 +238,7 @@ const Register = () => {
                 <i
                   type="button"
                   onClick={togglePasswordVisibility}
-                  className="absolute right-4 top-3 text-white"
+                  className="absolute text-white right-4 top-3"
                 >
                   {showPassword ? (
                     <svg
@@ -276,11 +276,11 @@ const Register = () => {
               </button>
             </form>
 
-            <div className="flex  w-full justify-around items-center mt-10">
+            <div className="flex items-center justify-around w-full mt-10">
               <h2 className="text-gray-300">
                 {" "}
                 Already have an account?{" "}
-                <Link to="/login" className="pl-2 text-white font-semibold">
+                <Link to="/login" className="pl-2 font-semibold text-white">
                   Sign in
                 </Link>
               </h2>
@@ -295,7 +295,7 @@ const Register = () => {
       </div>
 
       <div
-        className=" hidden md:flex items-center justify-center h-screen bg-cover bg-black text-white bg-center xl:gap-20"
+        className="items-center justify-center hidden h-screen text-white bg-black bg-center bg-cover md:flex xl:gap-20"
         style={{ backgroundImage: `url(${pcimg})` }}
       >
         <div className="xl:mt-20 xl:ml-10">
@@ -450,7 +450,7 @@ const Register = () => {
               <i
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute right-4 top-3 text-white"
+                className="absolute text-white right-4 top-3"
               >
                 {showPassword ? (
                   <svg
@@ -488,18 +488,18 @@ const Register = () => {
               <h3 className="px-4 py-1">Sign up </h3>
             </button>
           </form>
-          <div className="flex w-full justify-around items-center my-10">
+          <div className="flex items-center justify-around w-full my-10">
             <h2 className="text-gray-300">
               {" "}
               Already have an account?{" "}
-              <Link to="/login" className="pl-2 text-white font-semibold">
+              <Link to="/login" className="pl-2 font-semibold text-white">
                 Sign in
               </Link>
             </h2>
           </div>
         </div>
-        <div className="hidden  md:block">
-          <img src={overlayImagelg} alt="Large Overlay" />
+        <div className="hidden md:block">
+          <img src={overlayImagelg} alt="Bigsurmoon" />
         </div>
       </div>
 

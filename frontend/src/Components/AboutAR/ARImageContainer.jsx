@@ -6,14 +6,14 @@ import img3 from "../../assets/Aboutar/imageContainer/sofaAr2.gif";
 
 const ARImageContainer = () => {
   return (
-    <div className="mx-auto w-full overflow-hidden text-white bg-black">
+    <div className="w-full mx-auto overflow-hidden text-white bg-black">
       {/* image container */}
       <div className="my-[75px] lg:my-[200px] flex flex-col mx-[20px] lg:mx-[78px] gap-y-[100px] font-outfit text-[25px] lg:text-[52px] leading-[24px] lg:leading-[51px] font-bold">
         <div className="flex flex-col lg:flex-row gap-[50px] lg:gap-[160px] justify-center items-center">
           <div>
             <img
               src={img1}
-              alt="imageContainer1.png"
+              alt="Augmented reality reshapes interaction and informed buying"
               className="w-[350px] lg:w-[611px] h-[217px] lg:h-[381px]"
             />
           </div>
@@ -42,7 +42,7 @@ const ARImageContainer = () => {
           <div className="order-first lg:order-last">
             <img
               src={img2}
-              alt="imageContainer1.png"
+              alt="every product you see in augmented reality matches its real-world scale and fit"
               className="w-[350px] lg:w-[611px] h-[217px] lg:h-[381px]"
             />
           </div>
@@ -51,7 +51,7 @@ const ARImageContainer = () => {
           <div>
             <img
               src={img3}
-              alt="imageContainer1.png"
+              alt="Configure your variations and view in Augmented Reality"
               className="w-[350px] lg:w-[611px] h-[217px] lg:h-[381px]"
             />
           </div>
@@ -82,7 +82,7 @@ const ARImageContainer = () => {
             >
               <img
                 src={c.img}
-                alt={c.title}
+                alt={c.imgAlt}
                 className="lg:pt-[43px]"
               />
               <h4 className="pt-[15px] lg:pt-[34px] text-[20px] lg:text-[22px] leading-[30px] lg:leading-[29px] font-bold">

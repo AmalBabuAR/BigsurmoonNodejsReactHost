@@ -10,14 +10,16 @@ const CheckoutFailed = () => {
   return (
     <>
       <Navbar />
-      <div className=" mx-auto font-roboto  bg-cover bg-center text-white overflow-hidden       lg:h-screen   ">
+      <div className="mx-auto overflow-hidden text-white bg-center bg-cover font-roboto lg:h-screen">
         <img
           src={phone}
-          className=" md:hidden absolute -z-10 w-full h-full bg-black "
+          alt="Bigsurmoon"
+          className="absolute w-full h-full bg-black md:hidden -z-10"
         />
         <img
           src={lap}
-          className=" hidden md:flex absolute w-full -z-10  md:h-1/2 lg:h-2/4 bg-black "
+          alt="Bigsurmoon"
+          className="absolute hidden w-full bg-black md:flex -z-10 md:h-1/2 lg:h-2/4"
         />
         <div>
           <div className="flex justify-center mt-[-150px] items-center border md:mt-[-200px] lg:mt-[1px] md:min-h-screen  ">
@@ -49,10 +51,10 @@ const CheckoutFailed = () => {
                   </defs>
                 </svg>
 
-                <h1 className="text-3xl text-center font-medium text-black mt-5">
+                <h1 className="mt-5 text-3xl font-medium text-center text-black">
                   Subscribing Failed
                 </h1>
-                <button onClick={() => navigate('/plan') } className="text-center text-blue-700 text-base mt-4 font-normal">Go Back To Pricing</button>
+                <button onClick={() => navigate('/plan') } className="mt-4 text-base font-normal text-center text-blue-700">Go Back To Pricing</button>
               </div>
             </div>
           </div>

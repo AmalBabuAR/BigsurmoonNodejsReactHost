@@ -16,7 +16,7 @@ const OneClick = () => {
       {/* ON CLICK CONTENT */}
       <div className="mx-auto w-full relative overflow-hidden text-white font-roboto bg-[rgb(0,6,30)]">
         <div className="mt-[50px] lg:mt-[100px] mb-[40px] mx-[20px] lg:mx-auto flex justify-center flex-col">
-          <div className="flex justify-center flex-col text-center ">
+          <div className="flex flex-col justify-center text-center ">
             <h4 className="text-[25px] lg:text-[50px] leading-[40px] lg:leading-[110px] font-bold ">
               One-Click Augmented Reality <br className="lg:hidden" /> for
               E-commerce
@@ -65,15 +65,15 @@ const OneClick = () => {
           </h4>
         </div>
         <div className="w-[250px] lg:w-[483px]">
-          <img src={screenChair} alt="" />
+          <img src={screenChair} alt="Meet the Ultimate E-commerce solution" />
         </div>
       </div>
       {/* NO CODE CONTENT */}
-      <div className="w-full mx-auto overflow-hidden relative text-white font-outfit">
+      <div className="relative w-full mx-auto overflow-hidden text-white font-outfit">
         <img
           src={codeBg}
-          alt=""
-          className="w-full h-full object-fill -z-10 absolute"
+          alt="No-Code, No App"
+          className="absolute object-fill w-full h-full -z-10"
         />
         <div className="flex flex-col justify-center items-center my-[27px] lg:my-[100px]">
           <h4 className="text-[20px] lg:text-[50px] leading-[25px] lg:leading-[60px] font-bold ">

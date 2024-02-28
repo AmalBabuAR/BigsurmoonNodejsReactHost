@@ -78,15 +78,15 @@ const CarouselComp = () => {
             <img
               slot="1"
               src={SlideMob1}
-              alt="slide_image"
+              alt="Automobile Configurator"
               className="object-cover swiperImg"
             />
           ) : (
             <img
               slot="1"
               src={Slide1}
-              alt="slide_image"
-              className="w-full h-full object-cover"
+              alt="Automobile Configurator"
+              className="object-cover w-full h-full"
             />
           )}
         </SwiperSlide>
@@ -95,15 +95,15 @@ const CarouselComp = () => {
             <img
               slot="2"
               src={SlideMob2}
-              alt="slide_image"
+              alt="Clothing Configurator"
               className="object-cover swiperImg"
             />
           ) : (
             <img
               slot="2"
               src={Slide2}
-              alt="slide_image"
-              className="w-full h-full object-cover"
+              alt="Clothing Configurator"
+              className="object-cover w-full h-full"
             />
           )}
         </SwiperSlide>
@@ -112,15 +112,15 @@ const CarouselComp = () => {
             <img
               slot="3"
               src={SlideMob3}
-              alt="slide_image"
+              alt="Education Configurator"
               className="object-cover swiperImg"
             />
           ) : (
             <img
               slot="3"
               src={Slide3}
-              alt="slide_image"
-              className="w-full h-full object-cover"
+              alt="Education Configurator"
+              className="object-cover w-full h-full"
             />
           )}
         </SwiperSlide>
@@ -129,15 +129,15 @@ const CarouselComp = () => {
             <img
               slot="4"
               src={SlideMob4}
-              alt="slide_image"
+              alt="Electronics Configurator"
               className="object-cover swiperImg"
             />
           ) : (
             <img
               slot="4"
               src={Slide4}
-              alt="slide_image"
-              className="w-full h-full object-cover"
+              alt="Electronics Configurator"
+              className="object-cover w-full h-full"
             />
           )}
         </SwiperSlide>
@@ -146,15 +146,15 @@ const CarouselComp = () => {
             <img
               slot="5"
               src={SlideMob5}
-              alt="slide_image"
+              alt="Gym Equipments Configurator"
               className="object-cover swiperImg"
             />
           ) : (
             <img
               slot="5"
               src={Slide5}
-              alt="slide_image"
-              className="w-full h-full object-cover"
+              alt="Gym Equipments Configurator"
+              className="object-cover w-full h-full"
             />
           )}
         </SwiperSlide>
@@ -171,11 +171,11 @@ const CarouselComp = () => {
               slot="6"
               src={Slide6}
               alt="slide_image"
-              className="w-full h-full object-cover"
+              className="object-cover w-full h-full"
             />
           )}
         </SwiperSlide>
-        <div className="flex justify-center items-center flex-col ">
+        <div className="flex flex-col items-center justify-center ">
           <div className="">
             <div className="mt-[35px] flex justify-center items-center flex-col gap-[25px]">
               {activeSlot == 1 && (

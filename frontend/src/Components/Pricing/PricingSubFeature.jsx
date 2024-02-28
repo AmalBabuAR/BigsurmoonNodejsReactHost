@@ -13,7 +13,7 @@ const PricingSubFeature = () => {
           <div className="mt-[25px] lg:mt-[75px] flex justify-center mx-auto gap-[30px] lg:gap-[40px]">
             {pricingSubFeatures.map((data) => (
               <div className="w-[100px] lg:w-[300px]" key={data.id}>
-                <img src={data.img} alt={data.title} />
+                <img src={data.img} alt={data.imgAlt} />
                 <h4 className="mt-[25px] text-[14px] lg:text-[16px] leading-[14px] lg:leading-[24px] font-bold text-center ">
                   {data.title}
                 </h4>

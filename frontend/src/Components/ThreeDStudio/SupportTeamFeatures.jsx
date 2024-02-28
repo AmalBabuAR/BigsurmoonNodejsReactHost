@@ -23,38 +23,40 @@ const SupportTeamFeatures = () => {
           {supportitems.map((m) => (
             <div
               key={m.id}
-              className="md:hidden md:grid-cols-2 md:gap-32 justify-center items-center"
+              className="items-center justify-center md:hidden md:grid-cols-2 md:gap-32"
             >
               <div className="flex justify-center mt-10">
                 <img
                   src={m.img}
+                  alt={m.imgAlt}
                   className={`${m.id === 2 || (m.id === 5 && "h-48")}  ${
                     m.id === 3 || m.id === 5 ? "h-40 px-20" : " h-48"
                   } px-10`}
                 />
               </div>
               <div>
-                <h2 className="font-bold text-2xl px-3 mt-5 mb-4">{m.title}</h2>
-                <h2 className="mb-4 text-sm px-3 pb-5 font-normal">{m.desc}</h2>
+                <h2 className="px-3 mt-5 mb-4 text-2xl font-bold">{m.title}</h2>
+                <h2 className="px-3 pb-5 mb-4 text-sm font-normal">{m.desc}</h2>
               </div>
             </div>
           ))}
         </div>
-        <div className="hidden  md:block">
-          <div className="md:grid md:grid-cols-2 md:gap-1 mt-12 lg:mt-52 lg:pb-36  justify-between items-center xl:px-10 px-10">
+        <div className="hidden md:block">
+          <div className="items-center justify-between px-10 mt-12 md:grid md:grid-cols-2 md:gap-1 lg:mt-52 lg:pb-36 xl:px-10">
             <div className="flex justify-center mt-10">
               <img
                 src={s1}
+                alt="Bigsurmoon Studio's Dedicated Support Team"
                 className="xl:w-[460px] w-[300px] mt-[-40px] lg:w-full xl:h-[250px]"
               />
             </div>
-            <div className="flex flex-col justify-center mx-auto pl-5">
-              <h2 className="font-medium font-outfit hidden lg:block text-2xl xl:pl-10 mb-4 lg:w-full lg:text-5xl">
+            <div className="flex flex-col justify-center pl-5 mx-auto">
+              <h2 className="hidden mb-4 text-2xl font-medium font-outfit lg:block xl:pl-10 lg:w-full lg:text-5xl">
                 Dedicated Support
                 <br />
                 Team{" "}
               </h2>
-              <h2 className="font-medium lg:hidden font-outfit text-2xl mb-4 lg:w-full lg:text-5xl">
+              <h2 className="mb-4 text-2xl font-medium lg:hidden font-outfit lg:w-full lg:text-5xl">
                 Dedicated Support Team{" "}
               </h2>
               <p className="mb-4 text-[14px] font-light xl:pl-10 lg:text-2xl leading-5 xl:w-3/4 ">
@@ -65,14 +67,14 @@ const SupportTeamFeatures = () => {
             </div>
           </div>
 
-          <div className="md:grid md:grid-cols-2 md:px-10 mt-32 lg:pb-36  justify-center items-center lg:px-28 ">
-            <div className=" flex flex-col justify-center mx-auto ">
-              <h2 className="font-medium hidden lg:flex font-outfit text-3xl mt-10 mb-4 lg:w-full lg:text-5xl">
+          <div className="items-center justify-center mt-32 md:grid md:grid-cols-2 md:px-10 lg:pb-36 lg:px-28 ">
+            <div className="flex flex-col justify-center mx-auto ">
+              <h2 className="hidden mt-10 mb-4 text-3xl font-medium lg:flex font-outfit lg:w-full lg:text-5xl">
                 Scalability and
                 <br />
                 Flexibility
               </h2>
-              <h2 className="font-medium font-outfit lg:hidden text-2xl pt-4 mb-4 lg:w-full lg:text-5xl">
+              <h2 className="pt-4 mb-4 text-2xl font-medium font-outfit lg:hidden lg:w-full lg:text-5xl">
                 Scalability and Flexibility
               </h2>
               <p className="mb-4 text-[14px] font-light lg:text-2xl leading-5 xl:w-3/4">
@@ -81,27 +83,29 @@ const SupportTeamFeatures = () => {
                 projects of all sizes, ensuring quality and timely delivery.
               </p>
             </div>
-            <div className="flex justify-center pl-12  ">
+            <div className="flex justify-center pl-12 ">
               <img
                 src={s2}
+                alt="3D Modelling Scalability and Flexibility"
                 className="xl:w-[350px] w-[170px] h-[150px] lg:h-full lg:w-full xl:h-[338px]"
               />
             </div>
           </div>
 
-          <div className="md:grid md:grid-cols-2 px- mt-32 lg:pb-20 justify-between items-center lg:px-10 mb-12">
+          <div className="items-center justify-between mt-32 mb-12 md:grid md:grid-cols-2 px- lg:pb-20 lg:px-10">
             <div className="flex justify-center">
               <img
                 src={s3}
+                alt="3D Modelling Streamlined Project Management"
                 className="xl:w-[416px] w-[250px] h-[161px] lg:w-full lg:h-full xl:h-[300px]"
               />
             </div>
-            <div className=" flex flex-col justify-center mx-auto  px-5 ">
-              <h2 className="font-medium hidden lg:block font-outfit xl:pl-10  text-3xl  mb-4 lg:w-full lg:text-5xl">
+            <div className="flex flex-col justify-center px-5 mx-auto ">
+              <h2 className="hidden mb-4 text-3xl font-medium lg:block font-outfit xl:pl-10 lg:w-full lg:text-5xl">
                 Streamlined <br />
                 Project <br /> Management{" "}
               </h2>
-              <h2 className="font-medium lg:hidden font-outfit  text-2xl  mb-4 lg:w-full lg:text-5xl">
+              <h2 className="mb-4 text-2xl font-medium lg:hidden font-outfit lg:w-full lg:text-5xl">
                 Streamlined Project Management{" "}
               </h2>
               <p className="mb-4 text-[14px] xl:pl-10   font-light lg:text-2xl leading-5  xl:w-3/4 ">

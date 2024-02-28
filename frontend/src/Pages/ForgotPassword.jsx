@@ -128,28 +128,28 @@ const ForgotPassword = () => {
     <>
       <Navbar />
       <div
-        className="flex md:hidden   min-h-screen overflow-hidden bg-cover bg-black text-white bg-center relative"
+        className="relative flex min-h-screen overflow-hidden text-white bg-black bg-center bg-cover md:hidden"
         style={{ backgroundImage: `url(${pcimg})` }}
       >
-        <div className="  transform  text-center">
+        <div className="text-center transform ">
           <img
             src={overlayImagesm}
-            alt="Overlay"
-            className="mx-auto  absolute -z-10 w-screen h-full "
+            alt="Bigsurmoon"
+            className="absolute w-screen h-full mx-auto -z-10 "
           />
-          <div className=" flex flex-col justify-center h-full items-center  ">
+          <div className="flex flex-col items-center justify-center h-full ">
             <p className="invisible w-screen">e</p>
-            <h1 className="text-white text-3xl  font-bold shadow-md mb-9">
+            <h1 className="text-3xl font-bold text-white shadow-md mb-9">
               Visualisation <br /> Re-imagined
             </h1>
 
             {emailVerificationOpen && (
-              <p className="text-sm text-center mb-16 text-gray-200">
+              <p className="mb-16 text-sm text-center text-gray-200">
                 Please provide the email address that you used <br /> when you
                 signed up for your account.
               </p>
             )}
-            {error && <p className="text-red-600 text-center mb-10">{error}</p>}
+            {error && <p className="mb-10 text-center text-red-600">{error}</p>}
             {emailVerificationOpen && (
               <>
                 <form onSubmit={handleSubmit}>
@@ -234,7 +234,7 @@ const ForgotPassword = () => {
                   <i
                     type="button"
                     onClick={togglePasswordVisibility}
-                    className="absolute right-4 top-3 text-white"
+                    className="absolute text-white right-4 top-3"
                   >
                     {showPassword ? (
                       <svg
@@ -290,7 +290,7 @@ const ForgotPassword = () => {
                   <i
                     type="button"
                     onClick={toggleConfirmPasswordVisibility}
-                    className="absolute right-4 top-3 text-white"
+                    className="absolute text-white right-4 top-3"
                   >
                     {showConfirmPassword ? (
                       <svg
@@ -329,11 +329,11 @@ const ForgotPassword = () => {
                 </button>
               </form>
             )}
-            <div className="flex  w-full justify-around items-center mt-10">
+            <div className="flex items-center justify-around w-full mt-10">
               <h2 className="text-gray-300">
                 {" "}
                 Don't have an account yet?{" "}
-                <Link to="/register" className="pl-2 text-white font-semibold">
+                <Link to="/register" className="pl-2 font-semibold text-white">
                   Sign Up
                 </Link>
               </h2>
@@ -343,20 +343,20 @@ const ForgotPassword = () => {
       </div>
 
       <div
-        className=" hidden md:flex items-center justify-center h-screen bg-cover bg-black text-white bg-center bg-bla xl:gap-20"
+        className="items-center justify-center hidden h-screen text-white bg-black bg-center bg-cover md:flex bg-bla xl:gap-20"
         style={{ backgroundImage: `url(${pcimg})` }}
       >
-        <div className="  xl:mt-28 xl:ml-10">
+        <div className=" xl:mt-28 xl:ml-10">
           <h1 className="text-white text-4xl lg:text-[40px] font-bold leading-[50px] text-center mb-16">
             Visualisation <br /> Re-imagined
           </h1>
           {emailVerificationOpen && (
-            <p className="text-sm text-center mb-16 text-gray-200">
+            <p className="mb-16 text-sm text-center text-gray-200">
               Please provide the email address that you used <br /> when you
               signed up for your account.
             </p>
           )}
-          {error && <p className="text-red-600 text-center mb-10">{error}</p>}
+          {error && <p className="mb-10 text-center text-red-600">{error}</p>}
           {emailVerificationOpen && (
             <>
               <form onSubmit={handleSubmit}>
@@ -441,7 +441,7 @@ const ForgotPassword = () => {
                 <i
                   type="button"
                   onClick={togglePasswordVisibility}
-                  className="absolute right-4 top-3 text-white"
+                  className="absolute text-white right-4 top-3"
                 >
                   {showPassword ? (
                     <svg
@@ -497,7 +497,7 @@ const ForgotPassword = () => {
                 <i
                   type="button"
                   onClick={toggleConfirmPasswordVisibility}
-                  className="absolute right-4 top-3 text-white"
+                  className="absolute text-white right-4 top-3"
                 >
                   {showConfirmPassword ? (
                     <svg
@@ -537,18 +537,18 @@ const ForgotPassword = () => {
             </form>
           )}
 
-          <div className="flex w-full justify-around items-center mt-10">
+          <div className="flex items-center justify-around w-full mt-10">
             <h2 className="text-gray-300">
               {" "}
               Don't have an account yet?{" "}
-              <Link to="/register" className="pl-2 text-white font-semibold">
+              <Link to="/register" className="pl-2 font-semibold text-white">
                 Sign Up
               </Link>
             </h2>
           </div>
         </div>
-        <div className="hidden  md:block">
-          <img src={overlayImagelg} alt="Large Overlay" />
+        <div className="hidden md:block">
+          <img src={overlayImagelg} alt="Bigsurmoon" />
         </div>
       </div>
 

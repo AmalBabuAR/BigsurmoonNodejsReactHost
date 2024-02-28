@@ -18,14 +18,16 @@ const Support = () => {
   return (
     <>
       <Navbar />
-      <div className=" mx-auto font-roboto mb-12 lg:mb-52 bg-cover bg-center text-white ">
+      <div className="mx-auto mb-12 text-white bg-center bg-cover font-roboto lg:mb-52">
         <img
           src={phone}
-          className=" md:hidden absolute -z-10 w-full h-full bg-black "
+          alt="Bigsurmoon Support"
+          className="absolute w-full h-full bg-black md:hidden -z-10"
         />
         <img
           src={lap}
-          className=" hidden md:flex absolute w-full -z-10   md:h-1/2 lg:h-3/4 bg-black "
+          alt="Bigsurmoon Support"
+          className="absolute hidden w-full bg-black md:flex -z-10 md:h-1/2 lg:h-3/4"
         />
         <div>
           <div>
@@ -40,7 +42,7 @@ const Support = () => {
           </div>
 
           <div className="flex justify-center mt-[-150px] items-center md:mt-[-200px] lg:mt-[-200px] md:min-h-screen  ">
-            <div className="w-full mt-40 border-black max-h-screen">
+            <div className="w-full max-h-screen mt-40 border-black">
               <div
                 id="SOIDIV_Bigsurmoon"
                 data-so-page="Bigsurmoon"

@@ -43,7 +43,7 @@ const HomeScreenThree = (props) => {
           </button>
           <img
             src={x.img}
-            alt="images"
+            alt={x.imgAlt}
             className=" w-[343px] lg:w-[1064px] xl:w-[1248px] h-[195.136px] lg:h-[590.188px] xl:h-[710px] bg-cover rounded-[20px] border border-solid border-[#8D8D8D] homeSecondScreenImage order-2 lg:order-5 xl:order-5"
           />
         </div>

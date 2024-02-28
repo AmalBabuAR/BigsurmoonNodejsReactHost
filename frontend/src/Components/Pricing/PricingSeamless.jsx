@@ -21,27 +21,39 @@ const PricingSeamless = () => {
       <p className="mt-[10px] lg:hidden text-[12px] lg:text-[14px] font-normal text-center">
         Bigsurmoon integrates with all major <br /> e-commerce platforms
       </p>
-      <div className="mx-auto hidden lg:flex">
-        <img src={pic1} alt="" />
-        <img src={pic2} alt="" />
-        <img src={pic3} alt="" />
-        <img src={pic4} alt="" />
+      <div className="hidden mx-auto lg:flex">
+        <img
+          src={pic1}
+          alt="Bigsurmoon also seamlessly integrates with Google Ads"
+        />
+        <img
+          src={pic2}
+          alt="Bigsurmoon also seamlessly integrates with Big Commerce"
+        />
+        <img
+          src={pic3}
+          alt="Bigsurmoon also seamlessly integrates with Shopify"
+        />
+        <img
+          src={pic4}
+          alt="Bigsurmoon also seamlessly integrates with Woo Commerce"
+        />
       </div>
       <div className="lg:hidden mt-[25px] mb-[86px] flex flex-col mx-auto gap-[15px]">
         <div className="flex flex-row gap-[15px]">
           <div className="w-[146px] h-[25px]">
-            <img src={picMob1} alt="" />
+          <img src={picMob1} alt="Bigsurmoon also seamlessly integrates with Google Ads" />
           </div>
           <div className="w-[146px] h-[25px]">
-            <img src={picMob2} alt="" />
+          <img src={picMob2} alt="Bigsurmoon also seamlessly integrates with Big Commerce" />
           </div>
         </div>
         <div className="flex flex-row gap-[15px] mt-[15px]">
           <div className="w-[146px] h-[25px]">
-            <img src={picMob3} alt="" />
+          <img src={picMob3} alt="Bigsurmoon also seamlessly integrates with Shopify" />
           </div>
           <div className="w-[146px] h-[25px]">
-            <img src={picMob4} alt="" />
+          <img src={picMob4} alt="Bigsurmoon also seamlessly integrates with Woo Commerce" />
           </div>
         </div>
       </div>

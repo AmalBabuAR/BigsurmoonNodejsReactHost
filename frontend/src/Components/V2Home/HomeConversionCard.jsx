@@ -52,7 +52,7 @@ const HomeConversionCard = () => {
         >
           <img
             src={ovelOne}
-            alt="Fala"
+            alt="3D product visualisation and marketing events with Bigsurmoon had the highest rate of engagement ever"
             className="w-[100px] h-[98.729px] rounded-[100px] border border-solid border-[#fff]"
           />
           <h3 className="text-[14px] leading-[16.616px] tracking-[0.56px] opacity-75">
@@ -93,7 +93,7 @@ const HomeConversionCard = () => {
         >
           <img
             src={ovelTwo}
-            alt="Travelluxis"
+            alt="Custom requirements and suggestions are handled well by Bigsurmoon"
             className="w-[100px] h-[98.729px] rounded-[100px] border border-solid border-[#fff]"
           />
           <h3 className="text-[14px] leading-[16.616px] tracking-[0.56px] opacity-75">

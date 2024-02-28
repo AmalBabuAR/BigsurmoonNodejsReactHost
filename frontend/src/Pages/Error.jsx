@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 const Error = () => {
     const naviagate = useNavigate()
   return (
-    <div className="w-full h-screen overflow-hidden relative text-white font-roboto">
-      <img src={bg} alt="" className="-z-10 absolute" />
+    <div className="relative w-full h-screen overflow-hidden text-white font-roboto">
+      <img src={bg} alt="Bigsurmoon" className="absolute -z-10" />
       <div>
-        <img src={img} alt="" className="" />
+        <img src={img} alt="Bigsurmoon" className="" />
       </div>
       <div className="flex flex-col top-[40vh] items-end right-0 absolute mr-[10vw]">
         <h2 className="text-[48px] font-bold ">Are you lost?</h2>

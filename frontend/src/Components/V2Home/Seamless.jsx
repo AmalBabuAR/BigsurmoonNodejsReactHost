@@ -12,10 +12,10 @@ const Seamless = () => {
       </p>
       <div className="flex flex-col lg:flex-row xl:flex-row justify-center items-center gap-[25px] lg:gap-[50px] xl:gap-[100px] py-[25px] xl:py-0">
         <div className="p-[25px] w-[343px] lg:w-[380px] xl:w-[491px] h-[100px] lg:h-[144px] xl:h-[164px] flex justify-center items-center">
-          <img src={google} alt="" />
+          <img src={google} alt="Bigsurmoon also seamlessly integrates with Google Ads" />
         </div>
         <div className="p-[25px] w-[343px] lg:w-[380px] xl:w-[491px] h-[100px] lg:h-[144px] xl:h-[164px] flex justify-center items-center">
-          <img src={shopify} alt="" className="" />
+          <img src={shopify} alt="Bigsurmoon also seamlessly integrates with Shopify"  className="" />
         </div>
       </div>
     </div>

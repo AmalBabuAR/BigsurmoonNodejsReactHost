@@ -10,20 +10,20 @@ import "../style.css";
 const ARSimplified = () => {
   const navigate = useNavigate();
   return (
-    <div className="mx-auto overflow-hidden relative h-full bg-black text-white z-0">
+    <div className="relative z-0 h-full mx-auto overflow-hidden text-white bg-black">
       <img
         className="absolute hidden lg:block  bg-black -z-10 w-full h-screen mt-[80px]"
         src={pcimg}
-        alt=""
+        alt="Augmented Reality"
       />
       <img
-        className="absolute lg:hidden bg-black -z-10 w-full h-screen"
+        className="absolute w-full h-screen bg-black lg:hidden -z-10"
         src={mobimg}
-        alt=""
+        alt="Augmented Reality"
       />
       <div className="mt-[100px] lg:mt-[190px] mb-[50px] lg:mb-[100px] mx-auto">
         <div className="flex flex-col lg:flex-row justify-center gap-[25px]">
-          <div className="font-outfit lg:order-first order-last text-center lg:text-left">
+          <div className="order-last text-center font-outfit lg:order-first lg:text-left">
             <div className="text-[40px] lg:text-[80px] font-bold lg:font-medium leading-[51px] lg:leading-[102px]  lg:w-[669px] ">
               <h1 className="lg:hidden">Augmented Reality</h1>
               <h1 className="hidden lg:block">Augmented</h1>
@@ -45,10 +45,10 @@ const ARSimplified = () => {
           </div>
           <div className="">
             <div className="hidden lg:block w-[580px] px-9 h-[474px] ">
-              <img src={chair} alt="" />
+              <img src={chair} alt="One Step, Huge Leap Augmented Reality Powered Transformation" />
             </div>
-            <div className=" lg:hidden flex justify-center">
-              <img src={chairMob} alt="" />
+            <div className="flex justify-center lg:hidden">
+              <img src={chairMob} alt="One Step, Huge Leap Augmented Reality Powered Transformation" />
             </div>
           </div>
         </div>
