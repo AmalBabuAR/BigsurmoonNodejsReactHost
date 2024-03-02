@@ -295,7 +295,7 @@ const PricingCard = () => {
                   onClick={() => handlePayButton(p)}
                   className="w-[307px] h-[48px] text-center rounded-[65px] text-[18px] font-roboto font-medium btnClr"
                 >
-                  Start Trail
+                  Start Trial
                 </button>
               </div>{" "}
             </div>
