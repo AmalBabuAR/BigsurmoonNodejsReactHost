@@ -38,6 +38,25 @@
   object-fit: fill;
 }
 
+.mobVideo::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 .btnClr {
   background: linear-gradient(90deg, #267bff 0.04%, #0cb2ff 99.96%);
 }
