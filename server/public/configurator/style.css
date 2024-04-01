@@ -292,7 +292,7 @@ model-viewer {
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 500px) and (max-width: 1024px) {
   #toggle-ar-button {
     display: none;
   }
