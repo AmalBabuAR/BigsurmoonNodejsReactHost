@@ -192,6 +192,7 @@ model-viewer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   position: absolute;
   z-index: 1;
@@ -209,9 +210,13 @@ model-viewer {
 
 .customeBtn.selected {
   border: 6px solid #b1b1b1;
+  width: 70px;
+  height: 70px;
 }
 .customeBtn:hover {
   border: 6px solid #b1b1b1;
+  width: 70px;
+  height: 70px;
   opacity: 0.7;
 }
 @media (max-width: 426px) {
