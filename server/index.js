@@ -24,6 +24,7 @@ import generateSceneViewRouter from "./routes/generateSceneViewRouter.js";
 import stripeWebhookRouter from "./routes/stripeWebhook.js";
 import getVareintRouter from "./routes/getVareintRouter.js";
 import updateVariationRouter from "./routes/updateVariationRouter.js";
+import customeViewerRouter from './routes/Viewer/customeViewerRouter.js'
 
 //rest object
 const app = express();
@@ -75,6 +76,9 @@ app.use("/generate_scene_view", generateSceneViewRouter);
 
 // Handle CORS preflight requests (OPTIONS) for all routes
 //app.options("*", cors());
+
+// Viewer Customisation
+app.use("/custome", customeViewerRouter);
 
 // Serve the index.html file editor
 app.get("/editor", (req, res) => {

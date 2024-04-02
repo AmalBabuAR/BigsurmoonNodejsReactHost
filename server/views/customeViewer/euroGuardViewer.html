@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bigsurmoon Configurator</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/gif"
+      href="images/icon.gif"
+      sizes="32*32 48*48 64*64"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="loader.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        margin: 0;
+      }
+
+      canvas {
+        display: block;
+        touch-action: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script> -->
+    <div id="loader-overlay">
+      <div class="loader-container">
+        <!-- <img src="../images/spinner.svg" alt="Loader" class="loader" /> -->
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <div class="sectionOne">
+      <div id="customeVar"></div>
+      <button id="toggle-ar-button">
+        <span id="button-text">View in A.R</span>
+        <!-- <img src="../images/viewer/ar8.png" alt="" /> -->
+        <img src="images/ar8.png" alt="" />
+      </button>
+      <div id="qrcode-main">
+        <div id="qrcode-container">
+          <div id="qrcode"></div>
+          <p class="text-qr">
+            Scan Q.R code on any mobile device <br />
+            to view in your space
+          </p>
+        </div>
+      </div>
+      <button id="toggle-animation">
+        <svg
+          id="play-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="19"
+          viewBox="0 0 18 19"
+          fill="none"
+        >
+          <path
+            d="M2.37677 18.2586C2.8232 18.2586 3.21648 18.1082 3.70542 17.8373L16.2586 10.9869C17.1727 10.4854 17.5553 10.0942 17.5553 9.46231C17.5553 8.83042 17.1727 8.44928 16.2586 7.93775L3.70542 1.08727C3.21648 0.816465 2.8232 0.666016 2.37677 0.666016C1.50517 0.666016 0.888672 1.2979 0.888672 2.29087V16.6338C0.888672 17.6367 1.50517 18.2586 2.37677 18.2586Z"
+            fill="black"
+          />
+        </svg>
+        <svg
+          id="pause-icon"
+          style="display: none"
+          xmlns="http://www.w3.org/2000/svg"
+          width="8"
+          height="15"
+          viewBox="0 0 8 15"
+          fill="none"
+        >
+          <path
+            d="M0.970748 14.5455C1.51679 14.5455 1.9415 14.14 1.9415 13.6051V0.940364C1.9415 0.405478 1.51679 0 0.970748 0C0.424702 0 0 0.405478 0 0.940364V13.6051C0 14.14 0.424702 14.5455 0.970748 14.5455ZM7.02925 14.5455C7.5753 14.5455 8 14.14 8 13.6051V0.940364C8 0.405478 7.5753 0 7.02925 0C6.48321 0 6.05851 0.405478 6.05851 0.940364V13.6051C6.05851 14.14 6.48321 14.5455 7.02925 14.5455Z"
+            fill="#0090F8"
+          />
+        </svg>
+      </button>
+      <model-viewer
+        id="model-viewer"
+        ar
+        interaction-prompt="none"
+        shadow-intensity="1"
+        auto-rotate
+        camera-controls
+        touch-action="pan-y"
+        camera-target="0m auto 0m"
+        ar-modes="webxr scene-viewer quick-look"
+      >
+        <button
+          slot="ar-button"
+          style="
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            width: 45px;
+            height: 45px;
+            background-color: #0090f8;
+            border-radius: 50px;
+            border: 1px solid white;
+            position: absolute;
+            top: 44px;
+            right: 16px;
+          "
+        >
+          <img src="images/mobAR3.svg" />
+        </button>
+      </model-viewer>
+
+      <div id="fieldGroup" hidden>
+        <div id="fieldGroupSecond">
+          <!-- <div>
+            <p class="Text">Variations</p>
+            <select id="model-selector"></select>
+          </div> -->
+          <div hidden>
+            <p class="Text">Colours</p>
+            <select id="texture-selector"></select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      function getQueryParam(param) {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        return urlParams.get(param);
+      }
+
+      const idFromUrl = getQueryParam("id");
+      const urlToGenerateQRCodeFor = `https://bigsurmoon.com/custome/viewer/EuroGuard`;
+
+      if (!document.getElementById("qrcode").hasChildNodes()) {
+        const qrcode = new QRCode("qrcode", {
+          text: urlToGenerateQRCodeFor,
+          width: 400,
+          height: 400,
+        });
+      }
+
+      const toggleARButton = document.getElementById("toggle-ar-button");
+      const qrcodeMain = document.getElementById("qrcode-main");
+      // const qrcodeContainer = document.getElementById("qrcode-container");
+
+      let isQRCodeVisible = false;
+
+      toggleARButton.addEventListener("click", () => {
+        if (!isQRCodeVisible) {
+          qrcodeMain.style.display = "flex";
+          toggleARButton.style.zIndex = "999";
+        } else {
+          qrcodeMain.style.display = "none";
+        }
+        isQRCodeVisible = !isQRCodeVisible;
+      });
+
+      if (navigator.userAgent.indexOf("Chrome") != -1) {
+        console.log("You are using Chrome.");
+      } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+        console.log("You are using Firefox.");
+      } else if (navigator.userAgent.indexOf("Safari") != -1) {
+        console.log("You are using Safari.");
+      } else if (navigator.userAgent.indexOf("Edge") != -1) {
+        console.log("You are using Microsoft Edge.");
+      } else if (
+        navigator.userAgent.indexOf("Opera") != -1 ||
+        navigator.userAgent.indexOf("OPR") != -1
+      ) {
+        console.log("You are using Opera.");
+      } else if (navigator.userAgent.indexOf("Trident") != -1) {
+        console.log("You are using Internet Explorer.");
+      } else {
+        console.log("Browser not detected or using a less common browser.");
+      }
+    </script>
+
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"
+    ></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.153.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.153.0/examples/jsm/"
+        }
+      }
+    </script>
+    <!-- Import the model viewer component -->
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"
+    ></script>
+    <!-- Import the component -->
+
+    <script type="module">
+      import * as THREE from "three";
+      import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+      import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
+      import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+      // Create a scene
+      let scene = new THREE.Scene();
+      // let typeselector = document.getElementById("model-selector");
+      // let selector = document.getElementById("texture-selector");
+      let sceneLoaded = false;
+      let newObjectData;
+
+      // Create a camera
+      let camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      camera.position.z = 5;
+
+      // change display none after the design
+      //Setting animation button to hidden
+      document.getElementById("toggle-animation").style.display = "none";
+
+      // Create a renderer
+      let renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+
+      const pmremGenerator = new THREE.PMREMGenerator(renderer);
+      pmremGenerator.compileEquirectangularShader();
+      const defaultEnvironment = new RoomEnvironment();
+      const defaultEnvironmentTexture = pmremGenerator.fromScene(
+        defaultEnvironment,
+        0.04
+      ).texture;
+      scene.environment = defaultEnvironmentTexture;
+      scene.background = new THREE.Color("#878787");
+
+      // Handle window resize
+      window.addEventListener("resize", function () {
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      });
+
+      // Create a loader
+      let loader = new THREE.ObjectLoader();
+      let gltfLoader = new GLTFLoader();
+
+      // Variables for storing the data
+      let geometries, materials, animations, images, textures, skeletons;
+
+      function getQueryParam(param) {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        return urlParams.get(param);
+      }
+      // Function to update the loader progress
+      function updateLoaderProgress(progress) {
+        document.querySelector(".loader").style.width = `${progress}%`;
+      }
+      async function getViewProject() {
+        showProgressBar();
+        try {
+          const idFromUrl = getQueryParam("id");
+          const id = "66045c14585d2cf62cf96691";
+          showLoaderContent();
+          const response = await fetch(
+            `https://bigsurmoon.com/generate_scene_view/${id}`
+          );
+          // const response = await fetch(
+          //   `http://192.168.29.217:5000/generate_scene_view/testing`
+          // );
+
+          // Check if the fetch was successful
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+
+          const data = await response.json();
+          // console.log("data reache");
+
+          // Parse the different types of metadata
+
+          //materials = loader.parseMaterials(data.materials);
+
+          //images = loader.parseImages(data.images);
+          //textures = loader.parseTextures(data.textures);
+
+          let textureVariantObjects = data.objects.filter(
+            (obj) => obj.variant === "TextureVariant"
+          );
+          // BSM-dev removed the model variantion for a timebeen
+          // let modelVariantObjects = data.objects.filter(
+          //   (obj) => obj.variant === "ModelVariant"
+          // );
+
+          // Populate the texture-selector with names of the objects with TextureVariant
+
+          const colorMap = {
+            Blue: "#2C5AC9",
+            Grey: "#3A5B62",
+            Red: "#C0482F",
+            White: "white",
+            "Coffee Brown": "#5C443A",
+            // Add more name-color pairs as needed
+          };
+          //   const customVarContainer = document.getElementById("customVar");
+          let selectedButton = null;
+
+          for (let obj of textureVariantObjects) {
+            let btnOptions = document.createElement("button");
+
+            btnOptions.value = obj.name;
+            btnOptions.classList.add("customeBtn");
+            btnOptions.style.backgroundColor = colorMap[obj.name];
+            btnOptions.addEventListener("click", function () {
+              if (selectedButton) {
+                selectedButton.classList.remove("selected");
+              }
+              // Select the clicked button
+              btnOptions.classList.add("selected");
+              selectedButton = btnOptions;
+              // console.log("valuesssss", obj.value);
+              handleSelectorChange("TextureVariant", obj.name);
+            });
+            document.getElementById("customeVar").appendChild(btnOptions);
+            // customVarContainer.appendChild(btnOptions);
+          }
+          if (textureVariantObjects.length > 0) {
+            const customVarContainer = document.getElementById("customeVar");
+            const firstButton = customVarContainer.querySelector("button");
+            firstButton.click();
+          }
+
+          //   for (let obj of textureVariantObjects) {
+          //     let option = document.createElement("option");
+          //     option.value = obj.name;
+          //     option.text = obj.name;
+          //     document.getElementById("texture-selector").appendChild(option);
+          //   }
+
+          // BSM-dev removed the model variantion for a timebeen
+          // Populate the model-selector with names of the objects with ModelVariant
+          // for (let obj of modelVariantObjects) {
+          //   let option = document.createElement("option");
+          //   option.value = obj.name;
+          //   option.text = obj.name;
+          //   document.getElementById("model-selector").appendChild(option);
+          // }
+
+          document
+            .getElementById("texture-selector")
+            .addEventListener("change", function () {
+              handleSelectorChange("TextureVariant", this.value);
+            });
+
+          // BSM-dev removed the model variantion for a timebeen
+          // document
+          //   .getElementById("model-selector")
+          //   .addEventListener("change", function () {
+          //     handleSelectorChange("ModelVariant", this.value);
+          //   });
+          hideLoaderContent();
+          function handleSelectorChange(variantType, selectedValue) {
+            // console.log("selected in dropdown", selectedValue);
+            let selectedTextures = null;
+            let selectedImages = null;
+
+            let selectedName = selectedValue;
+            let selectedObject = data.objects.find(
+              (obj) => obj.name === selectedName
+            );
+
+            if (data.images) {
+              let imageObj = data.images.find(
+                (obj) => obj.name === selectedName
+              );
+              if (imageObj !== undefined) {
+                selectedImages = imageObj.images;
+                images = selectedImages;
+              }
+
+              if (data.textures) {
+                let textureObj = data.textures.find(
+                  (obj) => obj.name === selectedName
+                );
+                if (textureObj !== undefined) {
+                  selectedTextures = textureObj.textures;
+                }
+
+                let selectedMaterials = data.materials.find(
+                  (obj) => obj.name === selectedName
+                );
+                materials = selectedMaterials.materials;
+              }
+            } else {
+              let selectedMaterials = data.materials.find(
+                (obj) => obj.name === selectedName
+              );
+              materials = selectedMaterials.materials;
+            }
+
+            if (variantType === "ModelVariant" && sceneLoaded) {
+              newObjectData.object = selectedObject.object;
+            } else if (variantType === "TextureVariant" && sceneLoaded) {
+              newObjectData.materials = materials;
+              newObjectData.textures = selectedTextures
+                ? selectedTextures
+                : undefined;
+              newObjectData.images = selectedImages
+                ? selectedImages
+                : undefined;
+            } else {
+              newObjectData = {
+                metadata: {
+                  version: 4.6,
+                  type: "Object",
+                  generator: "Object3D.toJSON",
+                },
+                geometries: data.geometries,
+                materials: materials,
+                textures: selectedTextures ? selectedTextures : undefined,
+                images: selectedImages ? selectedImages : undefined,
+                animations: data.animations,
+                skeletons: data.skeletons,
+                object: selectedObject.object,
+              };
+            }
+
+            function getAnimations(scene) {
+              const animations = [];
+              scene.traverse(function (object) {
+                animations.push(...object.animations);
+              });
+              if (animations.length > 0) {
+                document.getElementById("toggle-animation").style.display =
+                  "flex";
+              }
+              return animations;
+            }
+
+            let jsonString = JSON.stringify(newObjectData);
+            let blob = new Blob([jsonString], { type: "application/json" });
+            let url = URL.createObjectURL(blob);
+
+            loader.load(url, function (obj) {
+              sceneLoaded = true;
+              const exporter = new GLTFExporter();
+              const anim = getAnimations(obj);
+              exporter.parse(
+                obj,
+                function (gltf) {
+                  const output = JSON.stringify(gltf, null, 2);
+                  const blob = new Blob([output], { type: "text/plain" });
+
+                  const url = URL.createObjectURL(blob);
+                  const mv = document.querySelector("model-viewer");
+                  mv.src = url;
+                  if (mv.availableAnimations.length > 0) {
+                    document.getElementById("toggle-animation").style.display =
+                      "flex";
+                  }
+                },
+                function (error) {
+                  console.log("An error happened in gltfExporter");
+                },
+                { animations: anim }
+              );
+              // console.log("exporter");
+            });
+          }
+
+          // Usage:
+          const textureSelector = document.getElementById("texture-selector");
+          textureSelector.addEventListener("change", function () {
+            handleSelectorChange("TextureVariant", this.value);
+          });
+
+          // BSM-dev removed the model variantion for a timebeen
+          // const materialSelector = document.getElementById("model-selector");
+          // materialSelector.addEventListener("change", function () {
+          //   handleSelectorChange("ModelVariant", this.value);
+          // });
+
+          // Force a 'change' event to load the first object by default for both selectors
+          document
+            .getElementById("texture-selector")
+            .dispatchEvent(new Event("change"));
+
+          // BSM-dev removed the model variantion for a timebeen
+          // document
+          //   .getElementById("model-selector")
+          //   .dispatchEvent(new Event("change"));
+
+          // Start the animation
+          animate();
+        } catch (error) {
+          // Handle the error
+          console.error(
+            "There has been a problem with your fetch operation:",
+            error
+          );
+        }
+
+        // Function to show the loader and start the progress animation
+        function showProgressBar() {
+          document.getElementById("loader-overlay").style.display = "flex";
+          const animationTime = 5; // Set the maximum animation time (5 seconds in this example)
+          document.querySelector(
+            ".loader"
+          ).style.animation = `load ${animationTime}s linear forwards`;
+
+          // Simulate progress update based on the actual API call
+          const interval = setInterval(() => {
+            const progress =
+              ((performance.now() - startTime) / (animationTime * 1000)) * 100;
+            // console.log("time", Math.round(progress));
+            updateLoaderProgress(Math.round(progress));
+            if (progress >= 100) {
+              // console.log("interval", interval);
+              clearInterval(interval);
+            }
+          }, 20); // Update every 16 milliseconds (approximately 60 frames per second)
+        }
+      }
+      // Function to hide the loader
+      function hideLoader() {
+        document.getElementById("loader-overlay").style.display = "none";
+      }
+
+      // Call the function to load data
+      const startTime = performance.now();
+
+      getViewProject();
+
+      let animationFlag = true;
+
+      document
+        .getElementById("toggle-animation")
+        .addEventListener("click", function () {
+          animationFlag = !animationFlag;
+          // Get references to the play and pause icons
+          const playIcon = document.getElementById("play-icon");
+          const pauseIcon = document.getElementById("pause-icon");
+          const animationButton = document.getElementById("toggle-animation");
+          if (animationFlag) {
+            playIcon.style.display = "none";
+            pauseIcon.style.display = "inline-block";
+            animationButton.style.borderColor = "#0090F8";
+
+            // Add your play animation logic here
+            document.querySelector("model-viewer").play();
+            animate();
+          } else {
+            // Animation is paused, show the play button
+            playIcon.style.display = "inline-block";
+            pauseIcon.style.display = "none";
+            animationButton.style.borderColor = "#909090";
+
+            // Add your pause animation logic here
+            document.querySelector("model-viewer").pause();
+          }
+        });
+
+      // Animation function
+      function animate() {
+        requestAnimationFrame(animate);
+
+        // Rotate the object for some animation
+        if (animationFlag) {
+          //console.log('Animating');
+          // Rotate the entire scene
+          scene.rotation.y += 0.005;
+        }
+
+        // Always update the OrbitControls and render the scene
+        controls.update();
+        //renderer.render(scene, camera);
+      }
+      //showing the loader
+      function showLoaderContent() {
+        document.getElementById("loader-overlay").style.display = "block";
+      }
+      //hiding the loader
+      function hideLoaderContent() {
+        document.getElementById("loader-overlay").style.display = "none"; //by default "none"
+      }
+    </script>
+  </body>
+</html>
