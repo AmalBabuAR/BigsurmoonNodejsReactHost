@@ -205,18 +205,14 @@ model-viewer {
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  border-style: none;
+  border: 6px solid white;
 }
 
 .customeBtn.selected {
   border: 6px solid #b1b1b1;
-  width: 70px;
-  height: 70px;
 }
 .customeBtn:hover {
   border: 6px solid #b1b1b1;
-  width: 70px;
-  height: 70px;
   opacity: 0.7;
 }
 @media (max-width: 426px) {
