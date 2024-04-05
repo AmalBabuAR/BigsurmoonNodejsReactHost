@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link type="text/css" href="../../v2Viewer/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <model-viewer ar ar-modes="webxr scene-viewer quick-look" camera-controls>
+      <div class="controlsContainer" id="controlsContainerCollapse">
+        <div class="sideDiv">
+          <button id="sideBtn">
+            <svg
+              width="17"
+              height="39"
+              id="sideBtnIconLeft"
+              viewBox="0 0 17 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.5 3L3 20.5L14.5 36.5"
+                stroke="black"
+                stroke-opacity="0.5"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <svg
+              width="17"
+              height="39"
+              id="sideBtnIconRight"
+              viewBox="0 0 17 39"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.5 3L14 20.5L2.5 36.5"
+                stroke="black"
+                stroke-opacity="0.5"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="controlSection" id="contentToCollapse">
+          <div id="annotationContainer">
+            <span>Annotation</span>
+            <div class="annotationControls">
+              <button id="hotsportSwipePrevButton">
+                <svg
+                  width="25"
+                  height="26"
+                  viewBox="0 0 25 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.494 25.3037C19.3451 25.3037 25 19.7352 25 13.0005C25 6.26585 19.333 0.697266 12.4819 0.697266C5.64282 0.697266 0 6.26585 0 13.0005C0 19.7352 5.65491 25.3037 12.494 25.3037ZM14.9348 18.9498C14.5723 19.2949 13.8473 19.2711 13.4606 18.9142L8.48236 14.2975C7.7332 13.6073 7.7332 12.4175 8.48236 11.7273L13.4606 7.11066C13.8835 6.718 14.5239 6.718 14.9227 7.07496C15.3577 7.47952 15.3577 8.15774 14.9348 8.5504L10.1136 13.0005L14.9348 17.4744C15.3456 17.8671 15.3697 18.5215 14.9348 18.9498Z"
+                    fill="#5B5B5B"
+                  />
+                </svg>
+              </button>
+              <span id="hotsportSwipeInput"></span>
+              <button id="hotsportSwipeNextButton">
+                <svg
+                  width="25"
+                  height="26"
+                  viewBox="0 0 25 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.506 0.696253C5.6549 0.696253 0 6.26484 0 12.9995C0 19.7341 5.66699 25.3027 12.5181 25.3027C19.3572 25.3027 25 19.7341 25 12.9995C25 6.26484 19.3451 0.696253 12.506 0.696253ZM10.0652 7.05015C10.4277 6.70509 11.1527 6.72889 11.5394 7.08585L16.5176 11.7025C17.2668 12.3927 17.2668 13.5825 16.5176 14.2727L11.5394 18.8893C11.1165 19.282 10.4761 19.282 10.0773 18.925C9.64234 18.5205 9.64234 17.8423 10.0652 17.4496L14.8864 12.9995L10.0652 8.52559C9.65442 8.13293 9.63026 7.4785 10.0652 7.05015Z"
+                    fill="#5B5B5B"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div id="varientContainer">
+            <span>Colour Varient</span>
+
+            <select id="variant"></select>
+          </div>
+        </div>
+      </div>
+      <div class="animationARContainer">
+        <button id="playBtn">Play Video</button>
+        <button id="qrBtn">
+          <svg
+            width="25"
+            height="26"
+            viewBox="0 0 25 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M23.7393 8.75134C24.5588 8.75134 25 8.30463 25 7.49806V4.48274C25 1.82728 23.588 0.4375 20.8522 0.4375H17.7887C16.9692 0.4375 16.5154 0.871805 16.5154 1.67837C16.5154 2.47253 16.9692 2.90683 17.7887 2.90683H20.6884C21.8356 2.90683 22.4912 3.50245 22.4912 4.7061V7.49806C22.4912 8.30463 22.9324 8.75134 23.7393 8.75134ZM1.26072 8.75134C2.08018 8.75134 2.50883 8.30463 2.50883 7.49806V4.7061C2.50883 3.50245 3.15179 2.90683 4.31165 2.90683H7.2113C8.03076 2.90683 8.48462 2.47253 8.48462 1.67837C8.48462 0.871805 8.03076 0.4375 7.2113 0.4375H4.14776C1.42461 0.4375 0 1.81487 0 4.48274V7.49806C0 8.30463 0.453858 8.75134 1.26072 8.75134ZM12.5063 12.263C14.4478 12.2754 16.0237 10.6375 16.0237 8.47835C16.0237 6.45573 14.4478 4.78055 12.5063 4.78055C10.5522 4.78055 8.98891 6.45573 8.98891 8.47835C8.98891 10.6375 10.5522 12.2506 12.5063 12.263ZM6.39183 19.5593H18.6208C19.2259 19.5593 19.5285 19.1498 19.5285 18.6039C19.5285 17.1272 17.3096 13.3302 12.5063 13.3302C7.70298 13.3302 5.48412 17.1272 5.48412 18.6039C5.48412 19.1498 5.78669 19.5593 6.39183 19.5593ZM4.14776 25.044H7.2113C8.03076 25.044 8.48462 24.5973 8.48462 23.8031C8.48462 23.009 8.03076 22.5622 7.2113 22.5622H4.31165C3.15179 22.5622 2.50883 21.979 2.50883 20.7754V17.9834C2.50883 17.1769 2.06757 16.7301 1.26072 16.7301C0.441251 16.7301 0 17.1769 0 17.9834V20.9987C0 23.6542 1.42461 25.044 4.14776 25.044ZM17.7887 25.044H20.8522C23.588 25.044 25 23.6542 25 20.9987V17.9834C25 17.1769 24.5461 16.7301 23.7393 16.7301C22.9198 16.7301 22.4912 17.1769 22.4912 17.9834V20.7754C22.4912 21.979 21.8356 22.5622 20.6884 22.5622H17.7887C16.9692 22.5622 16.5154 23.009 16.5154 23.8031C16.5154 24.5973 16.9692 25.044 17.7887 25.044Z"
+              fill="white"
+            />
+          </svg>
+          <span> View in your room </span>
+        </button>
+      </div>
+      <div id="qrcode-main">
+        <div id="qrcode-container">
+          <div class="qrCloseDiv">
+            <button id="qrCloseBtn">
+              <svg
+                width="16"
+                height="15"
+                viewBox="0 0 14 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.91001 13C2.31287 13 2.66925 12.86 2.93266 12.5801L6.99225 8.50598L11.0518 12.5801C11.3153 12.8445 11.6561 13 12.0745 13C12.8647 13 13.4845 12.378 13.4845 11.5849C13.4845 11.1962 13.3296 10.8541 13.0661 10.5897L8.99106 6.5L13.0661 2.39474C13.3605 2.09928 13.5 1.78828 13.5 1.41507C13.5 0.62201 12.8802 0 12.09 0C11.7026 0 11.3772 0.124402 11.0828 0.419856L6.99225 4.50957L2.90167 0.435407C2.63826 0.155502 2.31287 0.0155502 1.91001 0.0155502C1.11979 0.0155502 0.5 0.62201 0.5 1.41507C0.5 1.80383 0.654946 2.14593 0.93385 2.41029L4.99344 6.5L0.93385 10.6053C0.654946 10.8541 0.5 11.2117 0.5 11.5849C0.5 12.378 1.11979 13 1.91001 13Z"
+                  fill="black"
+                />
+              </svg>
+            </button>
+          </div>
+          <div>
+            <div id="qrcode"></div>
+            <p class="text-qr">
+              Scan Q.R code on any mobile device <br />
+              to view in your space
+            </p>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">View in your space</button>
+      <div id="ar-prompt">
+        <img src="../../v2Viewer/ar_hand_prompt.png" />
+      </div>
+    </model-viewer>
+    <script src="../../v2Viewer/script.js"></script>
+    <script type="module" src="../../v2Viewer/functionScript.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

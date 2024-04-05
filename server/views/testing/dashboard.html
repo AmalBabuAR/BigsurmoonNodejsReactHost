@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Dashboard</h1>
+      <div>
+        <form id="projectForm">
+          <input
+            id="projectName"
+            type="text"
+            placeholder="Enter project name"
+          />
+          <button id="createBtn">Create Project</button>
+        </form>
+      </div>
+      <div>
+        <h1>Project list</h1>
+        <table id="projectTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>ID</th>
+              <th>View</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="projectTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const createProject = document.querySelector("#createBtn");
+        const projectNameInput = document.querySelector("#projectName");
+        const fileInput = document.querySelector("#fileInput");
+
+        createProject.addEventListener("click", (event) => {
+          event.preventDefault(); // Prevent the default form submission
+          const projectName = projectNameInput.value.trim(); // Get the project name
+
+          if (projectName !== "") {
+            // Check if the project name is not empty
+            // Send the project name to the server-side script for database operations
+            fetch("/editor/api/createProject", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ projectName: projectName }),
+            })
+              .then((res) => res.json())
+              .then((res) => {
+                // console.log(res, res.id);
+                const link = `https://bigsurmoon.com/editor/testing/?pre=false&n=${res.name}&id=${res.id}`;
+                window.open(link, "_blank");
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          } else {
+            console.error("Project name cannot be empty!");
+          }
+        });
+
+        function populateProjectTable() {
+          fetch("/editor/api/getProjects")
+            .then((response) => response.json())
+            .then((data) => {
+              // Clear existing table rows
+
+              projectTableBody.innerHTML = "";
+
+              // Populate the table with data
+              data.forEach((project) => {
+                const row = document.createElement("tr");
+
+                const nameCell = document.createElement("td");
+                nameCell.textContent = project.name;
+                row.appendChild(nameCell);
+
+                const idCell = document.createElement("td");
+                idCell.textContent = project._id;
+                row.appendChild(idCell);
+
+                const viewCell = document.createElement("td");
+                const viewButton = document.createElement("button");
+                viewButton.textContent = "View";
+                viewButton.addEventListener("click", () => {
+                  const viewLink = `https://bigsurmoon.com/editor/testViewer/?id=${project._id}`;
+                  window.open(viewLink, "_blank");
+                });
+                viewCell.appendChild(viewButton);
+                row.appendChild(viewCell);
+
+                const editCell = document.createElement("td");
+                const editButton = document.createElement("button");
+                editButton.textContent = "Edit";
+                editButton.addEventListener("click", () => {
+                  const viewLink = `https://bigsurmoon.com/editor/testing/?pre=true&n=${project.name}&id=${project._id}`;
+                  window.open(viewLink, "_blank");
+                });
+                editCell.appendChild(editButton);
+                row.appendChild(editCell);
+
+                const deleteCell = document.createElement("td");
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                // Add event listener for delete button
+                // deleteButton.addEventListener(...)
+                deleteCell.appendChild(deleteButton);
+                row.appendChild(deleteCell);
+
+                projectTableBody.appendChild(row);
+              });
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
+
+        // Call the function to populate the table when the page is loaded
+        populateProjectTable();
+      });
+    </script>
+  </body>
+</html>

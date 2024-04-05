@@ -24,6 +24,7 @@ import generateSceneViewRouter from "./routes/generateSceneViewRouter.js";
 import stripeWebhookRouter from "./routes/stripeWebhook.js";
 import getVareintRouter from "./routes/getVareintRouter.js";
 import updateVariationRouter from "./routes/updateVariationRouter.js";
+import mvEditorRouter from "./routes/mvEditorRouter.js";
 import customeViewerRouter from './routes/Viewer/customeViewerRouter.js'
 
 //rest object
@@ -61,6 +62,9 @@ app.use("/api/user/stripe", stripeRouter);
 app.use("/api/upload", routerUpload);
 app.use("/stripe", stripeWebhookRouter);
 
+// v2 editor route
+app.use("/editor/api", mvEditorRouter);
+
 //threejs Router
 app.use("/three", threeRouter);
 app.use("/assets", assetsRouter);
@@ -95,6 +99,20 @@ app.get("/configurator/", (req, res) => {
 app.get("/editor/Viewer/", (req, res) => {
   res.sendFile(__dirname + "/views/homeViewer.html");
 });
+
+// new editor testing ground ----------------------------------------------------------------------
+
+app.get("/editor/testing/", (req, res) => {
+  res.sendFile(__dirname + "/views/testing/editorTesting.html");
+});
+app.get("/editor/dashbord", (req, res) => {
+  res.sendFile(__dirname + "/views/testing/dashboard.html");
+});
+app.get("/editor/testViewer", (req, res) => {
+  res.sendFile(__dirname + "/views/testing/testViewer.html");
+});
+
+// ------------------------------------------------------------------------------------------------
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "frontend", "dist", "index.html"));
