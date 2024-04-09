@@ -9,6 +9,7 @@ const testingProjectSchema = new mongoose.Schema(
     hotspot: [mongoose.Schema.Types.Mixed], // Assuming hotspot is an array of strings
     config: { type: Object },
     bestPractices: { type: Object },
+    environment: String,
   },
   {
     timestamps: true,

@@ -7,6 +7,9 @@ function getQueryParam(param) {
 // Function to fetch model data and set up the viewer
 async function setupModelViewer() {
 	try {
+		// Set up model viewer
+		const modelViewer = document.querySelector("model-viewer");
+
 		const idFromUrl = getQueryParam("id");
 		const response = await fetch(`/editor/api/getModel/${idFromUrl}`);
 		if (!response.ok) {
@@ -14,6 +17,8 @@ async function setupModelViewer() {
 		}
 
 		const data = await response.json();
+
+		setUpPoster(modelViewer, data?.poster?.url);
 
 		console.log("data", data);
 
@@ -30,9 +35,6 @@ async function setupModelViewer() {
 
 		const objectUrl = URL.createObjectURL(blob);
 
-		// Set up model viewer
-		const modelViewer = document.querySelector("model-viewer");
-
 		setUpUrl(modelViewer, objectUrl);
 
 		setUpConfig(modelViewer, data?.config);
@@ -47,9 +49,19 @@ async function setupModelViewer() {
 
 		// Set up variant selector
 		setupVariantSelector(modelViewer, data?.hotspot);
+
+		setupEnvironment(
+			modelViewer,
+			data?.environment,
+			data?.config?.useEnvAsSkybox
+		);
 	} catch (error) {
 		console.log(error);
 	}
+}
+
+function setUpPoster(modelViewer, posterUrl) {
+	modelViewer.poster = posterUrl;
 }
 
 function setUpUrl(modelViewer, objectUrl) {
@@ -182,6 +194,9 @@ function setupVariantSelector(modelViewer, hotspot) {
 					option.textContent = name;
 					select.appendChild(option);
 				});
+				// Automatically select the first variant
+				select.options[0].selected = true;
+				modelViewer.variantName = select.options[0].value;
 			}
 			setUpSideToggleButtin(names, hotspot);
 			// // Adds a default option
@@ -232,16 +247,27 @@ function setUpSideToggleButtin(variant, hotspot) {
 function setUpAutoPlay(modelViewer) {
 	const playBtn = document.getElementById("playBtn");
 	let isPlaying = false;
-
+	modelViewer.autoplay = true;
 	playBtn.style.display = "block";
 	playBtn.addEventListener("click", () => {
 		if (isPlaying) {
-			modelViewer.pause();
-		} else {
 			modelViewer.play();
+		} else {
+			modelViewer.pause();
 		}
 		isPlaying = !isPlaying;
 	});
+}
+
+function setupEnvironment(modelViewer, env, skybox) {
+	if (env) {
+		const envImage = new Image();
+		envImage.src = `../../editor/hdrImages/${env}`;
+		modelViewer.environmentImage = envImage.src;
+		if (skybox) {
+			modelViewer.skyboxImage = envImage.src;
+		}
+	}
 }
 
 // Call the setupModelViewer function to initialize the model viewer
@@ -255,8 +281,11 @@ document.getElementById("sideBtn").addEventListener("click", function () {
 	let controlsContainerCollapse = document.getElementById(
 		"controlsContainerCollapse"
 	);
-
-	if (contentToCollapse.style.display === "none") {
+	const mobConfig = document.getElementById("mobConfig");
+	if (mobConfig.style.display === "none") {
+		controlsContainerCollapse.style.display = "none";
+		mobConfig.style.display = "block";
+	} else if (contentToCollapse.style.display === "none") {
 		contentToCollapse.style.display = "flex";
 		sideBtnIconLeft.style.display = "block";
 		sideBtnIconRight.style.display = "none";
@@ -305,3 +334,10 @@ qrCloseButton.addEventListener("click", () => {
 	}
 	isQRCodeVisible = !isQRCodeVisible;
 });
+
+const mobConfig = document.getElementById("mobConfig");
+mobConfig.addEventListener("click", function () {
+	document.getElementById("controlsContainerCollapse").style.display = "flex";
+	mobConfig.style.display = "none";
+});
+

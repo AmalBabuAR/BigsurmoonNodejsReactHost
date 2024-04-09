@@ -53,15 +53,15 @@ export const getProjectDetails = async (req, res) => {
 
 export const modelUploadController = async (req, res) => {
   try {
-    console.log("coming", req.body);
-    const { configData, bestPractices, projectID } = req.body;
+    // console.log("coming", req.body);
+    const { configData, bestPractices, EnvironmentData, projectID } = req.body;
 
     if (!req.files || Object.keys(req.files).length === 0) {
       return res.status(400).json({ error: "No files were uploaded" });
     }
 
     const projectIDConv = JSON.parse(projectID);
-    console.log("convert id", projectIDConv);
+    // console.log("convert id", projectIDConv);
 
     const files = req.files.file;
     let glbRes, posterRes;
@@ -73,10 +73,10 @@ export const modelUploadController = async (req, res) => {
     if (files[1]?.mimetype === "image/webp") {
       const poster = files[1];
       posterRes = await postS3BucketUploads(poster, projectIDConv);
-      console.log("inside box", posterRes);
+      // console.log("inside box", posterRes);
     }
 
-    console.log("out of box", glbRes, posterRes);
+    // console.log("out of box", glbRes, posterRes);
 
     const hotspotData = [];
     let index = 0;
@@ -95,7 +95,13 @@ export const modelUploadController = async (req, res) => {
     const configs = JSON.parse(configData);
     const bestPracticesData = JSON.parse(bestPractices);
 
-    console.log("Parsed hotspot data:", hotspotData);
+    // console.log("Parsed hotspot data:", hotspotData);
+
+    let environmentName;
+    if (EnvironmentData !== "undefined") {
+      console.log("Environment data is defined");
+      environmentName = JSON.parse(EnvironmentData);
+    }
 
     const saveData = await TestingProject.findByIdAndUpdate(
       projectIDConv,
@@ -106,6 +112,7 @@ export const modelUploadController = async (req, res) => {
           hotspot: hotspotData,
           config: configs,
           bestPractices: bestPracticesData,
+          environment: environmentName,
         },
       },
       { new: true, upsert: true }
@@ -119,7 +126,7 @@ export const modelUploadController = async (req, res) => {
 
     res.send("Model Uploaded");
   } catch (error) {
-    console.log(error);
+    console.log("error", error);
     res.send({ error });
   }
 };
@@ -127,28 +134,28 @@ export const modelUploadController = async (req, res) => {
 export const getModelController = async (req, res) => {
   try {
     const projectId = req.params.projectId;
-    console.log("projectId", projectId);
-    const id = "65f809e5fd3d525d08834ecd";
+    // console.log("projectId", projectId);
+    // const id = "65f809e5fd3d525d08834ecd";
 
     const project = await TestingProject.findById(projectId);
 
     // const getUrl = await getFileUrl(project?.model?.key);
     // console.log("getUrl", getUrl);
-    console.log(project);
+    // console.log(project);
 
-    console.log("project", project?.model?.url);
+    // console.log("project", project?.model?.url);
     res.json(project);
   } catch (error) {
-    console.log(error);
+    console.log("error", error);
   }
 };
 
 export const getPrevProjectController = async (req, res) => {
   try {
     const projectId = req.params.projectId;
-    console.log("projectId", projectId);
+    // console.log("projectId", projectId);
     const project = await TestingProject.findById(projectId);
-    console.log("res", project);
+    // console.log("res", project);
     if (project !== null) {
       res.json({
         status: true,
