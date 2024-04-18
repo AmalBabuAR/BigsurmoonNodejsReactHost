@@ -319,6 +319,8 @@ model-viewer > #ar-prompt > img {
 }
 
 .text-qr {
+  font-family: Roboto;
+  font-weight: 500 !important;
   text-align: center;
   padding-bottom: 4px;
   color: #000;
