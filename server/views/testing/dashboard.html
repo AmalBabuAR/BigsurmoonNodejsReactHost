@@ -112,7 +112,28 @@
                 const deleteButton = document.createElement("button");
                 deleteButton.textContent = "Delete";
                 // Add event listener for delete button
-                // deleteButton.addEventListener(...)
+                deleteButton.addEventListener("click", () => {
+                  fetch("/editor/api/deleteFullProject", {
+                    method: "DELETE",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      id: project._id,
+                    }),
+                  })
+                    .then((res) => res.json())
+                    .then((res) => {
+                      if (res.status) {
+                        populateProjectTable();
+                      } else {
+                        alert("Project deletion failed");
+                      }
+                    })
+                    .catch((error) => {
+                      console.error("Error deleting project:", error);
+                    });
+                });
                 deleteCell.appendChild(deleteButton);
                 row.appendChild(deleteCell);
 

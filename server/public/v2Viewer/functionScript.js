@@ -69,8 +69,14 @@ function setUpUrl(modelViewer, objectUrl) {
 }
 
 function setUpConfig(modelViewer, config) {
-	const { exposure, shadowIntensity, shadowSoftness, toneMapping, autoplay } =
-		config || {};
+	const {
+		exposure,
+		shadowIntensity,
+		shadowSoftness,
+		toneMapping,
+		autoplay,
+		autoRotate,
+	} = config || {};
 
 	if (exposure) {
 		modelViewer.exposure = exposure;
@@ -90,6 +96,10 @@ function setUpConfig(modelViewer, config) {
 
 	if (autoplay) {
 		setUpAutoPlay(modelViewer);
+	}
+	
+	if (autoRotate) {
+		modelViewer.autoRotate = autoRotate;
 	}
 }
 
@@ -340,4 +350,3 @@ mobConfig.addEventListener("click", function () {
 	document.getElementById("controlsContainerCollapse").style.display = "flex";
 	mobConfig.style.display = "none";
 });
-

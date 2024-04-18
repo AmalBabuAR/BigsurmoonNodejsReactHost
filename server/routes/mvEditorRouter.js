@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createProjectName,
+  deleteFullProjectController,
   deleteProjectController,
   getModelController,
   getPrevProjectController,
@@ -25,5 +26,7 @@ router.get("/getPrevProject/:projectId", getPrevProjectController);
 router.patch("/updateName", updateProjectNameController);
 
 router.delete("/deleteProject", deleteProjectController);
+
+router.delete("/deleteFullProject", deleteFullProjectController);
 
 export default router;

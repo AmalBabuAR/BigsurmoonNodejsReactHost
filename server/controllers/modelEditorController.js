@@ -246,3 +246,27 @@ export const deleteProjectController = async (req, res) => {
     res.status(500).json({ status: false });
   }
 };
+
+export const deleteFullProjectController = async (req, res) => {
+  console.log(req.body);
+  const { id } = req.body;
+  try {
+    const doc = await TestingProject.findOne({ _id: id });
+    if (doc !== null) {
+      const file = doc?.model?.key;
+      const poster = doc?.poster?.key;
+      if (file) {
+        await deleteS3BucketUploads(file);
+      }
+
+      if (poster) {
+        await deleteS3BucketUploads(poster);
+      }
+      const deleteProject = await TestingProject.deleteOne({ _id: id });
+      console.log("delete project", deleteProject);
+      res.status(200).json({ status: true });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
