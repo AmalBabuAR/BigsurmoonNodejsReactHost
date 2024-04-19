@@ -236,6 +236,7 @@ export const deleteProjectController = async (req, res) => {
             config: "",
             model: "",
             poster: "",
+            environment: "",
           },
         }
       );
