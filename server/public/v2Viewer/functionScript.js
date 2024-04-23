@@ -57,7 +57,11 @@ async function setupModelViewer() {
 			data?.config?.skyboxHeight
 		);
 
-		setUpBestPractices(modelViewer, data?.bestPractices);
+		setUpBestPractices(
+			modelViewer,
+			data?.bestPractices,
+			data?.config?.autoplay
+		);
 	} catch (error) {
 		console.log(error);
 	}
@@ -112,6 +116,7 @@ function setupHotspots(modelViewer, hotspots) {
 		console.log("______", hotspot);
 		const button = document.createElement("button");
 		button.className = "Hotspot";
+		button.id = `Hotspot${hotspot.name}`;
 		button.setAttribute("slot", `hotspot-${index + 1}`);
 		if (hotspot.position) {
 			button.setAttribute("data-position", hotspot.position);
@@ -126,6 +131,7 @@ function setupHotspots(modelViewer, hotspots) {
 
 		const annotation = document.createElement("div");
 		annotation.className = "HotspotAnnotation";
+		annotation.id = `annotation${hotspot.name}`;
 		annotation.textContent = hotspot.annotation;
 
 		button.appendChild(annotation);
@@ -151,7 +157,33 @@ function hotspotNames(names) {
 
 // Function to handle hotspot click
 function handleHotspotClick(modelViewer, hotspot) {
-	console.log("handleHotspotClick", hotspot, hotspot.target);
+	const allHotspot = document.querySelectorAll(".Hotspot");
+	allHotspot.forEach((hotspot) => {
+		hotspot.style.background = "rgba(255, 255, 255, 0.75)";
+		hotspot.style.borderRadius = "32px";
+		hotspot.style.border = "1px solid rgb(92, 94, 98)";
+		hotspot.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.25)";
+		hotspot.style.boxSizing = "border-box";
+		hotspot.style.cursor = "pointer";
+		hotspot.style.height = "24px";
+		hotspot.style.padding = "8px";
+		hotspot.style.position = "relative";
+		hotspot.style.transition = "opacity 0.3s";
+		hotspot.style.width = "24px";
+	});
+	const hotspotSelect = document.getElementById(`Hotspot${hotspot.name}`);
+	hotspotSelect.style.border = "7px solid #fff";
+	hotspotSelect.style.height = "11px";
+	hotspotSelect.style.outline = "none";
+	hotspotSelect.style.width = "11px";
+	hotspotSelect.style.backgroundColor = "#3a3c41";
+	const allAnnotation = document.querySelectorAll(".HotspotAnnotation");
+	allAnnotation.forEach((annotation) => {
+		annotation.style.display = "none";
+	});
+	const annotationSelect = document.getElementById(`annotation${hotspot.name}`);
+	annotationSelect.style.display = "block";
+
 	modelViewer.cameraTarget = hotspot.target;
 	modelViewer.cameraOrbit = hotspot.orbit;
 	modelViewer.fieldOfView = hotspot.fov;
@@ -286,9 +318,9 @@ function setupEnvironment(modelViewer, env, skybox, skyboxHeight) {
 	}
 }
 
-function setUpBestPractices(modelViewer, bestPractices) {
+function setUpBestPractices(modelViewer, bestPractices, autoplay) {
 	if (bestPractices?.arButton) {
-		createArButton(modelViewer);
+		createArButton(modelViewer, autoplay);
 		modelViewer.ar = true;
 	}
 
@@ -372,11 +404,14 @@ mobConfig.addEventListener("click", function () {
 	mobConfig.style.display = "none";
 });
 
-function createArButton(modelViewer) {
+function createArButton(modelViewer,autoplay) {
 	// Create button element
 	const button = document.createElement("button");
 	button.setAttribute("slot", "ar-button");
 	button.setAttribute("id", "ar-button");
+	if (autoplay === undefined) {
+		button.style.width = "calc(100vw - 64px)";
+	}
 
 	// Create SVG element
 	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -405,6 +440,9 @@ function createArButton(modelViewer) {
 	button.appendChild(span);
 
 	modelViewer.appendChild(button);
+	
+	const toggleARButton = document.getElementById("qrBtn");
+	toggleARButton.style.display = "flex";
 }
 
 function createProgressBar(modelViewer) {

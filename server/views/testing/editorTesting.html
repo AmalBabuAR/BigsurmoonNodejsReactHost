@@ -152,6 +152,7 @@
         <me-tabs>
           <me-tabbed-panel icon="settings">
             <bsm-name></bsm-name>
+            <bsm-ar-customisation></bsm-ar-customisation>
             <!-- <me-export-panel></me-export-panel> -->
             <div style="margin-bottom: 70px"></div>
           </me-tabbed-panel>
@@ -171,12 +172,26 @@
             <bsm-additional-features></bsm-additional-features>
           </me-tabbed-panel>
 
-          <me-tabbed-panel icon="view_in_ar">
-            <bsm-ar-customisation></bsm-ar-customisation>
+          <!-- <me-tabbed-panel icon="view_in_ar">
+            <bsm-ar-customisation></bsm-ar-customisation> -->
             <!-- <me-inspector-panel></me-inspector-panel> -->
-          </me-tabbed-panel>
+          <!-- </me-tabbed-panel> -->
         </me-tabs>
       </div>
     </div>
   </model-editor>
+  <script>
+    window.addEventListener("beforeunload", function (e) {
+      // Cancel the event
+      e.preventDefault();
+      // Chrome requires returnValue to be set
+      e.returnValue = "";
+
+      // Display a confirmation alert
+      var confirmationMessage = "Are you sure you want to leave this page?";
+      e.returnValue = confirmationMessage; // For old browsers
+
+      return confirmationMessage;
+    });
+  </script>
 </body>
