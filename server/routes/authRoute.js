@@ -14,6 +14,7 @@ import {
   postProjectName,
 } from "../controllers/authDashboard.js";
 import { referralEmailSubscribe } from "../controllers/referralControl.js";
+import { createProjectName, getProjectDetails } from "../controllers/modelEditorController.js";
 
 //router object
 const router = express.Router();
@@ -52,5 +53,11 @@ router.get("/user/getProjectSize", getProjectsSize);
 router.delete("/user/deleteProject/:id", deleteProjectFromID);
 
 router.get('/user/getUserName', getUserName)
+
+// v2 platform routes
+
+router.get("/user/v2GetProjects", getProjectDetails);
+
+router.post("/user/V2createProject", createProjectName);
 
 export default router;

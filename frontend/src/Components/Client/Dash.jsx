@@ -27,7 +27,7 @@ const Dash = () => {
   //list the project in the table
   async function getProject() {
     try {
-      const res = await axiosInstance.get("/getProjects");
+      const res = await axiosInstance.get("/v2GetProjects");
       // console.log(res.data);
       if (res.data.success) {
         setList(res.data.data);
@@ -69,16 +69,16 @@ const Dash = () => {
   //view click
   function handleViewClick(id) {
     // viewer link
-    const link = `${URL}/configurator/?id=${id}`;
+    const link = `${URL}/editor/testViewer/?id=${id}`;
     window.open(link, "_blank");
   }
 
   //to view the existing project
-  const handleButtonClick = (ids) => {
+  const handleButtonClick = (ids, name) => {
     const win = window.open("about:blank", "_blank");
     // console.log(ids);
-    const newFile = false;
-    const link = `${URL}/editor/?id=${ids}&new=${newFile}`;
+    // const newFile = false;
+    const link = `${URL}/editor/testing/?pre=true&n=${name}&id=${ids}`;
     win.location.href = link;
   };
 
@@ -92,15 +92,15 @@ const Dash = () => {
   const handleProjectNameSubmit = async (nameValue) => {
     // console.log("req");
     try {
-      const res = await axiosInstance.post("/postProject", { nameValue });
+      const res = await axiosInstance.post("/V2createProject", { nameValue });
       // console.log(res.data);
       if (res.data.status) {
         const win = window.open("about:blank", "_blank");
         // console.log("req coming in if");
-        const id = res.data.newProject._id;
-        const newFile = true;
+        const id = res.data.id;
+        // const newFile = true;
         // editor link
-        const link = `${URL}/editor/?id=${id}&new=${newFile}`;
+        const link = `${URL}/editor/testing/?pre=false&n=${res.data.name}&id=${id}`;
         setTimeout(() => {
           win.location.href = link;
         }, 1000);
@@ -197,8 +197,8 @@ const Dash = () => {
         </div>
         <Asidebar data={sizeData} />
         <div className="p-10 pt-20 lg:p-20 sm:ml-64 bg-[#262626] h-full">
-          <div className=" md:p-4 lg:p-0 rounded-lg  mt-5">
-            <div className="md:flex  flex justify-start">
+          <div className="mt-5 rounded-lg md:p-4 lg:p-0">
+            <div className="flex justify-start md:flex">
               <div
                 className="w-[300px] mx-auto lg:mx-0 xl:w-[448px]  flex justify-between items-center gap-4 h-[60px] md:h-[87px] lg:h-[87px] text-white border-2 border-[#2D2D2D] rounded-lg cursor-pointer"
                 onClick={openModal}
@@ -219,29 +219,29 @@ const Dash = () => {
                     </h3>
                   </div>
                 </div>
-                <h3 className="mr-4 lg:text-4xl md:text-4xl text-3xl text-gray-400">
+                <h3 className="mr-4 text-3xl text-gray-400 lg:text-4xl md:text-4xl">
                   +
                 </h3>
               </div>
               {isModalOpen && (
-                <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-70">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
                   <div className="bg-[#232234] text-gray-400 p-6 w-[300px]  xl:w-[500px] xl:h-auto rounded-lg">
-                    <h3 className="xl:my-4 text-center text-xl  text-white font-bold">
+                    <h3 className="text-xl font-bold text-center text-white xl:my-4">
                       Create A New Project
                     </h3>
                     {err && (
-                      <p className="text-red-700 text-center text-sm">{err}</p>
+                      <p className="text-sm text-center text-red-700">{err}</p>
                     )}
                     <input
                       type="text"
                       value={projectName}
                       onChange={handleNameChange}
-                      className="bg-transparent w-full border-b outline-none xl:mt-4"
+                      className="w-full bg-transparent border-b outline-none xl:mt-4"
                       placeholder="Enter The Project Name"
                       id="projectNameInput"
                       autoFocus
                     />
-                    <div className=" flex justify-end gap-4 pt-5">
+                    <div className="flex justify-end gap-4 pt-5 ">
                       <button
                         onClick={closeModal}
                         className=" bg-[#383748] text-white px-4 py-2 rounded"
@@ -250,7 +250,7 @@ const Dash = () => {
                       </button>
                       <button
                         onClick={() => handleProjectNameSubmit(projectName)}
-                        className=" bg-blue-500 text-white px-4 py-2 rounded"
+                        className="px-4 py-2 text-white bg-blue-500 rounded "
                       >
                         Create
                       </button>
@@ -266,7 +266,7 @@ const Dash = () => {
               <h3 className="text-white mt-[72px] mb-3">Projects</h3>
               <div className={`${screen ? "h-full" : "h-screen"}`}>
                 <div></div>
-                <div className="text-white border-gray-500 rounded-lg mx-auto h-full">
+                <div className="h-full mx-auto text-white border-gray-500 rounded-lg">
                   <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table className="w-full text-[19px] text-left text-white">
                       <tbody>
@@ -300,7 +300,9 @@ const Dash = () => {
                               </td>
                               <td className="px-6 py-4">
                                 <button
-                                  onClick={() => handleButtonClick(item._id)}
+                                  onClick={() =>
+                                    handleButtonClick(item._id, item.name)
+                                  }
                                   className="w-[65px] h-[27px] bg-white text-blue-400 flex items-center justify-center rounded-full"
                                 >
                                   Edit
@@ -356,7 +358,7 @@ const Dash = () => {
               </div>
             </div>
           ) : (
-            <div className="h-screen flex justify-center items-center">
+            <div className="flex items-center justify-center h-screen">
               <h3 className="h-[50vh] text-gray-500 text-lg">
                 Your Recent Project will Appear here
               </h3>

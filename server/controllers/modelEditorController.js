@@ -16,23 +16,25 @@ export const multerMiddleware = upload.fields([
 ]);
 
 export const createProjectName = async (req, res) => {
-  console.log("req coming");
-  console.log(req.body);
-  const userId = "9400908970";
-  const { projectName } = req.body;
+  // console.log("req coming");
+  // console.log(req.body);
+  const userId = req.user._id;
+  const { nameValue } = req.body;
   try {
-    if (projectName) {
+    if (nameValue) {
       const data = {
         userId: userId,
-        name: projectName,
+        name: nameValue,
       };
 
       const saveData = new TestingProject(data);
       await saveData.save();
 
-      console.log("++", saveData);
+      // console.log("++", saveData);
 
-      res.status(200).json({ id: saveData._id, name: saveData.name });
+      res
+        .status(200)
+        .json({ status: true, id: saveData._id, name: saveData.name });
     }
   } catch (error) {
     console.log(error);
@@ -41,11 +43,67 @@ export const createProjectName = async (req, res) => {
 
 export const getProjectDetails = async (req, res) => {
   try {
-    console.log("req in get project details");
-    const userId = "9400908970";
-    const responseData = await TestingProject.find({ userId });
-    res.status(200).json(responseData);
-    console.log(responseData);
+    const userId = req.user._id;
+    const listProjects = await TestingProject.find({ userId });
+
+    const currentDate = new Date();
+
+    // Calculate and update the projects with the formatted time difference
+    const projectsWithFormattedTime = listProjects.map((project) => {
+      const projectDate = project.createdAt;
+      const timeDifference = currentDate - projectDate;
+      const yearsAgo = Math.floor(
+        timeDifference / (1000 * 60 * 60 * 24 * 365.25)
+      ); // Average days in a year
+      const monthsAgo = Math.floor(
+        timeDifference / (1000 * 60 * 60 * 24 * 30.44)
+      ); // Average days in a month
+      const weeksAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 7));
+      const daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hoursAgo = Math.floor(timeDifference / (1000 * 60 * 60));
+      const minutesAgo = Math.floor(timeDifference / (1000 * 60));
+
+      let formattedTime;
+
+      if (yearsAgo > 0) {
+        formattedTime = `${yearsAgo} year${yearsAgo > 1 ? "s" : ""} ago`;
+      } else if (monthsAgo > 0) {
+        formattedTime = `${monthsAgo} month${monthsAgo > 1 ? "s" : ""} ago`;
+      } else if (weeksAgo > 0) {
+        formattedTime = `${weeksAgo} week${weeksAgo > 1 ? "s" : ""} ago`;
+      } else if (daysAgo > 0) {
+        formattedTime = `${daysAgo} day${daysAgo > 1 ? "s" : ""} ago`;
+      } else if (hoursAgo > 0) {
+        formattedTime = `${hoursAgo} hour${hoursAgo > 1 ? "s" : ""} ago`;
+      } else {
+        formattedTime = `${minutesAgo} minute${minutesAgo > 1 ? "s" : ""} ago`;
+      }
+
+      return {
+        _id: project._id,
+        user: project.userId,
+        name: project.name,
+        formattedTime,
+        createdAt: project.createdAt,
+      };
+    });
+
+    const sortedProjects = projectsWithFormattedTime.sort((a, b) => {
+      return b.createdAt - a.createdAt;
+    });
+
+    const sortedData = sortedProjects.map((project) => ({
+      _id: project._id,
+      user: project.user,
+      name: project.name,
+      formattedTime: project.formattedTime,
+    }));
+
+    // console.log(responseData);
+    res.status(200).send({
+      success: true,
+      data: sortedData,
+    });
   } catch (error) {
     console.log(error);
   }
