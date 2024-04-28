@@ -9,24 +9,24 @@ const EmbedModal = (props) => {
   const [copyText, setCopyText] = useState("Copy to Clipboard");
 
   const [urlValue, setUrlValue] = useState(
-    `https://bigsurmoon.com/configurator/?id=${props.embedID}`
+    `https://bigsurmoon.com/editor/testViewer/?id=${props.embedID}`
   );
 
   const [inputValue, setInputValue] = useState(
-    `<iframe src="https://bigsurmoon.com/configurator/?id=${props.embedID}" frameborder="0" width="${width}" height="${height}" > </iframe>`
+    `<iframe src="https://bigsurmoon.com/editor/testViewer/?id=${props.embedID}" frameborder="0" width="${width}" height="${height}" > </iframe>`
   );
 
   const handleWidthChange = (e) => {
     setWidth(e.target.value);
     setInputValue(
-      `<iframe src="https://bigsurmoon.com/configurator/?id=${props.embedID}" frameborder="0" width="${e.target.value}" height="${height}" > </iframe>`
+      `<iframe src="https://bigsurmoon.com/editor/testViewer/?id=${props.embedID}" frameborder="0" width="${e.target.value}" height="${height}" > </iframe>`
     );
   };
 
   const handleHeightChange = (e) => {
     setHeight(e.target.value);
     setInputValue(
-      `<iframe src="https://bigsurmoon.com/configurator/?id=${props.embedID}" frameborder="0" width="${width}" height="${e.target.value}" > </iframe>`
+      `<iframe src="https://bigsurmoon.com/editor/testViewer/?id=${props.embedID}" frameborder="0" width="${width}" height="${e.target.value}" > </iframe>`
     );
   };
 
@@ -56,9 +56,9 @@ const EmbedModal = (props) => {
   };
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-70">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
       <div className="bg-[#232234] text-gray-400 px-[52px] py-[37px] w-[300px]  xl:w-[721px] xl:h-auto rounded-lg font-roboto">
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <h4 className="text-left text-[24px] font-medium leading-[26px] text-[#F1EEF9] ">
             Share/Embed
           </h4>

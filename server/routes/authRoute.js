@@ -14,7 +14,7 @@ import {
   postProjectName,
 } from "../controllers/authDashboard.js";
 import { referralEmailSubscribe } from "../controllers/referralControl.js";
-import { createProjectName, getProjectDetails } from "../controllers/modelEditorController.js";
+import { createProjectName, deleteFullProjectController, getProjectDetails } from "../controllers/modelEditorController.js";
 
 //router object
 const router = express.Router();
@@ -59,5 +59,7 @@ router.get('/user/getUserName', getUserName)
 router.get("/user/v2GetProjects", getProjectDetails);
 
 router.post("/user/V2createProject", createProjectName);
+
+router.delete("/user/V2DeleteProject/:id", deleteFullProjectController);
 
 export default router;

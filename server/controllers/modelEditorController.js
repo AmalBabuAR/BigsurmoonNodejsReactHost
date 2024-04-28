@@ -307,9 +307,8 @@ export const deleteProjectController = async (req, res) => {
 };
 
 export const deleteFullProjectController = async (req, res) => {
-  console.log(req.body);
-  const { id } = req.body;
   try {
+    const id = req.params.id;
     const doc = await TestingProject.findOne({ _id: id });
     if (doc !== null) {
       const file = doc?.model?.key;
@@ -322,10 +321,12 @@ export const deleteFullProjectController = async (req, res) => {
         await deleteS3BucketUploads(poster);
       }
       const deleteProject = await TestingProject.deleteOne({ _id: id });
-      console.log("delete project", deleteProject);
-      res.status(200).json({ status: true });
+      // console.log("delete project", deleteProject);
+      res.json({ success: true, message: "Project deleted successfully." });
     }
   } catch (error) {
-    console.log(error);
+    res
+      .status(500)
+      .json({ success: false, message: "Error deleting project." });
   }
 };

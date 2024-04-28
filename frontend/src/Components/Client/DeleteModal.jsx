@@ -19,7 +19,7 @@ const DeleteModal = (props) => {
   const handleDeleteButtonClick = async () => {
     try {
       setDeleteing(true);
-      const res = await axiosInstance.delete(`/deleteProject/${deleteId}`);
+      const res = await axiosInstance.delete(`/V2DeleteProject/${deleteId}`);
       if (res.data.success) {
         setDeleteing(false);
         props.onDeleteDataReceived({ model: !deleteModel, callFun: true });
@@ -31,7 +31,7 @@ const DeleteModal = (props) => {
     }
   };
   return (
-    <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-70">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
       <div className="bg-[#232234] text-gray-400 px-[52px] py-[37px] w-[300px]  xl:w-[621px] xl:h-auto rounded-lg font-roboto">
         <div className="flex justify-end">
           <button
