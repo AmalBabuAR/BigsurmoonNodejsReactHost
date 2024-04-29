@@ -124,6 +124,11 @@ export const modelUploadController = async (req, res) => {
     const files = req.files.file;
     let glbRes, posterRes;
 
+    if (files?.mimetype === "application/octet-stream") {
+      const glb = files;
+      glbRes = await postS3BucketUploads(glb, projectIDConv);
+    }
+
     if (files[0]?.mimetype === "application/octet-stream") {
       const glb = files[0];
       glbRes = await postS3BucketUploads(glb, projectIDConv);

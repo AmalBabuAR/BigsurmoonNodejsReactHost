@@ -18,9 +18,9 @@ async function setupModelViewer() {
 
 		const data = await response.json();
 
-		setUpPoster(modelViewer, data?.poster?.url);
+		// setUpPoster(modelViewer, data?.poster?.url);
 
-		console.log("data", data);
+		// console.log("data", data);
 
 		// Fetch GLB data
 		const glbResponse = await fetch(data?.model?.url);
@@ -67,9 +67,9 @@ async function setupModelViewer() {
 	}
 }
 
-function setUpPoster(modelViewer, posterUrl) {
-	modelViewer.poster = posterUrl;
-}
+// function setUpPoster(modelViewer, posterUrl) {
+// 	modelViewer.poster = posterUrl;
+// }
 
 function setUpUrl(modelViewer, objectUrl) {
 	modelViewer.src = objectUrl;
@@ -135,24 +135,17 @@ function setupHotspots(modelViewer, hotspots) {
 		annotation.textContent = hotspot.annotation;
 
 		button.appendChild(annotation);
-
+		modelViewer.appendChild(button);
 		button.addEventListener("click", () => {
 			handleHotspotClick(modelViewer, hotspot);
 
 			updateInput(index, hotspots, modelViewer);
 			updateIndex(index);
 		});
-
-		modelViewer.appendChild(button);
-		hotspotNames(hotspot.annotation);
 	});
 }
 function updateIndex(index) {
 	return index;
-}
-
-function hotspotNames(names) {
-	console.log("names", names);
 }
 
 // Function to handle hotspot click
@@ -187,31 +180,54 @@ function handleHotspotClick(modelViewer, hotspot) {
 	modelViewer.cameraTarget = hotspot.target;
 	modelViewer.cameraOrbit = hotspot.orbit;
 	modelViewer.fieldOfView = hotspot.fov;
+
+	setTimeout(() => {
+		annotationSelect.style.display = "none";
+	}, 5000);
 }
 
 function setUpHotspotSwipeButton(modelViewer, hotspots) {
 	console.log("hotspots", hotspots[0]);
 	let currentIndex = 0;
+	let initialStart = true;
 
 	const index = updateIndex();
 	if (index) {
 		currentIndex = index;
 	}
-
 	document
 		.getElementById("hotsportSwipePrevButton")
 		.addEventListener("click", () => {
-			currentIndex = (currentIndex - 1 + hotspots.length) % hotspots.length;
+			if (initialStart) {
+				currentIndex = 0;
+				initialStart = false;
+			} else {
+				currentIndex = (currentIndex - 1 + hotspots.length) % hotspots.length;
+			}
+			console.log("currentIndex PrevButton", currentIndex);
 			updateInput(currentIndex, hotspots, modelViewer);
 		});
 
 	document
 		.getElementById("hotsportSwipeNextButton")
 		.addEventListener("click", () => {
-			currentIndex = (currentIndex + 1) % hotspots.length;
+			if (initialStart) {
+				currentIndex = 0;
+				initialStart = false;
+			} else {
+				currentIndex = (currentIndex + 1) % hotspots.length;
+			}
+
+			console.log("currentIndex NextButton", currentIndex);
 			updateInput(currentIndex, hotspots, modelViewer);
 		});
-	updateInput(currentIndex, hotspots, modelViewer);
+	updateInputs(currentIndex, hotspots, modelViewer);
+}
+function updateInputs(currentIndex, hotspots, modelViewer) {
+	const spanInput = document.getElementById("hotsportSwipeInput");
+	const seletedHotspot = hotspots[currentIndex];
+	console.log("seletedHotspot", seletedHotspot.annotation);
+	spanInput.textContent = seletedHotspot.annotation;
 }
 
 function updateInput(currentIndex, hotspots, modelViewer) {
@@ -233,12 +249,14 @@ function setupVariantSelector(modelViewer, hotspot) {
 			const names = modelViewer.availableVariants;
 			console.log("varient", names);
 			if (names.length > 0) {
-				names.forEach((name) => {
-					const option = document.createElement("option");
-					option.value = name;
-					option.textContent = name;
-					select.appendChild(option);
-				});
+				names
+					.filter((name) => !name.startsWith("delete"))
+					.forEach((name) => {
+						const option = document.createElement("option");
+						option.value = name;
+						option.textContent = name;
+						select.appendChild(option);
+					});
 				// Automatically select the first variant
 				select.options[0].selected = true;
 				modelViewer.variantName = select.options[0].value;
@@ -281,8 +299,8 @@ function setUpSideToggleButtin(variant, hotspot) {
 
 	// Hide prev and next buttons if there's only one hotspot
 	if (hotspot?.length === 1) {
-		prevButton.style.display = "none";
-		nextButton.style.display = "none";
+		prevButton.style.display = "";
+		nextButton.style.display = "";
 	} else {
 		prevButton.style.display = "";
 		nextButton.style.display = "";
@@ -404,7 +422,7 @@ mobConfig.addEventListener("click", function () {
 	mobConfig.style.display = "none";
 });
 
-function createArButton(modelViewer,autoplay) {
+function createArButton(modelViewer, autoplay) {
 	// Create button element
 	const button = document.createElement("button");
 	button.setAttribute("slot", "ar-button");
@@ -440,7 +458,7 @@ function createArButton(modelViewer,autoplay) {
 	button.appendChild(span);
 
 	modelViewer.appendChild(button);
-	
+
 	const toggleARButton = document.getElementById("qrBtn");
 	toggleARButton.style.display = "flex";
 }
