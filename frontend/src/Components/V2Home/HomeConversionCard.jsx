@@ -48,24 +48,18 @@ const HomeConversionCard = () => {
           onMouseLeave={handleLeaveDivOne}
           className={`${divOne && "homeConversionCard"} ${
             fade && "homeConversionCardFade"
-          } flex flex-col justify-start items-start gap-[15px] px-[25px] py-[50px] lg:p-[50px] xl:p-[50px] border border-solid rounded-[15px] w-[343px] lg:w-[500px] xl:w-[574px] h-[419px] lg:h-[510px] xl:h-[510px]`}
+          } flex flex-col justify-start items-start gap-[15px] px-[25px] py-[50px] lg:p-[50px] xl:p-[50px] border border-solid rounded-[15px] w-[343px] lg:w-[500px] xl:w-[574px] h-[434px] lg:h-[581px] xl:h-[518px]`}
         >
           <img
             src={ovelOne}
             alt="3D product visualisation and marketing events with Bigsurmoon had the highest rate of engagement ever"
-            className="w-[100px] h-[98.729px] rounded-[100px] border border-solid border-[#fff]"
+            className="w-[225px] h-[89px] rounded-[15px] border border-solid border-[black]"
           />
           <h3 className="text-[14px] leading-[16.616px] tracking-[0.56px] opacity-75">
-            Fala & Bebe
+            Noor <br />
+            A.E CEO, Hawaii Store
           </h3>
           {divOne ? (
-            <h4 className="xl:text-[22px] lg:text-[22px] text-[16px] leading-[20px] lg:leading-[33px] xl:leading-[33px] tracking-[0.88px] self-stretch">
-              3D product visualisation and marketing events with Bigsurmoon had
-              the highest rate of engagement ever. Additionally, our photography
-              and other visual content creation has been lot more cost-effective
-              and streamlined.
-            </h4>
-          ) : (
             <>
               <h4 className="text-[35px] lg:text-[60px] xl:text-[60px] leading-[43.75px] lg:leading-[72px] xl:leading-[72px] tracking-[1.4px] lg:tracking-[2.4px] xl:tracking-[2.4px] font-semibold text-[#07BDFF] flex flex-col lg:h-[124px] xl:h-[124px]">
                 200%
@@ -80,6 +74,14 @@ const HomeConversionCard = () => {
                 </span>
               </h4>
             </>
+          ) : (
+            <h4 className="xl:text-[22px] lg:text-[22px] text-[16px] leading-[20px] lg:leading-[33px] xl:leading-[33px] tracking-[0.88px] self-stretch">
+              We had a such a great experience with Bigsurmoon team for our
+              website's 3D product catalogue! You guys paid such a close
+              attention too the details and made our product look amazing. You
+              beautifully captured the essence of our products in 3D model. We
+              are very satisfied with your work.
+            </h4>
           )}
         </div>
         <div
@@ -89,24 +91,18 @@ const HomeConversionCard = () => {
           onMouseLeave={handleLeaveDivTwo}
           className={`${divTwo && "homeConversionCard"} ${
             fadeTwo && "homeConversionCardFade"
-          } flex flex-col justify-start items-start gap-[15px] px-[25px] py-[50px] lg:p-[50px] xl:p-[50px] border border-solid rounded-[15px] w-[343px] lg:w-[500px] xl:w-[574px] h-[419px] lg:h-[510px] xl:h-[510px]`}
+          } flex flex-col justify-start items-start gap-[15px] px-[25px] py-[50px] lg:p-[50px] xl:p-[50px] border border-solid rounded-[15px] w-[343px] lg:w-[500px] xl:w-[574px] h-[453px] lg:h-[581px] xl:h-[518px]`}
         >
           <img
             src={ovelTwo}
             alt="Custom requirements and suggestions are handled well by Bigsurmoon"
-            className="w-[100px] h-[98.729px] rounded-[100px] border border-solid border-[#fff]"
+            className="w-[225px] h-[89px] rounded-[15px] border border-solid border-[black]"
           />
           <h3 className="text-[14px] leading-[16.616px] tracking-[0.56px] opacity-75">
-            Travelluxis.in
+            Sharvin M P <br />
+            CEO, Euro Guard Hysquare
           </h3>
           {divTwo ? (
-            <h4 className="xl:text-[22px] lg:text-[22px] text-[16px] leading-[20px] lg:leading-[33px] xl:leading-[33px] tracking-[0.88px] self-stretch">
-              Custom requirements and suggestions are handled well by
-              Bigsurmoon. Augmented reality experiences for travel and tourism
-              industry helped us standout from the competition and create
-              unforgettable campaigns. Kudos to the whole team!
-            </h4>
-          ) : (
             <>
               <h4 className="text-[35px] lg:text-[60px] xl:text-[60px] leading-[43.75px] lg:leading-[72px] xl:leading-[72px] tracking-[1.4px] lg:tracking-[2.4px] xl:tracking-[2.4px] font-semibold text-[#07BDFF] flex flex-col lg:h-[124px] xl:h-[124px]">
                 160%
@@ -121,6 +117,14 @@ const HomeConversionCard = () => {
                 </span>
               </h4>
             </>
+          ) : (
+            <h4 className="xl:text-[22px] lg:text-[22px] text-[16px] leading-[20px] lg:leading-[33px] xl:leading-[33px] tracking-[0.88px] self-stretch">
+              Working on 3D platform was an absolute breeze and with tons of
+              customisation options. Our products are showcased in such a way
+              that we are having our most engagement sessions ever. It really
+              helped conveying the true story of our products and creating brand
+              awareness. Great support from the team too.
+            </h4>
           )}
         </div>
       </div>

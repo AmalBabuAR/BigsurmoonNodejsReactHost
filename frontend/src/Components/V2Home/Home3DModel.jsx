@@ -55,14 +55,14 @@ const Home3DModel = () => {
           src={iframeUrl}
           width="1064"
           // height="591"
-          className="rounded-[20px] border border-solid h-[501.308px]"
+          className="rounded-[20px] border border-solid h-[588.308px]"
         ></iframe>
       </div>
       <div className="lg:hidden xl:hidden mb-[25px] stroke-1 stroke-[#8D8D8D]">
         <iframe
           src={iframeUrl}
           width="343"
-          height="480"
+          height="550"
           className="rounded-[20px] border border-solid"
         ></iframe>
       </div>

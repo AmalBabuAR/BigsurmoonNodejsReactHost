@@ -21,8 +21,8 @@ import SlideMob3 from "./MobElec.png";
 import SlideMob4 from "./SlideMob4.png";
 import SlideMob5 from "./SlideMob5.png";
 import SlideMob6 from "./SlideMob1.png";
-import ovelOne from "./EngaImgOne.png";
-import ovelTwo from "./EngaImgTwo.png";
+import ovelOne from "./hawai.png";
+import ovelTwo from "./euroGuard.png";
 import google from "./Google_Ads_logo.png";
 import shopify from "./Shopify_Logo.png";
 

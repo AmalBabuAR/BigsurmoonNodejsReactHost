@@ -25,7 +25,7 @@ import stripeWebhookRouter from "./routes/stripeWebhook.js";
 import getVareintRouter from "./routes/getVareintRouter.js";
 import updateVariationRouter from "./routes/updateVariationRouter.js";
 import mvEditorRouter from "./routes/mvEditorRouter.js";
-import customeViewerRouter from './routes/Viewer/customeViewerRouter.js'
+import customeViewerRouter from "./routes/Viewer/customeViewerRouter.js";
 
 //rest object
 const app = express();
@@ -97,7 +97,7 @@ app.get("/configurator/", (req, res) => {
 });
 
 app.get("/editor/Viewer/", (req, res) => {
-  res.sendFile(__dirname + "/views/homeViewer.html");
+  res.sendFile(__dirname + "/views/homeViewer/v2HomeViewer.html");
 });
 
 // new editor testing ground ----------------------------------------------------------------------
