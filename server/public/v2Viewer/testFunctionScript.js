@@ -65,7 +65,7 @@ async function setupModelViewer() {
 			mobSideBarView.style.display = "flex";
 		}
 	} catch (error) {
-		console.log("error",error);
+		console.log("error", error);
 	}
 }
 setupModelViewer();
@@ -401,7 +401,9 @@ function setUpAutoPlay(modelViewer) {
 	const playBtn = document.getElementById("playBtn");
 	const mobPlayButton = document.getElementById("mobPlayButton");
 	const mobViewInArButton = document.getElementById("mobViewInArButton");
-	mobViewInArButton.classList.remove("mobViewInArButtonForNoAutoPlay");
+	if (mobViewInArButton !== undefined) {
+		mobViewInArButton.classList.remove("mobViewInArButtonForNoAutoPlay");
+	}
 
 	if (playBtn !== null) {
 		let isPlaying = false;
@@ -597,7 +599,9 @@ function createArPrompt(modelViewer) {
 
 function setUpNoAutoPlayStyleMob() {
 	const mobViewInArButton = document.getElementById("mobViewInArButton");
-	mobViewInArButton.style.margin = "0 6vw";
-	mobViewInArButton.style.width = "88vw";
-	mobViewInArButton.classList.add("mobViewInArButtonForNoAutoPlay");
+	if (mobViewInArButton !== undefined) {
+		mobViewInArButton.style.margin = "0 6vw";
+		mobViewInArButton.style.width = "88vw";
+		mobViewInArButton.classList.add("mobViewInArButtonForNoAutoPlay");
+	}
 }
