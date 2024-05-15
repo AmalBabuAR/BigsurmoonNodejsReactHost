@@ -270,7 +270,7 @@ function createDesktopAnimationAndAr() {
 }
 function callQrConfig() {
 	const idFromUrl = getQueryParam("id");
-	const urlToGenerateQRCodeFor = `https://bigsurmoon.com/editor/Viewer/?id=${idFromUrl}`;
+	const urlToGenerateQRCodeFor = `https://bigsurmoon.com/editor/testViewer/?id=${idFromUrl}`;
 
 	if (!document.getElementById("qrcode").hasChildNodes()) {
 		const qrcode = new QRCode("qrcode", {

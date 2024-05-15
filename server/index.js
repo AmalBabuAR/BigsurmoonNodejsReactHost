@@ -97,8 +97,8 @@ app.get("/configurator/", (req, res) => {
 });
 
 app.get("/editor/Viewer/", (req, res) => {
-  // res.sendFile(__dirname + "/views/homeViewer/v2HomeViewer.html");
-  res.sendFile(__dirname + "/views/testing/newTestViewer.html");
+  res.sendFile(__dirname + "/views/homeViewer/v2HomeViewer.html");
+  
 });
 
 // new editor testing ground ----------------------------------------------------------------------
@@ -110,7 +110,8 @@ app.get("/editor/dashbord", (req, res) => {
   res.sendFile(__dirname + "/views/testing/dashboard.html");
 });
 app.get("/editor/testViewer", (req, res) => {
-  res.sendFile(__dirname + "/views/testing/testViewer.html");
+  // res.sendFile(__dirname + "/views/testing/testViewer.html");
+  res.sendFile(__dirname + "/views/testing/newTestViewer.html");
 });
 
 // ------------------------------------------------------------------------------------------------
