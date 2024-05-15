@@ -401,7 +401,7 @@ function setUpAutoPlay(modelViewer) {
 	const playBtn = document.getElementById("playBtn");
 	const mobPlayButton = document.getElementById("mobPlayButton");
 	const mobViewInArButton = document.getElementById("mobViewInArButton");
-	if (mobViewInArButton !== undefined) {
+	if (mobViewInArButton !== null) {
 		mobViewInArButton.classList.remove("mobViewInArButtonForNoAutoPlay");
 	}
 
@@ -599,7 +599,7 @@ function createArPrompt(modelViewer) {
 
 function setUpNoAutoPlayStyleMob() {
 	const mobViewInArButton = document.getElementById("mobViewInArButton");
-	if (mobViewInArButton !== undefined) {
+	if (mobViewInArButton !== null) {
 		mobViewInArButton.style.margin = "0 6vw";
 		mobViewInArButton.style.width = "88vw";
 		mobViewInArButton.classList.add("mobViewInArButtonForNoAutoPlay");
