@@ -97,7 +97,8 @@ app.get("/configurator/", (req, res) => {
 });
 
 app.get("/editor/Viewer/", (req, res) => {
-  res.sendFile(__dirname + "/views/homeViewer/v2HomeViewer.html");
+  // res.sendFile(__dirname + "/views/homeViewer/v2HomeViewer.html");
+  res.sendFile(__dirname + "/views/testing/newTestViewer.html");
 });
 
 // new editor testing ground ----------------------------------------------------------------------
