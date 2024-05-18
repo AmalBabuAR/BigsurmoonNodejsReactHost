@@ -5,6 +5,7 @@ const browsers = {
 	edge: false,
 	opera: false,
 	safari: false,
+	safariMobile: false,
 	none: false,
 };
 function detectBrowser() {
@@ -15,6 +16,12 @@ function detectBrowser() {
 	) {
 		browsers.chromeMobile = true;
 		return "chromeMobile";
+	} else if (
+		navigator.userAgent.match(/Safari/i) &&
+		navigator.userAgent.match(/Mobile/i)
+	) {
+		browsers.safariMobile = true;
+		return "safariMobile";
 	} else if (navigator.userAgent.match(/Edge/i)) {
 		browsers.edge = true;
 		return "edge";

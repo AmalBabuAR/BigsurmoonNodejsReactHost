@@ -26,7 +26,7 @@ if (
 	createDesktopCollapse();
 	createDesktopAnimationAndAr();
 	createDesktopFullScreenBtn();
-} else if (detect === "chromeMobile") {
+} else if (detect === "chromeMobile" || detect === "safariMobile") {
 	createMobileCollapse();
 	createMobConfigButton();
 	createPlayPauseButton();
