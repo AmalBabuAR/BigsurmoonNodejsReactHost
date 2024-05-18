@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Broswer Detecting</h1>
+    <div id="firstDiv"></div>
+  </body>
+  <script>
+    function creatingElement(text) {
+      const create = document.createElement("h1");
+      create.textContent = text;
+      return create;
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const detectBrowserName = detectBrowser();
+      const firstDiv = document.querySelector("#firstDiv");
+      if (
+        navigator.userAgent.match(/Chrome/i) &&
+        navigator.userAgent.match(/Mobile/i)
+      ) {
+        const createOne = creatingElement("chromeMobile Detected");
+        createOne.style.color = "green";
+        firstDiv.appendChild(createOne);
+      } else {
+        const createTwo = creatingElement("chromeMobile Not-Detected");
+        createTwo.style.color = "red";
+        firstDiv.appendChild(createTwo);
+      }
+
+      if (navigator.userAgent.match(/Edge/i)) {
+        const createThree = creatingElement("edge Detected");
+        createThree.style.color = "green";
+        firstDiv.appendChild(createThree);
+      } else {
+        const createFour = creatingElement("edge Not-Detected");
+        createFour.style.color = "red";
+        firstDiv.appendChild(createFour);
+      }
+
+      if (navigator.userAgent.match(/Chrome/i)) {
+        const createFive = creatingElement("chrome Detected");
+        createFive.style.color = "green";
+        firstDiv.appendChild(createFive);
+      } else {
+        const createSix = creatingElement("chrome Not-Detected");
+        createSix.style.color = "red";
+        firstDiv.appendChild(createSix);
+      }
+
+      if (navigator.userAgent.match(/Firefox/i)) {
+        const createSeven = creatingElement("firefox Detected");
+        createSeven.style.color = "green";
+        firstDiv.appendChild(createSeven);
+      } else {
+        const createEight = creatingElement("firefox Not-Detected");
+        createEight.style.color = "red";
+        firstDiv.appendChild(createEight);
+      }
+
+      if (navigator.userAgent.match(/Opera/i)) {
+        const createNine = creatingElement("opera Detected");
+        createNine.style.color = "green";
+        firstDiv.appendChild(createNine);
+      } else {
+        const createTen = creatingElement("opera Not-Detected");
+        createTen.style.color = "red";
+        firstDiv.appendChild(createTen);
+      }
+
+      if (navigator.userAgent.match(/Safari/i)) {
+        const createEleven = creatingElement("safari Detected");
+        createEleven.style.color = "green";
+        firstDiv.appendChild(createEleven);
+      } else {
+        const createTwelve = creatingElement("safari Not-Detected");
+        createTwelve.style.color = "red";
+        firstDiv.appendChild(createTwelve);
+      }
+
+      const createTherten = creatingElement(
+        `AutoDetected = ${navigator.userAgent}`
+      );
+      createTherten.style.color = "blue";
+      firstDiv.appendChild(createTherten);
+    });
+  </script>
+</html>
