@@ -80,6 +80,19 @@
         firstDiv.appendChild(createTwelve);
       }
 
+      if (
+        navigator.userAgent.match(/Safari/i) &&
+        navigator.userAgent.match(/Mobile/i)
+      ) {
+        const createThirteen = creatingElement("safari Mobile Detected");
+        createThirteen.style.color = "green";
+        firstDiv.appendChild(createThirteen);
+      } else {
+        const createFourteen = creatingElement("safari Mobile Not-Detected");
+        createFourteen.style.color = "red";
+        firstDiv.appendChild(createFourteen);
+      }
+
       const createTherten = creatingElement(
         `AutoDetected = ${navigator.userAgent}`
       );
