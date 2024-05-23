@@ -11,6 +11,18 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST);
 
 const stripeWebhookRouter = express.Router();
 
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${day}-${month}-${year}`;
+}
+const startDate = new Date();
+
+// Calculate the end date (7 days after the start date)
+const endDate = new Date();
+endDate.setDate(startDate.getDate() + 7);
+
 stripeWebhookRouter.post(
   "/webhook",
   express.raw({ type: "application/json" }),
@@ -65,6 +77,11 @@ stripeWebhookRouter.post(
             subscriptionId: checkoutResponse?.subscription,
             selectedQuantity: checkoutResponse?.metadata?.quantity,
             Price: checkoutResponse?.metadata?.price,
+            trialPeriodStatus: {
+              trialPeriod: checkoutResponse?.metadata?.trialPeriod,
+              trialStart: formatDate(startDate),
+              trialEnd: formatDate(endDate),
+            },
           };
           console.log("data", data);
           const dataRes = new PaymentData(data);
@@ -94,9 +111,9 @@ stripeWebhookRouter.post(
     console.log("event Type", event.type);
     try {
       const data = {
-        event_type : event?.type,
-        event_data : event?.data?.object
-      }
+        event_type: event?.type,
+        event_data: event?.data?.object,
+      };
       console.log("data", data);
       const dataRes = new StripeEvents(data);
       await dataRes.save();
