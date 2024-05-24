@@ -96,8 +96,8 @@ stripeRouter.post("/create-checkout-session", async (req, res) => {
             success_url: `${process.env.CLIENT_URL}/checkoutSuccess`,
             cancel_url: `${process.env.CLIENT_URL}/checkoutFailed`,
           });
-          console.log("session---------------", session);
-          console.log("respons--------------", res);
+          // console.log("session---------------", session);
+          // console.log("respons--------------", res);
 
           res.json({ success: true, url: session.url });
 

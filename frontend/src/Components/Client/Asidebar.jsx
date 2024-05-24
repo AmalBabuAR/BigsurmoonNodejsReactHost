@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 // import axiosInstance from "../../axios/axiosInterceptors/axiosInstance";
+import { useNavigate } from "react-router-dom";
 
 const Asidebar = (props) => {
-  const { data } = props;
+  const { data, days } = props;
+
+  const navigate = useNavigate();
   // const [data, setData] = useState({});
   // async function getProjectSize() {
   //   try {
@@ -32,10 +35,10 @@ const Asidebar = (props) => {
               <li>
                 <a
                   href="#"
-                  className="flex items-center p-2 rounded-lg text-white hover:bg-gray-700 group"
+                  className="flex items-center p-2 text-white rounded-lg hover:bg-gray-700 group"
                 >
                   <svg
-                    className="w-5 h-5  transition duration-75 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    className="w-5 h-5 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -61,6 +64,25 @@ const Asidebar = (props) => {
                   left.
                 </h1>
               </div>
+              {days > 0 ? (
+                <div className="w-[234px] h-auto bg-[#202020] rounded-2xl flex flex-col items-center justify-center mt-10 pt-[20px] pb-[20px] font-roboto">
+                  <h1 className="text-[11px] w-[182px] mx-auto text-center text-white font-normal ">
+                    Enjoy 7-day free trial period with full access to all
+                    premium features.
+                  </h1>
+                  <p className="text-[11px] w-[182px] mx-auto text-center text-white mt-4">
+                    Your trial ends in {days} days.
+                  </p>
+                  <button
+                    onClick={() => navigate("/plan")}
+                    className="w-[127px] h-[26px] bg-[#2898FF] flex justify-center items-center rounded-full text-white mt-5 text-[11px]"
+                  >
+                    View Plans
+                  </button>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </ul>
         </div>

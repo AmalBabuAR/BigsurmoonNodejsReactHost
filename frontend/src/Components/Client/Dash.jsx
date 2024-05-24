@@ -21,6 +21,7 @@ const Dash = () => {
   const [embedModel, setEmbedModel] = useState(false);
   const [deleteModel, setDeleteModel] = useState(false);
   const [deleteId, setDeleteID] = useState(null);
+  onst[(daysLeft, setDaysLeft)] = useState(0);
 
   const navigate = useNavigate();
 
@@ -52,14 +53,16 @@ const Dash = () => {
       const res = await axiosInstance.get("/getProjectSize");
       // console.log(res.data);
       if (res.data.success) {
-        setSizeData(res.data.resData);
+        setSizeData(res.data.projectSize);
         // console.log(data);
+        setDaysLeft(res.data.daysLeft);
       } else {
         setSizeData({
           percentage: 0,
           quantity: 0,
           used: 0,
         });
+        setDaysLeft(0);
       }
     } catch (error) {
       console.log(error);
@@ -195,7 +198,7 @@ const Dash = () => {
         <div className=" md:hidden">
           <Navbar />
         </div>
-        <Asidebar data={sizeData} />
+        <Asidebar data={sizeData} days={daysLeft} />
         <div className="p-10 pt-20 lg:p-20 sm:ml-64 bg-[#262626] h-full">
           <div className="mt-5 rounded-lg md:p-4 lg:p-0">
             <div className="flex justify-start md:flex">

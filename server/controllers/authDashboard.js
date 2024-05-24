@@ -2,6 +2,7 @@ import pool from "../database/postgresqlConnection.js";
 import ProjectDetails from "../models/projectDetailsModel.js";
 import PaymentData from "../models/paymentModel.js";
 import userModel from "../models/userModel.js";
+import TestingProject from "../models/testingProjectModel.js";
 
 export const postProjectName = async (req, res) => {
   try {
@@ -62,25 +63,48 @@ export const postProjectName = async (req, res) => {
   }
 };
 
+function parseDate(dateString) {
+  const parts = dateString.split("-");
+  const day = parseInt(parts[0], 10);
+  const month = parseInt(parts[1], 10) - 1; // Months are zero-indexed
+  const year = parseInt(parts[2], 10);
+  return new Date(year, month, day);
+}
+
 export const getProjectsSize = async (req, res) => {
   try {
     const user = req.user._id;
-    const existingProjects = await ProjectDetails.find({ user });
+    const existingProjects = await TestingProject.find({ userId: user });
     console.log("existingProjects", existingProjects);
-    if (existingProjects) {
+    if (existingProjects.length > 0) {
       const check = await PaymentData.find({ user_id: user });
       if (check.length > 0) {
         const quantity = parseInt(check[0]?.selectedQuantity);
         const per = (existingProjects.length / quantity) * 100;
-        const resData = {
+        const projectSize = {
           used: existingProjects.length,
           quantity: quantity,
           percentage: per,
         };
-        res.status(200).send({ success: true, resData });
+        let daysLeft = 0;
+        if (
+          check[0]?.trialPeriodStatus?.trialStart &&
+          check[0]?.trialPeriodStatus?.trialEnd
+        ) {
+          const currentDate = parseDate(
+            check[0]?.trialPeriodStatus?.trialStart
+          );
+          const endDate = parseDate(check[0]?.trialPeriodStatus?.trialEnd);
+          const timeDiff = endDate - currentDate;
+          daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+        }
+
+        res.status(200).send({ success: true, projectSize, daysLeft });
       } else {
         res.status(200).send({ success: false });
       }
+    } else {
+      res.status(200).send({ success: false });
     }
   } catch (error) {
     console.log(error);

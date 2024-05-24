@@ -318,10 +318,30 @@ function createDesktopFullScreenBtn() {
 	modelViewer.appendChild(fullScreenContainer);
 
 	fullScreenBtn.addEventListener("click", () => {
-		if (!document.fullscreenElement) {
-			modelViewer.requestFullscreen();
+		if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+			// Try to enter fullscreen mode
+			if (modelViewer.requestFullscreen) {
+				modelViewer.requestFullscreen().catch((err) => {
+					console.error(
+						`Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+					);
+				});
+			} else if (modelViewer.webkitRequestFullscreen) {
+				// Safari compatibility
+				modelViewer.webkitRequestFullscreen();
+			}
 		} else {
-			document.exitFullscreen();
+			// Try to exit fullscreen mode
+			if (document.exitFullscreen) {
+				document.exitFullscreen().catch((err) => {
+					console.error(
+						`Error attempting to exit full-screen mode: ${err.message} (${err.name})`
+					);
+				});
+			} else if (document.webkitExitFullscreen) {
+				// Safari compatibility
+				document.webkitExitFullscreen();
+			}
 		}
 	});
 }
