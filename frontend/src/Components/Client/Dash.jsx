@@ -21,7 +21,7 @@ const Dash = () => {
   const [embedModel, setEmbedModel] = useState(false);
   const [deleteModel, setDeleteModel] = useState(false);
   const [deleteId, setDeleteID] = useState(null);
-  onst[(daysLeft, setDaysLeft)] = useState(0);
+  const [daysLeft, setDaysLeft] = useState(0);
 
   const navigate = useNavigate();
 
