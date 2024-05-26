@@ -91,9 +91,7 @@ export const getProjectsSize = async (req, res) => {
           check[0]?.trialPeriodStatus?.trialStart &&
           check[0]?.trialPeriodStatus?.trialEnd
         ) {
-          const currentDate = parseDate(
-            check[0]?.trialPeriodStatus?.trialStart
-          );
+          const currentDate = new Date();
           const endDate = parseDate(check[0]?.trialPeriodStatus?.trialEnd);
           const timeDiff = endDate - currentDate;
           daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
