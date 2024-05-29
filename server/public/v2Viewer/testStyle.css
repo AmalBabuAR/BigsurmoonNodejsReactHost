@@ -609,7 +609,7 @@ model-viewer > #ar-prompt > img {
   }
   /* annotation styles */
   #mobAnnotationContainer {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 5px;
   }
@@ -815,7 +815,7 @@ model-viewer > #ar-prompt > img {
 
   /* annotation section */
   #mobAnnotationContainer {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 5px;
   }
@@ -870,6 +870,11 @@ model-viewer > #ar-prompt > img {
     justify-content: space-between;
     align-items: center;
   }
+
+  #mobOtherButtonContainer:nth-child(1) {
+    justify-content: center;
+  }
+
   #mobOtherButtonContainer div {
     display: none;
     flex-direction: column;

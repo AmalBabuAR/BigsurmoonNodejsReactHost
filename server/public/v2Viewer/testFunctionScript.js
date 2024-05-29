@@ -109,11 +109,11 @@ function setupVariantSelector(modelViewer, hotspot) {
 				}
 			} else {
 				if (sideBarView !== null) {
-					sideBarView.style.display = "none";
+					// sideBarView.style.display = "none";
 					variantView.style.display = "none";
 				}
 				if (mobSideBarView !== null) {
-					mobSideBarView.style.display = "none";
+					// mobSideBarView.style.display = "none";
 					mobVariantView.style.display = "none";
 				}
 			}
@@ -531,6 +531,9 @@ function setUpBestPractices(modelViewer, bestPractices, autoplay) {
 //------------------setUpBestPractices End---------------------------
 
 function setUpAutoRotateView(modelViewer) {
+	const controlsContainerCollapse = document.getElementById(
+		"controlsContainerCollapse"
+	);
 	const autoRotateContainer = document.getElementById("autoRotateContainer");
 	const autoRotateButton = document.getElementById("autoRotateButton");
 	const mobAutoRotateContainer = document.getElementById(
@@ -542,7 +545,12 @@ function setUpAutoRotateView(modelViewer) {
 	const autoRotationSelectedSvg = document.getElementById(
 		"autoRotationSelectedSvg"
 	);
-	if (autoRotateContainer !== null && autoRotateButton !== null) {
+	if (
+		autoRotateContainer !== null &&
+		autoRotateButton !== null &&
+		controlsContainerCollapse !== null
+	) {
+		controlsContainerCollapse.style.display = "flex";
 		autoRotateContainer.style.display = "flex";
 		autoRotateButton.addEventListener("click", function () {
 			if (autoRotationSelectedSvg.style.display === "none") {

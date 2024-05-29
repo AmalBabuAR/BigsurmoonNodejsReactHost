@@ -16,7 +16,11 @@ const detect = detectBrowser();
 
 const modelViewer = document.querySelector("model-viewer");
 
-if (
+if (detect === "chromeMobile" || detect === "safariMobile") {
+	createMobileCollapse();
+	createMobConfigButton();
+	createPlayPauseButton();
+} else if (
 	detect === "chrome" ||
 	detect === "firefox" ||
 	detect === "safari" ||
@@ -26,10 +30,6 @@ if (
 	createDesktopCollapse();
 	createDesktopAnimationAndAr();
 	createDesktopFullScreenBtn();
-} else if (detect === "chromeMobile" || detect === "safariMobile") {
-	createMobileCollapse();
-	createMobConfigButton();
-	createPlayPauseButton();
 }
 
 function createDesktopCollapse() {
