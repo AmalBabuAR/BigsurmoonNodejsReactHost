@@ -375,35 +375,28 @@ model-viewer > #ar-prompt > img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 25px;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding: 25px 10px;
   border: 2px solid #8b8b8b;
   outline: none;
-  width: 500px;
-  height: 600px;
+  max-width: 600px;
+  width: 50%;
+  max-height: 500px;
+  height: 60%;
+  gap: 25px;
   z-index: 10;
   background-color: white;
-}
-
-.text-qr {
-  font-family: Roboto;
-  font-weight: 500 !important;
-  text-align: center;
-  padding-bottom: 4px;
-  color: #000;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 25px;
 }
 
 .qrCloseDiv {
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  margin-top: -50px;
-  margin-bottom: 29px;
+  height: 10%;
+}
+
+#qrcode {
+  width: 80%;
+  height: 80%;
 }
 
 #qrCloseBtn {
@@ -417,8 +410,61 @@ model-viewer > #ar-prompt > img {
 }
 
 #qrcode img {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
+}
+
+.text-qr {
+  font-family: Roboto;
+  font-weight: 500 !important;
+  text-align: center;
+  padding-bottom: 4px;
+  color: #000;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 0;
+}
+
+@media (max-width: 1150px) {
+  .text-qr {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .text-qr {
+    font-size: 15px;
+    line-height: 17px;
+  }
+}
+
+@media (max-height: 555px) {
+  .text-qr {
+    font-size: 15px;
+    line-height: 14px;
+  }
+}
+
+@media (max-height: 350px) {
+  .text-qr {
+    font-size: 11px;
+    line-height: 11px;
+  }
+  .qrCloseDiv {
+    margin-bottom: -13px;
+  }
+}
+@media (max-height: 200px) {
+  .text-qr {
+    font-size: 10px;
+    line-height: 8px;
+  }
+  .qrCloseDiv {
+    margin-bottom: -10px;
+  }
 }
 
 #fulScreenContainer {

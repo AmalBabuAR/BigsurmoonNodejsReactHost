@@ -29,6 +29,7 @@ if (detect === "chromeMobile" || detect === "safariMobile") {
 ) {
 	createDesktopCollapse();
 	createDesktopAnimationAndAr();
+	createDesktopQRCode();
 	createDesktopFullScreenBtn();
 }
 
@@ -224,7 +225,9 @@ function createDesktopAnimationAndAr() {
 	animationARContainer.appendChild(qrBtn);
 
 	modelViewer.appendChild(animationARContainer);
+}
 
+function createDesktopQRCode() {
 	// Create qrcode-main div
 	const qrcodeMainDiv = document.createElement("div");
 	qrcodeMainDiv.id = "qrcode-main";
@@ -268,6 +271,7 @@ function createDesktopAnimationAndAr() {
 	modelViewer.appendChild(qrcodeMainDiv);
 	callQrConfig();
 }
+
 function callQrConfig() {
 	const idFromUrl = getQueryParam("id");
 	const urlToGenerateQRCodeFor = `https://bigsurmoon.com/editor/testViewer/?id=${idFromUrl}`;
