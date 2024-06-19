@@ -578,8 +578,8 @@ function createPlayPauseButton() {
 	modelViewer.appendChild(viewInAr);
 }
 
-if (window.matchMedia("(orientation: landscape)").matches) {
-	console.log("landscape mood");
-} else {
-	console.log("poterate mood");
-}
+// if (window.matchMedia("(orientation: landscape)").matches) {
+// 	console.log("landscape mood");
+// } else {
+// 	console.log("poterate mood");
+// }

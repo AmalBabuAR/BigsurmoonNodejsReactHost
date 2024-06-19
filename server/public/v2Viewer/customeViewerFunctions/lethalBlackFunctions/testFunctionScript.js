@@ -16,7 +16,7 @@ async function setupModelViewer() {
 
 		const data = await response.json();
 
-		console.log("data", data);
+		// console.log("data", data);
 
 		// setUpPoster(modelViewer, data?.poster?.url);
 
@@ -25,18 +25,18 @@ async function setupModelViewer() {
 		if (!glbResponse.ok) {
 			throw new Error("Failed to fetch GLB data");
 		}
-		console.log("glbResponse", glbResponse);
+		// console.log("glbResponse", glbResponse);
 		const glbData = await glbResponse.arrayBuffer();
-		console.log(glbData);
+		// console.log(glbData);
 		const blob = new Blob([glbData]);
-		console.log("blob", blob);
+		// console.log("blob", blob);
 
 		const objectUrl = URL.createObjectURL(blob);
 
 		setUpUrl(modelViewer, objectUrl);
 		setupVariantSelector(modelViewer, data?.hotspot);
 		if (data?.hotspot?.length > 0) {
-			console.log("hot called", data.hotspot.length);
+			// console.log("hot called", data.hotspot.length);
 
 			setupHotspots(modelViewer, data?.hotspot);
 			setUpHotspotSwipeButton(modelViewer, data?.hotspot);
@@ -60,7 +60,7 @@ async function setupModelViewer() {
 
 		setUpAutoRotateView(modelViewer);
 		if (sideBarView !== null) {
-			console.log("sideBarView if+++");
+			// console.log("sideBarView if+++");
 			sideBarView.style.display = "flex";
 		} else if (mobSideBarView !== null) {
 			mobSideBarView.style.display = "flex";
@@ -75,7 +75,7 @@ function setUpUrl(modelViewer, objectUrl) {
 	modelViewer.src = objectUrl;
 	const loaderOverlay = document.getElementById("loaderOverlay");
 	loaderOverlay.style.display = "none";
-	console.log("after played");
+	// console.log("after played");
 }
 
 function setupVariantSelector(modelViewer, hotspot) {
@@ -124,7 +124,7 @@ function setupVariantSelector(modelViewer, hotspot) {
 		{ once: true }
 	);
 	select.addEventListener("input", (event) => {
-		console.log(event.target.value);
+		// console.log(event.target.value);
 		modelViewer.variantName =
 			event.target.value === "default" ? null : event.target.value;
 	});
@@ -133,21 +133,21 @@ function setupVariantSelector(modelViewer, hotspot) {
 // Function to set up hotspots ===============================
 function setupHotspots(modelViewer, hotspots) {
 	hotspots.forEach((hotspot, index) => {
-		console.log("______", hotspot);
+		// console.log("______", hotspot);
 		const button = document.createElement("button");
 
 		button.className = "Hotspot";
 		button.id = `Hotspot${hotspot.name}`;
 		button.setAttribute("slot", `hotspot-${index + 1}`);
 		if (hotspot.position) {
-			console.log("hotspot.position", hotspot.position);
+			// console.log("hotspot.position", hotspot.position);
 			button.setAttribute("data-position", hotspot.position);
 		}
 		if (hotspot.normal) {
 			button.setAttribute("data-normal", hotspot.normal);
 		}
 		if (hotspot.surface) {
-			console.log("hotspot.surface", hotspot.surface);
+			// console.log("hotspot.surface", hotspot.surface);
 			button.setAttribute("data-surface", hotspot.surface);
 		}
 		button.setAttribute("data-visibility-attribute", "visible");
@@ -166,7 +166,7 @@ function setupHotspots(modelViewer, hotspots) {
 
 		modelViewer.appendChild(button);
 		button.addEventListener("click", () => {
-			console.log("eventlistener is called");
+			// console.log("eventlistener is called");
 			handleHotspotClick(modelViewer, hotspot);
 
 			updateInput(index, hotspots, modelViewer);
@@ -180,7 +180,7 @@ function updateIndex(index) {
 
 // Function to handle hotspot click
 function handleHotspotClick(modelViewer, hotspot) {
-	console.log("handleHotspotClick", hotspot, hotspot.target);
+	// console.log("handleHotspotClick", hotspot, hotspot.target);
 	const allHotspot = document.querySelectorAll(".Hotspot");
 	allHotspot.forEach((hotspot) => {
 		hotspot.style.background = "rgba(255, 255, 255, 0.75)";
@@ -217,7 +217,7 @@ function handleHotspotClick(modelViewer, hotspot) {
 	}, 5000);
 }
 function setUpHotspotSwipeButton(modelViewer, hotspots) {
-	console.log("hotspots", hotspots[0]);
+	// console.log("hotspots", hotspots[0]);
 	let currentIndex = 0;
 	let initialStart = true;
 
@@ -231,7 +231,7 @@ function setUpHotspotSwipeButton(modelViewer, hotspots) {
 	const mobPrvBtn = document.getElementById("mobHotsportSwipePrevButton");
 	const mobNextBtn = document.getElementById("mobHotsportSwipeNextButton");
 
-	console.log("deskTopPrevBtn", deskTopPrevBtn);
+	// console.log("deskTopPrevBtn", deskTopPrevBtn);
 	if (deskTopPrevBtn !== null && deskTopNextBtn !== null) {
 		deskTopPrevBtn.addEventListener("click", () => {
 			if (initialStart) {
@@ -240,7 +240,7 @@ function setUpHotspotSwipeButton(modelViewer, hotspots) {
 			} else {
 				currentIndex = (currentIndex - 1 + hotspots.length) % hotspots.length;
 			}
-			console.log("currentIndex PrevButton", currentIndex);
+			// console.log("currentIndex PrevButton", currentIndex);
 			updateInput(currentIndex, hotspots, modelViewer);
 		});
 
@@ -252,7 +252,7 @@ function setUpHotspotSwipeButton(modelViewer, hotspots) {
 				currentIndex = (currentIndex + 1) % hotspots.length;
 			}
 
-			console.log("currentIndex NextButton", currentIndex);
+			// console.log("currentIndex NextButton", currentIndex);
 			updateInput(currentIndex, hotspots, modelViewer);
 		});
 		updateInputs(currentIndex, hotspots, modelViewer);
@@ -266,7 +266,7 @@ function setUpHotspotSwipeButton(modelViewer, hotspots) {
 			} else {
 				currentIndex = (currentIndex - 1 + hotspots.length) % hotspots.length;
 			}
-			console.log("currentIndex PrevButton", currentIndex);
+			// console.log("currentIndex PrevButton", currentIndex);
 			updateInput(currentIndex, hotspots, modelViewer);
 		});
 
@@ -278,7 +278,7 @@ function setUpHotspotSwipeButton(modelViewer, hotspots) {
 				currentIndex = (currentIndex + 1) % hotspots.length;
 			}
 
-			console.log("currentIndex NextButton", currentIndex);
+			// console.log("currentIndex NextButton", currentIndex);
 			updateInput(currentIndex, hotspots, modelViewer);
 		});
 		updateInputs(currentIndex, hotspots, modelViewer);
@@ -438,7 +438,7 @@ function setUpAutoPlay(modelViewer) {
 }
 
 function setupEnvironment(modelViewer, env, skybox, skyboxHeight) {
-	console.log("env ", env);
+	// console.log("env ", env);
 	// desktop element
 	const environmentContainer = document.getElementById("environmentContainer");
 	const environmentButton = document.getElementById("environmentButton");
@@ -602,7 +602,7 @@ function createArPrompt(modelViewer) {
 
 	// Create the image element
 	const image = document.createElement("img");
-	image.setAttribute("src", "../../v2Viewer/ar_hand_prompt.png");
+	image.setAttribute("src", "../../ar_hand_prompt.png");
 
 	// Append the image to the div
 	arPromptDiv.appendChild(image);
@@ -613,7 +613,7 @@ function createArPrompt(modelViewer) {
 function setUpNoAutoPlayStyleMob() {
 	const mobViewInArButton = document.getElementById("mobViewInArButton");
 	if (mobViewInArButton !== null) {
-		console.log("coming in if  setUpNoAutoPlayStyleMob", mobViewInArButton);
+		// console.log("coming in if  setUpNoAutoPlayStyleMob", mobViewInArButton);
 		mobViewInArButton.style.margin = "0 6vw";
 		mobViewInArButton.style.width = "88vw";
 		mobViewInArButton.classList.add("mobViewInArButtonForNoAutoPlay");
