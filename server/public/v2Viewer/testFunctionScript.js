@@ -16,7 +16,9 @@ async function setupModelViewer() {
 
 		const data = await response.json();
 
-		// console.log("data", data);
+		setUpLoader(data?.bestPractices?.progressBar);
+
+		console.log("data", data);
 
 		// setUpPoster(modelViewer, data?.poster?.url);
 
@@ -72,6 +74,8 @@ setupModelViewer();
 
 function setUpUrl(modelViewer, objectUrl) {
 	modelViewer.src = objectUrl;
+	const loaderOverlay = document.getElementById("loaderOverlay");
+	loaderOverlay.style.display = "none";
 }
 
 function setupVariantSelector(modelViewer, hotspot) {
@@ -394,6 +398,12 @@ function setUpConfig(modelViewer, config) {
 
 	if (autoRotate) {
 		modelViewer.autoRotate = autoRotate;
+		const autoRotationSvg = document.getElementById("autoRotationSvg");
+		const autoRotationSelectedSvg = document.getElementById(
+			"autoRotationSelectedSvg"
+		);
+		autoRotationSvg.style.display = "none";
+		autoRotationSelectedSvg.style.display = "flex";
 	}
 }
 
@@ -612,4 +622,13 @@ function setUpNoAutoPlayStyleMob() {
 		mobViewInArButton.style.width = "88vw";
 		mobViewInArButton.classList.add("mobViewInArButtonForNoAutoPlay");
 	}
+}
+
+// set up loader
+function setUpLoader(loader) {
+	console.log("loader", loader);
+	const loaderOverlay = document.getElementById("loaderOverlay");
+	loader
+		? (loaderOverlay.style.display = "flex")
+		: (loaderOverlay.style.display = "none");
 }

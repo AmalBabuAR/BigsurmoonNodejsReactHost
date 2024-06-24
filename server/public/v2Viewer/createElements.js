@@ -17,6 +17,7 @@ const detect = detectBrowser();
 const modelViewer = document.querySelector("model-viewer");
 
 if (detect === "chromeMobile" || detect === "safariMobile") {
+	createDesktopLoader();
 	createMobileCollapse();
 	createMobConfigButton();
 	createPlayPauseButton();
@@ -27,10 +28,26 @@ if (detect === "chromeMobile" || detect === "safariMobile") {
 	detect === "edge" ||
 	detect === "opera"
 ) {
+	createDesktopLoader();
 	createDesktopCollapse();
 	createDesktopAnimationAndAr();
 	createDesktopQRCode();
 	createDesktopFullScreenBtn();
+}
+
+function createDesktopLoader() {
+	const loaderOverlay = document.createElement("div");
+	loaderOverlay.setAttribute("id", "loaderOverlay");
+
+	const loaderContainer = document.createElement("div");
+	loaderContainer.setAttribute("id", "loaderContainer");
+	loaderOverlay.appendChild(loaderContainer);
+
+	const loader = document.createElement("div");
+	loader.setAttribute("id", "loader");
+	loaderContainer.appendChild(loader);
+
+	modelViewer.appendChild(loaderOverlay);
 }
 
 function createDesktopCollapse() {
