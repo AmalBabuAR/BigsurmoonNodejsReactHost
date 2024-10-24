@@ -42,14 +42,11 @@ const Support = () => {
           </div>
 
           <div className="flex justify-center mt-[-150px] items-center md:mt-[-200px] lg:mt-[-200px] md:min-h-screen  ">
-            <div className="w-full max-h-screen mt-40 border-black">
-              <div
-                id="SOIDIV_Bigsurmoon"
-                data-so-page="Bigsurmoon"
-                data-height="750"
-                data-style="border: 2px solid #d8d8d8; min-width: 290px; max-width: 900px;"
-                data-psz="00"
-              ></div>
+            <div className="flex items-center justify-center w-full max-h-screen mt-40 border-black">
+              <iframe
+                src="https://app.simplymeet.me/bigsurmoon?is_widget=1&view=compact"
+                className="bg-white md:border md:rounded-md  h-[600px] w-[100%] md:w-[75%] md:h-[580px] lg:w-[70%] lg:h-[800px]"
+              ></iframe>
             </div>
           </div>
         </div>

@@ -14,15 +14,12 @@ const EnterPriseForm = () => {
 
   return (
     <>
-      <div className="mt-[69px] lg:mt-[100px] flex w-[365px] lg:w-[1149px] h-full mx-auto gap-[35px] rounded-[20px] ">
-        <div className="w-[100vw] h-[100vh] border-black max-h-screen">
-          <div
-            id="SOIDIV_Bigsurmoon"
-            data-so-page="Bigsurmoon"
-            data-height="800"
-            data-style="border: 2px solid #d8d8d8; min-width: 290px; max-width: 100vw;"
-            data-psz="00"
-          ></div>
+      <div className="mt-[69px]  lg:mt-[100px] flex w-[100%] md:w-[100%] lg:w-[1149px] h-full mx-auto gap-[35px] rounded-[20px] ">
+        <div className="w-[100vw] h-[100vh] border-black max-h-screen flex justify-center">
+          <iframe
+            src="https://app.simplymeet.me/bigsurmoon?is_widget=1&view=compact"
+            className="bg-white md:border md:rounded-md  h-[100%] w-[100%] md:w-[80%] md:h-[100%] lg:w-[90%] lg:h-[800px] xl:w-[100%] xl:h-[800px] "
+          ></iframe>
         </div>
       </div>
     </>
